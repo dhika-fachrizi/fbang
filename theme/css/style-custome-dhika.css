@@ -1,0 +1,8 @@
+.menu-category .sub {
+	border-right: 1px rgb(211, 211, 211) solid;
+}
+
+.menu-category .first {
+	border-left: 1px rgb(211, 211, 211) solid;
+	border-right: 1px rgb(211, 211, 211) solid;
+}
