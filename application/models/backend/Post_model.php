@@ -12,7 +12,7 @@ class Post_model extends CI_Model{
 		return $result;
 	}
 
-	function save_post($title,$contents,$category,$slug,$image,$tags,$description){
+	function save_post($title,$contents,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description){
 		$data = array(
 	        'post_title' 	   => $title,
 	        'post_description' => $description,
@@ -20,6 +20,10 @@ class Post_model extends CI_Model{
 	        'post_image' 	   => $image,
 	        'post_category_id' => $category,
 	        'post_tags' 	   => $tags,   
+	        'post_city' 	   => $city,   
+	        'post_location'		=> $location,   
+	        'post_halal'		=> $halal,   
+	        'post_additional' 	=> $additional,   
 	        'post_slug' 	   => $slug,
 	        'post_status' 	   => 1,
 	        'post_user_id'	   => $this->session->userdata('id')
@@ -27,13 +31,13 @@ class Post_model extends CI_Model{
 		$this->db->insert('tbl_post', $data);
 	}
 
-	function edit_post_with_img($id,$title,$contents,$category,$slug,$image,$tags,$description){
-		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_image='$image',post_last_update=NOW(),post_category_id='$category',post_tags='$tags',post_slug='$slug' WHERE post_id='$id'");
+	function edit_post_with_img($id,$title,$contents,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description){
+		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_image='$image',post_last_update=NOW(),post_category_id='$category',post_tags='$tags',post_slug='$slug',post_city='$city',post_location='$location',post_location='$location',post_halal='$halal',post_additional='$additional' WHERE post_id='$id'");
 		return $result;
 	}
 
-	function edit_post_no_img($id,$title,$contents,$category,$slug,$tags,$description){
-		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_last_update=NOW(),post_category_id='$category',post_tags='$tags',post_slug='$slug' WHERE post_id='$id'");
+	function edit_post_no_img($id,$title,$contents,$category,$slug,$city,$location,$halal,$additional,$tags,$description){
+		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_last_update=NOW(),post_category_id='$category',post_tags='$tags',post_slug='$slug',post_city='$city',post_location='$location',post_halal='$halal',post_additional='$additional' WHERE post_id='$id'");
 		return $result;
 	}
 
