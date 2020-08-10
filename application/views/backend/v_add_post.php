@@ -285,6 +285,41 @@
                                             </div>
                                             <?php endforeach;?>
                                         </div>
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <select class="form-control" name="city" required>
+                                                <option value="">-Select Option-</option>
+                                                <?php foreach ($city->result() as $row) : ?>
+                                                    <option value="<?php echo $row->city_id;?>"><?php echo $row->city_name;?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <select class="form-control" name="location" required>
+                                                <option value="">-Select Option-</option>
+                                                <?php foreach ($location->result() as $row) : ?>
+                                                    <option value="<?php echo $row->location_id;?>"><?php echo $row->location_name;?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Halal</label>
+                                            <select class="form-control" name="halal" required>
+                                                <option value="">-Select Option-</option>
+                                                    <option value="1">Halal</option>
+                                                    <option value="2">Non Halal</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Additional</label>
+                                            <select class="form-control" name="additional" required>
+                                                <option value="">-Select Option-</option>
+                                                <?php foreach ($additional->result() as $row) : ?>
+                                                    <option value="<?php echo $row->additional_id;?>"><?php echo $row->additional_name;?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
                                         <div class="btn-group btn-group-justified" role="group">
                                             <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
                                         </div>

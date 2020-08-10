@@ -8,6 +8,9 @@ class Post extends CI_Controller{
         };
 		$this->load->model('backend/Tag_model','tag_model');
 		$this->load->model('backend/Category_model','category_model');
+		$this->load->model('backend/City_model','city_model');
+		$this->load->model('backend/Location_model','location_model');
+		$this->load->model('backend/Additional_model','additional_model');
 		$this->load->model('backend/Post_model','post_model');
 		$this->load->library('upload');
 		$this->load->helper('text');
@@ -21,6 +24,9 @@ class Post extends CI_Controller{
 	function add_new(){
 		$x['tag']	   = $this->tag_model->get_all_tag();
 		$x['category'] = $this->category_model->get_all_category();
+		$x['city'] = $this->city_model->get_all_city();
+		$x['location'] = $this->location_model->get_all_location();
+		$x['additional'] = $this->additional_model->get_all_additional();
 		$this->load->view('backend/v_add_post',$x);
 	}
 
@@ -29,6 +35,9 @@ class Post extends CI_Controller{
 		$x['tag']	   = $this->tag_model->get_all_tag();
 		$x['category'] = $this->category_model->get_all_category();
 		$x['data'] = $this->post_model->get_post_by_id($post_id);
+		$x['city'] = $this->city_model->get_all_city();
+		$x['location'] = $this->location_model->get_all_location();
+		$x['additional'] = $this->additional_model->get_all_additional();
 		$this->load->view('backend/v_edit_post',$x);
 	}
 
@@ -60,6 +69,10 @@ class Post extends CI_Controller{
 				$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 				$contents = $this->input->post('contents');
 				$category = $this->input->post('category',TRUE);
+				$city = $this->input->post('city',TRUE);
+				$location = $this->input->post('location',TRUE);
+				$halal = $this->input->post('halal',TRUE);
+				$additional = $this->input->post('additional',TRUE);
 
 				$preslug  = strip_tags(htmlspecialchars($this->input->post('slug',TRUE),ENT_QUOTES));
 				$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -80,7 +93,7 @@ class Post extends CI_Controller{
 
 				$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 
-				$this->post_model->save_post($title,$contents,$category,$slug,$image,$tags,$description);
+				$this->post_model->save_post($title,$contents,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description);
 				echo $this->session->set_flashdata('msg','success');
 				redirect('backend/post');
 			}else{
@@ -122,6 +135,10 @@ class Post extends CI_Controller{
 				$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 				$contents = $this->input->post('contents');
 				$category = $this->input->post('category',TRUE);
+				$city = $this->input->post('city',TRUE);
+				$location = $this->input->post('location',TRUE);
+				$halal = $this->input->post('halal',TRUE);
+				$additional = $this->input->post('additional',TRUE);
 
 				$preslug  = strip_tags(htmlspecialchars($this->input->post('slug',TRUE),ENT_QUOTES));
 				$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -143,7 +160,7 @@ class Post extends CI_Controller{
 
 				$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 
-				$this->post_model->edit_post_with_img($id,$title,$contents,$category,$slug,$image,$tags,$description);
+				$this->post_model->edit_post_with_img($id,$title,$contents,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description);
 				echo $this->session->set_flashdata('msg','info');
 				redirect('backend/post');
 			}else{
@@ -156,6 +173,10 @@ class Post extends CI_Controller{
 			$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 			$contents = $this->input->post('contents');
 			$category = $this->input->post('category',TRUE);
+			$city = $this->input->post('city',TRUE);
+			$location = $this->input->post('location',TRUE);
+			$halal = $this->input->post('halal',TRUE);
+			$additional = $this->input->post('additional',TRUE);
 
 			$preslug  = strip_tags(htmlspecialchars($this->input->post('slug',TRUE),ENT_QUOTES));
 			$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -177,7 +198,7 @@ class Post extends CI_Controller{
 
 			$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 
-			$this->post_model->edit_post_no_img($id,$title,$contents,$category,$slug,$tags,$description);
+			$this->post_model->edit_post_no_img($id,$title,$contents,$category,$slug,$city,$location,$halal,$additional,$tags,$description);
 			echo $this->session->set_flashdata('msg','info');
 			redirect('backend/post');
 		}
