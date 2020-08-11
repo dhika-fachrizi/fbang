@@ -1,3 +1,30 @@
+/* header */
+.font-header-m {
+	font-family: 'Noto Sans JP';
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.title-c {
+	font-family: 'DM Serif Display';
+	font-size: 55px;
+	text-align: left;
+}
+
+.dec-c {
+	font-family: 'Noto Sans JP';
+	font-size: 20px;
+	text-align: left;
+}
+
+
+.header-m>li {
+	float: left;
+	padding-left: 20px;
+	font-family: 'Noto Sans JP';
+	font-size: 18px;
+}
+
 .menu-category .sub {
 	border-right: 1px rgb(211, 211, 211) solid;
 }
@@ -5,4 +32,145 @@
 .menu-category .first {
 	border-left: 1px rgb(211, 211, 211) solid;
 	border-right: 1px rgb(211, 211, 211) solid;
+}
+
+.menu-container {
+	background: white;
+	transition: visibility 0.5s, opacity 0.5s linear;
+
+}
+
+
+
+.feature-right-box {
+
+	height: 240px;
+
+}
+
+.feature-b-image {
+	background-size: cover;
+	/* <------ */
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.news-b-image {
+	background-size: cover;
+	/* <------ */
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 286px;
+	width: 286px;
+}
+
+.popular-b-image {
+
+	background-size: cover;
+	/* <------ */
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 170px;
+
+
+}
+
+/* homew */
+.bc {
+	border: 1px black solid;
+}
+
+.hr-theme {
+	border: 1px black solid;
+}
+
+#sticky-ts {
+	position: sticky;
+	top: -3em;
+
+}
+
+.container {
+	overflow: unset
+}
+
+.stc-menu {
+	position: sticky;
+	top: 78px;
+}
+
+.feature-date {
+	font-family: 'Noto Sans JP';
+	color: white;
+	font-size: 12px;
+
+}
+
+.feature-title {
+	font-family: 'DM Serif Display';
+	color: white;
+	font-size: 25px;
+	text-transform: capitalize;
+	line-height: normal;
+
+}
+
+.text-theme-1 {
+	font-family: 'Noto Sans JP';
+	font-size: 25px;
+}
+
+.text-theme-2 {
+	font-family: 'DM Serif Display';
+	font-size: 25px;
+}
+
+.feature-dec {
+	font-family: 'Noto Sans JP';
+	font-size: 12px;
+	color: #F16036;
+	font-weight: bold;
+}
+
+.text-thema-split-4 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	/* number of lines to show */
+	-webkit-box-orient: vertical;
+}
+
+.text-thema-split-2 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	/* number of lines to show */
+	-webkit-box-orient: vertical;
+}
+
+/* News */
+
+/* menu-footer */
+.menu-footer>li {
+	float: left;
+	padding-left: 20px;
+}
+
+.font-footer-c {
+	font-family: 'Noto Sans JP';
+	letter-spacing: 2px;
+	color: #CCCCCC;
+	opacity: 1;
+	font-size: 12px;
+}
+
+.font-footer-m {
+	font-family: 'Noto Sans JP';
+	font-size: 20px;
+}
+
+.img-c {
+	filter: brightness(0.40);
 }
