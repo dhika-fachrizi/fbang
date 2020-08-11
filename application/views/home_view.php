@@ -1,271 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
 
-		<!-- Page Title -->
-		<title><?php echo $site_title;?></title>
-		
-		<!-- Page header -->
-		<meta charset="utf-8"/>	
-		<meta name="description" content=""/>
-		<meta name="keywords" content=""/>
-		<meta name="author" content=""/>
-		<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-		<meta name="viewport" content="width=device-width"/>
-		<!-- CSS -->
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/bootstrap.min.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/style.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/style-custome-dhika.css')?>"/>
-		<link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css')?>"/>
-		<!-- Favicons -->		
-		<link rel="shortcut icon" href="<?php echo base_url('theme/images/'.$icon);?>">
-		<!-- SEO Tag -->
-	    <meta name="description" content="<?php echo $site_desc;?>"/>
-	    <link rel="canonical" href="<?php echo site_url();?>" />
-	    <meta property="og:locale" content="id_ID" />
-	    <meta property="og:type" content="website" />
-	    <meta property="og:title" content="<?php echo $site_title;?>" />
-	    <meta property="og:description" content="<?php echo $site_desc;?>" />
-	    <meta property="og:url" content="<?php echo site_url();?>" />
-	    <meta property="og:site_name" content="<?php echo $site_name;?>" />
-	    <meta property="og:image" content="<?php echo base_url().'theme/images/'.$site_image?>" />
-	    <meta property="og:image:secure_url" content="<?php echo base_url().'theme/images/'.$site_image?>" />
-	    <meta property="og:image:width" content="560" />
-	    <meta property="og:image:height" content="315" />
-	    <meta name="twitter:card" content="summary" />
-	    <meta name="twitter:description" content="<?php echo $site_desc;?>" />
-	    <meta name="twitter:title" content="<?php echo $site_title;?>" />
-	    <meta name="twitter:site" content="<?php echo $site_twitter;?>" />
-	    <meta name="twitter:image" content="<?php echo base_url().'theme/images/'.$site_image?>" />
-	    <link rel="stylesheet" href="<?php echo base_url().'theme/css/font-awesome.min.css'?>"/>
-		<!-- End SEO Tag. -->
-	</head>
-	<body class="content-animate">
+<head>
 
-		<!-- PRELOADER
+    <!-- Page Title -->
+    <title><?php echo $site_title; ?></title>
+
+    <!-- Page header -->
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+    <meta name="viewport" content="width=device-width" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/plugins/slick/slick.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/plugins/slick/slick-theme.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('theme/css/bootstrap.min.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('theme/css/style.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('theme/css/style-custome-dhika.css') ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css') ?>" />
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
+    <!-- SEO Tag -->
+    <meta name="description" content="<?php echo $site_desc; ?>" />
+    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo $site_title; ?>" />
+    <meta property="og:description" content="<?php echo $site_desc; ?>" />
+    <meta property="og:url" content="<?php echo site_url(); ?>" />
+    <meta property="og:site_name" content="<?php echo $site_name; ?>" />
+    <meta property="og:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
+    <meta property="og:image:secure_url" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
+    <meta property="og:image:width" content="560" />
+    <meta property="og:image:height" content="315" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="<?php echo $site_desc; ?>" />
+    <meta name="twitter:title" content="<?php echo $site_title; ?>" />
+    <meta name="twitter:site" content="<?php echo $site_twitter; ?>" />
+    <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
+    <link rel="stylesheet" href="<?php echo base_url() . 'theme/css/font-awesome.min.css' ?>" />
+    <!-- End SEO Tag. -->
+</head>
+
+<body class="content-animate">
+
+    <!-- PRELOADER
 		==================================================-->
-		<div class="page-loader">
-			<div class="loader-area"></div>
-			<div class="loader font-face1">loading...	
-			</div>
-		</div>   
-		<!-- PAGE
-		==================================================-->	
-		<div id="top" class="page">
-			
-			<!-- Navigation panel
-			================================================== -->		
-			<?php echo $header;?>
-			<!-- End Navigation panel -->
-		
-			<!-- Main Content
-			==================================================-->		
-			<main class="cd-main-content">
-
-				<!-- HOME SECTION
-				================================================== -->
-				<section id="homepage" class="home page-section parallax-2 overlay-light-alpha-10" data-background="<?php echo base_url().'theme/images/'.$bg_header;?>">		
-					<div class="table-content">	
-						<div class="table-center-text">
-							<div class="container">		
-								<h2 class="font-face1 heading1 fw700 mb-40 mb-xs-30"><?php echo $caption_1;?></h2>
-								<h1 class="font-face1 heading2 fw700 mb-40 mb-xs-30"><?php echo $caption_2;?></h1>
-								<div class="local-scroll">
-									<a href="<?php echo site_url('about');?>" class="btn bg-black white-color">About</a>
-									<span class="btn_seperator"></span>
-									<a href="<?php echo site_url('blog');?>" class="btn bg-black whitre-color hidden-xs">Blog</a>
-								</div>
-							</div>	
-						</div>
-					</div>
-				</section>	
-				
-				<!-- SECTION TESTIMONIAL
-				================================================== -->
-				<section id="testimonial" class="page-section black-section medium-section overlay-dark-alpha-60" data-background="<?php echo base_url().'theme/images/'.$bg_testimoni;?>">
-					<div class="container relative">						
-						<div class="row">
-							<div class="col-sm-10 col-sm-offset-1">
-								<div class="block-wraper">
-									<!-- Swiper -->
-									<!-- Add Pagination -->
-									
-									<div class="slick-container testimonial-slider">		
-											<?php foreach($testimonial->result() as $test):?>
-											<div class="slick-item">
-												<div class="testimonial-item text-center">
-													<blockquote class="testimonial-text font-face1 mb-0 fw300">
-														<div class="card-avatar">
-															<a href="javascript:void(0)">
-																<img src="<?php echo base_url().'assets/images/'.$test->testimonial_image;?>" class="img" alt=""/>
-															</a>
-														</div>
-														<p>
-															 <?php echo $test->testimonial_content;?>
-														</p>
-														<footer class="testimonial-author font-face1 fw700">
-															<?php echo $test->testimonial_name;?>
-															<div class="testimonial-rating mt-10 mb-10">&starf; &starf; &starf; &starf; &starf;</div>
-														</footer>
-													</blockquote>
-												</div>
-											</div>
-											<div class="slick-item">
-												<div class="testimonial-item text-center">
-													<blockquote class="testimonial-text font-face1 mb-0 fw300">
-														<div class="card-avatar">
-															<a href="javascript:void(0)">
-																<img src="<?php echo base_url().'assets/images/'.$test->testimonial_image;?>" class="img" alt=""/>
-															</a>
-														</div>
-														<p>
-															 <?php echo $test->testimonial_content;?>
-														</p>
-														<footer class="testimonial-author font-face1 fw700">
-															<?php echo $test->testimonial_name;?>
-															<div class="testimonial-rating mt-10 mb-10">&starf; &starf; &starf; &starf; &starf;</div>
-														</footer>
-													</blockquote>
-												</div>
-											</div>
-											<?php endforeach;?>
-											
-											
-									</div>	
-										
-								</div>	
-							</div>								
-						</div>
-						
-					</div>					
-					<div class="slider-navigation-bottom">
-						<div class="testimonial-right"></div>
-					</div>
-					<div class="slider-navigation-top">
-						<div class="testimonial-left"></div>
-					</div>
-				</section>
-				
-				<!-- SECTION BLOG
-				================================================== -->
-				<section id="thoughts" class="page-section big-section">	
-					<div class="shadow-title shadow-gray unselectable parallax-1">Blog</div>
-					<div class="container">
-						<div class="row">														
-							<div class="col-md-6 col-md-offset-3 mb-10 mb-sm-40 text-center">
-								<h2 class="font-face1 section-heading fw800 mt-0 text-center">LATEST POSTS</h2>
-							</div>							
-						</div>	
-						<div class="row multi-columns-row">
-							<?php foreach($latest_post->result() as $row):?>
-							<div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 mt-10 wow fadeIn">
-								<article>
-									<a class="articles-card" href="<?php echo site_url('blog/'.$row->post_slug);?>" title="">
-										<div class="card-wrap">
-											<div class="card-image">
-												<div class="article-thumbnail" data-background="<?php echo base_url().'assets/images/thumb/'.$row->post_image?>"></div>				
-											</div>
-											<div class="card-body text-right">
-												<h2 class="heading6 lp-0 mt-0 font-face1 text-right"><?php echo $row->post_title;?></h2>
-											</div>
-											<div class="card-footer">
-												<div class="article_author">
-													<div class="portrait" data-background="<?php echo base_url().'assets/images/'.$row->user_photo;?>"></div>
-													<div class="author light-text"><?php echo $row->user_name;?></div>
-													<div class="date"><?php echo date('d M Y',strtotime($row->post_date));?></div>
-												</div>												
-											</div>
-										</div>
-									</a>
-									<div class="like light-text"><a href="javascript:void(0)"></a> <?php echo $row->post_views;?> views</div>
-								</article>
-							</div>
-							<?php endforeach;?>
-			
-							
-						</div>	
-						<div class="row">
-							<div class="mt-100 mt-md-80 mt-sm-60">
-							<div class="col-sm-6 col-sm-offset-3 text-center">						
-								<a class="btn bg-black" href="<?php echo site_url('blog');?>">Selengkapnya...</a>								
-							</div>						
-							</div>
-						</div>
-					</div>	
-					
-				</section>
-								
-				<!-- SECTION SUBSCRIBE
-				================================================== -->
-				<section  class="page-section subscribe-section small-section">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-10 col-md-offset-1">	
-								<div class="form-subscribe mb-50 mb-sm-0">
-									<div class="col-sm-6 mb-sm-40">
-										<h2 class="heading5 mt-0 font-face1 white-color fw700 mb-0" >Newsletter.</h2>
-									</div>
-									<div class="col-sm-6">										
-										<form class="form-inline" action="<?php echo site_url('subscribe');?>" method="post">
-											<div class="form-group">
-												<input type="hidden" name="url" value="<?php echo site_url();?>" required>
-												<input type="email" name="email" required placeholder="Your Email..." class="form-control">
-												<button type="submit" class="btn btn-subscribe">Subscribe</button>
-											</div>
-										</form>										
-									</div>
-								</div>
-								<div><?php echo $this->session->flashdata('message');?></div>									
-							</div>
-						</div>
-					</div>
-				</section>
-				
-				<!-- FOOTER
-				================================================== -->	
-				<?php echo $footer;?>
-				
-				</main>		
-	
-		</div>
-
-		<!-- Modal Search-->
-		<div class="modal fade" id="ModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 10000;">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-body">	
-		      	<form action="<?php echo site_url('search');?>" method="GET">
-		        	<div class="input-group">
-		              <input type="text" name="search_query" class="form-control input-search" style="height: 40px;" placeholder="Search..." required>
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="submit" style="height: 40px;background-color: #ccc;"><span class="fa fa-search"></span></button>
-				      </span>
-				    </div>
-				</form>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-			
-		<!-- JAVASCRIPT
+    <div class="page-loader">
+        <div class="loader-area"></div>
+        <div class="loader font-face1">loading...
+        </div>
+    </div>
+    <!-- PAGE
 		==================================================-->
-		<script src="<?php echo base_url('theme/js/jquery-2.2.4.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.easing.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/bootstrap.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/waypoints.min.js')?>"></script>		
-		<script src="<?php echo base_url('theme/js/jquery.scrollTo.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.localScroll.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.viewport.mini.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.sticky.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.fitvids.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.parallax-1.1.3.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/isotope.pkgd.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/imagesloaded.pkgd.min.js')?>"></script> 
-		<script src="<?php echo base_url('theme/js/masonry.pkgd.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.magnific-popup.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/jquery.counterup.min.js')?>"></script>					
-		<script src="<?php echo base_url('theme/js/slick.min.js')?>"></script>
-		<script src="<?php echo base_url('theme/js/wow.min.js')?>"></script>		
-		<script src="<?php echo base_url('theme/js/script.js')?>"></script>	
-	</body>
+    <div id="top">
+
+        <!-- Navigation panel
+			================================================== -->
+        <?php echo $header; ?>
+        <!-- End Navigation panel -->
+
+        <!-- Main Content
+			==================================================-->
+        <main class="cd-main-content">
+
+            <!-- HOME SECTION
+				================================================== cooked-food.png-->
+            <section id="homepage" class="home page-section parallax-2 overlay-light-alpha-10">
+                <div class="table-content">
+                    <div class="table-center-text">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100 img-c"
+                                        src="<?php echo base_url() . 'assets/images/cooked-food.png'; ?>"
+                                        alt="First slide">
+                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
+                                        style="height:100%">
+                                        <div class="row">
+                                            <div class="col-sm-8 title-c">Jakartas 6 Best Spots for Casual Dining</div>
+                                            <div class="col-sm-4"></div>
+                                            <div class="col-sm-8 dec-c">Donec dapibus mauris id odio ornare tempus duis
+                                                sit.</div>
+                                            <div class="col-sm-4 "></div>
+                                        </div>
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="container">
+                    <div class="row text-theme-2 pb-30 pt-30">
+                        <i><b>Feature Article</b></i>
+                        <div class="col-sm pt-1">
+                            <hr class="hr-theme">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 feature-b-image"
+                            style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                            <div class="row d-flex align-items-end" style="height:100%">
+                                <div class="col-sm-12 mb-30">
+                                    <div class="col-sm-12 feature-date">
+                                        14 Juni 2020
+
+                                    </div>
+                                    <div class="col-sm-12 feature-title">
+                                        consectetur, eum temporibus neque illo quod maxime quae cumque
+                                    </div>
+                                    <div class="col-sm-12 ">
+                                        <a href="" class="feature-dec">READ NOW</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6 feature-right-box feature-b-image"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>')">
+
+                                    <div class="row d-flex align-items-end" style="height:100%">
+                                        <div class="col-sm-12 mb-10">
+                                            <div class="col-sm-12 feature-date">
+                                                14 Juni 2020
+
+                                            </div>
+                                            <div class="col-sm-12 feature-title">
+                                                consectetur, eum eum eum
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <a href="" class="feature-dec">READ NOW</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 feature-right-box feature-b-image"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>')">
+                                    <div class="row d-flex align-items-end" style="height:100%">
+                                        <div class="col-sm-12 mb-10">
+                                            <div class="col-sm-12 feature-date">
+                                                14 Juni 2020
+
+                                            </div>
+                                            <div class="col-sm-12 feature-title">
+                                                consectetur, eum eum eum
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <a href="" class="feature-dec">READ NOW</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 feature-right-box feature-b-image"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>')">
+                                    <div class="row d-flex align-items-end" style="height:100%">
+                                        <div class="col-sm-12 mb-10">
+                                            <div class="col-sm-12 feature-date">
+                                                14 Juni 2020
+
+                                            </div>
+                                            <div class="col-sm-12 feature-title">
+                                                consectetur, eum eum eum
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <a href="" class="feature-dec">READ NOW</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 feature-right-box feature-b-image"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>')">
+                                    <div class="row d-flex align-items-end" style="height:100%">
+                                        <div class="col-sm-12 mb-10">
+                                            <div class="col-sm-12 feature-date">
+                                                14 Juni 2020
+
+                                            </div>
+                                            <div class="col-sm-12 feature-title">
+                                                consectetur, eum eum eum
+                                            </div>
+                                            <div class="col-sm-12 ">
+                                                <a href="" class="feature-dec">READ NOW</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8" style="height:1600px">
+                            <div class="row text-theme-2 pt-30 pb-30 pr-30">
+                                <i><b>News Article</b></i>
+                                <div class="col-sm pt-1">
+                                    <hr class="hr-theme">
+                                </div>
+                            </div>
+                            <div class="row pb-20">
+
+                                <div class="col-sm-5 news-b-image m-0"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+
+                                </div>
+
+                                <div class="col-sm-7">
+                                    <div class="col-sm-12 text-theme-1" style="font-size:15px;"><span>14 July 2020 | 0
+                                            Min Read</span></div>
+                                    <div class="col-sm-12  text-thema-split-2" style="height:86px;">
+                                        <div class="text-theme-1"
+                                            style="margin-top: 0px;font-size:24px;font-weight:bold;"> Lorem ipsum
+                                            dolor sit amet
+                                            consectetur
+                                            adipisicing
+                                            elit. Laboriosam quasi
+                                            repudiandae error in unde delectus corporis atque nisi voluptates
+                                            architecto,
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12  text-thema-split-4" text-theme-1>
+                                        <div class="text-theme-2" style="font-size:15px;"> Lorem
+                                            ipsum
+                                            dolor sit amet
+                                            consectetur
+                                            adipisicing
+                                            elit. Laboriosam quasi
+                                            repudiandae error in unde delectus corporis atque nisi voluptates
+                                            architecto,
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12 mt-40" style="font-size:15px;">Read More</div>
+                                </div>
+
+                            </div>
+                            <div class="row pb-20">
+
+                                <div class="col-sm-5 news-b-image m-0"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+
+                                </div>
+
+                                <div class="col-sm-7">
+                                    <div class="col-sm-12 text-theme-1" style="font-size:15px;"><span>14 July 2020 | 0
+                                            Min Read</span></div>
+                                    <div class="col-sm-12  text-thema-split-2" style="height:86px;">
+                                        <div class="text-theme-1"
+                                            style="margin-top: 0px;font-size:24px;font-weight:bold;"> Lorem ipsum
+                                            dolor sit amet
+                                            consectetur
+                                            adipisicing
+                                            elit. Laboriosam quasi
+                                            repudiandae error in unde delectus corporis atque nisi voluptates
+                                            architecto,
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12  text-thema-split-4" text-theme-1>
+                                        <div class="text-theme-2" style="font-size:15px;"> Lorem
+                                            ipsum
+                                            dolor sit amet
+                                            consectetur
+                                            adipisicing
+                                            elit. Laboriosam quasi
+                                            repudiandae error in unde delectus corporis atque nisi voluptates
+                                            architecto,
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-12 mt-40" style="font-size:15px;">Read More</div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="stc-menu" style="">
+                                <div class="row text-theme-2 pt-30 pb-30">
+                                    <i><b>Popular in Foodbang</b></i>
+                                    <div class="col-sm pt-1">
+                                        <hr class="hr-theme">
+                                    </div>
+                                </div>
+
+                                <div class="row pb-20">
+                                    <div class="col-sm-5 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
+                                                2020
+                                            </span></div>
+                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
+                                                dolor sit amet
+                                                consectetur
+                                                adipisicing
+                                                elit. Laboriosam quasi
+                                                repudiandae error in unde delectus corporis atque nisi voluptates
+                                                architecto,
+                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pb-20">
+                                    <div class="col-sm-5 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
+                                                2020
+                                            </span></div>
+                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
+                                                dolor sit amet
+                                                consectetur
+                                                adipisicing
+                                                elit. Laboriosam quasi
+                                                repudiandae error in unde delectus corporis atque nisi voluptates
+                                                architecto,
+                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pb-20">
+                                    <div class="col-sm-5 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                                    </div>
+                                    <div class="col-sm-7">
+                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
+                                                2020
+                                            </span></div>
+                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
+                                                dolor sit amet
+                                                consectetur
+                                                adipisicing
+                                                elit. Laboriosam quasi
+                                                repudiandae error in unde delectus corporis atque nisi voluptates
+                                                architecto,
+                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section style="background-color:#FFF9EA;">
+                <div class="container">
+                    <div class="row text-theme-2 pt-30 pb-30">
+                        <i><b>Popular in Foodbang</b></i>
+                        <div class="col-sm pt-1">
+                            <hr class="hr-theme">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 p-0">
+                            <div class="slider demo">
+                                <div class="pr-10">
+                                    <div class=" popular-b-image"
+                                        style="height:287px; background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
+								    </div>
+                                </div>
+                                <div class=" pr-10">
+                                        <div class=" popular-b-image"
+                                            style="height:287px; background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
+								    </div>
+                                </div>
+                                <div class=" pr-10">
+                                            <div class=" popular-b-image"
+                                                style="height:287px; background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
+								    </div>
+                                </div>
+                                <div class=" pr-10">
+                                                <div class=" popular-b-image"
+                                                    style="height:287px; background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
+								    </div>
+                                </div>
+                                <div class=" pr-10">
+                                                    <div class=" popular-b-image"
+                                                        style="height:287px; background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
+								    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+			</section>
+
+			<section class=" pb-30 pt-30">
+                                                        <div class=" container">
+
+                                                            <div class="d-flex justify-content-center">
+                                                                <div class="pr-10">Subscribe for more updates!</div>
+                                                                <div class="pr-10"><input class="form-control"
+                                                                        type="text" placeholder="send your email"></div>
+                                                                <div class="pr-10"><button type="submit"
+                                                                        class="btn btn-primary mb-2" style="
+												color: black;
+												background-color: #F79D46;
+												border-color: #F79D46;
+											">Subscribe
+                                                                    </button></div>
+
+                                                            </div>
+                                                        </div>
+            </section>
+
+
+            <!-- FOOTER
+				================================================== -->
+            <?php echo $footer; ?>
+
+        </main>
+
+    </div>
+
+
+    <!-- JAVASCRIPT
+		==================================================-->
+    <script src="<?php echo base_url('theme/js/jquery-2.2.4.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.easing.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/bootstrap.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/waypoints.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.scrollTo.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.localScroll.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.viewport.mini.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.sticky.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.fitvids.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.parallax-1.1.3.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/isotope.pkgd.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/imagesloaded.pkgd.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/masonry.pkgd.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.magnific-popup.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/jquery.counterup.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/slick.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/wow.min.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
+    <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
+
+    <script src="<?php echo base_url('assets/plugins/slick/slick.js') ?>"></script>
+
+    <script>
+    $(document).ready(function() {
+
+        $('.demo').slick({
+            dots: true,
+            arrows: false,
+
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+    });
+    </script>
+
+</body>
+
 </html>
