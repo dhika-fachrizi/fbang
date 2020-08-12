@@ -267,6 +267,15 @@
                                             <input type="file" name="filefoto" class="dropify" data-height="190" required>
                                         </div>
                                         <div class="form-group">
+                                            <label>Type</label>
+                                            <select class="form-control" name="type" required>
+                                                <option value="">-Select Option-</option>
+                                                <?php foreach ($type->result() as $row) : ?>
+                                                    <option value="<?php echo $row->type_id;?>"><?php echo $row->type_name;?></option>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Category</label>
                                             <select class="form-control" name="category" required>
                                                 <option value="">-Select Option-</option>
@@ -313,7 +322,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Additional</label>
-                                            <select class="form-control" name="additional" required>
+                                            <select class="form-control" name="additional">
                                                 <option value="">-Select Option-</option>
                                                 <?php foreach ($additional->result() as $row) : ?>
                                                     <option value="<?php echo $row->additional_id;?>"><?php echo $row->additional_name;?></option>
