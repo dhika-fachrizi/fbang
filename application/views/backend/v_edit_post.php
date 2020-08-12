@@ -268,6 +268,19 @@
                                             <input type="file" name="filefoto" class="dropify" data-height="190" data-default-file="<?php echo base_url().'assets/images/'.$b['post_image'];?>">
                                         </div>
                                         <div class="form-group">
+                                            <label>Type</label>
+                                            <select class="form-control" name="type" required>
+                                                <option value="">-Select Option-</option>
+                                                <?php foreach ($type->result() as $row) : ?>
+                                                    <?php if($b['post_type_id']==$row->type_id):?>
+                                                        <option value="<?php echo $row->type_id;?>" selected><?php echo $row->type_name;?></option>
+                                                    <?php else:?>
+                                                        <option value="<?php echo $row->type_id;?>"><?php echo $row->type_name;?></option>
+                                                    <?php endif;?>
+                                                <?php endforeach;?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Category</label>
                                             <select class="form-control" name="category" required>
                                                 <option value="">-Select Option-</option>

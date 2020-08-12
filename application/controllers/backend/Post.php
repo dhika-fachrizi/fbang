@@ -11,6 +11,7 @@ class Post extends CI_Controller{
 		$this->load->model('backend/City_model','city_model');
 		$this->load->model('backend/Location_model','location_model');
 		$this->load->model('backend/Additional_model','additional_model');
+		$this->load->model('backend/Type_model','type_model');
 		$this->load->model('backend/Post_model','post_model');
 		$this->load->library('upload');
 		$this->load->helper('text');
@@ -24,6 +25,7 @@ class Post extends CI_Controller{
 	function add_new(){
 		$x['tag']	   = $this->tag_model->get_all_tag();
 		$x['category'] = $this->category_model->get_all_category();
+		$x['type'] = $this->type_model->get_all_type();
 		$x['city'] = $this->city_model->get_all_city();
 		$x['location'] = $this->location_model->get_all_location();
 		$x['additional'] = $this->additional_model->get_all_additional();
@@ -34,6 +36,7 @@ class Post extends CI_Controller{
 		$post_id = $this->uri->segment(4);
 		$x['tag']	   = $this->tag_model->get_all_tag();
 		$x['category'] = $this->category_model->get_all_category();
+		$x['type'] = $this->type_model->get_all_type();
 		$x['data'] = $this->post_model->get_post_by_id($post_id);
 		$x['city'] = $this->city_model->get_all_city();
 		$x['location'] = $this->location_model->get_all_location();
@@ -68,6 +71,7 @@ class Post extends CI_Controller{
 	            $image=$img['file_name'];
 				$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 				$contents = $this->input->post('contents');
+				$type = $this->input->post('type',TRUE);
 				$category = $this->input->post('category',TRUE);
 				$city = $this->input->post('city',TRUE);
 				$location = $this->input->post('location',TRUE);
@@ -93,7 +97,7 @@ class Post extends CI_Controller{
 
 				$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 
-				$this->post_model->save_post($title,$contents,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description);
+				$this->post_model->save_post($title,$contents,$type,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description);
 				echo $this->session->set_flashdata('msg','success');
 				redirect('backend/post');
 			}else{
@@ -134,6 +138,7 @@ class Post extends CI_Controller{
 	            $id 	  = $this->input->post('post_id',TRUE);
 				$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 				$contents = $this->input->post('contents');
+				$type = $this->input->post('type',TRUE);
 				$category = $this->input->post('category',TRUE);
 				$city = $this->input->post('city',TRUE);
 				$location = $this->input->post('location',TRUE);
@@ -160,7 +165,7 @@ class Post extends CI_Controller{
 
 				$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 
-				$this->post_model->edit_post_with_img($id,$title,$contents,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description);
+				$this->post_model->edit_post_with_img($id,$title,$contents,$type,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description);
 				echo $this->session->set_flashdata('msg','info');
 				redirect('backend/post');
 			}else{
@@ -172,6 +177,7 @@ class Post extends CI_Controller{
 	    	$id 	  = $this->input->post('post_id',TRUE);
 			$title	  = strip_tags(htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES));
 			$contents = $this->input->post('contents');
+			$type = $this->input->post('type',TRUE);
 			$category = $this->input->post('category',TRUE);
 			$city = $this->input->post('city',TRUE);
 			$location = $this->input->post('location',TRUE);
@@ -198,7 +204,7 @@ class Post extends CI_Controller{
 
 			$description=htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 
-			$this->post_model->edit_post_no_img($id,$title,$contents,$category,$slug,$city,$location,$halal,$additional,$tags,$description);
+			$this->post_model->edit_post_no_img($id,$title,$contents,$type,$category,$slug,$city,$location,$halal,$additional,$tags,$description);
 			echo $this->session->set_flashdata('msg','info');
 			redirect('backend/post');
 		}
