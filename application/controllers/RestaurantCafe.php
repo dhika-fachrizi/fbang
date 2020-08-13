@@ -12,6 +12,7 @@ class RestaurantCafe extends CI_Controller
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
     }
+
     public function index()
     {
         //$this->output->enable_profiler(TRUE);

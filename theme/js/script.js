@@ -1005,5 +1005,8 @@ Design By - VibrantTheme.com
 			$("#result").slideUp();
 		});
 	}
-
 })(jQuery);
+
+function linkIn(a) {
+	window.location.href = a
+}

@@ -16,6 +16,12 @@
 				                </div>
 				                <div class="col-sm-8">
 				                    <div class="row" style="height:120px;">
+				                        <div class="col-sm-12 d-flex justify-content-end ">
+				                            <div class="top-button" style="margin:unset;position:unset">
+				                                <img src=" <?php echo base_url() . 'assets/images/Group 24.svg'; ?>" alt="">
+
+				                            </div>
+				                        </div>
 				                        <div class="col-sm-12  d-flex justify-content-end">
 				                            <ul class="menu-footer font-footer-m">
 				                                <li><a href="#home">Home</a></li>
@@ -24,7 +30,13 @@
 				                                <li><a href="#about">About</a></li>
 				                            </ul>
 				                        </div>
-				                        <div class="col-sm-12 d-flex justify-content-end align-self-end font-footer-m">sdssdsd</div>
+				                        <div class="col-sm-12 d-flex justify-content-end align-self-end font-footer-m">
+				                            <div class="row ">
+				                                <i class="fab fa-instagram pr-30"></i>
+				                                <i class="fab fa-facebook-f pr-30"></i>
+				                                <i class="fab fa-twitter pr-30"></i>
+				                            </div>
+				                        </div>
 				                    </div>
 				                </div>
 				            </div>

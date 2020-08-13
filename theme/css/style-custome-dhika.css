@@ -5,6 +5,16 @@
 	font-weight: bold;
 }
 
+.c-i-s {
+	width: 200px;
+	transition: width 0.5s;
+}
+
+.r-p {
+	padding: unset;
+}
+
+
 .title-c {
 	font-family: 'DM Serif Display';
 	font-size: 55px;
@@ -17,6 +27,12 @@
 	text-align: left;
 }
 
+.dropdown-menu {
+	border-radius: 0px;
+	margin: unset;
+	border-color: white;
+	width: 101%;
+}
 
 .header-m>li {
 	float: left;
@@ -49,6 +65,7 @@
 }
 
 .feature-b-image {
+
 	background-size: cover;
 	/* <------ */
 	background-repeat: no-repeat;
@@ -75,7 +92,26 @@
 
 }
 
+.f-t-18 {
+	font-size: 18px;
+}
+
+.c-p {
+	cursor: pointer;
+}
+
+:hover.c-p {
+	cursor: pointer;
+}
+
+
 /* homew */
+.top-nav-menu {
+	letter-spacing: 2px;
+	font-weight: 500;
+	font-size: 12px;
+}
+
 .bc {
 	border: 1px black solid;
 }
@@ -116,6 +152,7 @@
 }
 
 .text-theme-1 {
+	z-index: 100;
 	font-family: 'Noto Sans JP';
 	font-size: 25px;
 }
@@ -123,6 +160,10 @@
 .text-theme-2 {
 	font-family: 'DM Serif Display';
 	font-size: 25px;
+}
+
+.text-theme-color-1 {
+	color: #919191;
 }
 
 .feature-dec {
@@ -141,6 +182,15 @@
 	-webkit-box-orient: vertical;
 }
 
+.text-thema-split-7 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 7;
+	/* number of lines to show */
+	-webkit-box-orient: vertical;
+}
+
 .text-thema-split-2 {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -149,6 +199,69 @@
 	/* number of lines to show */
 	-webkit-box-orient: vertical;
 }
+
+.text-thema-split-3 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	/* number of lines to show */
+	-webkit-box-orient: vertical;
+}
+
+.a-link-c {
+	text-decoration: underline;
+	color: #F16036;
+}
+
+:hover.a-link-c {
+
+	color: #f73500;
+}
+
+.mtc-5 {
+	margin-top: 5px;
+}
+
+.f-t-12 {
+	font-size: 12px;
+}
+
+.c-t-1 {
+	color: #F79D46;
+}
+
+.c-t-2 {
+	color: #919191;
+	font-weight: 100;
+}
+
+
+.colot-theme-1 {
+	color: #919191;
+}
+
+.color-theme-1 {
+	color: #919191;
+}
+
+.plc-15 {
+	padding-left: 15px;
+}
+
+.prc-15 {
+	padding-right: 15px;
+}
+
+.t-5-b {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.fz-25 {
+	font-size: 25px;
+}
+
 
 /* News */
 
@@ -173,4 +286,26 @@
 
 .img-c {
 	filter: brightness(0.40);
+}
+
+
+
+.img-c-p::before {
+
+
+	filter: grayscale(100%);
+}
+
+.img-c-content {
+	position: relative;
+}
+
+.img-nc {
+	filter: unset;
+}
+
+@media (min-width: 992px) {
+	.modal-lg {
+		max-width: 1000px;
+	}
 }
