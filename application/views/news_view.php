@@ -38,7 +38,7 @@
     <meta name="twitter:title" content="<?php echo $site_title; ?>" />
     <meta name="twitter:site" content="<?php echo $site_twitter; ?>" />
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
-    <link rel="stylesheet" href="<?php echo base_url() . 'theme/css/font-awesome.min.css' ?>" />
+    <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
 </head>
 
@@ -77,7 +77,7 @@
             </section>
             <section>
                 <div class="container">
-                    <div class="row">
+                    <div class="row pb-30">
                         <div class="col-sm-8">
                             <div class="row pr-30">
 
@@ -91,11 +91,58 @@
                                     <hr class="hr-theme">
                                 </div>
                             </div>
+
+                            <div class="row pb-20 pr-30">
+                                <div class="col-sm-12 feature-b-image img-c-p"
+                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                                    <div class="row d-flex align-items-end img-nc img-c-content" style="height:500px">
+                                        <div class="col-sm-12 mb-30">
+                                            <div class=" col-sm-12 feature-date pb-10 ">
+                                                <div style="font-size:12px;color:white; font-weight:100">
+                                                    14
+                                                    Juni 2020
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-12 feature-title">
+                                                consectetur, eum temporibus neque illo quod maxime quae cumque
+                                            </div>
+                                            <div class="col-sm-12  text-thema-split-3 pt-10" style="height:80px;">
+                                                <div class=""
+                                                    style="margin-top: 0px;font-size:15px;color:white; font-weight:100">
+                                                    Lorem
+                                                    ipsum
+                                                    dolor sit amet
+                                                    consectetur
+                                                    adipisicing
+                                                    elit. Laboriosam quasi
+                                                    repudiandae error in unde delectus corporis atque nisi voluptates
+                                                    architecto,
+                                                    nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                                    Lorem
+                                                    ipsum
+                                                    dolor sit amet
+                                                    consectetur
+                                                    adipisicing
+                                                    elit. Laboriosam quasi
+                                                    repudiandae error in unde delectus corporis atque nisi voluptates
+                                                    architecto,
+                                                    nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 pt-20">
+                                                <a class="a-link-c"
+                                                    href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <?php foreach ([1, 2, 3, 4, 5, 6] as $loop): ?>
                             <div class="row pb-20">
-
                                 <div class="col-sm-5 news-b-image m-0"
-                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                                    style="background-image:linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
 
                                 </div>
 
@@ -134,7 +181,8 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-12 mt-40" style="font-size:15px;">Read More</div>
+                                    <div class="col-sm-12 mt-40" style="font-size:15px;"><a class="a-link-c"
+                                            href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a></div>
                                 </div>
 
                             </div>
