@@ -69,7 +69,7 @@
 				================================================== -->
             <section>
                 <div class="container">
-                    <div class="row">
+                    <div class="row  cpl-0">
                         <div class="col-sm-12 pt-30 pb-30 pl-0 text-theme-1" style="font-size:15px;">
                             Home/News/<a href=""><u>Detail News</u> </a>
                         </div>
@@ -81,8 +81,8 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-8">
-                            <div class="row">
+                        <div class="col-lg-8">
+                            <div class="row cpl-0">
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
                                         <div class="col-sm-8 text-thema-1 text-theme-color-1" style="font-size:12px">14
@@ -102,10 +102,10 @@
                                     ut
                                 </div>
                             </div>
-                            <div class="row pr-30">
+                            <div class="row lbpr-30 ">
 
                                 <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px;">
+                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-30">
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
 
-                            <div class="row pr-30 pt-20">
+                            <div class="row lbpr-30 pt-20">
                                 <div class="col-sm-12 pl-0 text-thema-1" style="font-size:15px">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dapibus lacus,
                                     ac laoreet est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
@@ -152,26 +152,26 @@
                                 </div>
                             </div>
 
-                            <div class="row mt-30 mr-30 mb-30" style=" background-color:#FFF9EA;">
-                                <div class="col-sm-3 pl-0 pr-0">
-                                    <div class="col-sm-12 pl-0 news-b-image m-0 "
+                            <div class="row mt-30 lbpr-30 mb-30" style=" background-color:#FFF9EA;">
+                                <div class="col-3 pl-0 pr-0">
+                                    <div class="col-12 pl-0 news-b-image m-0 "
                                         style="background-image: url('') ; background-color:#F4F4F4; height: 140px;">
                                     </div>
                                 </div>
-                                <div class="col-sm-9">
+                                <div class="col-9">
                                     <div class="row">
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="pt-10" style="color:red;">Restourant Name</div>
                                             <div class="pt-10" style="font-size:12px;">Jl. Tanjung Duren Utara 7, no.
                                                 482 Grogol Jakarta Barat</div>
                                             <div class="" style="font-size:12px;">081296868
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
+                                        <div class="col-6">
                                             <div class="row">
-                                                <div class="pt-10 col-sm-12 d-flex justify-content-end"
+                                                <div class="pt-10 col-12 d-flex justify-content-end"
                                                     style="font-size:10px;">avalibel at</div>
-                                                <div class="pt-10 col-sm-12 d-flex justify-content-end">
+                                                <div class="pt-10 col-12 d-flex justify-content-end">
                                                     <div class="">
                                                         <img src="<?php echo base_url() . 'assets/images/gofood.png'; ?>"
                                                             class="img-fluid" alt="Responsive image"><img
@@ -189,7 +189,7 @@
                             </div>
 
                             <div class="row mb-30">
-                                <div class="col-sm-12 pl-0">
+                                <div class="col-12 pl-0">
                                     <div class="float-left mr-10"
                                         style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font:size:10px;">
                                         #food
@@ -202,34 +202,36 @@
                             </div>
 
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-lg-4">
 
                             <div class="" style="">
                                 <div class="row">
 
                                     <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px;">
+                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%">
                                     </div>
 
                                 </div>
-                                <div class="row text-theme-2 pt-30 pb-30">
+                                <div class="row text-theme-2 pt-30 pb-30  cpl-0">
                                     <i><b>Popular in Foodbang</b></i>
-                                    <div class="col-sm pt-1">
+                                    <div class="col pt-1">
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
 
-                                <div class="row pb-20">
-                                    <div class="col-sm-5 popular-b-image m-0"
+                                <?php foreach ([1, 3, 4] as $polular): ?>
+                                <div class="row pb-20 cpl-0">
+                                    <div class="col-4 popular-b-image m-0"
                                         style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
                                     </div>
-                                    <div class="col-sm-7">
-                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
+                                    <div class="col-8 pl-0 pr-0 ">
+                                        <div class="col-12 colot-theme-1 mb-10" style="font-size:12px;"><span>14 July
                                                 2020
                                             </span></div>
-                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
+                                        <div class="col-12  text-thema-split-2" style="height:40px;">
                                             <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
+                                                Lorem ipsum
                                                 dolor sit amet
                                                 consectetur
                                                 adipisicing
@@ -241,50 +243,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row pb-20">
-                                    <div class="col-sm-5 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
-                                                2020
-                                            </span></div>
-                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row pb-20">
-                                    <div class="col-sm-5 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
-                                                2020
-                                            </span></div>
-                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach?>
                             </div>
 
 
@@ -296,24 +255,24 @@
 
             <section class="pb-30">
                 <div class="container">
-                    <div class="row text-theme-2 pt-30 pb-10">
+                    <div class="row text-theme-2 pt-30 pb-10 cpl-0">
                         <i><b>More to Explore</b></i>
-                        <div class="col-sm pt-1">
+                        <div class="col pt-1">
                             <hr class="hr-theme">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row cpl-0">
                         <?php foreach ([1, 2, 3, 4] as $item): ?>
-                        <div class="col-sm-3 ">
+                        <div class="col-3 ">
                             <div class="row pr-10">
-                                <div class="col-sm-12 popular-b-image m-0"
-                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ; height:266px;">
+                                <div class="col-12 image-exploler m-0"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>');">
                                 </div>
-                                <div class="col-sm-12 pl-0 text-theme-1 " style="font-size:15px;"><span>14 July
+                                <div class="col-12 pl-0 text-theme-1 " style="font-size:15px;"><span>14 July
                                         2020
                                     </span>
                                 </div>
-                                <div class="col-sm-12 pl-0 text-thema-split-2" style="height:50px;">
+                                <div class="col-12 pl-0 text-thema-split-2" style="height:50px;">
                                     <div class="text-theme-1" style="margin-top:0px;font-size:15px;font-weight:bold;">
                                         Lorem ipsum
                                         dolor sit amet

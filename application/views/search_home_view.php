@@ -71,7 +71,7 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12 pt-30 pb-30 pl-0 text-theme-1" style="font-size:15px;">
+                        <div class="col-sm-12 pt-30 pb-30 cpl-0 text-theme-1" style="font-size:15px;">
                             Home/<a href=""><u>Search</u> </a>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <div class="col-sm-12  pb-30 pl-0 text-theme-1" style="font-size:18px;">
+                        <div class="col-sm-12  pb-30 cpl-0 text-theme-1" style="font-size:18px;">
                             Search result for : <b class="ext-theme-2" style="font-size:21px;"><u> Food Resto In
                                     Jakarta</u></b>
                         </div>
@@ -92,7 +92,7 @@
             <section>
                 <div class="container">
                     <div class="row mb-30">
-                        <div class="col-sm-3 pl-0">
+                        <div class="col-sm-3 cpl-0">
                             <div class="col-sm-12 pl-0 t-5-b">
                                 <p>Filter</p>
                             </div>
@@ -127,8 +127,8 @@
 
                             </div>
 
-                            <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                style="background-image: url('') ; background-color:#F4F4F4; height: 238px;">
+                            <div class="col-sm-12 cpl-0 news-b-image m-0 "
+                                style="background-image: url('') ; background-color:#F4F4F4; height: 238px; width:100%">
                             </div>
                         </div>
                         <div class="col-sm-9">
@@ -137,18 +137,19 @@
                                     <div class="row pb-20">
                                         <div class="col-sm-12 t-5-b">Show 6 of 15 Results</div>
                                     </div>
-                                    <?php foreach ([1, 2, 3, 3, 4, 6, 3] as $item): ?>
-                                    <div class="row pb-20  pl-10">
-                                        <div class="col-sm-5 news-b-image m-0"
+                                    <?php foreach ([1, 2, 3, 4] as $item): ?>
+                                    <div class="row pb-20 cpl-0">
+
+                                        <div class="col-5 news-b-image m-0"
                                             style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
 
                                         </div>
 
-                                        <div class="col-sm-7 pl-0">
-                                            <div class="col-sm-12 text-theme-1" style="font-size:15px;"><span>14 July
-                                                    2020 | 0
+                                        <div class="col-7">
+                                            <div class="col-12 colot-theme-1" style="font-size:15px;"><span>14 July 2020
+                                                    | 0
                                                     Min Read</span></div>
-                                            <div class="col-sm-12  text-thema-split-2" style="height:86px;">
+                                            <div class="col-12  text-thema-split-2" style="height:86px;">
                                                 <div class="text-theme-1"
                                                     style="margin-top: 0px;font-size:24px;font-weight:bold;"> Lorem
                                                     ipsum
@@ -161,8 +162,8 @@
                                                     nulla ad dolore harum id voluptate incidunt fugiat et saepe.
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12  text-thema-split-4" text-theme-1>
-                                                <div class="text-theme-2" style="font-size:15px;"> Lorem
+                                            <div class="col-12  text-thema-split-4" text-theme-1>
+                                                <div class="colot-theme-1" style="font-size:15px;"> Lorem
                                                     ipsum
                                                     dolor sit amet
                                                     consectetur
@@ -181,13 +182,14 @@
                                                 </div>
 
                                             </div>
-                                            <div class="col-sm-12 mt-40" style="font-size:15px;">
-                                                <a class="a-link-c" href="">Read Now</a>
-                                            </div>
+                                            <div class="col-12 mt-10" style="font-size:15px;">
+                                                <a class="a-link-c"
+                                                    href="<?php echo base_url() . 'news/detail'; ?>">Read
+                                                    Now</a></div>
                                         </div>
 
                                     </div>
-                                    <?php endforeach;?>
+                                    <?php endforeach?>
                                     <div class="row pt-20">
                                         <div class="col-sm-12 d-flex justify-content-end">
                                             <a href="" class="a-link-c">SEE MORE >></a>

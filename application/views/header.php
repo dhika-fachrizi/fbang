@@ -1,8 +1,8 @@
 			<nav class="main-nav position-sticky">
 			    <div class="container">
 			        <section class="">
-			            <div class="row">
-			                <div class="col-sm-4">
+			            <div class="row rtt">
+			                <div class="col-md-4 md-right-to-ceter d-flex c-justify-content-start">
 			                    <div class="header-logo-wrap">
 			                        <a href="<?php echo site_url(); ?>" class="logo">
 			                            <img src="<?php echo base_url() . 'theme/images/' . $logo; ?>" width="145" height="40"
@@ -10,11 +10,11 @@
 			                        </a>
 			                    </div>
 			                </div>
-			                <div class="col-sm-8 d-flex justify-content-end align-self-end">
+			                <div class="col-md-8 d-flex c-justify-content-end align-self-end md-left-to-ceter">
 
-			                    <ul class="clearlist local-scroll header-m">
+			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
-			                        <li>
+			                        <li class="pl-0">
 			                            <div class="c-i-s"> <input class="form-control form-control-sm h-search"
 			                                    id="exampleInputEmail1" style="border-radius:20px;">
 			                            </div>
@@ -26,7 +26,7 @@
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>
 			                        <li>
-			                            <a href="<?php echo base_url() . 'home/about'; ?>">About Us</a>
+			                            <a class="rtt fz-15" href="<?php echo base_url() . 'home/about'; ?>">About Us</a>
 			                        </li>
 
 			                    </ul>
@@ -42,7 +42,7 @@
 			</nav>
 
 
-			<section class="menu-container">
+			<section class="menu-container pt-20">
 			    <div class="container">
 			        <div class="row menu-category font-header-m">
 			            <div class="col-2 first c-p">
@@ -99,8 +99,8 @@
 			                </div>
 
 			            </div>
-			            <div class="col-12 r-p">
-			                <nav class="navbar navbar-expand  r-p">
+			            <div class="col-12 r-p f-head-1 mb-10">
+			                <nav class=" navbar navbar-expand r-p">
 
 
 			                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -119,10 +119,10 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
+			                            <li class="sub col-2 pl-0 pr-0">
 			                                <a class="nav-link " href="#" id="navbarRestaurant" role="button"
 			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			                                    <center>Restaurant & Cafe</center>
+			                                    <center class="rnc">Restaurant & Cafe</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarRestaurant">
 			                                    <a class="dropdown-item"

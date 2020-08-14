@@ -151,10 +151,30 @@
                                             </label>
                                         </div>
                                     </div>
+                                    <div class="col-sm-12 pt-10 d-flex justify-content-end">
+
+                                        <a class="pop-show" tabindex="0" rel="popover" data-toggle="popover"
+                                            data-content="">Show</a>
+
+                                        <div class="pop-inn" style="display:none; ">
+                                            <div class="row" style="white-space:nowrap">
+                                                <div class="col-12" style="width:10000px;">
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
+                                                    officia? Error rem deleniti sunt expedita earum aspernatur
+                                                    asperiores praesentium. Aspernatur temporibus ullam eligendi odit
+                                                    maxime nostrum! Nisi iure incidunt tempora.
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr>
-                                <div class="row ">
-                                    <div class="col-sm-12 t-5-b">
+                                <div class=" row ">
+                                    <div class=" col-sm-12 t-5-b">
+
                                         Halal
                                     </div>
                                     <div class="col-sm-12 pt-10">
@@ -323,10 +343,12 @@
     </div>
 
     <!-- JAVASCRIPT
-		==================================================-->
+        ==================================================-->
+    <script src="<?php echo base_url('assets/js/popper.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery-2.2.4.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.easing.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/bootstrap.min.js') ?>"></script>
+
     <script src="<?php echo base_url('theme/js/waypoints.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.scrollTo.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.localScroll.min.js') ?>"></script>
@@ -344,7 +366,16 @@
     <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
     <script>
-
+    $(function() {
+        $(".pop-show").popover({
+            container: "body",
+            html: true,
+            trigger: "focus",
+            content: function() {
+                return $('.pop-inn').html();
+            }
+        });
+    })
     </script>
 
 </body>
