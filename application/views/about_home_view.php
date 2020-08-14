@@ -123,10 +123,10 @@
             <section>
                 <div class="container pt-30">
                     <div class="row pb-30">
-                        <div class="col-sm-3 pl-0 text-theme-2" style="font-size:55px;">
+                        <div class="col-md-3 pl-0 text-theme-2" style="font-size:55px;">
                             <b>About Us</b>
                         </div>
-                        <div class="col-sm-9 pt-20">
+                        <div class="col-md-9 pt-20">
                             <div class="row">
                                 <div class="col-sm-12" style="font-size:15px;"> Lorem ipsum dolor sit amet, consectetur
                                     adipiscing elit. Morbi
@@ -165,10 +165,10 @@
                         </div>
                     </div>
                     <div class="row pb-30">
-                        <div class="col-sm-3 pl-0 text-theme-2" style="font-size:55px;">
+                        <div class="col-md-3 pl-0 text-theme-2" style="font-size:55px;">
                             <b>The Team</b>
                         </div>
-                        <div class="col-sm-9 pt-20">
+                        <div class="col-md-9 pt-20">
 
                             <div class="row">
                                 <div class="col-sm-12">
@@ -263,10 +263,10 @@
             <section style="background-color:#FFF9EA;">
                 <div class="container pt-30 pb-30">
                     <div class="row">
-                        <div class="col-sm-3 pl-0 text-theme-2" style="font-size:55px;">
+                        <div class="col-md-3 pl-0 text-theme-2" style="font-size:55px;">
                             <b>Contact Us</b>
                         </div>
-                        <div class="col-sm-9 pt-20">
+                        <div class="col-md-9 pt-20">
                             <div class="row">
                                 <div class="col-sm-12 text-theme-2 pb-20" style="font-size:25px;">
                                     <b>Foodbang HQ</b>

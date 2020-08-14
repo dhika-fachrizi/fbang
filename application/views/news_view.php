@@ -68,7 +68,7 @@
 				================================================== -->
             <section>
                 <div class="container">
-                    <div class="row ">
+                    <div class="row cpl-0">
                         <div class="col-sm-12 pt-30 pb-30 pl-0 text-theme-1" style="font-size:15px;">
                             Home/News/ <a href=""><u>Daily News</u> </a>
                         </div>
@@ -78,24 +78,25 @@
             <section>
                 <div class="container">
                     <div class="row pb-30">
-                        <div class="col-sm-8">
-                            <div class="row pr-30">
+                        <div class="col-lg-8">
+                            <div class="row lbpr-30">
 
                                 <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px;">
+                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
                                 </div>
                             </div>
-                            <div class="row text-theme-2 pt-30 pb-30 pr-30">
+                            <div class="row text-theme-2 pt-30 pb-30 lbpr-30 cpl-0">
                                 <i><b>News Article</b></i>
-                                <div class="col-sm pt-1">
+                                <div class="col pt-1">
                                     <hr class="hr-theme">
                                 </div>
                             </div>
 
-                            <div class="row pb-20 pr-30">
+                            <div class="row pb-20 lbpr-30">
                                 <div class="col-sm-12 feature-b-image img-c-p"
                                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    <div class="row d-flex align-items-end img-nc img-c-content" style="height:500px">
+                                    <div class="row d-flex align-items-end img-nc img-c-content"
+                                        style="height:500px;width:100%">
                                         <div class="col-sm-12 mb-30">
                                             <div class=" col-sm-12 feature-date pb-10 ">
                                                 <div style="font-size:12px;color:white; font-weight:100">
@@ -104,7 +105,7 @@
                                                 </div>
 
                                             </div>
-                                            <div class="col-sm-12 feature-title">
+                                            <div class="col-sm-12 feature-title pb-0">
                                                 consectetur, eum temporibus neque illo quod maxime quae cumque
                                             </div>
                                             <div class="col-sm-12  text-thema-split-3 pt-10" style="height:80px;">
@@ -140,16 +141,17 @@
                                 </div>
                             </div>
                             <?php foreach ([1, 2, 3, 4, 5, 6] as $loop): ?>
-                            <div class="row pb-20">
-                                <div class="col-sm-5 news-b-image m-0"
-                                    style="background-image:linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                            <div class="row pb-20 cpl-0">
+
+                                <div class="col-5 news-b-image m-0"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
 
                                 </div>
 
-                                <div class="col-sm-7">
-                                    <div class="col-sm-12 text-theme-1" style="font-size:15px;"><span>14 July 2020 | 0
+                                <div class="col-7">
+                                    <div class="col-12 colot-theme-1" style="font-size:15px;"><span>14 July 2020 | 0
                                             Min Read</span></div>
-                                    <div class="col-sm-12  text-thema-split-2" style="height:86px;">
+                                    <div class="col-12  text-thema-split-2" style="height:86px;">
                                         <div class="text-theme-1"
                                             style="margin-top: 0px;font-size:24px;font-weight:bold;"> Lorem ipsum
                                             dolor sit amet
@@ -161,8 +163,8 @@
                                             nulla ad dolore harum id voluptate incidunt fugiat et saepe.
                                         </div>
                                     </div>
-                                    <div class="col-sm-12  text-thema-split-4" text-theme-1>
-                                        <div class="text-theme-2" style="font-size:15px;"> Lorem
+                                    <div class="col-12  text-thema-split-4 " text-theme-1>
+                                        <div class="colot-theme-1" style="font-size:15px;"> Lorem
                                             ipsum
                                             dolor sit amet
                                             consectetur
@@ -181,41 +183,43 @@
                                         </div>
 
                                     </div>
-                                    <div class="col-sm-12 mt-40" style="font-size:15px;"><a class="a-link-c"
-                                            href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a></div>
+                                    <div class="col-12 mt-10" style="font-size:15px;">
+                                        <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read
+                                            Now</a></div>
                                 </div>
 
                             </div>
                             <?php endforeach;?>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-lg-4">
 
                             <div class="stc-menu" style="">
                                 <div class="row">
 
                                     <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px;">
+                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
                                     </div>
 
                                 </div>
-                                <div class="row text-theme-2 pt-30 pb-30">
+                                <div class="row text-theme-2 pt-30 pb-30 cpl-0">
                                     <i><b>Popular in Foodbang</b></i>
-                                    <div class="col-sm pt-1">
+                                    <div class="col pt-1">
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
-
-                                <div class="row pb-20">
-                                    <div class="col-sm-5 popular-b-image m-0"
+                                <?php foreach ([1, 3, 4] as $polular): ?>
+                                <div class="row pb-20 cpl-0">
+                                    <div class="col-4 popular-b-image m-0"
                                         style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
                                     </div>
-                                    <div class="col-sm-7">
-                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
+                                    <div class="col-8 pl-0 pr-0">
+                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>14 July
                                                 2020
                                             </span></div>
-                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
+                                        <div class="col-12  text-thema-split-2" style="height:40px;">
                                             <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
+                                                Lorem ipsum
                                                 dolor sit amet
                                                 consectetur
                                                 adipisicing
@@ -227,50 +231,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row pb-20">
-                                    <div class="col-sm-5 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
-                                                2020
-                                            </span></div>
-                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row pb-20">
-                                    <div class="col-sm-5 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    </div>
-                                    <div class="col-sm-7">
-                                        <div class="col-sm-12 text-theme-1 " style="font-size:15px;"><span>14 July
-                                                2020
-                                            </span></div>
-                                        <div class="col-sm-12  text-thema-split-4" style="height:126px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:20px;font-weight:bold;"> Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach;?>
                             </div>
 
 

@@ -85,8 +85,8 @@
                             <div class="row">
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
-                                        <div class="col-sm-8 t-5-b text-theme-2 fz-25"><i>New Promo</i></div>
-                                        <div class="col-sm-4">
+                                        <div class="col-4 t-5-b text-theme-2 fz-25"><i>New Promo</i></div>
+                                        <div class="col-8">
                                             <div class="row d-flex justify-content-end">
                                                 <div class="pr-20 pt-10"><i class="fas fa-search"></i>
                                                 </div>
@@ -114,7 +114,7 @@
                                 <div class="col-sm-12 pl-0">
                                     <div class="row mt-10">
                                         <?php foreach ([1, 2, 3, 4, 6, 3, 1, 2, 3, 4, 6, 3] as $item): ?>
-                                        <div class="col-sm-4 pb-20">
+                                        <div class="col-md-4 pb-20">
                                             <div class="row pl-10">
                                                 <div class="col-sm-12">
                                                     <div class="row"
@@ -140,7 +140,7 @@
                                                         </div>
                                                         <div class="col-sm-12 mtc-5 ">
                                                             <div class="row">
-                                                                <div class="col-sm-6">
+                                                                <div class="col-lg-6">
                                                                     <div class="row  pl-10">
                                                                         <div class="pr-10 ">
                                                                             <i class="fas fa-home c-t-1"
@@ -163,7 +163,7 @@
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="col-sm-6">
+                                                                <div class="col-lg-6">
                                                                     <div class="row  pl-10">
                                                                         <div class="pr-10 ">
                                                                             <i class="fas fa-clock c-t-1"
@@ -212,32 +212,27 @@
 
     </div>
 
-    <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-7">
-                            <div class="col-12 news-b-image m-0"
-                                style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ; width:100%; height:300px;">
+                            <div class="col-12 news-b-image m-0 img-promo-modal"
+                                style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ; width:100%;">
 
                             </div>
                         </div>
                         <div class="col-5 pl-0">
-                            <div class="container" style="border:1px #DDDDDD solid;border-radius:1px;height:300px;">
+                            <div class="container" style="border:1px #DDDDDD solid;border-radius:1px;height:100%">
                                 <div class="row">
-                                    <div class="col-12 text-theme-2" style="font-size:35px">
+                                    <div class="col-12 text-theme-2 f-promo-title">
                                         Info Promo
                                     </div>
                                     <div class="col-12 pl-30">
-                                        <div class="row">
+                                        <div class="row overflow-hidden">
                                             <div class="col-12 f-t-18">
                                                 <div class="row">
                                                     <div><i class="fas fa-home c-t-1">
@@ -275,9 +270,24 @@
                                     <div class="col-12" style="font-size:18px">
                                         <hr>
                                     </div>
-                                    <div class="col-12" style="font-size:18px">
-                                        Vivamus eget aliquam dui. Integer eu arcu vel arcu suscipit ultrices quis non
-                                        mauris. Aenean scelerisque, sem eu dictum.
+                                    <div class="col-12  f-t-18">
+                                        <div style="width: 100%; height:80px; overflow:hidden;">
+                                            <div
+                                                style="width: 100%; height:100%;  overflow-y: scroll; padding-right:18px; box-sizing: content-box;">
+                                                Vivamus eget aliquam dui. Integer eu arcu vel arcu suscipit ultrices
+                                                quis
+                                                non
+                                                mauris. Aenean scelerisque, sem eu dictum.
+                                                Vivamus eget aliquam dui. Integer eu arcu vel arcu suscipit ultrices
+                                                quis
+                                                non
+                                                mauris. Aenean scelerisque, sem eu dictum.
+                                                Vivamus eget aliquam dui. Integer eu arcu vel arcu suscipit ultrices
+                                                quis
+                                                non
+                                                mauris. Aenean scelerisque, sem eu dictum.
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -335,10 +345,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+
             </div>
         </div>
     </div>
