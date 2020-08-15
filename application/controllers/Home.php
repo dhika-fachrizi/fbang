@@ -37,6 +37,9 @@ class Home extends CI_Controller
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
+        $data['news_update'] = $this->home_model->get_news_update();
+        $data['popular'] = $this->home_model->get_popular();
+        $data['popular_image'] = $this->home_model->get_popular_image();
         $this->load->view('home_view', $data);
     }
 

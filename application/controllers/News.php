@@ -9,6 +9,7 @@ class News extends CI_Controller
         $this->load->model('Visitor_model', 'visitor_model');
         $this->load->model('Home_model', 'home_model');
         $this->load->model('Site_model', 'site_model');
+        $this->load->model('Detail_model', 'detail_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
     }
@@ -26,6 +27,7 @@ class News extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['news_detail'] = $this->home_model->get_popular_post();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;
@@ -40,7 +42,7 @@ class News extends CI_Controller
         $this->load->view('news_view', $data);
     }
 
-    public function detail()
+    public function detail($id)
     {
         //$this->output->enable_profiler(TRUE);
         $site = $this->site_model->get_site_data()->row_array();
@@ -54,6 +56,9 @@ class News extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['detail'] = $this->detail_model->get_news_detail($id);
+        $data['user'] = $this->detail_model->get_user();
+        $data['popular'] = $this->detail_model->get_popular();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;

@@ -85,21 +85,16 @@
                             <div class="row cpl-0">
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
-                                        <div class="col-sm-8 text-thema-1 text-theme-color-1" style="font-size:12px">14
-                                            July 2020, by
-                                            Calvin
-                                            Sidharta |
-                                            0 Mins read</div>
+                                        <div class="col-sm-8 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
+                                                    echo date_format($date, "d M Y"); ?>, <?= $user['user_name'] ?> |
+                                            <?= $detail['post_views']?> Mins read</div>
                                         <div class="col-sm-4">share</div>
                                     </div>
 
 
                                 </div>
-                                <div class="col-sm-12 pl-0 text-theme-2" style="font-size:40px">This is Article Titles
-                                    In at iaculis
-                                    lorem. Praesent tempor
-                                    dictum tellus
-                                    ut
+                                <div class="col-sm-12 pl-0 text-theme-2" style="font-size:40px">
+                                    <?= $detail['post_title'] ?>
                                 </div>
                             </div>
                             <div class="row lbpr-30 ">
@@ -109,7 +104,7 @@
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-30">
-                                    <img src="<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>."
+                                    <img src="<?php echo base_url() . 'assets/images/'.$detail['post_image']; ?>."
                                         class="img-fluid" alt="Responsive image">
                                 </div>
 
@@ -121,34 +116,7 @@
 
                             <div class="row lbpr-30 pt-20">
                                 <div class="col-sm-12 pl-0 text-thema-1" style="font-size:15px">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vitae dapibus lacus,
-                                    ac laoreet est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                                    posuere cubilia curae; Donec finibus facilisis nibh nec pretium. Vestibulum interdum
-                                    faucibus semper. Aliquam tempor velit non imperdiet sagittis. Integer vestibulum
-                                    elit vel tellus pulvinar, non mollis tellus eleifend. Sed eget lacus at ex aliquet
-                                    ultricies. Nunc varius pulvinar quam non molestie. Praesent efficitur nec turpis vel
-                                    scelerisque. Cras lacinia mauris faucibus nunc consectetur aliquam. Class aptent
-                                    taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed
-                                    ultrices, augue eu vehicula facilisis, dui purus feugiat tellus, a pulvinar leo urna
-                                    sed enim. Pellentesque eu pellentesque urna, non gravida justo. Vestibulum nec
-                                    sapien in tellus egestas sagittis. Nullam imperdiet orci sit amet pharetra
-                                    dignissim. Integer cursus elit sagittis, sagittis dui id, venenatis nibh. Interdum
-                                    et malesuada fames ac ante ipsum primis in faucibus. Nunc eget libero libero. In ut
-                                    malesuada erat. Proin finibus libero quis blandit faucibus. Mauris auctor ex nec
-                                    nisl dignissim, in congue felis rhoncus. Curabitur sed magna non turpis tristique
-                                    suscipit non vel leo. Phasellus eu est mauris. Vivamus at laoreet mi, id lacinia
-                                    ipsum. Curabitur quis lacinia nunc. Aliquam auctor malesuada tellus at fringilla.
-                                    Praesent vel justo auctor, mollis tortor vitae, hendrerit mauris. Suspendisse
-                                    potenti. Maecenas et hendrerit eros. Duis ullamcorper risus ex, pretium laoreet nisl
-                                    gravida vel. Maecenas facilisis turpis interdum velit efficitur lacinia. Sed eget
-                                    lacus at ex aliquet ultricies. Nunc varius pulvinar quam non molestie. Praesent
-                                    efficitur nec turpis vel scelerisque. Cras lacinia mauris faucibus nunc consectetur
-                                    aliquam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                                    inceptos himenaeos. Sed ultrices, augue eu vehicula facilisis, dui purus feugiat
-                                    tellus, a pulvinar leo urna sed enim. Pellentesque eu pellentesque urna, non gravida
-                                    justo. Vestibulum nec sapien in tellus egestas sagittis. Nullam imperdiet orci sit
-                                    amet pharetra dignissim. Integer cursus elit sagittis, sagittis dui id, venenatis
-                                    nibh.
+                                    <?= $detail['post_contents'] ?>
                                 </div>
                             </div>
 
@@ -190,21 +158,19 @@
 
                             <div class="row mb-30">
                                 <div class="col-12 pl-0">
+                                <?php $split_tag = explode(",", $detail['post_tags']);foreach ($split_tag as $tag):?>
                                     <div class="float-left mr-10"
-                                        style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font:size:10px;">
-                                        #food
+                                        style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
+                                        <a href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
                                     </div>
-                                    <div class="float-left mr-10"
-                                        style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font:size:10px;">
-                                        #food
-                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
 
                         </div>
                         <div class="col-lg-4">
 
-                            <div class="" style="">
+                            <div>
                                 <div class="row">
 
                                     <div class="col-sm-12 pl-0 news-b-image m-0 "
@@ -219,31 +185,23 @@
                                     </div>
                                 </div>
 
-                                <?php foreach ([1, 3, 4] as $polular): ?>
-                                <div class="row pb-20 cpl-0">
-                                    <div class="col-4 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    </div>
-                                    <div class="col-8 pl-0 pr-0 ">
-                                        <div class="col-12 colot-theme-1 mb-10" style="font-size:12px;"><span>14 July
-                                                2020
-                                            </span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:40px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                <?php foreach ($popular as $item) : ?>
+                                    <div class="row pb-20 cpl-0">
+                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/'.$item['post_image']; ?>') ;">
+                                        </div>
+                                        <div class="col-8 pl-0 pr-0">
+                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>
+                                                    <?php $date = date_create($item['post_date']);
+                                                    echo date_format($date, "d M Y"); ?>
+                                                </span></div>
+                                            <div class="col-12  text-thema-split-2" style="height:40px;">
+                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
+                                                    <?= $item['post_title'] ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php endforeach?>
+                                <?php endforeach ?>
                             </div>
 
 

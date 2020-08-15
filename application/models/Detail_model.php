@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home_model extends CI_Model{
+class Detail_model extends CI_Model{
 	
 	function get_post_header(){
 		$this->db->select('tbl_post.*, user_name');
@@ -62,15 +62,6 @@ class Home_model extends CI_Model{
 		return $query;
 	}
 
-	function get_popular_image(){
-		$this->db->select('*');
-		$this->db->from('tbl_post');
-		$this->db->order_by('post_views', 'DESC');
-		$this->db->limit(8);
-		$query = $this->db->get()->result_array();
-		return $query;
-	}
-
 	function get_news_update(){
 		$this->db->select('*');
 		$this->db->from('tbl_post');
@@ -78,8 +69,36 @@ class Home_model extends CI_Model{
 		$this->db->limit(4);
 		$query = $this->db->get()->result_array();
 		return $query;
+    }
+    
+    //..........................
+	function get_news_detail($id){
+		$this->db->select('*');
+		$this->db->from('tbl_post');
+		$this->db->where('post_id',$id);
+		$query = $this->db->get()->row_array();
+		return $query;
 	}
 
+    function get_user(){
+		$this->db->select('tbl_post.*, user_name');
+		$this->db->from('tbl_post');
+		$this->db->join('tbl_user', 'post_user_id=user_id','left');
+		$this->db->order_by('post_id', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get()->row_array();
+		return $query;
+    }
+
+    function get_popular_image(){
+		$this->db->select('*');
+		$this->db->from('tbl_post');
+		$this->db->order_by('post_views', 'DESC');
+		$this->db->limit(8);
+		$query = $this->db->get()->result_array();
+		return $query;
+	}
+    //.......................
 	function checking_email($email){
 		$query = $this->db->query("SELECT * FROM tbl_subscribe WHERE subscribe_email='$email'");
 		return $query;

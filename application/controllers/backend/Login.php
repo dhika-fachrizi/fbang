@@ -19,7 +19,7 @@ class Login extends CI_Controller{
             $validate_ps=$this->login_model->validasi_password($username,$password);
          	if($validate_ps->num_rows() > 0){
                 $this->session->set_userdata('logged',TRUE);
-             	$this->session->set_userdata('user',$u);
+             	$this->session->set_userdata('user',$username);
              	$x = $validate_ps->row_array();
 
              	if($x['user_level']=='1'){ //Administrator
@@ -28,7 +28,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('backend/dashboard');
+                	redirect('backend/post');
 
              	}else{ //Others User 
                  	$this->session->set_userdata('access','2');
@@ -36,7 +36,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('backend/dashboard');
+                	redirect('backend/post');
              	}	
             }else{
                 $url=base_url('administrator');
