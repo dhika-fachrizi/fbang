@@ -154,6 +154,9 @@ Design By - VibrantTheme.com
 	/*==================WINDOW RESIZE METHID==================*/
 	$(window).resize(function () {
 
+		//header resize
+		//header_resize();
+
 		//Initialize Menu on resize
 		init_menu_resize();
 
@@ -194,6 +197,23 @@ Design By - VibrantTheme.com
 			b.find(c).equalHeights()
 		})
 	}(jQuery);
+
+
+	/* ==============================================
+	Header resize
+	=============================================== */
+
+	function header_resize() {
+		if ($(window).width() <= 768) {
+			$(".md-right-to-ceter").addClass("d-flex justify-content-center");
+			//$(".md-right-to-ceter").removeClass("dt-mobile-nav");
+			$(".md-left-to-ceter").addClass("justify-content-center");
+			$(".md-left-to-ceter").removeClass("justify-content-end");
+		}
+
+	}
+
+
 
 	/* ==============================================
 	Navigation resize
@@ -1005,5 +1025,8 @@ Design By - VibrantTheme.com
 			$("#result").slideUp();
 		});
 	}
-
 })(jQuery);
+
+function linkIn(a) {
+	window.location.href = a
+}
