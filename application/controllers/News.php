@@ -42,8 +42,19 @@ class News extends CI_Controller
         $this->load->view('news_view', $data);
     }
 
-    public function detail($id)
+    public function detail($slug)
     {
+        $data=$this->home_model->get_post_by_slug($slug);
+        $search_result = count($data);
+		if($search_result > 0){
+		    $q=$data;
+    		$kode=$q['post_id'];
+    		$data['title']=$q['post_title'];
+    		if(empty($q['post_description'])){
+    			$data['description'] = strip_tags(word_limiter($q['post_contents'],25));	
+    		}else{
+    			$data['description'] = $q['post_description'];
+    		}
         //$this->output->enable_profiler(TRUE);
         $site = $this->site_model->get_site_data()->row_array();
         $data['site_name'] = $site['site_name'];
@@ -56,9 +67,10 @@ class News extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
-        $data['detail'] = $this->detail_model->get_news_detail($id);
+        $data['detail'] = $this->detail_model->get_news_detail($kode);
         $data['user'] = $this->detail_model->get_user();
         $data['popular'] = $this->detail_model->get_popular();
+        $this->home_model->count_views($kode);
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;
@@ -71,6 +83,9 @@ class News extends CI_Controller
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
         $this->load->view('news_detail_view', $data);
+    }else{
+        redirect('home');
+    }
     }
 
 }

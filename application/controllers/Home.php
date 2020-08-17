@@ -26,6 +26,7 @@ class Home extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['feature_article'] = $this->home_model->get_feature_article();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;
@@ -102,6 +103,20 @@ class Home extends CI_Controller
     public function search()
     {
         //$this->output->enable_profiler(TRUE);
+        $query = strip_tags(htmlspecialchars($this->input->get('search_query', TRUE), ENT_QUOTES));
+        $result = $this->home_model->search_blog($query);
+        $search_result = count($result);
+        if ($search_result > 0) {
+            $data['data'] = $result;
+            $data['keyword'] = $query;
+            $data['judul'] = 'Hasil Pencarian :' . ' "' . $query . '"';
+            $data['search_result']= $search_result;
+        } else {
+            $data['data'] = $result;
+            $data['keyword'] = $query;
+            $data['judul'] = 'Hasil Pencarian : "Tidak Temukan"';
+            $data['search_result']= $search_result;
+        }
         $site = $this->site_model->get_site_data()->row_array();
         $data['site_name'] = $site['site_name'];
         $data['site_title'] = $site['site_title'];
@@ -113,6 +128,7 @@ class Home extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['category'] = $this->home_model->get_category();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;
@@ -126,5 +142,5 @@ class Home extends CI_Controller
         $data['footer'] = $this->load->view('footer', '', true);
         $this->load->view('search_home_view', $data);
     }
-
+    
 }

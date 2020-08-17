@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="<?php echo base_url('theme/css/style-custome-dhika.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css') ?>" />
     <!-- Favicons -->
+    <link href="<?php echo base_url() . 'theme/css/jssocials.css' ?>" rel="stylesheet">
+	<link href="<?php echo base_url() . 'theme/css/jssocials-theme-flat.css' ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
@@ -85,10 +87,12 @@
                             <div class="row cpl-0">
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
-                                        <div class="col-sm-8 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
+                                        <div class="col-sm-7 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
                                                     echo date_format($date, "d M Y"); ?>, <?= $user['user_name'] ?> |
                                             <?= $detail['post_views']?> Mins read</div>
-                                        <div class="col-sm-4">share</div>
+                                        <div class="col-sm-5">
+											<div class="SocialShareArticle" style="color: #fff;font-size: 10px;"></div>
+                                        </div>
                                     </div>
 
 
@@ -307,9 +311,21 @@
     </script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>">
     </script>
-    <script>
-
-    </script>
+    <script src="<?php echo base_url('theme/js/jssocials.min.js') ?>"></script>
+   <script>
+		$(document).ready(function(){
+			$(".SocialShareArticle").jsSocials({
+                    showCount: false,
+                    showLabel: true,
+                    shareIn: "popup",
+                    shares: [
+                    { share: "twitter", label: "Twitter" },
+                    { share: "facebook", label: "Facebook" },
+                    { share: "whatsapp", label: "WhatsApp" }
+                    ]
+            });
+		});
+	</script>
 
 </body>
 

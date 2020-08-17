@@ -109,5 +109,20 @@ class Detail_model extends CI_Model{
 		return $query;
 	}
 	
+	function count_views($kode){
+        $user_ip=$_SERVER['REMOTE_ADDR'];
+        $cek_ip=$this->db->query("SELECT * FROM tbl_post_views WHERE view_ip='$user_ip' AND view_post_id='$kode' AND DATE(view_date)=CURDATE()");
+        if($cek_ip->num_rows() <= 0){
+            $this->db->trans_start();
+				$this->db->query("INSERT INTO tbl_post_views (view_ip,view_post_id) VALUES('$user_ip','$kode')");
+				$this->db->query("UPDATE tbl_post SET post_views=post_views+1 where post_id='$kode'");
+			$this->db->trans_complete();
+			if($this->db->trans_status()==TRUE){
+				return TRUE;
+			}else{
+				return FALSE;
+			}
+        }
+    }
 
 }

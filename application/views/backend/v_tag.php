@@ -238,7 +238,7 @@ if ($query->num_rows() > 0):
                                     <button type="button" class="btn btn-success m-b-sm" data-toggle="modal" data-target="#myModal">Add New Row</button>
 
                                     <div class="table-responsive">
-                                        <table id="data-table" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <table id="data-table" class="display table" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th style="width: 100px;">No</th>

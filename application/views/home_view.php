@@ -149,72 +149,24 @@
                         </div>
                         <div class="col-6">
                             <div class="row">
-                                <div class="col-6 feature-right-box feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f1.png'; ?>')">
-
+                            <?php foreach ($feature_article as $item): ?>
+                                <div class="col-6 feature-right-box feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/'.$item['post_image']; ?>')">
                                     <div class="row d-flex align-items-end" style="height:100%">
                                         <div class="col-12 mb-10">
                                             <div class="col-12 feature-date">
-                                                14 Juni 2020
-
+                                            <?php $date = date_create($item['post_date']);
+                                                    echo date_format($date, "d M Y"); ?>
                                             </div>
                                             <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
+                                                <?= $item['post_title'] ?>
                                             </div>
                                             <div class="col-12 ">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
+                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/'.$item['post_slug']; ?>">Read Now</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 feature-right-box feature-b-image" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f2.png'; ?>')">
-                                    <div class="row d-flex align-items-end" style="height:100%">
-                                        <div class="col-12 mb-10">
-                                            <div class="col-12 feature-date">
-                                                14 Juni 2020
-
-                                            </div>
-                                            <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
-                                            </div>
-                                            <div class="col-12 ">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-6 feature-right-box feature-b-image" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f3.png'; ?>')">
-                                    <div class="row d-flex align-items-end" style="height:100%">
-                                        <div class="col-12 mb-10">
-                                            <div class="col-12 feature-date">
-                                                14 Juni 2020
-
-                                            </div>
-                                            <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
-                                            </div>
-                                            <div class="col-12 ">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 feature-right-box feature-b-image" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f4.png'; ?>')">
-                                    <div class="row d-flex align-items-end" style="height:100%">
-                                        <div class="col-12 mb-10">
-                                            <div class="col-12 feature-date">
-                                                14 Juni 2020
-
-                                            </div>
-                                            <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
-                                            </div>
-                                            <div class="col-12 ">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <?php endforeach;?>
                             </div>
                         </div>
                     </div>
@@ -250,7 +202,7 @@
 
                                             </div>
                                             <div class="col-12 mt-10" style="font-size:15px;">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/'.$item['post_id']; ?>">Read
+                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/'.$item['post_slug']; ?>">Read
                                                     Now</a></div>
                                         </div>
 

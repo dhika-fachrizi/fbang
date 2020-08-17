@@ -238,7 +238,7 @@ if ($query->num_rows() > 0):
                                     <a href="<?php echo site_url('backend/post/add_new'); ?>" class="btn btn-success m-b-sm">Add New Post</a>
 
                                     <div class="table-responsive">
-                                        <table id="data-table" class="display table" style="width: 100%; cellspacing: 0;">
+                                        <table id="data-table" class="display table" style="width: 100%;">
                                             <thead>
                                                 <tr>
                                                     <th style="width: 100px;">No</th>
