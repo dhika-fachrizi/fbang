@@ -272,14 +272,18 @@
 			<section class=" pb-30 pt-30">
                 <div class=" container">
                     <div class="d-flex justify-content-center">
-                        <div class="pr-10 text-theme-2 subcribe-text"> <i><b>Subscribe for more updates! </b></i></div>
-                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="text" placeholder="send your email"></div>
+                        <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
+                            <div class="pr-10 text-theme-2 subcribe-text"> <i><b>Subscribe for more updates! </b></i></div>
+                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email" placeholder="send your email" required></div>
                                 <div class="pr-10"><button type="submit" class="btn btn-primary mb-2" style="color: black;background-color: #F79D46;border-color: #F79D46;">Subscribe</button>
                             </div>
+                        </form>
                     </div>
+                    <div><?php echo $this->session->flashdata('message'); ?></div>
                 </div>
             </section>
 
+            
 
             <!-- FOOTER
 				================================================== -->
