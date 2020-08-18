@@ -33,12 +33,12 @@ class Post_model extends CI_Model{
 	}
 
 	function edit_post_with_img($id,$title,$contents,$type,$category,$slug,$city,$location,$halal,$additional,$image,$tags,$description){
-		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_image='$image',post_last_update=NOW(),post_type_id='$type',post_category_id='$category',post_tags='$tags',post_slug='$slug',post_city='$city',post_location='$location',post_location='$location',post_halal='$halal',post_additional='$additional' WHERE post_id='$id'");
+		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_image='$image',post_last_update=NOW(),post_type_id='$type',post_category_id='$category',post_tags='$tags',post_slug='$slug',post_city_id='$city',post_location_id='$location',post_location_id='$location',post_halal_id='$halal',post_additional_id='$additional' WHERE post_id='$id'");
 		return $result;
 	}
 
 	function edit_post_no_img($id,$title,$contents,$type,$category,$slug,$city,$location,$halal,$additional,$tags,$description){
-		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_last_update=NOW(),post_type_id='$type',post_category_id='$category',post_tags='$tags',post_slug='$slug',post_city='$city',post_location='$location',post_halal='$halal',post_additional='$additional' WHERE post_id='$id'");
+		$result = $this->db->query("UPDATE tbl_post SET post_title='$title',post_description='$description',post_contents='$contents',post_last_update=NOW(),post_type_id='$type',post_category_id='$category',post_tags='$tags',post_slug='$slug',post_city_id='$city',post_location_id='$location',post_halal_id='$halal',post_additional_id='$additional' WHERE post_id='$id'");
 		return $result;
 	}
 

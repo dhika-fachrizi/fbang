@@ -78,11 +78,8 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img class="d-block w-100 img-c"
-                                        src="<?php echo base_url() . 'assets/images/cooked-food.png'; ?>"
-                                        alt="First slide">
-                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
-                                        style="height:100%">
+                                    <img class="d-block w-100 img-c" src="<?php echo base_url() . 'assets/images/cooked-food.png'; ?>" alt="First slide">
+                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container" style="height:100%">
                                         <div class="row">
                                             <div class="col-sm-8 title-c">Jakartas 6 Best Spots for Casual Dining</div>
                                             <div class="col-sm-4"></div>
@@ -95,11 +92,8 @@
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img class="d-block w-100 img-c"
-                                        src="<?php echo base_url() . 'assets/images/cooked-food.png'; ?>"
-                                        alt="First slide">
-                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
-                                        style="height:100%">
+                                    <img class="d-block w-100 img-c" src="<?php echo base_url() . 'assets/images/cooked-food.png'; ?>" alt="First slide">
+                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container" style="height:100%">
                                         <div class="row">
                                             <div class="col-sm-8 title-c">Jakartas 6 Best Spots for Casual Dining</div>
                                             <div class="col-sm-4"></div>
@@ -112,13 +106,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                data-slide="prev">
+                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -136,8 +128,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 feature-b-image img-c-p"
-                            style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                        <div class="col-6 feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
                             <div class="row d-flex align-items-end img-nc img-c-content" style="height:100%">
                                 <div class="col-12 mb-30">
                                     <div class="col-12 feature-date">
@@ -158,85 +149,28 @@
                         </div>
                         <div class="col-6">
                             <div class="row">
-                                <div class="col-6 feature-right-box feature-b-image img-c-p"
-                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f1.png'; ?>')">
-
+                            <?php foreach ($feature_article as $item): ?>
+                                <div class="col-6 feature-right-box feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/'.$item['post_image']; ?>')">
                                     <div class="row d-flex align-items-end" style="height:100%">
                                         <div class="col-12 mb-10">
                                             <div class="col-12 feature-date">
-                                                14 Juni 2020
-
+                                            <?php $date = date_create($item['post_date']);
+                                                    echo date_format($date, "d M Y"); ?>
                                             </div>
                                             <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
+                                                <?= $item['post_title'] ?>
                                             </div>
                                             <div class="col-12 ">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
+                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/'.$item['post_slug']; ?>">Read Now</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-6 feature-right-box feature-b-image"
-                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f2.png'; ?>')">
-                                    <div class="row d-flex align-items-end" style="height:100%">
-                                        <div class="col-12 mb-10">
-                                            <div class="col-12 feature-date">
-                                                14 Juni 2020
-
-                                            </div>
-                                            <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
-                                            </div>
-                                            <div class="col-12 ">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-6 feature-right-box feature-b-image"
-                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f3.png'; ?>')">
-                                    <div class="row d-flex align-items-end" style="height:100%">
-                                        <div class="col-12 mb-10">
-                                            <div class="col-12 feature-date">
-                                                14 Juni 2020
-
-                                            </div>
-                                            <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
-                                            </div>
-                                            <div class="col-12 ">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6 feature-right-box feature-b-image"
-                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/f4.png'; ?>')">
-                                    <div class="row d-flex align-items-end" style="height:100%">
-                                        <div class="col-12 mb-10">
-                                            <div class="col-12 feature-date">
-                                                14 Juni 2020
-
-                                            </div>
-                                            <div class="col-12 feature-title">
-                                                consectetur, eum eum eum
-                                            </div>
-                                            <div class="col-12 ">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail'; ?>">Read Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <?php endforeach;?>
                             </div>
                         </div>
                     </div>
                     <div class="row pb-30">
-
                         <div class="col-lg-8 cpl-0">
                             <div class="container">
                                 <div class="row text-theme-2 pt-30 pb-30 pr-30 cpl-0">
@@ -245,56 +179,35 @@
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
-                                <?php foreach ([1, 2, 3, 4] as $item): ?>
-                                <div class="row pb-20 ">
+                                <?php foreach ($news_update as $item) : ?>
+                                    <div class="row pb-20 ">
 
-                                    <div class="col-5 news-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-
-                                    </div>
-
-                                    <div class="col-7">
-                                        <div class="col-12 colot-theme-1" style="font-size:15px;"><span>14 July 2020 | 0
-                                                Min Read</span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:86px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top: 0px;font-size:24px;font-weight:bold;"> Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                            </div>
-                                        </div>
-                                        <div class="col-12  text-thema-split-4" text-theme-1>
-                                            <div class="colot-theme-1" style="font-size:15px;"> Lorem
-                                                ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
-
-                                            </div>
+                                        <div class="col-5 news-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>">
 
                                         </div>
-                                        <div class="col-12 mt-10" style="font-size:15px;">
-                                            <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read
-                                                Now</a></div>
-                                    </div>
 
-                                </div>
-                                <?php endforeach?>
+                                        <div class="col-7">
+                                            <div class="col-12 colot-theme-1" style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
+                                                                                                            echo date_format($date, "d M Y"); ?> | <?= $item['post_views'] ?>
+                                                    Min Read</span></div>
+                                            <div class="col-12  text-thema-split-2" style="height:86px;">
+                                                <div class="text-theme-1" style="margin-top: 0px;font-size:24px;font-weight:bold;">
+                                                    <?= $item['post_title'] ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-12  text-thema-split-4" text-theme-1>
+                                                <div class="colot-theme-1" style="font-size:15px;">
+                                                    <?= $item['post_description'] ?>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 mt-10" style="font-size:15px;">
+                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/'.$item['post_slug']; ?>">Read
+                                                    Now</a></div>
+                                        </div>
+
+                                    </div>
+                                <?php endforeach ?>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -305,31 +218,23 @@
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
-                                <?php foreach ([1, 3, 4] as $polular): ?>
-                                <div class="row pb-20 cpl-0">
-                                    <div class="col-4 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
-                                    </div>
-                                    <div class="col-8 pl-0 pr-0">
-                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>14 July
-                                                2020
-                                            </span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:40px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                Lorem ipsum
-                                                dolor sit amet
-                                                consectetur
-                                                adipisicing
-                                                elit. Laboriosam quasi
-                                                repudiandae error in unde delectus corporis atque nisi voluptates
-                                                architecto,
-                                                nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                <?php foreach ($popular as $item) : ?>
+                                    <div class="row pb-20 cpl-0">
+                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/'.$item['post_image']; ?>') ;">
+                                        </div>
+                                        <div class="col-8 pl-0 pr-0">
+                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>
+                                                    <?php $date = date_create($item['post_date']);
+                                                    echo date_format($date, "d M Y"); ?>
+                                                </span></div>
+                                            <div class="col-12  text-thema-split-2" style="height:40px;">
+                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
+                                                    <?= $item['post_title'] ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php endforeach?>
+                                <?php endforeach ?>
                             </div>
 
 
@@ -350,34 +255,12 @@
                     <div class="row cpl-0">
                         <div class="col-sm-12 p-0 ">
                             <div class="slider demo">
+                                <?php foreach ($popular_image as $item): ?>
                                 <div class="pr-10">
-                                    <div class="popular-b-image promo-barner"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
+                                    <div class="popular-b-image promo-barner" style="background-image: url('<?php echo base_url() . 'assets/images/'.$item['post_image']; ?>') ;"">
 								    </div>
                                 </div>
-                                <div class=" pr-10">
-                                        <div class="popular-b-image promo-barner"
-                                            style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
-								    </div>
-                                </div>
-                                <div class=" pr-10">
-                                            <div class="popular-b-image promo-barner"
-                                                style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
-								    </div>
-                                </div>
-                                <div class=" pr-10">
-                                                <div class=" popular-b-image promo-barner"
-                                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
-								    </div>
-                                </div>
-                                <div class=" pr-10">
-                                                    <div class=" popular-b-image promo-barner"
-                                                        style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;"">
-								    </div>
-                                </div>
-
-
-
+                                <?php endforeach; ?>
                             </div>
                         </div>
 
@@ -387,29 +270,20 @@
 			</section>
 
 			<section class=" pb-30 pt-30">
-                                                        <div class=" container">
-
-                                                            <div class="d-flex justify-content-center">
-                                                                <div class="pr-10 text-theme-2 subcribe-text"> <i><b>
-                                                                            Subscribe for
-                                                                            more
-                                                                            updates! </b></i>
-                                                                </div>
-                                                                <div class="pr-10"><input class="form-control"
-                                                                        style="width:30vw;" type="text"
-                                                                        placeholder="send your email"></div>
-                                                                <div class="pr-10"><button type="submit"
-                                                                        class="btn btn-primary mb-2" style="
-												color: black;
-												background-color: #F79D46;
-												border-color: #F79D46;
-											">Subscribe
-                                                                    </button></div>
-
-                                                            </div>
-                                                        </div>
+                <div class=" container">
+                    <div class="d-flex justify-content-center">
+                        <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
+                            <div class="pr-10 text-theme-2 subcribe-text"> <i><b>Subscribe for more updates! </b></i></div>
+                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email" placeholder="send your email" required></div>
+                                <div class="pr-10"><button type="submit" class="btn btn-primary mb-2" style="color: black;background-color: #F79D46;border-color: #F79D46;">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div><?php echo $this->session->flashdata('message'); ?></div>
+                </div>
             </section>
 
+            
 
             <!-- FOOTER
 				================================================== -->
@@ -446,44 +320,44 @@
 
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-        $('.demo').slick({
-            dots: true,
-            arrows: false,
+            $('.demo').slick({
+                dots: true,
+                arrows: false,
 
-            speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
+                ]
+            });
+
         });
-
-    });
     </script>
 
 </body>

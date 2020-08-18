@@ -122,11 +122,11 @@ foreach ($query_cmt->result() as $row):
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
                                         <?php
-$user_id = $this->session->userdata('id');
-$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-if ($query->num_rows() > 0):
-    $row = $query->row_array();
-    ?>
+                                            $user_id = $this->session->userdata('id');
+                                            $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+                                            if ($query->num_rows() > 0):
+                                            $row = $query->row_array();
+                                            ?>
 	                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
 	                                        <?php else: ?>
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
@@ -193,7 +193,7 @@ if ($query->num_rows() > 0):
                         </div>
                     </div>
                     <ul class="menu accordion-menu">
-                        <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
+                        <!-- <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li> -->
                         <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a></li>
@@ -202,7 +202,7 @@ if ($query->num_rows() > 0):
                                 <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
+                        <!-- <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
                         <li><a href="<?php echo site_url('backend/comment'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-bubbles"></span><p>Comments</p></a></li>
                         <li><a href="<?php echo site_url('backend/subscriber'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-users"></span><p>Subscribers</p></a></li>
                         <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span><p>Testimonials</p></a></li>
@@ -217,7 +217,7 @@ if ($query->num_rows() > 0):
                             </ul>
                         </li><?php else: ?>
                         <?php endif;?>
-                        <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span><p>Log Out</p></a></li>
+                        <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span><p>Log Out</p></a></li> -->
 
                     </ul>
                 </div><!-- Page Sidebar Inner -->
