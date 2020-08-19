@@ -8,7 +8,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <meta name="author" content="Dhika Ade Putra" />
+        <meta name="author" content="Foodbang" />
         <link rel="shortcut icon" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
 
         <!-- Styles -->
@@ -121,8 +121,8 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
-	                                        <?php else: ?>
+			                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
+			                                        <?php else: ?>
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
                                         <?php endif;?>
                                     </a>
@@ -154,15 +154,15 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                            <a href="javascript:void(0);">
-	                                <div class="sidebar-profile-image">
-	                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
-	                                </div>
-	                                <div class="sidebar-profile-details">
-	                                    <span><?php echo $this->session->userdata('name'); ?><br>
-	                                    <?php if ($row['user_level'] == '1'): ?>
-	                                    <small>Administrator</small>
-	                                    <?php else: ?>
+			                            <a href="javascript:void(0);">
+			                                <div class="sidebar-profile-image">
+			                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
+			                                </div>
+			                                <div class="sidebar-profile-details">
+			                                    <span><?php echo $this->session->userdata('name'); ?><br>
+			                                    <?php if ($row['user_level'] == '1'): ?>
+			                                    <small>Administrator</small>
+			                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -191,6 +191,12 @@ if ($query->num_rows() > 0):
                         <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a></li>
+<li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
+                                    Catlist</a>
+                            </li>
+                            <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
+                                    Promo</a>
+                            </li>
                                 <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                                 <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
                                 <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
@@ -299,8 +305,8 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $i = $query->row_array();
     ?>
-	                                                            <img src="<?php echo base_url() . 'assets/images/' . $i['user_photo']; ?>" class="img-circle" width="50" alt="<?php echo $row->comment_name ?>">
-	                                                            <?php else: ?>
+			                                                            <img src="<?php echo base_url() . 'assets/images/' . $i['user_photo']; ?>" class="img-circle" width="50" alt="<?php echo $row->comment_name ?>">
+			                                                            <?php else: ?>
                                                             <img src="<?php echo base_url() . 'assets/images/user_blank.png' ?>" class="img-circle" width="50" alt="<?php echo $row->comment_name ?>">
                                                             <?php endif;?>
 
@@ -337,7 +343,7 @@ if ($query->num_rows() > 0):
                     </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
-                    <p class="no-s"><?php echo date('Y'); ?> &copy; Powered by Dhika Ade Putra.</p>
+                    <p class="no-s"><?php echo date('Y'); ?> &copy; Powered by Foodbang.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->

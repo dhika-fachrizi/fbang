@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <meta name="author" content="Dhika Ade Putra" />
+    <meta name="author" content="Foodbang" />
     <meta name="robots" content="noindex, nofollow">
     <link rel="shortcut icon" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
     <!-- Styles -->

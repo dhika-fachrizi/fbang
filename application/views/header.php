@@ -16,6 +16,15 @@
 									<!-- End Multiple column menu example -->
 									<form action="<?php echo base_url() . 'home/search'; ?>" method="GET">
 			                        <li class="pl-0">
+<<<<<<< HEAD
+			                            <div class="c-i-s"> <input class="form-control form-control-sm h-search c-i-h"
+			                                    id="exampleInputEmail1">
+			                            </div>
+			                        </li>
+			                        <li><img onClick="w_search_resize()" id="img-s-h" pop='1'
+			                                src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
+			                                height="15" /></li>
+=======
 			                            <div class="c-i-s">  <input type="text" name="search_query" class="form-control form-control-sm h-search"
 			                                    id="search_query" style="border-radius:20px;">
 			                            </div>
@@ -24,6 +33,7 @@
 			                                    src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
 												height="15" /></button></li>
 									</form>
+>>>>>>> c7132bbfebbb94400afe1d0f0fca19d36e2d9906
 			                        <li><a class="btn-search"><span><img
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>

@@ -1030,3 +1030,31 @@ Design By - VibrantTheme.com
 function linkIn(a) {
 	window.location.href = a
 }
+
+function w_search_resize() {
+
+	if ($('#img-s-h').attr("pop") == 1) {
+		$('.c-i-s').css({
+			"width": "10px"
+		});
+
+
+		$('.c-i-h').css({
+			"border-width": "0px"
+		});
+
+		$('#img-s-h').attr("pop", 0)
+	} else {
+		$('.c-i-s').css({
+			"width": "200px"
+		});
+
+
+		$('.c-i-h').css({
+			"border-width": "1px"
+		});
+		$('#img-s-h').attr("pop", 1)
+	}
+
+
+}
