@@ -167,10 +167,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                                    <img class="img-circle avatar"
-	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                        width="40" height="40" alt="">
-	                                    <?php else: ?>
+                                    <img class="img-circle avatar"
+                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                        width="40" height="40" alt="">
+                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -214,16 +214,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                        <a href="javascript:void(0);">
-	                            <div class="sidebar-profile-image">
-	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                    class="img-circle img-responsive" alt="">
-	                            </div>
-	                            <div class="sidebar-profile-details">
-	                                <span><?php echo $this->session->userdata('name'); ?><br>
-	                                    <?php if ($row['user_level'] == '1'): ?>
-	                                    <small>Administrator</small>
-	                                    <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-image">
+                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                    class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span><?php echo $this->session->userdata('name'); ?><br>
+                                    <?php if ($row['user_level'] == '1'): ?>
+                                    <small>Administrator</small>
+                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -259,7 +259,7 @@ if ($query->num_rows() > 0):
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a></li>
-<li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
+                            <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
@@ -350,17 +350,17 @@ $no = 0;
 foreach ($data->result() as $row):
     $no++;
     ?>
-	                                            <tr>
-	                                                <td><?php echo $no; ?></td>
-	                                                <td><?php echo $row->post_title; ?></td>
-	                                                <td><?php echo $row->post_date; ?></td>
-	                                                <td><?php echo $row->category_name; ?></td>
-	                                                <td><?php echo $row->post_views; ?></td>
-	                                                <td style="text-align: center;">
-	                                                    <?php if ($row->post_type_id == 2): ?>
-	                                                    <a href="<?php echo site_url('backend/post/get_catlist_edit/' . $row->post_id); ?>"
-	                                                        class="btn btn-xs">
-	                                                        <?php elseif ($row->post_type_id == 6): ?>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $row->post_title; ?></td>
+                                                <td><?php echo $row->post_date; ?></td>
+                                                <td><?php echo $row->category_name; ?></td>
+                                                <td><?php echo $row->post_views; ?></td>
+                                                <td style="text-align: center;">
+                                                    <?php if ($row->post_type_id == 2): ?>
+                                                    <a href="<?php echo site_url('backend/post/get_catlist_edit/' . $row->post_id); ?>"
+                                                        class="btn btn-xs">
+                                                        <?php elseif ($row->post_type_id == 6): ?>
                                                         <a href="<?php echo site_url('backend/post/get_promo_edit/' . $row->post_id); ?>"
                                                             class="btn btn-xs">
                                                             <?php else: ?>

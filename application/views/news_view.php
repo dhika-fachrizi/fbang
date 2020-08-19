@@ -193,7 +193,7 @@
                         </div>
                         <div class="col-lg-4">
 
-                            <div class="stc-menu" style="">
+                            <div class="stc-menu">
                                 <div class="row">
 
                                     <div class="col-sm-12 pl-0 news-b-image m-0 "

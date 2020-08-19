@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home_model extends CI_Model{
+class Detail_model extends CI_Model{
 	
 	function get_post_header(){
 		$this->db->select('tbl_post.*, user_name');
@@ -53,13 +53,6 @@ class Home_model extends CI_Model{
 		return $query;
 	}
 
-	function get_category(){
-		$this->db->select('*');
-		$this->db->from('tbl_category');
-		$query = $this->db->get();
-		return $query->result_array();
-	}
-//.....................
 	function get_popular(){
 		$this->db->select('*');
 		$this->db->from('tbl_post');
@@ -69,24 +62,6 @@ class Home_model extends CI_Model{
 		return $query;
 	}
 
-	function get_popular_image(){
-		$this->db->select('*');
-		$this->db->from('tbl_post');
-		$this->db->order_by('post_views', 'DESC');
-		$this->db->limit(8);
-		$query = $this->db->get()->result_array();
-		return $query;
-	}
-
-	function get_feature_article(){
-		$this->db->select('*');
-		$this->db->from('tbl_post');
-		$this->db->order_by('post_date', 'DESC');
-		$this->db->where('post_feature_article = 1');
-		$this->db->limit(4);
-		$query = $this->db->get()->result_array();
-		return $query;
-	}
 	function get_news_update(){
 		$this->db->select('*');
 		$this->db->from('tbl_post');
@@ -94,8 +69,36 @@ class Home_model extends CI_Model{
 		$this->db->limit(4);
 		$query = $this->db->get()->result_array();
 		return $query;
+    }
+    
+    //..........................
+	function get_news_detail($id){
+		$this->db->select('*');
+		$this->db->from('tbl_post');
+		$this->db->where('post_id',$id);
+		$query = $this->db->get()->row_array();
+		return $query;
 	}
-//.......................
+
+    function get_user(){
+		$this->db->select('tbl_post.*, user_name');
+		$this->db->from('tbl_post');
+		$this->db->join('tbl_user', 'post_user_id=user_id','left');
+		$this->db->order_by('post_id', 'DESC');
+		$this->db->limit(1);
+		$query = $this->db->get()->row_array();
+		return $query;
+    }
+
+    function get_popular_image(){
+		$this->db->select('*');
+		$this->db->from('tbl_post');
+		$this->db->order_by('post_views', 'DESC');
+		$this->db->limit(8);
+		$query = $this->db->get()->result_array();
+		return $query;
+	}
+    //.......................
 	function checking_email($email){
 		$query = $this->db->query("SELECT * FROM tbl_subscribe WHERE subscribe_email='$email'");
 		return $query;
@@ -105,14 +108,6 @@ class Home_model extends CI_Model{
 		$query = $this->db->query("INSERT INTO tbl_subscribe (subscribe_email) VALUES ('$email')");
 		return $query;
 	}
-
-	function search_blog($query){
-    	$result = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
-			LEFT JOIN tbl_user ON post_user_id=user_id
-			LEFT JOIN tbl_category ON post_category_id=category_id
-			WHERE post_title LIKE '%$query%' OR category_name LIKE '%$query%' OR post_tags LIKE '%$query%' LIMIT 12");
-    	return $result->result_array();
-    }
 	
 	function count_views($kode){
         $user_ip=$_SERVER['REMOTE_ADDR'];
@@ -128,15 +123,6 @@ class Home_model extends CI_Model{
 				return FALSE;
 			}
         }
-	}
-	
-	function get_post_by_slug($slug){
-		$query = $this->db->query("SELECT tbl_post.*,user_name,COUNT(comment_id) AS comment_total,tbl_category.* FROM tbl_post 
-			LEFT JOIN tbl_user ON post_user_id=user_id
-			LEFT JOIN tbl_comment ON post_id=comment_post_id
-			LEFT JOIN tbl_category ON post_category_id=category_id
-			WHERE post_slug='$slug' GROUP BY post_id LIMIT 1");
-		return $query->row_array();
-	}
+    }
 
 }
