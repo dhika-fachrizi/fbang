@@ -151,25 +151,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 pt-10 d-flex justify-content-end">
 
-                                        <a class="pop-show" tabindex="0" rel="popover" data-toggle="popover"
-                                            data-content="">Show</a>
-
-                                        <div class="pop-inn" style="display:none; ">
-                                            <div class="row" style="white-space:nowrap">
-                                                <div class="col-12" style="width:10000px;">
-                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae,
-                                                    officia? Error rem deleniti sunt expedita earum aspernatur
-                                                    asperiores praesentium. Aspernatur temporibus ullam eligendi odit
-                                                    maxime nostrum! Nisi iure incidunt tempora.
-
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
                                 </div>
                                 <hr>
                                 <div class=" row ">
@@ -229,6 +211,7 @@
 
                                     </div>
                                 </div>
+
                                 <div class="col-sm-12">
                                     <div class="row mt-10">
                                         <?php foreach ([1, 2, 3, 4, 6, 3] as $item): ?>
@@ -306,6 +289,53 @@
                                         <?php endforeach;?>
                                     </div>
                                 </div>
+
+                                <div class="col-sm-12 bc" hidden>
+                                    <div class="container pb-10 pt-10">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="pr-10">
+                                                        Kota
+                                                    </div>
+                                                    <div>
+                                                        <i class="fas fa-search"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <hr>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <?php foreach ([1, 3, 4, 5, 6] as $kota): ?>
+                                                    <div class="col-4 pl-0">
+
+                                                        <div class="form-group">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input type="checkbox" value="2" name="chbxTerms"
+                                                                    class="custom-control-input">
+                                                                <span class="custom-control-label"
+                                                                    for="chbxTerms">Custom checkbox</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <?php endforeach;?>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <hr>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div><a href=""><u> reset</u> </a></div>
+                                                    <div></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -370,7 +400,7 @@
         $(".pop-show").popover({
             container: "body",
             html: true,
-            trigger: "focus",
+            trigger: "click",
             content: function() {
                 return $('.pop-inn').html();
             }

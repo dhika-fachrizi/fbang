@@ -15,13 +15,13 @@
 			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
 			                        <li class="pl-0">
-			                            <div class="c-i-s"> <input class="form-control form-control-sm h-search"
-			                                    id="exampleInputEmail1" style="border-radius:20px;">
+			                            <div class="c-i-s"> <input class="form-control form-control-sm h-search c-i-h"
+			                                    id="exampleInputEmail1">
 			                            </div>
 			                        </li>
-			                        <li><a href="<?php echo base_url() . 'home/search'; ?>"><img
-			                                    src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
-			                                    height="15" /></a></li>
+			                        <li><img onClick="w_search_resize()" id="img-s-h" pop='1'
+			                                src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
+			                                height="15" /></li>
 			                        <li><a class="btn-search"><span><img
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>
