@@ -85,7 +85,13 @@ t
 
 .c-i-s {
 	width: 200px;
-	transition: width 0.5s;
+	transition: width 1s;
+}
+
+.c-i-h {
+	border-width: 1px;
+	transition: border-width 1s;
+	border-radius: 25px;
 }
 
 .r-p {
@@ -389,7 +395,10 @@ t
 	font-size: 12px;
 }
 
-.popover {}
+.popover {
+	max-width: 700px;
+}
+
 
 @media (min-width: 992px) {
 	.modal-lg {
