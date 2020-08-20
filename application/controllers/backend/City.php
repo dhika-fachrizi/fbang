@@ -1,5 +1,5 @@
 <?php
-class Category extends CI_Controller
+class City extends CI_Controller
 {
     public function __construct()
     {
@@ -8,7 +8,7 @@ class Category extends CI_Controller
             $url = base_url('administrator');
             redirect($url);
         };
-        $this->load->model('backend/Category_model', 'category_model');
+        $this->load->model('backend/City_model', 'city_model');
         $this->load->model('backend/Type_model', 'type_model');
         $this->load->helper('text');
     }
@@ -16,40 +16,40 @@ class Category extends CI_Controller
     public function index()
     {
         $x['type'] = $this->type_model->get_all_type();
-        $x['data'] = $this->category_model->get_all_category();
-        $this->load->view('backend/v_category', $x);
+        $x['data'] = $this->city_model->get_all_city();
+        $this->load->view('backend/v_city', $x);
     }
 
     public function save()
     {
-        $category = strip_tags(htmlspecialchars($this->input->post('category', true), ENT_QUOTES));
-        $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $category);
+        $city = strip_tags(htmlspecialchars($this->input->post('city', true), ENT_QUOTES));
+        $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $city);
         $trim = trim($string);
         $slug = strtolower(str_replace(" ", "-", $trim));
         $type = $this->input->post('type', true);
-        $this->category_model->add_new_row($type, $category, $slug);
+        $this->city_model->add_new_row($city);
         $this->session->set_flashdata('msg', 'success');
-        redirect('backend/category');
+        redirect('backend/city');
     }
 
     public function edit()
     {
         $id = $this->input->post('kode', true);
-        $category = strip_tags(htmlspecialchars($this->input->post('category2', true), ENT_QUOTES));
-        $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $category);
+        $city = strip_tags(htmlspecialchars($this->input->post('city2', true), ENT_QUOTES));
+        $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $city);
         $trim = trim($string);
         $slug = strtolower(str_replace(" ", "-", $trim));
         $type = $this->input->post('type2', true);
-        $this->category_model->edit_row($id, $type, $category, $slug);
+        $this->city_model->edit_row($id, $city);
         $this->session->set_flashdata('msg', 'info');
-        redirect('backend/category');
+        redirect('backend/city');
     }
 
     public function delete()
     {
         $id = $this->input->post('id', true);
-        $this->category_model->delete_row($id);
+        $this->city_model->delete_row($id);
         $this->session->set_flashdata('msg', 'success-delete');
-        redirect('backend/category');
+        redirect('backend/city');
     }
 }

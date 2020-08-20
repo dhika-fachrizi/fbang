@@ -43,7 +43,7 @@ $b = $data->row_array();
     <link href="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.css' ?>" rel="stylesheet"
         type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/dropify.min.css' ?>" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.css">
     <!-- Theme Styles -->
     <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/themes/green.css' ?>" class="theme-color" rel="stylesheet"
@@ -263,9 +263,10 @@ if ($query->num_rows() > 0):
                             <p>Post</p><span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a>
+                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New
+                                    News</a>
                             </li>
-<li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
+                            <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
@@ -273,7 +274,10 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                            <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+                            <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
+<li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
+<li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
+<li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
@@ -320,7 +324,7 @@ if ($query->num_rows() > 0):
         </div><!-- Page Sidebar -->
         <div class="page-inner">
             <div class="page-title">
-                <h3>Edit Post</h3>
+                <h3>Edit Post News</h3>
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li><a href="<?php echo site_url('backend/dashboard'); ?>">Dashboard</a></li>
@@ -341,10 +345,10 @@ if ($query->num_rows() > 0):
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" name="title" value="<?php echo $b['post_title']; ?>"
-                                            class="form-control" placeholder="Title" required>
+                                            class="form-control title" placeholder="Title" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="slug" class="form-control"
+                                        <input type="text" name="slug" class="form-control slug"
                                             value="<?php echo $b['post_slug']; ?>" placeholder="Permalink"
                                             style="background-color: #F8F8F8;outline-color: none;border:0;color:blue;"
                                             required>
@@ -369,21 +373,7 @@ if ($query->num_rows() > 0):
                                         <input type="file" name="filefoto" class="dropify" data-height="190"
                                             data-default-file="<?php echo base_url() . 'assets/images/' . $b['post_image']; ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Type</label>
-                                        <select class="form-control" name="type" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($type->result() as $row): ?>
-                                            <?php if ($b['post_type_id'] == $row->type_id): ?>
-                                            <option value="<?php echo $row->type_id; ?>" selected>
-                                                <?php echo $row->type_name; ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->type_id; ?>"><?php echo $row->type_name; ?>
-                                            </option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
+                                    <input type="hidden" name="type" value="1">
                                     <div class="form-group">
                                         <label>Category</label>
                                         <select class="form-control" name="category" required>
@@ -399,32 +389,19 @@ if ($query->num_rows() > 0):
                                             <?php endforeach;?>
                                         </select>
                                     </div>
-                                    <label>Tags</label>
-                                    <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
-                                        <?php
-$post_tag = $b['post_tags'];
-$strtag = explode(",", $post_tag);
-for ($j = 0; $j < count($strtag); $j++) {
-
-}
-foreach ($tag->result() as $row): ?>
-                                        <div class="form-group">
-                                            <label>
-                                                <input type="checkbox" name="tag[]"
-                                                    value="<?php echo $row->tag_name; ?>" <?php if (in_array($row->tag_name, $strtag)) {
-    echo 'checked="checked"';
-}
-?>> <?php echo $row->tag_name; ?>
-                                            </label>
-                                        </div>
-                                        <?php endforeach;?>
-                                    </div>
                                     <div class="form-group">
+                                        <label>Tags</label>
+                                        <div class="bs-example">
+                                            <input class="tags" name="tags" type="text" data-role="tagsinput"
+                                                value="<?php echo $b['post_tags']; ?>" />
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group">
                                         <label>City</label>
                                         <select class="form-control" name="city" required>
                                             <option value="">-Select Option-</option>
                                             <?php foreach ($city->result() as $row): ?>
-                                            <?php if ($b['post_city'] == $row->city_id): ?>
+                                            <?php if ($b['post_city_id'] == $row->city_id): ?>
                                             <option value="<?php echo $row->city_id; ?>" selected>
                                                 <?php echo $row->city_name; ?></option>
                                             <?php else: ?>
@@ -439,7 +416,7 @@ foreach ($tag->result() as $row): ?>
                                         <select class="form-control" name="location" required>
                                             <option value="">-Select Option-</option>
                                             <?php foreach ($location->result() as $row): ?>
-                                            <?php if ($b['post_location'] == $row->location_id): ?>
+                                            <?php if ($b['post_location_id'] == $row->location_id): ?>
                                             <option value="<?php echo $row->location_id; ?>" selected>
                                                 <?php echo $row->location_name; ?></option>
                                             <?php else: ?>
@@ -453,9 +430,9 @@ foreach ($tag->result() as $row): ?>
                                         <label>Halal</label>
                                         <select class="form-control" name="halal" required>
                                             <option value="">-Select Option-</option>
-                                            <option value="1" <?php if ($b['post_halal'] == 1): ?> selected
+                                            <option value="1" <?php if ($b['post_halal_id'] == 1): ?> selected
                                                 <?php else: ?> <?php endif;?>> Halal</option>
-                                            <option value="2" <?php if ($b['post_halal'] == 2): ?> selected
+                                            <option value="2" <?php if ($b['post_halal_id'] == 2): ?> selected
                                                 <?php else: ?> <?php endif;?>>Non Halal</option>
                                         </select>
                                     </div>
@@ -464,7 +441,7 @@ foreach ($tag->result() as $row): ?>
                                         <select class="form-control" name="additional" required>
                                             <option value="">-Select Option-</option>
                                             <?php foreach ($additional->result() as $row): ?>
-                                            <?php if ($b['post_additional'] == $row->additional_id): ?>
+                                            <?php if ($b['post_additional_id'] == $row->additional_id): ?>
                                             <option value="<?php echo $row->additional_id; ?>" selected>
                                                 <?php echo $row->additional_name; ?></option>
                                             <?php else: ?>
@@ -473,7 +450,7 @@ foreach ($tag->result() as $row): ?>
                                             <?php endif;?>
                                             <?php endforeach;?>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="form-group">
                                         <input type="hidden" name="post_id" value="<?php echo $b['post_id']; ?>"
                                             required>
@@ -524,6 +501,8 @@ foreach ($tag->result() as $row): ?>
     <script src="<?php echo base_url() . 'assets/js/modern.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/dropify.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
     <script>
     $(document).ready(function() {
         $('#summernote').summernote({
@@ -572,6 +551,14 @@ foreach ($tag->result() as $row): ?>
         $('.title').keyup(function() {
             var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
             $('.slug').val(title);
+        });
+
+        $('.tags').tagsinput({
+            trimValue: true
+        });
+
+        $(".tags").change(function() {
+            console.log($(".tags").tagsinput('items'))
         });
 
     });

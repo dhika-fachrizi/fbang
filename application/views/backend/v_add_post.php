@@ -39,6 +39,7 @@
     <link href="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.css' ?>" rel="stylesheet"
         type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/dropify.min.css' ?>" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.css">
 
     <!-- Theme Styles -->
     <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css" />
@@ -173,10 +174,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-                                    <img class="img-circle avatar"
-                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-                                        width="40" height="40" alt="">
-                                    <?php else: ?>
+	                                    <img class="img-circle avatar"
+	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+	                                        width="40" height="40" alt="">
+	                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -220,16 +221,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-                        <a href="javascript:void(0);">
-                            <div class="sidebar-profile-image">
-                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-                                    class="img-circle img-responsive" alt="">
-                            </div>
-                            <div class="sidebar-profile-details">
-                                <span><?php echo $this->session->userdata('name'); ?><br>
-                                    <?php if ($row['user_level'] == '1'): ?>
-                                    <small>Administrator</small>
-                                    <?php else: ?>
+	                        <a href="javascript:void(0);">
+	                            <div class="sidebar-profile-image">
+	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+	                                    class="img-circle img-responsive" alt="">
+	                            </div>
+	                            <div class="sidebar-profile-details">
+	                                <span><?php echo $this->session->userdata('name'); ?><br>
+	                                    <?php if ($row['user_level'] == '1'): ?>
+	                                    <small>Administrator</small>
+	                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -261,7 +262,8 @@ if ($query->num_rows() > 0):
                             <p>Post</p><span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a>
+                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New
+                                    News</a>
                             </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
@@ -271,7 +273,10 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                            <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+                            <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
+<li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
+<li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
+<li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
                     <!-- <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span><p>Inbox</p></a></li>
@@ -296,7 +301,7 @@ if ($query->num_rows() > 0):
         </div><!-- Page Sidebar -->
         <div class="page-inner">
             <div class="page-title">
-                <h3>Add New Post</h3>
+                <h3>Add New News Post</h3>
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li><a href="<?php echo site_url('backend/dashboard'); ?>">Dashboard</a></li>
@@ -342,16 +347,7 @@ if ($query->num_rows() > 0):
                                         <label>Image</label>
                                         <input type="file" name="filefoto" class="dropify" data-height="190" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Type</label>
-                                        <select class="form-control" name="type" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($type->result() as $row): ?>
-                                            <option value="<?php echo $row->type_id; ?>"><?php echo $row->type_name; ?>
-                                            </option>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
+                                    <input type="hidden" name="type" value="1">
                                     <div class="form-group">
                                         <label>Category</label>
                                         <select class="form-control" name="category" required>
@@ -362,18 +358,13 @@ if ($query->num_rows() > 0):
                                             <?php endforeach;?>
                                         </select>
                                     </div>
-                                    <label>Tags</label>
-                                    <div style="overflow-y:scroll;height:150px;margin-bottom:30px;">
-                                        <?php foreach ($tag->result() as $row): ?>
-                                        <div class="form-group">
-                                            <label>
-                                                <input type="checkbox" name="tag[]"
-                                                    value="<?php echo $row->tag_name; ?>"> <?php echo $row->tag_name; ?>
-                                            </label>
-                                        </div>
-                                        <?php endforeach;?>
-                                    </div>
                                     <div class="form-group">
+                                        <label>Tags</label>
+                                        <div class="bs-example">
+                                            <input class="tags" name="tags" type="text" data-role="tagsinput" />
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group">
                                         <label>City</label>
                                         <select class="form-control" name="city" required>
                                             <option value="">-Select Option-</option>
@@ -410,7 +401,7 @@ if ($query->num_rows() > 0):
                                                 <?php echo $row->additional_name; ?></option>
                                             <?php endforeach;?>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="btn-group btn-group-justified" role="group">
                                         <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span
                                                 class="icon-cursor"></span> PUBLISH</button>
@@ -459,6 +450,8 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/js/modern.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/dropify.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
     <script>
     $(document).ready(function() {
 
@@ -510,6 +503,14 @@ if ($query->num_rows() > 0):
         $('.title').keyup(function() {
             var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
             $('.slug').val(title);
+        });
+
+        $('.tags').tagsinput({
+            trimValue: true
+        });
+
+        $(".tags").change(function() {
+            console.log($(".tags").tagsinput('items'))
         });
 
 
