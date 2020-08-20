@@ -3,7 +3,7 @@
 
 <head>
     <!-- Title -->
-    <title>Navbar Settings</title>
+    <title>Additional</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="UTF-8">
@@ -38,8 +38,7 @@
         rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.css' ?>" rel="stylesheet"
         type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.css' ?>" rel="stylesheet"
-        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" rel="stylesheet" type="text/css" />
     <!-- Theme Styles -->
     <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/themes/green.css' ?>" class="theme-color" rel="stylesheet"
@@ -52,7 +51,7 @@
 
 </head>
 
-<body class="page-header-fixed  compact-menu  pace-done page-sidebar-fixed">
+<body class="page-header-fixed compact-menu pace-done page-sidebar-fixed">
     <div class="overlay"></div>
     <main class="page-content content-wrap">
         <div class="navbar">
@@ -65,10 +64,6 @@
                 <div class="logo-box">
                     <a href="<?php echo site_url('backend/dashboard'); ?>" class="logo-text"><span>MBLOG</span></a>
                 </div><!-- Logo Box -->
-                <div class="search-button">
-                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i
-                            class="fa fa-search"></i></a>
-                </div>
                 <div class="topmenu-outer">
                     <div class="top-menu">
                         <ul class="nav navbar-nav navbar-left">
@@ -173,10 +168,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-				                                    <img class="img-circle avatar"
-				                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-				                                        width="40" height="40" alt="">
-				                                    <?php else: ?>
+                                    <img class="img-circle avatar"
+                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                        width="40" height="40" alt="">
+                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -220,16 +215,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-				                        <a href="javascript:void(0);">
-				                            <div class="sidebar-profile-image">
-				                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-				                                    class="img-circle img-responsive" alt="">
-				                            </div>
-				                            <div class="sidebar-profile-details">
-				                                <span><?php echo $this->session->userdata('name'); ?><br>
-				                                    <?php if ($row['user_level'] == '1'): ?>
-				                                    <small>Administrator</small>
-				                                    <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-image">
+                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                    class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span><?php echo $this->session->userdata('name'); ?><br>
+                                    <?php if ($row['user_level'] == '1'): ?>
+                                    <small>Administrator</small>
+                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -255,17 +250,14 @@ if ($query->num_rows() > 0):
                     </div>
                 </div>
                 <ul class="menu accordion-menu">
-                    <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span
-                                class="menu-icon icon-home"></span>
-                            <p>Dashboard</p>
-                        </a></li>
-                    <li class="droplink"><a href="#" class="waves-effect waves-button"><span
+                    <!-- <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li> -->
+                    <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span
                                 class="menu-icon icon-pin"></span>
                             <p>Post</p><span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New News</a></li>
-<li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
+                            <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
@@ -274,9 +266,11 @@ if ($query->num_rows() > 0):
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
-<li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
-<li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
-<li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+                            <li class="active"><a href="<?php echo site_url('backend/additional'); ?>">Additional</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
+                            <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+
                         </ul>
                     </li>
                     <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
@@ -300,7 +294,7 @@ if ($query->num_rows() > 0):
                                 class="menu-icon icon-user"></span>
                             <p>Users</p>
                         </a></li>
-                    <li class="droplink active open"><a href="<?php echo site_url('backend/settings'); ?>"
+                    <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>"
                             class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
                             <p>Settings</p><span class="arrow"></span>
                         </a>
@@ -308,7 +302,7 @@ if ($query->num_rows() > 0):
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
                             <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                             <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
-                            <li class="active"><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li>
+                            <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li>
                         </ul>
                     </li>
                     <?php else: ?>
@@ -323,86 +317,63 @@ if ($query->num_rows() > 0):
         </div><!-- Page Sidebar -->
         <div class="page-inner">
             <div class="page-title">
-                <h3>Navbar Settings</h3>
+                <h3>Additional</h3>
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li><a href="<?php echo site_url('backend/dashboard'); ?>">Dashboard</a></li>
-                        <li><a href="#">Site</a></li>
-                        <li class="active">Settings</li>
+                        <li><a href="#">Post</a></li>
+                        <li class="active">Additional</li>
                     </ol>
                 </div>
             </div>
             <div id="main-wrapper">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="panel panel-white">
 
+                        <div class="panel panel-white">
                             <div class="panel-body">
                                 <button type="button" class="btn btn-success m-b-sm" data-toggle="modal"
-                                    data-target="#myModal">Add New Menu</button>
-                                <?php foreach ($data->result() as $row): ?>
-                                <div class="row">
-                                    <div class="col-md-8" style="margin-top: 10px;">
+                                    data-target="#myModal">Add New Row</button>
 
-                                        <div class="input-group">
-                                            <button
-                                                class="btn btn-secondary btn-block"><?php echo strtoupper($row->navbar_name); ?></button>
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn btn-secondary dropdown-toggle"
-                                                    data-toggle="dropdown" aria-expanded="false">Action <span
-                                                        class="caret"></span></button>
-                                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                    <li><a href="#" class="btn-submenu"
-                                                            data-nav_id="<?php echo $row->navbar_id; ?>">Add Sub
-                                                            Menu</a></li>
-                                                    <li><a href="#" class="btn-edit-menu"
-                                                            data-nav_id="<?php echo $row->navbar_id; ?>"
-                                                            data-nav_name="<?php echo $row->navbar_name; ?>"
-                                                            data-nav_slug="<?php echo $row->navbar_slug; ?>">Edit</a>
-                                                    </li>
-                                                    <li><a href="#" class="btn-delete-menu"
-                                                            data-nav_id="<?php echo $row->navbar_id; ?>">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                <div class="table-responsive">
+                                    <table id="data-table" class="display table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Additional</th>
+                                                <th style="text-align: center;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+$no = 0;
+foreach ($data->result() as $row):
+    $no++;
+    ?>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $row->additional_name; ?></td>
 
-                                    </div>
+                                                <td style="text-align: center;">
+                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
+                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>')"
+                                                        data-id="<?php echo $row->additional_id; ?>"
+                                                        data-additional="<?php echo $row->additional_name; ?>"><span
+                                                            class="fas fa-edit"></span></a>
+                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
+                                                        onclick="del(<?php echo $row->additional_id; ?>)"
+                                                        data-id="<?php echo $row->additional_id; ?>"><span
+                                                            class="fa fa-trash"></span></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+
+                                    </table>
                                 </div>
-
-                                <?php
-$navbar_id = $row->navbar_id;
-$query = $this->db->query("SELECT * FROM tbl_navbar WHERE navbar_parent_id='$navbar_id'");
-foreach ($query->result() as $i):
-?>
-                                <div class="row">
-                                    <div class="col-md-7 col-md-offset-1 col-sm-offset-1" style="margin-top: 10px;">
-
-                                        <div class="input-group">
-                                            <button
-                                                class="btn btn-secondary btn-block"><?php echo strtoupper($i->navbar_name); ?></button>
-                                            <div class="input-group-btn">
-                                                <button type="button" class="btn btn-secondary dropdown-toggle"
-                                                    data-toggle="dropdown" aria-expanded="false">Action <span
-                                                        class="caret"></span></button>
-                                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                    <li><a href="#" class="btn-edit-menu"
-                                                            data-nav_id="<?php echo $i->navbar_id; ?>"
-                                                            data-nav_name="<?php echo $i->navbar_name; ?>"
-                                                            data-nav_slug="<?php echo $i->navbar_slug; ?>">Edit</a></li>
-                                                    <li><a href="#" class="btn-delete-menu"
-                                                            data-nav_id="<?php echo $i->navbar_id; ?>">Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php endforeach;?>
-                                <?php endforeach;?>
-
                             </div>
                         </div>
                     </div>
-
                 </div><!-- Row -->
             </div><!-- Main Wrapper -->
             <div class="page-footer">
@@ -411,10 +382,8 @@ foreach ($query->result() as $i):
         </div><!-- Page Inner -->
     </main><!-- Page Content -->
 
-
-    <!-- Modal Add Menu-->
-    <form id="add-row-form" action="<?php echo base_url() . 'backend/navbar/insert' ?>" method="post"
-        enctype="multipart/form-data">
+    <!--ADD RECORD MODAL-->
+    <form action="<?php echo site_url('backend/additional/save'); ?>" method="post">
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -422,151 +391,72 @@ foreach ($query->result() as $i):
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
+                        <h4 class="modal-title" id="myModalLabel">New Additional</h4>
                     </div>
                     <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Label</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="Label Name"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label>URL</label>
-                                    <div class="input-group m-b-sm">
-                                        <span class="input-group-addon"
-                                            id="basic-addon1"><?php echo site_url(); ?></span>
-                                        <input type="text" name="slug" class="form-control" placeholder="Slug"
-                                            aria-describedby="basic-addon1">
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div class="form-group">
+                            <input type="text" name="additional" class="form-control" placeholder="additional Name"
+                                required>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-success">Add</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 
-    <!-- Modal Add Menu-->
-    <form id="add-row-form" action="<?php echo base_url() . 'backend/navbar/insert_submenu' ?>" method="post"
-        enctype="multipart/form-data">
-        <div class="modal fade" id="ModalSubmenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!--EDIT RECORD MODAL-->
+    <form action="<?php echo site_url('backend/additional/edit'); ?>" method="post">
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Sub Menu</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit additional</h4>
                     </div>
                     <div class="modal-body">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Label</label>
-                                    <input type="text" name="name_submenu" class="form-control" placeholder="Label Name"
-                                        required>
-                                </div>
-                                <div class="form-group">
-                                    <label>URL</label>
-                                    <div class="input-group m-b-sm">
-                                        <span class="input-group-addon"
-                                            id="basic-addon1"><?php echo site_url(); ?></span>
-                                        <input type="text" name="slug_submenu" class="form-control" placeholder="Slug"
-                                            aria-describedby="basic-addon1">
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div class="form-group">
+                            <input type="text" name="additional2" class="form-control" placeholder="additional Name"
+                                required>
                         </div>
 
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" name="kode" required>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <input type="hidden" name="id_submenu" class="id_submenu" required>
-                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="submit" class="btn btn-success">Edit</button>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 
-    <!-- Modal Edit Menu-->
-    <form id="add-row-form" action="<?php echo base_url() . 'backend/navbar/update' ?>" method="post"
-        enctype="multipart/form-data">
-        <div class="modal fade" id="ModalEditMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    <!--DELETE RECORD MODAL-->
+    <form action="<?php echo site_url('backend/additional/delete'); ?>" method="post">
+        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Menu</h4>
+                        <h4 class="modal-title" id="myModalLabel">Delete additional</h4>
                     </div>
                     <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label>Label</label>
-                                    <input type="text" name="name_edit" class="form-control name_edit"
-                                        placeholder="Label Name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>URL</label>
-                                    <div class="input-group m-b-sm">
-                                        <span class="input-group-addon"
-                                            id="basic-addon1"><?php echo site_url(); ?></span>
-                                        <input type="text" name="slug_edit" class="form-control slug_edit"
-                                            placeholder="Slug" aria-describedby="basic-addon1">
-                                    </div>
-                                </div>
-
-                            </div>
+                        <div class="alert alert-info">
+                            Anda yakin mau menghapus data ini?
                         </div>
-
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" name="id" required>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <input type="hidden" name="navbar_id" class="navbar_id" required>
-                        <button type="submit" class="btn btn-success">Update</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!-- Modal Delete Menu-->
-    <form id="add-row-form" action="<?php echo base_url() . 'backend/navbar/delete' ?>" method="post"
-        enctype="multipart/form-data">
-        <div class="modal fade" id="ModalDeleteMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Delete Menu</h4>
-                    </div>
-                    <div class="modal-body">
-
-                        <strong>Anda yakin mau menghapus menu ini?</strong>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <input type="hidden" name="id_delete" class="id_delete" required>
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-success">Delete</button>
                     </div>
                 </div>
             </div>
@@ -591,38 +481,53 @@ foreach ($query->result() as $i):
     <script src="<?php echo base_url() . 'assets/plugins/datatables/js/jquery.datatables.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/modern.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
-    <script type="text/javascript">
+    <script>
+    function del(id) {
+        //var id = $(this).data('id');
+        $('[name="id"]').val(id);
+        $('#DeleteModal').modal('show');
+    }
+
+    function edt(id, name) {
+
+        $('[name="kode"]').val(id);
+        $('[name="additional2"]').val(name);
+        $('#EditModal').modal('show');
+    }
+
     $(document).ready(function() {
-        $('.btn-edit-menu').on('click', function() {
-            var navbar_id = $(this).data('nav_id');
-            var navbar_name = $(this).data('nav_name');
-            var navbar_slug = $(this).data('nav_slug');
-            $('#ModalEditMenu').modal('show');
-            $('.name_edit').val(navbar_name);
-            $('.slug_edit').val(navbar_slug);
-            $('.navbar_id').val(navbar_id);
-        });
+        $('#data-table').dataTable();
 
-        $('.btn-delete-menu').on('click', function() {
-            var navbar_id = $(this).data('nav_id');
-            $('#ModalDeleteMenu').modal('show');
-            $('.id_delete').val(navbar_id);
-        });
+        //Edit Record
+        // $('.btn-edit').on('click', function() {
+        //     var id = $(this).data('id');
+        //     var name = $(this).data('additional');
+        //     var type_id = $(this).data('typeid');
+        //     var type_name = $(this).data('typename');
 
-        $('.btn-submenu').on('click', function() {
-            var navbar_id = $(this).data('nav_id');
-            $('#ModalSubmenu').modal('show');
-            $('.id_submenu').val(navbar_id);
-        });
+
+        //     $('[name="kode"]').val(id);
+        //     $('[name="additional2"]').val(name);
+        //     $('[name="type2"]').val(type_id);
+        //     $('#EditModal').modal('show');
+        // });
+
+        //Edit Record
+        // $('.btn-delete').on('click', function() {
+        //     var id = $(this).data('id');
+        //     $('[name="id"]').val(id);
+        //     $('#DeleteModal').modal('show');
+        // });
+
     });
     </script>
+
     <!--Toast Message-->
     <?php if ($this->session->flashdata('msg') == 'success'): ?>
     <script type="text/javascript">
     $.toast({
         heading: 'Success',
-        text: "New Navbar Saved!",
+        text: "additional Saved!",
         showHideTransition: 'slide',
         icon: 'success',
         hideAfter: false,
@@ -634,7 +539,7 @@ foreach ($query->result() as $i):
     <script type="text/javascript">
     $.toast({
         heading: 'Info',
-        text: "Navbar updated!",
+        text: "additional Updated!",
         showHideTransition: 'slide',
         icon: 'info',
         hideAfter: false,
@@ -642,11 +547,11 @@ foreach ($query->result() as $i):
         bgColor: '#00C9E6'
     });
     </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success-hapus'): ?>
+    <?php elseif ($this->session->flashdata('msg') == 'success-delete'): ?>
     <script type="text/javascript">
     $.toast({
         heading: 'Success',
-        text: "Navbar Deleted!.",
+        text: "additional Deleted!.",
         showHideTransition: 'slide',
         icon: 'success',
         hideAfter: false,

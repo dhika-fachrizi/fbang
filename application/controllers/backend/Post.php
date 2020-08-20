@@ -30,7 +30,7 @@ class Post extends CI_Controller
     public function add_new()
     {
         $x['tag'] = $this->tag_model->get_all_tag();
-        $x['category'] = $this->category_model->get_all_category();
+        $x['category'] = $this->category_model->get_all_category_by_type(1);
         $x['type'] = $this->type_model->get_all_type();
         $x['city'] = $this->city_model->get_all_city();
         $x['location'] = $this->location_model->get_all_location();
@@ -42,7 +42,7 @@ class Post extends CI_Controller
     {
 
         $x['tag'] = $this->tag_model->get_all_tag();
-        $x['category'] = $this->category_model->get_all_category();
+        $x['category'] = $this->category_model->get_all_category_by_type(2);
         $x['type'] = $this->type_model->get_all_type();
         $x['city'] = $this->city_model->get_all_city();
         $x['location'] = $this->location_model->get_all_location();
@@ -56,7 +56,7 @@ class Post extends CI_Controller
     {
 
         $x['tag'] = $this->tag_model->get_all_tag();
-        $x['category'] = $this->category_model->get_all_category();
+        $x['category'] = $this->category_model->get_all_category_by_type(6);
         $x['type'] = $this->type_model->get_all_type();
         $x['city'] = $this->city_model->get_all_city();
         $x['location'] = $this->location_model->get_all_location();
@@ -71,7 +71,7 @@ class Post extends CI_Controller
     {
         $post_id = $this->uri->segment(4);
         $x['tag'] = $this->tag_model->get_all_tag();
-        $x['category'] = $this->category_model->get_all_category();
+        $x['category'] = $this->category_model->get_all_category_by_type(1);
         $x['type'] = $this->type_model->get_all_type();
         $x['data'] = $this->post_model->get_post_by_id($post_id);
         $x['city'] = $this->city_model->get_all_city();
@@ -84,7 +84,7 @@ class Post extends CI_Controller
     {
         $post_id = $this->uri->segment(4);
         $x['tag'] = $this->tag_model->get_all_tag();
-        $x['category'] = $this->category_model->get_all_category();
+        $x['category'] = $this->category_model->get_all_category_by_type(2);
         $x['type'] = $this->type_model->get_all_type();
         $x['data'] = $this->post_model->get_catlist_post_by_id($post_id);
         $x['city'] = $this->city_model->get_all_city();
@@ -100,7 +100,7 @@ class Post extends CI_Controller
     {
         $post_id = $this->uri->segment(4);
         $x['tag'] = $this->tag_model->get_all_tag();
-        $x['category'] = $this->category_model->get_all_category();
+        $x['category'] = $this->category_model->get_all_category_by_type(6);
         $x['type'] = $this->type_model->get_all_type();
         $x['data'] = $this->post_model->get_promo_post_by_id($post_id);
         $x['city'] = $this->city_model->get_all_city();
@@ -142,10 +142,10 @@ class Post extends CI_Controller
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
                 $category = $this->input->post('category', true);
-                $city = $this->input->post('city', true);
-                $location = $this->input->post('location', true);
-                $halal = $this->input->post('halal', true);
-                $additional = $this->input->post('additional', true);
+                $city = ""; //$this->input->post('city', true);
+                $location = ""; //$this->input->post('location', true);
+                $halal = ""; //$this->input->post('halal', true);
+                $additional = ""; //$this->input->post('additional', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -373,27 +373,24 @@ class Post extends CI_Controller
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
                 $category = $this->input->post('category', true);
-                $city = $this->input->post('city', true);
-                $location = $this->input->post('location', true);
-                $halal = $this->input->post('halal', true);
-                $additional = $this->input->post('additional', true);
+                $city = ""; //$this->input->post('city', true);
+                $location = ""; //$this->input->post('location', true);
+                $halal = ""; //$this->input->post('halal', true);
+                $additional = ""; //$this->input->post('additional', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
                 $trim = trim($string);
                 $praslug = strtolower(str_replace(" ", "-", $trim));
 
-                $query = $this->db->get_where('tbl_post', array('post_slug' => $praslug));
-                if ($query->num_rows() > 1) {
-                    $uniqe_string = rand();
-                    $slug = $praslug . '-' . $uniqe_string;
-                } else {
-                    $slug = $praslug;
-                }
+                $tags = $this->input->post('tags', true);
+                // $xtags[] = $this->input->post('tag');
+                // foreach ($xtags as $tag) {
+                //     $tags = @implode(",", $tag);
+                // }
 
-                $xtags[] = $this->input->post('tag');
-                foreach ($xtags as $tag) {
-                    $tags = @implode(",", $tag);
+                if ($tags) {
+                    $this->post_model->save_tags_post($tags);
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
@@ -412,10 +409,10 @@ class Post extends CI_Controller
             $contents = $this->input->post('contents');
             $type = $this->input->post('type', true);
             $category = $this->input->post('category', true);
-            $city = $this->input->post('city', true);
-            $location = $this->input->post('location', true);
-            $halal = $this->input->post('halal', true);
-            $additional = $this->input->post('additional', true);
+            $city = ""; //$this->input->post('city', true);
+            $location = ""; //$this->input->post('location', true);
+            $halal = ""; //$this->input->post('halal', true);
+            $additional = ""; //$this->input->post('additional', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -430,9 +427,14 @@ class Post extends CI_Controller
                 $slug = $praslug;
             }
 
-            $xtags[] = $this->input->post('tag');
-            foreach ($xtags as $tag) {
-                $tags = @implode(",", $tag);
+            $tags = $this->input->post('tags', true);
+            // $xtags[] = $this->input->post('tag');
+            // foreach ($xtags as $tag) {
+            //     $tags = @implode(",", $tag);
+            // }
+
+            if ($tags) {
+                $this->post_model->save_tags_post($tags);
             }
 
             $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);

@@ -175,10 +175,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-                                    <img class="img-circle avatar"
-                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-                                        width="40" height="40" alt="">
-                                    <?php else: ?>
+	                                    <img class="img-circle avatar"
+	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+	                                        width="40" height="40" alt="">
+	                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -222,16 +222,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-                        <a href="javascript:void(0);">
-                            <div class="sidebar-profile-image">
-                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-                                    class="img-circle img-responsive" alt="">
-                            </div>
-                            <div class="sidebar-profile-details">
-                                <span><?php echo $this->session->userdata('name'); ?><br>
-                                    <?php if ($row['user_level'] == '1'): ?>
-                                    <small>Administrator</small>
-                                    <?php else: ?>
+	                        <a href="javascript:void(0);">
+	                            <div class="sidebar-profile-image">
+	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+	                                    class="img-circle img-responsive" alt="">
+	                            </div>
+	                            <div class="sidebar-profile-details">
+	                                <span><?php echo $this->session->userdata('name'); ?><br>
+	                                    <?php if ($row['user_level'] == '1'): ?>
+	                                    <small>Administrator</small>
+	                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -266,7 +266,8 @@ if ($query->num_rows() > 0):
                             <p>Post</p><span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a>
+                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New
+                                    News</a>
                             </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
@@ -277,7 +278,10 @@ if ($query->num_rows() > 0):
 
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                            <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+                            <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
+<li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
+<li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
+<li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
@@ -385,36 +389,8 @@ if ($query->num_rows() > 0):
                                         <input type="file" name="filefoto" class="dropify" data-height="190"
                                             data-default-file="<?php echo base_url() . 'assets/images/' . $b['post_image']; ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <label>Type</label>
-                                        <select class="form-control" name="type" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($type->result() as $row): ?>
-                                            <?php if ($b['post_type_id'] == $row->type_id): ?>
-                                            <option value="<?php echo $row->type_id; ?>" selected>
-                                                <?php echo $row->type_name; ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->type_id; ?>"><?php echo $row->type_name; ?>
-                                            </option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Category</label>
-                                        <select class="form-control" name="category" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($category->result() as $row): ?>
-                                            <?php if ($b['post_category_id'] == $row->category_id): ?>
-                                            <option value="<?php echo $row->category_id; ?>" selected>
-                                                <?php echo $row->category_name; ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->category_id; ?>">
-                                                <?php echo $row->category_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
+                                    <input type="hidden" name="type" value="6">
+                                    <input type="hidden" name="category" value="0">
                                     <div class="form-group">
                                         <label>Tags</label>
                                         <div class="bs-example">
