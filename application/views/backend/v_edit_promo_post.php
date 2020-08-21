@@ -266,9 +266,9 @@ if ($query->num_rows() > 0):
                             <p>Post</p><span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a>
+                            <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a>
                             </li>
-                            <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
+                            <li class="active"><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
@@ -277,6 +277,7 @@ if ($query->num_rows() > 0):
 
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li> 
                             <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>

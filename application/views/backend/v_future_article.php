@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Title -->
-        <title>Change Password</title>
+        <title>Category</title>
 
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta charset="UTF-8">
@@ -22,10 +22,9 @@
         <link href="<?php echo base_url() . 'assets/plugins/switchery/switchery.min.css' ?>" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url() . 'assets/plugins/3d-bold-navigation/css/style.css' ?>" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url() . 'assets/plugins/slidepushmenus/css/component.css' ?>" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url() . 'assets/plugins/weather-icons-master/css/weather-icons.min.css' ?>" rel="stylesheet" type="text/css"/>
-        <link href="<?php echo base_url() . 'assets/plugins/metrojs/MetroJs.min.css' ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables.min.css' ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables_themeroller.css' ?>" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.css' ?>" rel="stylesheet" type="text/css"/>
-
         <!-- Theme Styles -->
         <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css"/>
         <link href="<?php echo base_url() . 'assets/css/themes/green.css' ?>" class="theme-color" rel="stylesheet" type="text/css"/>
@@ -118,11 +117,11 @@ foreach ($query_cmt->result() as $row):
                                     <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                         <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
                                         <?php
-$user_id = $this->session->userdata('id');
-$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-if ($query->num_rows() > 0):
-    $row = $query->row_array();
-    ?>
+                                        $user_id = $this->session->userdata('id');
+                                        $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+                                        if ($query->num_rows() > 0):
+                                            $row = $query->row_array();
+                                            ?>
 			                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
 			                                        <?php else: ?>
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
@@ -190,7 +189,7 @@ if ($query->num_rows() > 0):
                     </div>
                     <ul class="menu accordion-menu">
                         <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li>
-                        <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
+                        <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span><p>Post</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a></li>
 <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
@@ -200,8 +199,8 @@ if ($query->num_rows() > 0):
                                     Promo</a>
                             </li>
                                 <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
-                                <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                                <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li> 
+                                <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li> 
+                                <li class="active"><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li> 
                                 <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                             </ul>
                         </li>
@@ -228,68 +227,92 @@ if ($query->num_rows() > 0):
             </div><!-- Page Sidebar -->
             <div class="page-inner">
                 <div class="page-title">
-                    <h3>Change Password</h3>
+                    <h3>Feature Articles</h3>
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="<?php echo site_url('backend/dashboard'); ?>">Dashboard</a></li>
-                            <li class="active">Change Password</li>
+                            <li><a href="#">Post</a></li>
+                            <li class="active">Feature_Articles</li>
                         </ol>
                     </div>
                 </div>
                 <div id="main-wrapper">
                     <div class="row">
+                        <div class="col-md-12">
 
-                        <div class="col-lg-12 col-md-12">
                             <div class="panel panel-white">
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">Change Password</h4>
-                                </div>
                                 <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table id="data-table" class="display table" style="width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Slot name</th>
+                                                    <th>Article</th>
+                                                    <th style="text-align: center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                            $no = 0;
+                                            foreach ($data->result() as $row):
+                                                $no++;
+                                                ?>
+			                                                 <tr>
+			                                                    <td><?php echo $no; ?></td>
+			                                                    <td><?php echo $row->name_slot; ?></td>
+			                                                    <td><?php echo $row->post_title; ?></td>
+			                                                    <td style="text-align: center;">
+			                                                        <a href="javascript:void(0);" class="btn btn-xs btn-edit" data-id="<?php echo $row->id; ?>" data-post="<?php echo $row->post_id; ?>"><span class="fa fa-pencil"></span></a>
+			                                                    </td>
+			                                                </tr>
+			                                            <?php endforeach;?>
+                                            </tbody>
 
-                                    <form class="form-horizontal" action="<?php echo site_url('backend/change_pass/change'); ?>" method="post">
-
-                                      <div class="form-group">
-                                        <label for="inputPassword1" class="col-sm-2 control-label">Old Password</label>
-                                        <div class="col-sm-10">
-                                          <input type="password" name="old_password" class="form-control" id="inputPassword1" placeholder="Old Password" required>
-                                        </div>
-                                      </div>
-
-                                      <div class="form-group">
-                                        <label for="inputPassword2" class="col-sm-2 control-label">New Password</label>
-                                        <div class="col-sm-10">
-                                          <input type="password" name="new_password" class="form-control" id="inputPassword2" placeholder="New Password" required>
-                                        </div>
-                                      </div>
-
-                                      <div class="form-group">
-                                        <label for="inputPassword3" class="col-sm-2 control-label">Confirm New Password</label>
-                                        <div class="col-sm-10">
-                                          <input type="password" name="conf_password" class="form-control" id="inputPassword3" placeholder="Confirm New Password" required>
-                                        </div>
-                                      </div>
-
-                                      <div class="form-group">
-                                        <div class="col-sm-offset-2 col-sm-10">
-                                          <button type="submit" class="btn btn-success">Change Password</button>
-                                        </div>
-                                      </div>
-
-                                    </form>
-
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div><!-- Row -->
                 </div><!-- Main Wrapper -->
                 <div class="page-footer">
                     <p class="no-s"><?php echo date('Y'); ?> &copy; Powered by Foodbang.</p>
                 </div>
             </div><!-- Page Inner -->
         </main><!-- Page Content -->
-        <div class="cd-overlay"></div>
 
 
+        <!--EDIT RECORD MODAL-->
+        <form action="<?php echo site_url('backend/future_article/edit'); ?>" method="post">
+            <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Feature Article</h4>
+                    </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <select class="form-control" name="post" required>
+                                    <option value="">-Select Option-</option>
+                                    <?php foreach ($post->result() as $row): ?>
+                                    <option value="<?php echo $row->post_id; ?>"><?php echo $row->post_title; ?></option>
+                                    <?php endforeach;?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="id" required>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        
         <!-- Javascripts -->
         <script src="<?php echo base_url() . 'assets/plugins/jquery/jquery-2.1.4.min.js' ?>"></script>
         <script src="<?php echo base_url() . 'assets/plugins/jquery-ui/jquery-ui.min.js' ?>"></script>
@@ -303,64 +326,37 @@ if ($query->num_rows() > 0):
         <script src="<?php echo base_url() . 'assets/plugins/offcanvasmenueffects/js/main.js' ?>"></script>
         <script src="<?php echo base_url() . 'assets/plugins/waves/waves.min.js' ?>"></script>
         <script src="<?php echo base_url() . 'assets/plugins/3d-bold-navigation/js/main.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/waypoints/jquery.waypoints.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/jquery-counterup/jquery.counterup.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/toastr/toastr.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/flot/jquery.flot.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/flot/jquery.flot.time.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/flot/jquery.flot.symbol.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/flot/jquery.flot.resize.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/flot/jquery.flot.tooltip.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/plugins/chartsjs/Chart.min.js' ?>"></script>
-        <script src="<?php echo base_url() . 'assets/js/modern.js' ?>"></script>
+        <script src="<?php echo base_url() . 'assets/plugins/jquery-mockjax-master/jquery.mockjax.js' ?>"></script>
+        <script src="<?php echo base_url() . 'assets/plugins/moment/moment.js' ?>"></script>
+        <script src="<?php echo base_url() . 'assets/plugins/datatables/js/jquery.datatables.min.js' ?>"></script>
+        <script src="<?php echo base_url() . 'assets/js/modern.min.js' ?>"></script>
         <script src="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.js' ?>"></script>
+        <script>
+            $(document).ready(function(){
+                $('#data-table').dataTable();
+
+                //Edit Record
+                $('.btn-edit').on('click',function(){
+                    var id=$(this).data('id');
+                    var post=$(this).data('post');
+                    $('[name="id"]').val(id);
+                    $('#EditModal').modal('show');
+                });
+
+            });
+        </script>
+
         <!--Toast Message-->
-        <?php if ($this->session->flashdata('msg') == 'success'): ?>
+        <?php if ($this->session->flashdata('msg') == 'info'): ?>
             <script type="text/javascript">
                     $.toast({
-                        heading: 'Success',
-                        text: "Password Changed.",
+                        heading: 'Info',
+                        text: "Category Updated!",
                         showHideTransition: 'slide',
-                        icon: 'success',
+                        icon: 'info',
                         hideAfter: false,
                         position: 'bottom-right',
-                        bgColor: '#7EC857'
-                    });
-            </script>
-        <?php elseif ($this->session->flashdata('msg') == 'error-notmatch'): ?>
-            <script type="text/javascript">
-                    $.toast({
-                        heading: 'Error',
-                        text: "Password and Confirm Password doesn't match.",
-                        showHideTransition: 'slide',
-                        icon: 'error',
-                        hideAfter: false,
-                        position: 'bottom-right',
-                        bgColor: '#FF4859'
-                    });
-            </script>
-        <?php elseif ($this->session->flashdata('msg') == 'error-notfound'): ?>
-            <script type="text/javascript">
-                    $.toast({
-                        heading: 'Error',
-                        text: "Password was not found.",
-                        showHideTransition: 'slide',
-                        icon: 'error',
-                        hideAfter: false,
-                        position: 'bottom-right',
-                        bgColor: '#FF4859'
-                    });
-            </script>
-        <?php elseif ($this->session->flashdata('msg') == 'error'): ?>
-            <script type="text/javascript">
-                    $.toast({
-                        heading: 'Error',
-                        text: "User ID was not found.",
-                        showHideTransition: 'slide',
-                        icon: 'error',
-                        hideAfter: false,
-                        position: 'bottom-right',
-                        bgColor: '#FF4859'
+                        bgColor: '#00C9E6'
                     });
             </script>
         <?php else: ?>

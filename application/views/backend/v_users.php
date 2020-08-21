@@ -277,6 +277,7 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
@@ -333,7 +334,7 @@ if ($query->num_rows() > 0):
                                 <button type="button" class="btn btn-success m-b-sm" data-toggle="modal"
                                     data-target="#myModal">Add New User</button>
 
-                                <table id="mytable" class="display table" style="width: 100%; cellspacing: 0;">
+                                <table id="mytable" class="display table" style="width: 100%;">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -348,10 +349,10 @@ if ($query->num_rows() > 0):
                                     </thead>
                                     <tbody>
                                         <?php
-$no = 0;
-foreach ($data->result() as $row):
-    $no++;
-    ?>
+                                            $no = 0;
+                                            foreach ($data->result() as $row):
+                                                $no++;
+                                                ?>
                                         <tr>
                                             <td style="vertical-align: middle;"><?php echo $no; ?></td>
                                             <td style="vertical-align: middle;">
@@ -368,12 +369,12 @@ foreach ($data->result() as $row):
                                             <td style="vertical-align: middle;"><?php echo $row->user_password; ?></td>
                                             <td style="vertical-align: middle;">
                                                 <?php
-if ($row->user_level == '1') {
-    echo "Administrator";
-} else {
-    echo "Author";
-}
-?>
+                                                if ($row->user_level == '1') {
+                                                    echo "Administrator";
+                                                } else {
+                                                    echo "Author";
+                                                }
+                                                ?>
                                             </td>
                                             <?php if ($row->user_status == '1'): ?>
                                             <td style="vertical-align: middle;"><a

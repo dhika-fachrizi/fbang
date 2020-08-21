@@ -267,6 +267,7 @@ if ($query->num_rows() > 0):
                             </li>
                             <li class="active"><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li> 
                             <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
@@ -333,7 +334,7 @@ if ($query->num_rows() > 0):
                                     class="btn btn-success m-b-sm">Add New Post</a>
 
                                 <div class="table-responsive">
-                                    <table id="data-table" class="display table" style="width: 100%; cellspacing: 0;">
+                                    <table id="data-table" class="display table" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th style="width: 100px;">No</th>

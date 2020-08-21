@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 <<<<<<< HEAD
  */
-$config['base_url'] = 'http://localhost/fbang/';
+$config['base_url'] = 'http://localhost/foodbang-dev/';
 
 /*
 |--------------------------------------------------------------------------

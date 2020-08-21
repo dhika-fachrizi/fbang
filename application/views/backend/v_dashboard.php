@@ -267,6 +267,7 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li> 
                             <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
@@ -539,7 +540,7 @@ foreach ($top_five_articles->result() as $row):
 
         var myLine = document.getElementById("canvas").getContext("2d");
         var lineChartData = {
-            labels: < ? php echo $month; ? > ,
+            labels: <?php echo $month; ?> ,
             datasets : [
 
                 {
@@ -549,7 +550,7 @@ foreach ($top_five_articles->result() as $row):
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(18,175,203,1)",
-                    data: < ? php echo $value; ? >
+                    data: <?php echo $value; ?>
                 }
 
             ]
