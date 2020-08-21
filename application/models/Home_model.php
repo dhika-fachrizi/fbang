@@ -95,6 +95,17 @@ class Home_model extends CI_Model{
 		$query = $this->db->get()->result_array();
 		return $query;
 	}
+
+	public function get_4_future_article()
+	{
+		$result = $this->db->query("SELECT * FROM tbl_post JOIN tbl_future_article ON tbl_post.post_id = tbl_future_article.post_id where tbl_future_article.id > 1");
+		return $result->result_array();
+	}
+	public function slot1()
+	{
+		$result = $this->db->query("SELECT * FROM tbl_post JOIN tbl_future_article ON tbl_post.post_id = tbl_future_article.post_id where tbl_future_article.id = 1");
+		return $result->row_array();
+	}
 //.......................
 	function checking_email($email){
 		$query = $this->db->query("SELECT * FROM tbl_subscribe WHERE subscribe_email='$email'");
