@@ -273,6 +273,7 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
                             <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
@@ -566,76 +567,61 @@ if ($query->num_rows() > 0):
         // console.log($("#availability").val());
     }
     $(document).ready(function() {
-        trigger_social();
-        trigger_availability();
-        $('#summernote').summernote({
-            height: 590,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'hr']],
-                ['view', ["fullscreen", "codeview", "help"]],
-            ],
+                trigger_social();
+                trigger_availability();
+                $('#summernote').summernote({
+                    height: 590,
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'italic', 'underline', 'clear']],
+                        ['fontsize', ['fontsize']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['insert', ['link', 'picture', 'hr']],
+                        ['view', ["fullscreen", "codeview", "help"]],
+                    ],
 
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable);
-            }
-
-        });
-
-        function sendFile(file, editor, welEditable) {
-            data = new FormData();
-            data.append("file", file);
-            $.ajax({
-                data: data,
-                type: "POST",
-                url: "<?php echo site_url() ?>backend/post/upload_image",
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(url) {
-                    editor.insertImage(welEditable, url);
-                }
-            });
-        }
+                    onImageUpload: function(files, editor, welEditable) {
+                        sendFile(files[0], editor, welEditable);
+                    }
 
 
 
-        $('.dropify').dropify({
-            messages: {
-                default: 'Drag atau drop untuk memilih gambar',
-                replace: 'Ganti',
-                remove: 'Hapus',
-                error: 'error'
-            }
-        });
+                    $('.dropify').dropify({
+                        messages: {
+                            default: 'Drag atau drop untuk memilih gambar',
+                            replace: 'Ganti',
+                            remove: 'Hapus',
+                            error: 'error'
+                        }
+                    });
 
-        $(".availability_post").change(function() {
-            trigger_availability();
-        });
+                    $('.title').keyup(function() {
+                        var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g,
+                        '-');
+                        $('.slug').val(title);
+                    });
 
-        $(".social_post").change(function() {
-            trigger_social();
-        });
+                    $('.tags').tagsinput({
+                        trimValue: true
+                    });
 
-        $('.title').keyup(function() {
-            var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
-            $('.slug').val(title);
-        });
+                    $(".availability_post").change(function() {
+                        trigger_availability();
+                    });
 
-        $('.tags').tagsinput({
-            trimValue: true
-        });
+                    $(".social_post").change(function() {
+                        trigger_social();
+                    });
 
-        $(".tags").change(function() {
-            console.log($(".tags").tagsinput('items'))
-        });
+                    $('.title').keyup(function() {
+                        var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g,
+                        '-');
+                        $('.slug').val(title);
+                    });
 
 
-    });
+                });
     </script>
 
 </body>

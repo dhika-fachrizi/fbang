@@ -30,12 +30,12 @@ class News extends CI_Controller
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
         $page = $this->input->get('search_query', true);
-
+        $data['popular'] = $this->detail_model->get_popular();
         $start = $this->input->get('per_page', true);
 
         $config['base_url'] = base_url() . '/news';
         $config['total_rows'] = $this->news_model->get_post_news_count();
-        $config['per_page'] = 3;
+        $config['per_page'] = 6;
         $config['page_query_string'] = true;
 
         //

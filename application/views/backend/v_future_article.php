@@ -1,16 +1,9 @@
-<?php
-error_reporting(0);
-$b = $data->row_array();
-$b_social = json_decode($b['detail_news_social']);
-$b_availability = json_decode($b['detail_news_availability']);
-$b_gmaps = json_decode($b['detail_news_gmaps']);
-?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <!-- Title -->
-    <title>Edit Post</title>
+    <title>Category</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="UTF-8">
@@ -43,10 +36,8 @@ $b_gmaps = json_decode($b['detail_news_gmaps']);
         type="text/css" />
     <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables_themeroller.css' ?>"
         rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.css' ?>" rel="stylesheet"
+    <link href="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.css' ?>" rel="stylesheet"
         type="text/css" />
-    <link href="<?php echo base_url() . 'assets/css/dropify.min.css' ?>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.css">
     <!-- Theme Styles -->
     <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/themes/green.css' ?>" class="theme-color" rel="stylesheet"
@@ -56,9 +47,10 @@ $b_gmaps = json_decode($b['detail_news_gmaps']);
     <script src="<?php echo base_url() . 'assets/plugins/3d-bold-navigation/js/modernizr.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/offcanvasmenueffects/js/snap.svg-min.js' ?>"></script>
 
+
 </head>
 
-<body class="page-header-fixed  compact-menu  pace-done page-sidebar-fixed">
+<body class="page-header-fixed compact-menu pace-done page-sidebar-fixed">
     <div class="overlay"></div>
     <main class="page-content content-wrap">
         <div class="navbar">
@@ -266,9 +258,7 @@ if ($query->num_rows() > 0):
                             <p>Post</p><span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New
-                                    News</a>
-                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New</a></li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
@@ -277,7 +267,10 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
+                            <li class="active"><a href="<?php echo site_url('backend/future_article'); ?>">Feature
+                                    Article</a></li>
+                            <li class="active"><a href="<?php echo site_url('backend/future_article'); ?>">Feature
+                                    Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
                             <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
@@ -328,236 +321,56 @@ if ($query->num_rows() > 0):
         </div><!-- Page Sidebar -->
         <div class="page-inner">
             <div class="page-title">
-                <h3>Edit Post News</h3>
+                <h3>Feature Articles</h3>
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li><a href="<?php echo site_url('backend/dashboard'); ?>">Dashboard</a></li>
                         <li><a href="#">Post</a></li>
-                        <li class="active">Edit</li>
+                        <li class="active">Feature_Articles</li>
                     </ol>
                 </div>
             </div>
             <div id="main-wrapper">
                 <div class="row">
-                    <form action="<?php echo base_url() . 'backend/post/edit' ?>" method="post"
-                        enctype="multipart/form-data">
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="panel panel-white">
-                                        <div class="panel-body">
-                                            <div class="form-group">
-                                                <label>Title</label>
-                                                <input type="text" name="title" value="<?php echo $b['post_title']; ?>"
-                                                    class="form-control title" placeholder="Title" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" name="slug" class="form-control slug "
-                                                    value="<?php echo $b['post_slug']; ?>" placeholder="Permalink"
-                                                    style="background-color: #F8F8F8;outline-color: none;border:0;color:blue;"
-                                                    required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label">Contents</label>
-                                                <textarea name="contents"
-                                                    id="summernote"><?php echo $b['post_contents']; ?></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="panel panel-white">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <?php foreach ($social->result() as $row): ?>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label><?php echo $row->social_name; ?></label>
-                                                        <input type="text"
-                                                            detail_name='<?php echo json_encode($row, 0); ?>'
-                                                            <?php foreach ($b_social as $soc): ?>
-                                                            <?php if ($soc->social_id == $row->social_id): ?>
-                                                            value="<?php echo $soc->social_value ?>" <?php endif;?>
-                                                            <?php endforeach;?> class="form-control social_post"
-                                                            placeholder="<?php echo $row->social_name; ?> link">
-                                                    </div>
-                                                </div>
-                                                <?php endforeach;?>
-                                            </div>
-                                            <input id="social" type="hidden" name="social" value="[]">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="panel panel-white">
-                                        <div class="panel-body">
-                                            <div class="row">
-                                                <?php foreach ($availability->result() as $row): ?>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label><?php echo $row->availability_name; ?></label>
-                                                        <input type="text"
-                                                            detail_name='<?php echo json_encode($row, 0); ?>'
-                                                            <?php foreach ($b_availability as $soc): ?>
-                                                            <?php if ($soc->availability_id == $row->availability_id): ?>
-                                                            value="<?php echo $soc->availability_value ?>"
-                                                            <?php endif;?> <?php endforeach;?>
-                                                            class="form-control availability_post"
-                                                            placeholder="<?php echo $row->availability_name; ?> Link">
-                                                    </div>
-                                                </div>
-                                                <?php endforeach;?>
-                                            </div>
-                                            <input id="availability" type="hidden" name="availability" value="[]">
-                                        </div>
-                                    </div>
+                    <div class="col-md-12">
+
+                        <div class="panel panel-white">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table id="data-table" class="display table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Slot name</th>
+                                                <th>Article</th>
+                                                <th style="text-align: center;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+$no = 0;
+foreach ($data->result() as $row):
+    $no++;
+    ?>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $row->name_slot; ?></td>
+                                                <td><?php echo $row->post_title; ?></td>
+                                                <td style="text-align: center;">
+                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
+                                                        data-id="<?php echo $row->id; ?>"
+                                                        data-post="<?php echo $row->post_id; ?>"><span
+                                                            class="fa fa-pencil"></span></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach;?>
+                                        </tbody>
+
+                                    </table>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <div class="panel panel-white">
-
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" name="filefoto" class="dropify" data-height="190"
-                                            data-default-file="<?php echo base_url() . 'assets/images/' . $b['post_image']; ?>">
-                                    </div>
-
-                                    <input type="hidden" name="type" value="1">
-                                    <div class="form-group">
-                                        <label>Category</label>
-                                        <select class="form-control" name="category" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($category->result() as $row): ?>
-                                            <?php if ($b['post_category_id'] == $row->category_id): ?>
-                                            <option value="<?php echo $row->category_id; ?>" selected>
-                                                <?php echo $row->category_name; ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->category_id; ?>">
-                                                <?php echo $row->category_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tags</label>
-                                        <div class="bs-example">
-                                            <input class="tags" name="tags" type="text" data-role="tagsinput"
-                                                value="<?php echo $b['post_tags']; ?>" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>City</label>
-                                        <select class="form-control city" style="text-transform: capitalize;"
-                                            name="city" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($city->result() as $row): ?>
-                                            <?php if ($b['post_city_id'] == $row->city_id): ?>
-                                            <option value="<?php echo $row->city_id; ?>" selected>
-                                                <?php echo strtolower($row->city_name); ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->city_id; ?>">
-                                                <?php echo strtolower($row->city_name); ?>
-                                            </option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
-                                    <!-- <div class="form-group">
-                                        <label>Location</label>
-                                        <select class="form-control" name="location" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($location->result() as $row): ?>
-                                            <?php if ($b['post_location_id'] == $row->location_id): ?>
-                                            <option value="<?php echo $row->location_id; ?>" selected>
-                                                <?php echo $row->location_name; ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->location_id; ?>">
-                                                <?php echo $row->location_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Halal</label>
-                                        <select class="form-control" name="halal" required>
-                                            <option value="">-Select Option-</option>
-                                            <option value="1" <?php if ($b['post_halal_id'] == 1): ?> selected
-                                                <?php else: ?> <?php endif;?>> Halal</option>
-                                            <option value="2" <?php if ($b['post_halal_id'] == 2): ?> selected
-                                                <?php else: ?> <?php endif;?>>Non Halal</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Additional</label>
-                                        <select class="form-control" name="additional" required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($additional->result() as $row): ?>
-                                            <?php if ($b['post_additional_id'] == $row->additional_id): ?>
-                                            <option value="<?php echo $row->additional_id; ?>" selected>
-                                                <?php echo $row->additional_name; ?></option>
-                                            <?php else: ?>
-                                            <option value="<?php echo $row->additional_id; ?>">
-                                                <?php echo $row->additional_name; ?></option>
-                                            <?php endif;?>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div> -->
-
-                                </div>
-                            </div>
-                            <div class="panel panel-white">
-                                <div class="panel-body">
-
-
-                                    <div class="form-group">
-                                        <label>Restaurant / Cafe Name</label>
-                                        <input type="Restaurant" name="news_name" class="form-control"
-                                            value="<?php echo $b['detail_news_name'] ?>" placeholder="" required>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="Address" name="news_address" class="form-control"
-                                            value="<?php echo $b['detail_news_address'] ?>" placeholder="" required>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="Phone" name="news_phone" class="form-control" placeholder=""
-                                            value="<?php echo $b['detail_news_phone'] ?>" required>
-                                    </div>
-                                    <div class="btn-group btn-group-justified" role="group">
-                                        <input type="hidden" name="post_id" value="<?php echo $b['post_id']; ?>"
-                                            required>
-                                        <input type="hidden" name="post_detail_id"
-                                            value="<?php echo $b['post_detail_id']; ?>" required>
-                                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span
-                                                class="icon-cursor"></span>Update</button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="panel panel-white">
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <label>Meta Description</label>
-                                        <textarea name="description" cols="6" rows="6" class="form-control"
-                                            placeholder="Meta Description"><?php echo $b['post_description']; ?></textarea>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </form>
+                    </div>
                 </div><!-- Row -->
             </div><!-- Main Wrapper -->
             <div class="page-footer">
@@ -565,6 +378,39 @@ if ($query->num_rows() > 0):
             </div>
         </div><!-- Page Inner -->
     </main><!-- Page Content -->
+
+
+    <!--EDIT RECORD MODAL-->
+    <form action="<?php echo site_url('backend/future_article/edit'); ?>" method="post">
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Feature Article</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <select class="form-control" name="post" required>
+                                <option value="">-Select Option-</option>
+                                <?php foreach ($post->result() as $row): ?>
+                                <option value="<?php echo $row->post_id; ?>"><?php echo $row->post_title; ?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" required>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-success">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
 
     <!-- Javascripts -->
     <script src="<?php echo base_url() . 'assets/plugins/jquery/jquery-2.1.4.min.js' ?>"></script>
@@ -583,117 +429,38 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/plugins/moment/moment.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/datatables/js/jquery.datatables.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/js/modern.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/js/dropify.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
-    <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
-    <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.js' ?>"></script>
     <script>
-    function c(dt) {
-        console.log(dt);
-    }
-
-    function trigger_social() {
-        var input_social = $(".social_post");
-        var temp_post = [];
-        for (var i = 0; i < input_social.length; i++) {
-            if ($(input_social[i]).val() !== "" && $(input_social[i]).val() !== null) {
-                var temp_data = $(input_social[i]).attr('detail_name')
-                temp_data.social_value = $(input_social[i]).val();
-                temp_post.push(temp_data);
-                c($(input_social[i]).attr('detail_name'));
-            }
-
-        }
-
-        $("#social").val(JSON.stringify(temp_post))
-
-        //c($("#social").val());
-    }
-
-    function trigger_availability() {
-        var input_availability = $(".availability_post");
-        var temp_post = [];
-        for (var i = 0; i < input_availability.length; i++) {
-            if ($(input_availability[i]).val() !== "" && $(input_availability[i]).val() !== null) {
-                var temp_data = JSON.parse($(input_availability[i]).attr('detail_name'))
-                temp_data.availability_value = $(input_availability[i]).val();
-                temp_post.push(temp_data);
-            }
-        }
-        $("#availability").val(JSON.stringify(temp_post))
-        // console.log($("#availability").val());
-    }
     $(document).ready(function() {
-        trigger_social();
-        trigger_availability();
-        $('#summernote').summernote({
-            height: 590,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'hr']],
-                ['view', ["fullscreen", "codeview", "help"]],
-            ],
+        $('#data-table').dataTable();
 
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable);
-            }
-
-        });
-
-        function sendFile(file, editor, welEditable) {
-            data = new FormData();
-            data.append("file", file);
-            $.ajax({
-                data: data,
-                type: "POST",
-                url: "<?php echo site_url() ?>backend/post/upload_image",
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(url) {
-                    editor.insertImage(welEditable, url);
-                }
-            });
-        }
-
-        $('.dropify').dropify({
-            messages: {
-                default: 'Drag atau drop untuk memilih gambar',
-                replace: 'Ganti',
-                remove: 'Hapus',
-                error: 'error'
-            }
-        });
-
-        $('.title').keyup(function() {
-            var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
-            $('.slug').val(title);
-        });
-
-        $(".availability_post").change(function() {
-            trigger_availability();
-        });
-
-        $(".social_post").change(function() {
-            trigger_social();
-        });
-
-
-        $('.title').keyup(function() {
-            var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
-            $('.slug').val(title);
-        });
-
-        $(".tags").change(function() {
-            console.log($(".tags").tagsinput('items'))
+        //Edit Record
+        $('.btn-edit').on('click', function() {
+            var id = $(this).data('id');
+            var post = $(this).data('post');
+            $('[name="id"]').val(id);
+            $('#EditModal').modal('show');
         });
 
     });
     </script>
+
+    <!--Toast Message-->
+    <?php if ($this->session->flashdata('msg') == 'info'): ?>
+    <script type="text/javascript">
+    $.toast({
+        heading: 'Info',
+        text: "Category Updated!",
+        showHideTransition: 'slide',
+        icon: 'info',
+        hideAfter: false,
+        position: 'bottom-right',
+        bgColor: '#00C9E6'
+    });
+    </script>
+    <?php else: ?>
+
+    <?php endif;?>
 
 </body>
 

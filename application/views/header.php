@@ -124,7 +124,7 @@
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarRestaurant">
 			                                    <a class="dropdown-item"
-			                                        href="<?php echo base_url() . 'restaurantcafe'; ?>">Restaurant</a>
+			                                        href="<?php echo base_url() . 'catlist/restaurant'; ?>">Restaurant</a>
 			                                    <div class="dropdown-divider"></div>
 			                                    <a class="dropdown-item" href="#">Cafe</a>
 			                                    <div class="dropdown-divider"></div>
@@ -168,7 +168,7 @@
 			                                </a>
 			                            </li>
 			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="<?php echo base_url() . 'home/promo'; ?>">
+			                                <a class="nav-link " href="<?php echo base_url() . '/promo'; ?>">
 			                                    <center>Promo</center>
 			                                </a>
 

@@ -137,18 +137,19 @@
                     </div>
                     <div class="row">
                         <div class="col-6 feature-b-image img-c-p"
-                            style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;">
+                            style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $slot1['post_image']; ?>')">
                             <div class="row d-flex align-items-end img-nc img-c-content" style="height:100%">
                                 <div class="col-12 mb-30">
                                     <div class="col-12 feature-date">
-                                        14 Juni 2020
+                                        <?php $date = date_create($slot1['post_date']);
+echo date_format($date, "d M Y");?>
                                     </div>
                                     <div class="col-12 feature-title">
-                                        consectetur, eum temporibus neque illo quod maxime quae cumqueconsectetur, eum
-                                        temporibus neque illo quod maxime quae cumque
+                                        <?=$slot1['post_title']?>
                                     </div>
                                     <div class="col-12 ">
-                                        <a class="a-link-c" href="<?php echo base_url() . 'news/detail'; ?>">Read
+                                        <a class="a-link-c"
+                                            href="<?php echo base_url() . 'news/detail/' . $slot1['post_slug']; ?>">Read
                                             Now</a>
                                     </div>
                                 </div>
@@ -197,7 +198,7 @@ echo date_format($date, "d M Y");?>
                                     </div>
                                     <div class="col-7">
                                         <div class="col-12 colot-theme-1 pb-10" style="font-size:12px;"><span><?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?> | <?=$item['post_views']?>
+echo date_format($date, "d M Y");?> | <?=min_of_read($item['post_title'], $item['post_contents'])?>
                                                 Min Read</span></div>
                                         <div class="col-12  text-thema-split-2" style="height:86px;">
                                             <div class="text-theme-1"

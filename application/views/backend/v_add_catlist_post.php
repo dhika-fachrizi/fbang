@@ -276,6 +276,7 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
                             <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
@@ -376,157 +377,158 @@ if ($query->num_rows() > 0):
                                                             class="form-control social_post"
                                                             placeholder="<?php echo $row->social_name; ?> link">
                                                     </div>
+                                                    <?php endforeach;?>
                                                 </div>
-                                                <?php endforeach;?>
+                                                <input id="social" type="hidden" name="social" value="[]">
                                             </div>
-                                            <input id="social" type="hidden" name="social" value="[]">
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="panel panel-white">
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <?php foreach ($availability->result() as $row): ?>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                            <label><?php echo $row->availability_name; ?></label>
+                                                            <input type="text"
+                                                                detail_name='<?php echo json_encode($row, 0); ?>'
+                                                                value="<?php echo $row->availability_name; ?>.com/"
+                                                                class="form-control availability_post"
+                                                                placeholder="<?php echo $row->availability_name; ?> Link">
+                                                        </div>
+                                                        <?php endforeach;?>
+                                                    </div>
+                                                    <input id="availability" type="hidden" name="availability"
+                                                        value="[]">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="col-md-12">
+
+                                <div class="col-md-4">
+                                    <div class="panel panel-white">
+
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label>Image</label>
+                                                <input type="file" name="filefoto" class="dropify" data-height="190"
+                                                    required>
+                                            </div>
+                                            <input type="hidden" name="type" value="2">
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select class="form-control" name="category" required
+                                                    onchange="dynamicAttribute(this)">
+                                                    <option value="">-Select Option-</option>
+                                                    <?php foreach ($category->result() as $row): ?>
+                                                    <option value="<?php echo $row->category_id; ?>">
+                                                        <?php echo $row->category_name; ?></option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </div>
+
+                                            <div id="dynamic-attribute">
+                                                <div class="form-group">
+                                                    <label>Location</label>
+                                                    <select class="form-control" name="location" required>
+                                                        <option value="">-Select Option-</option>
+                                                        <?php foreach ($location->result() as $row): ?>
+                                                        <option value="<?php echo $row->location_id; ?>">
+                                                            <?php echo $row->location_name; ?></option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Halal</label>
+                                                    <select class="form-control" name="halal" required>
+                                                        <option value="">-Select Option-</option>
+                                                        <option value="1">Halal</option>
+                                                        <option value="2">Non Halal</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Additional</label>
+                                                    <select class="form-control" name="additional">
+                                                        <option value="">-Select Option-</option>
+                                                        <?php foreach ($additional->result() as $row): ?>
+                                                        <option value="<?php echo $row->additional_id; ?>">
+                                                            <?php echo $row->additional_name; ?></option>
+                                                        <?php endforeach;?>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Tags</label>
+                                                <div class="bs-example">
+                                                    <input class="tags" name="tags" type="text" data-role="tagsinput" />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <select class="form-control" name="city"
+                                                    style="text-transform: capitalize;" required>
+                                                    <option value="">-Select Option-</option>
+                                                    <?php foreach ($city->result() as $row): ?>
+                                                    <option value="<?php echo $row->city_id; ?>">
+                                                        <?php echo strtolower($row->city_name); ?>
+                                                    </option>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
                                     <div class="panel panel-white">
                                         <div class="panel-body">
-                                            <div class="row">
-                                                <?php foreach ($availability->result() as $row): ?>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group">
-                                                        <label><?php echo $row->availability_name; ?></label>
-                                                        <input type="text"
-                                                            detail_name='<?php echo json_encode($row, 0); ?>'
-                                                            value="<?php echo $row->availability_name; ?>.com/"
-                                                            class="form-control availability_post"
-                                                            placeholder="<?php echo $row->availability_name; ?> Link">
-                                                    </div>
-                                                </div>
-                                                <?php endforeach;?>
+
+
+                                            <div class="form-group">
+                                                <label>Restaurant / Cafe Name</label>
+                                                <input type="Restaurant" name="catlist_name" class="form-control"
+                                                    placeholder="" required>
                                             </div>
-                                            <input id="availability" type="hidden" name="availability" value="[]">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="panel panel-white">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="Address" name="catlist_address" class="form-control"
+                                                    placeholder="" required>
+                                            </div>
 
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" name="filefoto" class="dropify" data-height="190" required>
-                                    </div>
-                                    <input type="hidden" name="type" value="2">
-                                    <div class="form-group">
-                                        <label>Category</label>
-                                        <select class="form-control" name="category" required
-                                            onchange="dynamicAttribute(this)">
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($category->result() as $row): ?>
-                                            <option value="<?php echo $row->category_id; ?>">
-                                                <?php echo $row->category_name; ?></option>
-                                            <?php endforeach;?>
-                                        </select>
-                                    </div>
 
-                                    <div id="dynamic-attribute">
-                                        <div class="form-group">
-                                            <label>Location</label>
-                                            <select class="form-control" name="location" required>
-                                                <option value="">-Select Option-</option>
-                                                <?php foreach ($location->result() as $row): ?>
-                                                <option value="<?php echo $row->location_id; ?>">
-                                                    <?php echo $row->location_name; ?></option>
-                                                <?php endforeach;?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Halal</label>
-                                            <select class="form-control" name="halal" required>
-                                                <option value="">-Select Option-</option>
-                                                <option value="1">Halal</option>
-                                                <option value="2">Non Halal</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Additional</label>
-                                            <select class="form-control" name="additional">
-                                                <option value="">-Select Option-</option>
-                                                <?php foreach ($additional->result() as $row): ?>
-                                                <option value="<?php echo $row->additional_id; ?>">
-                                                    <?php echo $row->additional_name; ?></option>
-                                                <?php endforeach;?>
-                                            </select>
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <input type="Phone" name="catlist_phone" class="form-control"
+                                                    placeholder="" required>
+                                            </div>
+                                            <div class="btn-group btn-group-justified" role="group">
+                                                <button type="submit" class="btn btn-primary btn-lg"
+                                                    style="width:100%"><span class="icon-cursor"></span>
+                                                    PUBLISH</button>
+                                            </div>
+
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Tags</label>
-                                        <div class="bs-example">
-                                            <input class="tags" name="tags" type="text" data-role="tagsinput" />
+                                    <div class="panel panel-white">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label>Meta Description</label>
+                                                <textarea name="description" cols="6" rows="6" class="form-control"
+                                                    placeholder="Meta Description"></textarea>
+                                            </div>
+
                                         </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>City</label>
-                                        <select class="form-control" name="city" style="text-transform: capitalize;"
-                                            required>
-                                            <option value="">-Select Option-</option>
-                                            <?php foreach ($city->result() as $row): ?>
-                                            <option value="<?php echo $row->city_id; ?>">
-                                                <?php echo strtolower($row->city_name); ?>
-                                            </option>
-                                            <?php endforeach;?>
-                                        </select>
                                     </div>
 
                                 </div>
-                            </div>
-
-                            <div class="panel panel-white">
-                                <div class="panel-body">
-
-
-                                    <div class="form-group">
-                                        <label>Restaurant / Cafe Name</label>
-                                        <input type="Restaurant" name="catlist_name" class="form-control" placeholder=""
-                                            required>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>Address</label>
-                                        <input type="Address" name="catlist_address" class="form-control" placeholder=""
-                                            required>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label>Phone</label>
-                                        <input type="Phone" name="catlist_phone" class="form-control" placeholder=""
-                                            value="02113456789" required>
-                                    </div>
-                                    <div class="btn-group btn-group-justified" role="group">
-                                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span
-                                                class="icon-cursor"></span> PUBLISH</button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="panel panel-white">
-                                <div class="panel-body">
-                                    <div class="form-group">
-                                        <label>Meta Description</label>
-                                        <textarea name="description" cols="6" rows="6" class="form-control"
-                                            placeholder="Meta Description"></textarea>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
 
                     </form>
                 </div><!-- Row -->
@@ -609,76 +611,58 @@ if ($query->num_rows() > 0):
         // console.log($("#availability").val());
     }
     $(document).ready(function() {
-        dynamicAttribute(null)
-        trigger_social();
-        trigger_availability();
-        $('#summernote').summernote({
-            height: 590,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'clear']],
-                ['fontsize', ['fontsize']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['insert', ['link', 'picture', 'hr']],
-                ['view', ["fullscreen", "codeview", "help"]],
-            ],
+                dynamicAttribute(null)
+                trigger_social();
+                trigger_availability();
+                $('#summernote').summernote({
+                            height: 590,
+                            toolbar: [
+                                ['style', ['style']],
+                                ['font', ['bold', 'italic', 'underline', 'clear']],
+                                ['fontsize', ['fontsize']],
+                                ['color', ['color']],
+                                ['para', ['ul', 'ol', 'paragraph']],
+                                ['insert', ['link', 'picture', 'hr']],
+                                ['view', ["fullscreen", "codeview", "help"]],
+                            ],
 
-            onImageUpload: function(files, editor, welEditable) {
-                sendFile(files[0], editor, welEditable);
-            }
-
-        });
-
-        function sendFile(file, editor, welEditable) {
-            data = new FormData();
-            data.append("file", file);
-            $.ajax({
-                data: data,
-                type: "POST",
-                url: "<?php echo site_url() ?>backend/post/upload_image",
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function(url) {
-                    editor.insertImage(welEditable, url);
-                }
-            });
-        }
+                            onImageUpload: function(files, editor, welEditable) {
+                                sendFile(files[0], editor, welEditable);
+                            }
 
 
 
-        $('.dropify').dropify({
-            messages: {
-                default: 'Drag atau drop untuk memilih gambar',
-                replace: 'Ganti',
-                remove: 'Hapus',
-                error: 'error'
-            }
-        });
+                            $('.dropify').dropify({
+                                messages: {
+                                    default: 'Drag atau drop untuk memilih gambar',
+                                    replace: 'Ganti',
+                                    remove: 'Hapus',
+                                    error: 'error'
+                                }
+                            });
 
-        $('.title').keyup(function() {
-            var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
-            $('.slug').val(title);
-        });
+                            $('.title').keyup(function() {
+                                var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g,
+                                '-');
+                                $('.slug').val(title);
+                            });
 
-        $(".availability_post").change(function() {
-            trigger_availability()
-        });
+                            $(".availability_post").change(function() {
+                                var input_availability = $(".availability_post");
 
-        $(".social_post").change(function() {
-            trigger_social()
-        });
+                                $(".availability_post").change(function() {
+                                    trigger_availability()
+                                });
 
-        $('.tags').tagsinput({
-            trimValue: true
-        });
+                                $(".social_post").change(function() {
+                                    trigger_social()
+                                });
 
-        $(".tags").change(function() {
-            console.log($(".tags").tagsinput('items'))
-        });
+                                $(".tags").change(function() {
+                                    console.log($(".tags").tagsinput('items'))
+                                });
 
-    });
+                            });
     </script>
 
 </body>

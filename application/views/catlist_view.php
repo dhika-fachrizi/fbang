@@ -242,20 +242,7 @@
                                                                     style="margin-top:0px;font-size:18px;font-weight:bold;letter-spacing: 0px; line-height: normal;">
                                                                     <a
                                                                         href="<?php echo base_url() . 'catlist/detail/' . $item->post_slug; ?>">
-                                                                        Lorem ipsum
-                                                                        dolor sit amet
-                                                                        con
-                                                                        adipisicing
-                                                                        elit. Laboriosam quasi
-                                                                        repudiandae error in unde delectus corporis
-                                                                        atque
-                                                                        nisi
-                                                                        voluptates
-                                                                        architecto,
-                                                                        nulla ad dolore harum id voluptate incidunt
-                                                                        fugiat
-                                                                        et
-                                                                        saepe.
+                                                                        <?php echo $item->post_title; ?>
                                                                     </a>
                                                                 </div>
                                                             </div>

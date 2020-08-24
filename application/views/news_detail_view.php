@@ -279,7 +279,7 @@ echo date_format($date, "d M Y");?>
                     </div>
                     <div class="row pt-20">
                         <div class="col-sm-12 d-flex justify-content-end">
-                            <a href="" class="a-link-c">SEE MORE >></a>
+                            <!-- <a href="" class="a-link-c">SEE MORE >></a> -->
                         </div>
                     </div>
 
