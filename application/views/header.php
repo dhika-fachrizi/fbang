@@ -14,17 +14,17 @@
 
 			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
-			                        <form action="<?php echo base_url() . 'home/search'; ?>" method="GET">
-			                            <li class="pl-0">
+
+			                        <li class="pl-0">
+			                            <form action="<?php echo base_url() . 'home/search'; ?>" method="get" id="form-search">
 			                                <div class="c-i-s"> <input type="text" name="search_query"
-			                                        class="form-control form-control-sm h-search" id="search_query"
+			                                        class="form-control form-control-sm h-search c-i-h" id="search_query"
 			                                        style="border-radius:20px;">
 			                                </div>
-			                            </li>
-			                            <li><button type="submit"><img
-			                                        src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
-			                                        height="15" /></button></li>
-			                        </form>
+			                            </form>
+			                        </li>
+			                        <li><img src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
+			                                height="15" onclick="w_search_resize()" id="img-s-h" pop="0" /></li>
 			                        <li><a class="btn-search"><span><img
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>
@@ -124,7 +124,7 @@
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarRestaurant">
 			                                    <a class="dropdown-item"
-			                                        href="<?php echo base_url() . 'restaurantcafe'; ?>">Restaurant</a>
+			                                        href="<?php echo base_url() . 'catlist/restaurant'; ?>">Restaurant</a>
 			                                    <div class="dropdown-divider"></div>
 			                                    <a class="dropdown-item" href="#">Cafe</a>
 			                                    <div class="dropdown-divider"></div>
@@ -168,7 +168,7 @@
 			                                </a>
 			                            </li>
 			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="<?php echo base_url() . 'home/promo'; ?>">
+			                                <a class="nav-link " href="<?php echo base_url() . '/promo'; ?>">
 			                                    <center>Promo</center>
 			                                </a>
 

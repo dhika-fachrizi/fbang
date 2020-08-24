@@ -10,8 +10,10 @@ class News extends CI_Controller
         $this->load->model('Home_model', 'home_model');
         $this->load->model('Site_model', 'site_model');
         $this->load->model('Detail_model', 'detail_model');
+        $this->load->model('News_model', 'news_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
+        $this->load->library('pagination');
     }
     public function index()
     {
@@ -22,70 +24,93 @@ class News extends CI_Controller
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
-        $data['post_header'] = $this->home_model->get_post_header();
-        $data['post_header_2'] = $this->home_model->get_post_header_2();
-        $data['post_header_3'] = $this->home_model->get_post_header_3();
-        $data['latest_post'] = $this->home_model->get_latest_post();
-        $data['popular_post'] = $this->home_model->get_popular_post();
-        $data['news_detail'] = $this->home_model->get_popular_post();
-        $home = $this->db->get('tbl_home', 1)->row();
-        $data['caption_1'] = $home->home_caption_1;
-        $data['caption_2'] = $home->home_caption_2;
-        $data['bg_header'] = $home->home_bg_heading;
-        $data['bg_testimoni'] = $home->home_bg_testimonial;
-        $data['testimonial'] = $this->db->get('tbl_testimonial');
         $site_info = $this->db->get('tbl_site', 1)->row();
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
+        $page = $this->input->get('search_query', true);
+        $data['popular'] = $this->detail_model->get_popular();
+        $start = $this->input->get('per_page', true);
+
+        $config['base_url'] = base_url() . '/news';
+        $config['total_rows'] = $this->news_model->get_post_news_count();
+        $config['per_page'] = 6;
+        $config['page_query_string'] = true;
+
+        //
+        $config['first_link'] = 'First';
+        $config['last_link'] = 'Last';
+        $config['next_link'] = 'Next';
+        $config['prev_link'] = 'Prev';
+        $config['full_tag_open'] = '<div><nav class="Page navigation example"><ul class="pagination justify-content-center">';
+        $config['full_tag_close'] = '</ul></nav></div>';
+        $config['num_tag_open'] = '<li class="page-item pr-10"><span class="page-link">';
+        $config['num_tag_close'] = '</span></li>';
+        $config['cur_tag_open'] = '<li class="page-item active pr-10"> <span class="page-link">';
+        $config['cur_tag_close'] = ' </span></li>';
+        $config['next_tag_open'] = '<li class="page-item pr-10"><span class="page-link">';
+        $config['next_tagl_close'] = '</span></li>';
+        $config['prev_tag_open'] = '<li class="page-item pr-10"><span class="page-link">';
+        $config['prev_tagl_close'] = '</span>Next</li>';
+        $config['first_tag_open'] = '<li class="page-item pr-10"><span class="page-link">';
+        $config['first_tagl_close'] = '</span></li>';
+        $config['last_tag_open'] = '<li class="page-item pr-10"> <span class="page-link">';
+        $config['last_tagl_close'] = '</span></li>';
+
+        $this->pagination->initialize($config);
+
+        if (!$page) {
+            $page = 0;
+        }
+        $data['news'] = $this->news_model->get_post_news($start, $config['per_page']);
         $this->load->view('news_view', $data);
     }
 
     public function detail($slug)
     {
-        $data=$this->home_model->get_post_by_slug($slug);
+        $data = $this->home_model->get_post_by_slug($slug);
         $search_result = count($data);
-		if($search_result > 0){
-		    $q=$data;
-    		$kode=$q['post_id'];
-    		$data['title']=$q['post_title'];
-    		if(empty($q['post_description'])){
-    			$data['description'] = strip_tags(word_limiter($q['post_contents'],25));	
-    		}else{
-    			$data['description'] = $q['post_description'];
-    		}
-        //$this->output->enable_profiler(TRUE);
-        $site = $this->site_model->get_site_data()->row_array();
-        $data['site_name'] = $site['site_name'];
-        $data['site_title'] = $site['site_title'];
-        $data['site_desc'] = $site['site_description'];
-        $data['site_twitter'] = $site['site_twitter'];
-        $data['site_image'] = $site['site_logo_big'];
-        $data['post_header'] = $this->home_model->get_post_header();
-        $data['post_header_2'] = $this->home_model->get_post_header_2();
-        $data['post_header_3'] = $this->home_model->get_post_header_3();
-        $data['latest_post'] = $this->home_model->get_latest_post();
-        $data['popular_post'] = $this->home_model->get_popular_post();
-        $data['detail'] = $this->detail_model->get_news_detail($kode);
-        $data['user'] = $this->detail_model->get_user();
-        $data['popular'] = $this->detail_model->get_popular();
-        $this->home_model->count_views($kode);
-        $home = $this->db->get('tbl_home', 1)->row();
-        $data['caption_1'] = $home->home_caption_1;
-        $data['caption_2'] = $home->home_caption_2;
-        $data['bg_header'] = $home->home_bg_heading;
-        $data['bg_testimoni'] = $home->home_bg_testimonial;
-        $data['testimonial'] = $this->db->get('tbl_testimonial');
-        $site_info = $this->db->get('tbl_site', 1)->row();
-        $v['logo'] = $site_info->site_logo_header;
-        $data['icon'] = $site_info->site_favicon;
-        $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
-        $this->load->view('news_detail_view', $data);
-    }else{
-        redirect('home');
-    }
+        if ($search_result > 0) {
+            $q = $data;
+            $kode = $q['post_id'];
+            $data['title'] = $q['post_title'];
+            if (empty($q['post_description'])) {
+                $data['description'] = strip_tags(word_limiter($q['post_contents'], 25));
+            } else {
+                $data['description'] = $q['post_description'];
+            }
+            //$this->output->enable_profiler(TRUE);
+            $site = $this->site_model->get_site_data()->row_array();
+            $data['site_name'] = $site['site_name'];
+            $data['site_title'] = $site['site_title'];
+            $data['site_desc'] = $site['site_description'];
+            $data['site_twitter'] = $site['site_twitter'];
+            $data['site_image'] = $site['site_logo_big'];
+            $data['post_header'] = $this->home_model->get_post_header();
+            $data['post_header_2'] = $this->home_model->get_post_header_2();
+            $data['post_header_3'] = $this->home_model->get_post_header_3();
+            $data['latest_post'] = $this->home_model->get_latest_post();
+            $data['popular_post'] = $this->home_model->get_popular_post();
+            $data['detail'] = $this->news_model->get_news_detail($kode);
+            $data['user'] = $this->detail_model->get_user();
+            $data['popular'] = $this->detail_model->get_popular();
+            $this->home_model->count_views($kode);
+            $home = $this->db->get('tbl_home', 1)->row();
+            $data['caption_1'] = $home->home_caption_1;
+            $data['caption_2'] = $home->home_caption_2;
+            $data['bg_header'] = $home->home_bg_heading;
+            $data['bg_testimoni'] = $home->home_bg_testimonial;
+            $data['testimonial'] = $this->db->get('tbl_testimonial');
+            $site_info = $this->db->get('tbl_site', 1)->row();
+            $v['logo'] = $site_info->site_logo_header;
+            $data['icon'] = $site_info->site_favicon;
+            $data['header'] = $this->load->view('header', $v, true);
+            $data['footer'] = $this->load->view('footer', '', true);
+            $this->load->view('news_detail_view', $data);
+        } else {
+            redirect('home');
+        }
     }
 
 }

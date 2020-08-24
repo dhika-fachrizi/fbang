@@ -98,25 +98,25 @@ class Home extends CI_Controller
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
-        $this->load->view('promo_home_view', $data);
+        $this->load->view('promo_view', $data);
     }
 
     public function search()
     {
         //$this->output->enable_profiler(TRUE);
-        $query = strip_tags(htmlspecialchars($this->input->get('search_query', TRUE), ENT_QUOTES));
+        $query = strip_tags(htmlspecialchars($this->input->get('search_query', true), ENT_QUOTES));
         $result = $this->home_model->search_blog($query);
         $search_result = count($result);
         if ($search_result > 0) {
             $data['data'] = $result;
             $data['keyword'] = $query;
             $data['judul'] = 'Hasil Pencarian :' . ' "' . $query . '"';
-            $data['search_result']= $search_result;
+            $data['search_result'] = $search_result;
         } else {
             $data['data'] = $result;
             $data['keyword'] = $query;
             $data['judul'] = 'Hasil Pencarian : "Tidak Temukan"';
-            $data['search_result']= $search_result;
+            $data['search_result'] = $search_result;
         }
         $site = $this->site_model->get_site_data()->row_array();
         $data['site_name'] = $site['site_name'];
@@ -143,5 +143,5 @@ class Home extends CI_Controller
         $data['footer'] = $this->load->view('footer', '', true);
         $this->load->view('search_home_view', $data);
     }
-    
+
 }

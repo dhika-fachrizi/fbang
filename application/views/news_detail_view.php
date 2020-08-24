@@ -1,3 +1,7 @@
+<?php
+$b_social = json_decode($detail['detail_news_social']);
+$b_availability = json_decode($detail['detail_news_availability']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +24,7 @@
     <link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css') ?>" />
     <!-- Favicons -->
     <link href="<?php echo base_url() . 'theme/css/jssocials.css' ?>" rel="stylesheet">
-	<link href="<?php echo base_url() . 'theme/css/jssocials-theme-flat.css' ?>" rel="stylesheet">
+    <link href="<?php echo base_url() . 'theme/css/jssocials-theme-flat.css' ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
@@ -49,11 +53,11 @@
 
     <!-- PRELOADER
 		==================================================-->
-    <div class="page-loader">
+    <!-- <div class="page-loader">
         <div class="loader-area"></div>
         <div class="loader font-face1">loading...
         </div>
-    </div>
+    </div> -->
     <!-- PAGE
 		==================================================-->
     <div id="top">
@@ -72,7 +76,7 @@
             <section>
                 <div class="container">
                     <div class="row  cpl-0">
-                        <div class="col-sm-12 pt-30 pb-30 pl-0 text-theme-1" style="font-size:15px;">
+                        <div class="col-sm-12 pt-30 pb-30 pl-0 " style="font-size:12px;">
                             Home/News/<a href=""><u>Detail News</u> </a>
                         </div>
                     </div>
@@ -88,17 +92,17 @@
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
                                         <div class="col-sm-7 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
-                                                    echo date_format($date, "d M Y"); ?>, <?= $user['user_name'] ?> |
-                                            <?= $detail['post_views']?> Mins read</div>
-                                        <div class="col-sm-5">
-											<div class="SocialShareArticle" style="color: #fff;font-size: 10px;"></div>
+echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
+                                            <?=$detail['post_views']?> Mins read</div>
+                                        <div class="col-sm-5 d-flex justify-content-end pr-30">
+                                            <div class="SocialShareArticle" style="color: #fff;font-size: 10px;"></div>
                                         </div>
                                     </div>
 
 
                                 </div>
                                 <div class="col-sm-12 pl-0 text-theme-2" style="font-size:40px">
-                                    <?= $detail['post_title'] ?>
+                                    <?=$detail['post_title']?>
                                 </div>
                             </div>
                             <div class="row lbpr-30 ">
@@ -108,8 +112,8 @@
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-30">
-                                    <img src="<?php echo base_url() . 'assets/images/'.$detail['post_image']; ?>."
-                                        class="img-fluid" alt="Responsive image">
+                                    <img src="<?php echo base_url() . 'assets/images/' . $detail['post_image']; ?>."
+                                        class="img-fluid" alt="Responsive image" width="100%">
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-10 text-thema-1 text-theme-color-1"
@@ -120,54 +124,74 @@
 
                             <div class="row lbpr-30 pt-20">
                                 <div class="col-sm-12 pl-0 text-thema-1" style="font-size:15px">
-                                    <?= $detail['post_contents'] ?>
+                                    <?=$detail['post_contents']?>
                                 </div>
                             </div>
 
-                            <div class="row mt-30 lbpr-30 mb-30" style=" background-color:#FFF9EA;">
-                                <div class="col-3 pl-0 pr-0">
-                                    <div class="col-12 pl-0 news-b-image m-0 "
-                                        style="background-image: url('') ; background-color:#F4F4F4; height: 140px;">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <div class="pt-10" style="color:red;">Restourant Name</div>
-                                            <div class="pt-10" style="font-size:12px;">Jl. Tanjung Duren Utara 7, no.
-                                                482 Grogol Jakarta Barat</div>
-                                            <div class="" style="font-size:12px;">081296868
-                                            </div>
+                            <div class="mt-30 lbpr-30 mb-30">
+                                <div class="row" style=" background-color:#FFF9EA;">
+                                    <div class="col-3 pl-0 pr-0">
+                                        <div class="col-12 pl-0 news-b-image m-0 "
+                                            style="background-image: url('') ; background-color:#F4F4F4; min-height: 140px;height:100%">
                                         </div>
-                                        <div class="col-6">
-                                            <div class="row">
-                                                <div class="pt-10 col-12 d-flex justify-content-end"
-                                                    style="font-size:10px;">avalibel at</div>
-                                                <div class="pt-10 col-12 d-flex justify-content-end">
-                                                    <div class="">
-                                                        <img src="<?php echo base_url() . 'assets/images/gofood.png'; ?>"
-                                                            class="img-fluid" alt="Responsive image"><img
-                                                            src="<?php echo base_url() . 'assets/images/grabfood.png'; ?>"
-                                                            class="img-fluid" alt="Responsive image">
-
+                                    </div>
+                                    <div class="col-9 pb-10">
+                                        <div class="row" style="min-height:100%;">
+                                            <div class="col-7">
+                                                <div class="row" style="min-height:100%;">
+                                                    <div class="col-12 pt-10" style="color:red;">
+                                                        <?=$detail['detail_news_name']?>
+                                                    </div>
+                                                    <div class="col-12" style="font-size:12px;">
+                                                        <?=$detail['detail_news_address']?></div>
+                                                    <div class="col-12  d-flex align-items-end" style="font-size:12px;">
+                                                        <?=$detail['detail_news_phone']?>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-5">
+                                                <div class="row" style="min-height:100%;">
+                                                    <div class="pt-10 col-12 d-flex justify-content-end"
+                                                        style="font-size:10px;">avalibel at</div>
+                                                    <div class="pt-10 col-12  d-flex flex-row-reverse">
+                                                        <div class="row ">
+                                                            <?php foreach ($b_availability as $a): ?>
+                                                            <div><a href="http://<?php echo $a->availability_value; ?>"><img
+                                                                        src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
+                                                                        class="img-fluid pr-10 pb-10"
+                                                                        alt="Responsive image">
+                                                                </a>
+                                                            </div>
+                                                            <?php endforeach;?>
+                                                        </div>
+                                                    </div>
+
+                                                    <div
+                                                        class="pt-10 pr-0 col-12 row d-flex flex-row-reverse d-flex align-items-end">
+                                                        <?php foreach ($b_social as $s): ?>
+                                                        <a href="http://<?php echo $s->social_value; ?>"><i
+                                                                class="<?php echo $s->social_icon; ?> pl-10"></i></a>
+
+                                                        <?php endforeach;?>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
 
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row mb-30">
                                 <div class="col-12 pl-0">
-                                <?php $split_tag = explode(",", $detail['post_tags']);foreach ($split_tag as $tag):?>
+                                    <?php $split_tag = explode(",", $detail['post_tags']);foreach ($split_tag as $tag): ?>
                                     <div class="float-left mr-10"
                                         style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
                                         <a href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
                                     </div>
-                                    <?php endforeach; ?>
+                                    <?php endforeach;?>
                                 </div>
                             </div>
 
@@ -176,11 +200,9 @@
 
                             <div>
                                 <div class="row">
-
                                     <div class="col-sm-12 pl-0 news-b-image m-0 "
                                         style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%">
                                     </div>
-
                                 </div>
                                 <div class="row text-theme-2 pt-30 pb-30  cpl-0">
                                     <i><b>Popular in Foodbang</b></i>
@@ -189,23 +211,25 @@
                                     </div>
                                 </div>
 
-                                <?php foreach ($popular as $item) : ?>
-                                    <div class="row pb-20 cpl-0">
-                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/'.$item['post_image']; ?>') ;">
-                                        </div>
-                                        <div class="col-8 pl-0 pr-0">
-                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>
-                                                    <?php $date = date_create($item['post_date']);
-                                                    echo date_format($date, "d M Y"); ?>
-                                                </span></div>
-                                            <div class="col-12  text-thema-split-2" style="height:40px;">
-                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                    <?= $item['post_title'] ?>
-                                                </div>
+                                <?php foreach ($popular as $item): ?>
+                                <div class="row pb-20 cpl-0">
+                                    <div class="col-4 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                    </div>
+                                    <div class="col-8 pl-0 pr-0">
+                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>
+                                                <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
+                                            </span></div>
+                                        <div class="col-12  text-thema-split-2" style="height:40px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
+                                                <?=$item['post_title']?>
                                             </div>
                                         </div>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                                <?php endforeach?>
                             </div>
 
 
@@ -255,7 +279,7 @@
                     </div>
                     <div class="row pt-20">
                         <div class="col-sm-12 d-flex justify-content-end">
-                            <a href="" class="a-link-c">SEE MORE >></a>
+                            <!-- <a href="" class="a-link-c">SEE MORE >></a> -->
                         </div>
                     </div>
 
@@ -312,20 +336,28 @@
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>">
     </script>
     <script src="<?php echo base_url('theme/js/jssocials.min.js') ?>"></script>
-   <script>
-		$(document).ready(function(){
-			$(".SocialShareArticle").jsSocials({
-                    showCount: false,
-                    showLabel: true,
-                    shareIn: "popup",
-                    shares: [
-                    { share: "twitter", label: "Twitter" },
-                    { share: "facebook", label: "Facebook" },
-                    { share: "whatsapp", label: "WhatsApp" }
-                    ]
-            });
-		});
-	</script>
+    <script>
+    $(document).ready(function() {
+        $(".SocialShareArticle").jsSocials({
+            showCount: false,
+            showLabel: true,
+            shareIn: "popup",
+            shares: [{
+                    share: "twitter",
+                    label: "Twitter"
+                },
+                {
+                    share: "facebook",
+                    label: "Facebook"
+                },
+                {
+                    share: "whatsapp",
+                    label: "WhatsApp"
+                }
+            ]
+        });
+    });
+    </script>
 
 </body>
 
