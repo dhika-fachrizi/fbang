@@ -338,6 +338,7 @@ if ($query->num_rows() > 0):
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Category</th>
                                                 <th>Location</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
@@ -350,11 +351,12 @@ foreach ($data->result() as $row):
     ?>
                                             <tr>
                                                 <td><?php echo $no; ?></td>
+                                                <td><?php echo $row->category_name; ?></td>
                                                 <td><?php echo $row->location_name; ?></td>
 
                                                 <td style="text-align: center;">
                                                     <a href="javascript:void(0);" class="btn btn-xs btn-edit"
-                                                        onclick="edt(<?php echo $row->location_id; ?>,'<?php echo $row->location_name; ?>')"
+                                                        onclick="edt(<?php echo $row->location_id; ?>,'<?php echo $row->location_name; ?>',<?php echo $row->category_id; ?>)"
                                                         data-id="<?php echo $row->location_id; ?>"
                                                         data-location="<?php echo $row->location_name; ?>"><span
                                                             class="fas fa-edit"></span></a>
@@ -393,9 +395,19 @@ foreach ($data->result() as $row):
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <select class="form-control" name="category" required>
+                                <option value="">-Select Category-</option>
+                                <?php foreach ($category->result() as $row): ?>
+                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->category_name; ?>
+                                </option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <input type="text" name="location" class="form-control" placeholder="location Name"
                                 required>
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -418,7 +430,15 @@ foreach ($data->result() as $row):
                         <h4 class="modal-title" id="myModalLabel">Edit location</h4>
                     </div>
                     <div class="modal-body">
-
+                        <div class="form-group">
+                            <select class="form-control" name="category2" required>
+                                <option value="">-Select Category-</option>
+                                <?php foreach ($category->result() as $row): ?>
+                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->category_name; ?>
+                                </option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <input type="text" name="location2" class="form-control" placeholder="location Name"
                                 required>
@@ -486,9 +506,10 @@ foreach ($data->result() as $row):
         $('#DeleteModal').modal('show');
     }
 
-    function edt(id, name) {
+    function edt(id, name, category_id) {
         $('[name="kode"]').val(id);
         $('[name="location2"]').val(name);
+        $('[name="category2"]').val(category_id);
         $('#EditModal').modal('show');
     }
     $(document).ready(function() {

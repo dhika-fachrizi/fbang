@@ -340,6 +340,7 @@ if ($query->num_rows() > 0):
                                         <thead>
                                             <tr>
                                                 <th>No</th>
+                                                <th>Category</th>
                                                 <th>Additional</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
@@ -352,11 +353,12 @@ foreach ($data->result() as $row):
     ?>
                                             <tr>
                                                 <td><?php echo $no; ?></td>
+                                                <td><?php echo $row->category_name; ?></td>
                                                 <td><?php echo $row->additional_name; ?></td>
 
                                                 <td style="text-align: center;">
                                                     <a href="javascript:void(0);" class="btn btn-xs btn-edit"
-                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>')"
+                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>',<?php echo $row->category_id; ?>)"
                                                         data-id="<?php echo $row->additional_id; ?>"
                                                         data-additional="<?php echo $row->additional_name; ?>"><span
                                                             class="fas fa-edit"></span></a>
@@ -395,6 +397,15 @@ foreach ($data->result() as $row):
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <select class="form-control" name="category" required>
+                                <option value="">-Select Category-</option>
+                                <?php foreach ($category->result() as $row): ?>
+                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->category_name; ?>
+                                </option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <input type="text" name="additional" class="form-control" placeholder="additional Name"
                                 required>
                         </div>
@@ -420,7 +431,15 @@ foreach ($data->result() as $row):
                         <h4 class="modal-title" id="myModalLabel">Edit additional</h4>
                     </div>
                     <div class="modal-body">
-
+                        <div class="form-group">
+                            <select class="form-control" name="category2" required>
+                                <option value="">-Select Category-</option>
+                                <?php foreach ($category->result() as $row): ?>
+                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->category_name; ?>
+                                </option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <input type="text" name="additional2" class="form-control" placeholder="additional Name"
                                 required>
@@ -488,10 +507,11 @@ foreach ($data->result() as $row):
         $('#DeleteModal').modal('show');
     }
 
-    function edt(id, name) {
+    function edt(id, name, category_id) {
 
         $('[name="kode"]').val(id);
         $('[name="additional2"]').val(name);
+        $('[name="category2"]').val(category_id);
         $('#EditModal').modal('show');
     }
 

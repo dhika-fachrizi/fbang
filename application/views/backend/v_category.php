@@ -168,10 +168,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                                    <img class="img-circle avatar"
-	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                        width="40" height="40" alt="">
-	                                    <?php else: ?>
+                                    <img class="img-circle avatar"
+                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                        width="40" height="40" alt="">
+                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -215,16 +215,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                        <a href="javascript:void(0);">
-	                            <div class="sidebar-profile-image">
-	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                    class="img-circle img-responsive" alt="">
-	                            </div>
-	                            <div class="sidebar-profile-details">
-	                                <span><?php echo $this->session->userdata('name'); ?><br>
-	                                    <?php if ($row['user_level'] == '1'): ?>
-	                                    <small>Administrator</small>
-	                                    <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-image">
+                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                    class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span><?php echo $this->session->userdata('name'); ?><br>
+                                    <?php if ($row['user_level'] == '1'): ?>
+                                    <small>Administrator</small>
+                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -266,9 +266,9 @@ if ($query->num_rows() > 0):
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li class="active"><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
-<li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
-<li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
-<li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+                            <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
+                            <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
+                            <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
@@ -349,25 +349,25 @@ $no = 0;
 foreach ($data->result() as $row):
     $no++;
     ?>
-	                                            <tr>
-	                                                <td><?php echo $no; ?></td>
-	                                                <td><?php echo $row->category_name; ?></td>
-	                                                <td><?php echo $row->type_name; ?></td>
-	                                                <td style="text-align: center;">
-	                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
-	                                                        onclick="edt(<?php echo $row->category_id; ?>,'<?php echo $row->category_name; ?>',<?php echo $row->type_id; ?>)"
-	                                                        data-id="<?php echo $row->category_id; ?>"
-	                                                        data-category="<?php echo $row->category_name; ?>"
-	                                                        data-typeid="<?php echo $row->type_id; ?>"
-	                                                        data-typename="<?php echo $row->type_name; ?>"><span
-	                                                            class="fas fa-edit"></span></a>
-	                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
-	                                                        onclick="del(<?php echo $row->category_id; ?>)"
-	                                                        data-id="<?php echo $row->category_id; ?>"><span
-	                                                            class="fa fa-trash"></span></a>
-	                                                </td>
-	                                            </tr>
-	                                            <?php endforeach;?>
+                                            <tr>
+                                                <td><?php echo $no; ?></td>
+                                                <td><?php echo $row->category_name; ?></td>
+                                                <td><?php echo $row->type_name; ?></td>
+                                                <td style="text-align: center;">
+                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
+                                                        onclick="edt(<?php echo $row->category_id; ?>,'<?php echo $row->category_name; ?>',<?php echo $row->type_id; ?>)"
+                                                        data-id="<?php echo $row->category_id; ?>"
+                                                        data-category="<?php echo $row->category_name; ?>"
+                                                        data-typeid="<?php echo $row->type_id; ?>"
+                                                        data-typename="<?php echo $row->type_name; ?>"><span
+                                                            class="fas fa-edit"></span></a>
+                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
+                                                        onclick="del(<?php echo $row->category_id; ?>)"
+                                                        data-id="<?php echo $row->category_id; ?>"><span
+                                                            class="fa fa-trash"></span></a>
+                                                </td>
+                                            </tr>
+                                            <?php endforeach;?>
                                         </tbody>
 
                                     </table>

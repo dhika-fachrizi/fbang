@@ -175,10 +175,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                                    <img class="img-circle avatar"
-	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                        width="40" height="40" alt="">
-	                                    <?php else: ?>
+                                    <img class="img-circle avatar"
+                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                        width="40" height="40" alt="">
+                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -222,16 +222,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                        <a href="javascript:void(0);">
-	                            <div class="sidebar-profile-image">
-	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                    class="img-circle img-responsive" alt="">
-	                            </div>
-	                            <div class="sidebar-profile-details">
-	                                <span><?php echo $this->session->userdata('name'); ?><br>
-	                                    <?php if ($row['user_level'] == '1'): ?>
-	                                    <small>Administrator</small>
-	                                    <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-image">
+                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                    class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span><?php echo $this->session->userdata('name'); ?><br>
+                                    <?php if ($row['user_level'] == '1'): ?>
+                                    <small>Administrator</small>
+                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -279,9 +279,9 @@ if ($query->num_rows() > 0):
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
-<li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
-<li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
-<li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
+                            <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
+                            <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
+                            <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
@@ -437,15 +437,14 @@ if ($query->num_rows() > 0):
                                     <div class="form-group">
                                         <label>Promo Start</label>
                                         <input type="date" name="promo_start" class="form-control" placeholder=""
-                                            value="<?php echo date('Y-m-d', time($b['detail_promo_start'])); ?>"
-                                            required>
+                                            value="<?php echo date('Y-m-d', $b['detail_promo_start']); ?>" required>
 
                                     </div>
 
                                     <div class="form-group">
                                         <label>Promo End</label>
                                         <input type="date" name="promo_end" class="form-control" placeholder=""
-                                            value="<?php echo date('Y-m-d', time($b['detail_promo_end'])); ?>" required>
+                                            value="<?php echo date('Y-m-d', $b['detail_promo_end']); ?>" required>
                                     </div>
 
                                     <div class="btn-group btn-group-justified" role="group">

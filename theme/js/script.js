@@ -1032,18 +1032,21 @@ function linkIn(a) {
 }
 
 function w_search_resize() {
-
+	var search_input = $("#search_query").val();
 	if ($('#img-s-h').attr("pop") == 1) {
-		$('.c-i-s').css({
-			"width": "10px"
-		});
 
+		if (search_input != "" && search_input != undefined) {
+			$("#form-search").submit();
+		} else {
+			$('.c-i-s').css({
+				"width": "10px"
+			});
+			$('.c-i-h').css({
+				"border-width": "0px"
+			});
+			$('#img-s-h').attr("pop", 0)
+		}
 
-		$('.c-i-h').css({
-			"border-width": "0px"
-		});
-
-		$('#img-s-h').attr("pop", 0)
 	} else {
 		$('.c-i-s').css({
 			"width": "200px"
