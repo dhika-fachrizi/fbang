@@ -85,7 +85,8 @@
                             <div class="row">
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
-                                        <div class="col-4 t-5-b text-theme-2 fz-25"><i>New Promo</i></div>
+                                        <div class="col-4 t-5-b text-theme-2 fz-25"><i>Diskon Yang Bakal Loe Suka !</i>
+                                        </div>
                                         <div class="col-8">
                                             <div class="row d-flex justify-content-end">
                                                 <div class="pr-20 pt-10"><i class="fas fa-search"></i>
@@ -113,29 +114,20 @@
                                 </div>
                                 <div class="col-sm-12 pl-0">
                                     <div class="row mt-10">
-                                        <?php foreach ([1, 2, 3, 4, 6, 3, 1, 2, 3, 4, 6, 3] as $item): ?>
+                                        <?php foreach ($promo as $item): ?>
                                         <div class="col-md-4 pb-20">
                                             <div class="row pl-10">
                                                 <div class="col-sm-12">
                                                     <div class="row"
                                                         style="border:1px #DDDDDD solid;border-radius:3px;">
                                                         <div class="col-sm-12 popular-b-image m-0 pl-10"
-                                                            style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ; height:250px;">
+                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>') ; height:250px;">
                                                         </div>
                                                         <div class="col-sm-12 mt-10 pl-10 text-thema-split-2"
                                                             style="height:60px;">
                                                             <div class="text-theme-1"
                                                                 style="margin-top:0px;font-size:18px;font-weight:bold;">
-                                                                Lorem ipsum
-                                                                dolor sit amet
-                                                                con
-                                                                adipisicing
-                                                                elit. Laboriosam quasi
-                                                                repudiandae error in unde delectus corporis atque nisi
-                                                                voluptates
-                                                                architecto,
-                                                                nulla ad dolore harum id voluptate incidunt fugiat et
-                                                                saepe.
+                                                                <?=$item->post_title;?>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 mtc-5 ">
@@ -148,7 +140,7 @@
                                                                             </i>
                                                                         </div>
                                                                         <div class="color-theme-1 f-t-12">
-                                                                            Lorem Ipsum Dolor
+                                                                            <?=$item->detail_promo_name;?>
                                                                         </div>
                                                                     </div>
                                                                     <div class="row  pl-10">
@@ -157,8 +149,9 @@
                                                                                 style="font-size:12px;width:10px">
                                                                             </i>
                                                                         </div>
-                                                                        <div class="color-theme-1 f-t-12">
-                                                                            Jakarta
+                                                                        <div class="color-theme-1 f-t-12"
+                                                                            style="text-transform: capitalize;">
+                                                                            <?=strtolower($item->city_name)?>
                                                                         </div>
                                                                     </div>
 
@@ -171,7 +164,7 @@
                                                                             </i>
                                                                         </div>
                                                                         <div class="color-theme-1 f-t-12">
-                                                                            00.00 - 00.00
+                                                                            <?=$item->detail_promo_time;?>
                                                                         </div>
                                                                     </div>
 
@@ -181,8 +174,17 @@
                                                         </div>
 
                                                         <div class="col-sm-12 mt-30  d-flex align-items-center d-flex justify-content-center btn"
-                                                            data-toggle="modal" data-target="#exampleModalCenter"
-                                                            style=" background-color: #F79D46;height:40px;border-radius:0px;">
+                                                            id="post-<?=$item->post_id;?>" data-toggle="modal"
+                                                            onclick="goModal(this)" data-title="<?=$item->post_title;?>"
+                                                            data-time="<?=$item->detail_promo_time;?>"
+                                                            data-short-desc="<?=$item->detail_promo_short_desc;?>"
+                                                            data-address="<?=$item->detail_promo_address;?>"
+                                                            data-name="<?=$item->detail_promo_name;?>"
+                                                            data-content='<?=$item->post_contents;?>'
+                                                            data-city='<?=strtolower($item->city_name);?>'
+                                                            data-img="<?php echo base_url() . 'assets/images/' . $item->post_image; ?>"
+                                                            style=" background-color:
+                                                            #F79D46;height:40px;border-radius:0px;">
 
                                                             <div class="">
                                                                 CHECK PROMO
@@ -212,16 +214,16 @@
 
     </div>
     <!-- Modal -->
-    <div class="modal fade bd-example-modal-xl" id="exampleModalCenter" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-xl" id="promo-modal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
 
-                <div class="modal-body">
+                <div class="modal-body" style="padding:30px;">
                     <div class="row">
                         <div class="col-7">
-                            <div class="col-12 news-b-image m-0 img-promo-modal"
-                                style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ; width:100%;">
+                            <div class="col-12 news-b-image m-0 img-promo-modal data-img"
+                                style="height:368px; width:100%;">
 
                             </div>
                         </div>
@@ -233,35 +235,36 @@
                                     </div>
                                     <div class="col-12 pl-30">
                                         <div class="row overflow-hidden">
-                                            <div class="col-12 f-t-18">
+                                            <div class="col-12 f-t-18 pb-10">
                                                 <div class="row">
                                                     <div><i class="fas fa-home c-t-1">
                                                         </i></div>
-                                                    <div class="pl-10 c-t-2">Lorem Ipsum Dolor</div>
+                                                    <div class="pl-10 c-t-2 data-name">Lorem Ipsum Dolor</div>
                                                 </div>
 
                                             </div>
-                                            <div class="col-12 f-t-18">
+                                            <div class="col-12 f-t-18 pb-10">
                                                 <div class="row">
                                                     <div><i class="fas fa-map-marker c-t-1">
                                                         </i></div>
-                                                    <div class="pl-10 c-t-2">Jakarta</div>
+                                                    <div class="pl-10 c-t-2 data-city"
+                                                        style="text-transform: capitalize;">Jakarta</div>
                                                 </div>
 
                                             </div>
-                                            <div class="col-12 f-t-18">
+                                            <div class="col-12 f-t-18 pb-10">
                                                 <div class="row">
                                                     <div><i class="fas fa-clock c-t-1">
                                                         </i></div>
-                                                    <div class="pl-10 c-t-2">00.00 - 00.00</div>
+                                                    <div class="pl-10 c-t-2 data-time">00.00 - 00.00</div>
                                                 </div>
 
                                             </div>
-                                            <div class="col-12 f-t-18">
+                                            <div class="col-12 f-t-18 pb-10">
                                                 <div class="row">
-                                                    <div><i class="fas fa-phone c-t-1">
+                                                    <div><i class="fas fa-home c-t-1">
                                                         </i></div>
-                                                    <div class="pl-10 c-t-2">(021) 1234 5678</div>
+                                                    <div class="pl-10 c-t-2 data-address">(021) 1234 5678</div>
                                                 </div>
 
                                             </div>
@@ -272,7 +275,7 @@
                                     </div>
                                     <div class="col-12  f-t-18">
                                         <div style="width: 100%; height:80px; overflow:hidden;">
-                                            <div
+                                            <div class="data-short-desc data-title"
                                                 style="width: 100%; height:100%;  overflow-y: scroll; padding-right:18px; box-sizing: content-box;">
                                                 Vivamus eget aliquam dui. Integer eu arcu vel arcu suscipit ultrices
                                                 quis
@@ -293,53 +296,13 @@
 
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mb-30">
                             <div class="row pt-20">
-                                <div class="col-12">
-                                    <ol>
-                                        <li>Promo Cicilan 0% berlaku untuk semua member blanja.com dan pengguna kartu
-                                            kredit dari Bank yang bekerjasama dengan blanja.com</li>
-                                        <li>Promo Cicilan 0% hanya untuk tenor 3 bulan dan 6 bulan ( Berlaku hanya untuk
-                                            bank yang di promokan). Diluar dari Tenor tersebut, dikenakan biaya cicilan
-                                            bunga ringan sesuai dengan ketentuan masing masing Bank penerbit</li>
-                                        <li>Khusus pengguna kartu kredit AEON cicilan 0% hanya berlaku untuk tenor 3
-                                            bulan</li>
-                                        <li>Minimum transaksi setelah potongan diskon atau pemakaian voucher tambahan
-                                            adalah IDR 1.000.000 untuk tenor 3 bulan, IDR 3.000.000 untuk tenor 6 bulan
-                                        </li>
-                                        <li>Persetujuan permohonan cicilan adalah hak pihak Bank sepenuhnya</li>
-                                        <li>Proses pengubahan transaksi ke cicilan dilakukan oleh masing-masing Bank,
-                                            dan waktunya tergantung Bank penerbit. Anda bisa menanyakan proses
-                                            pengubahan ke cicilan ini ke Call Center Bank penerbit masing-masing</li>
-                                        <li>Khusus untuk pemegang Kartu Kredit BRI:
-                                            <ul>
-                                                <li>Biaya administrasi sebesar Rp 50.000 akan dikenakan untuk setiap
-                                                    transaksi yang diubah menjadi cicilan, sesuai dengan kebijakan yang
-                                                    dikeluarkan oleh BRI</li>
-                                                <li>Fee transaksi Rp. 50.000 akan di debit otomatis dan di informasikan
-                                                    dalam billing tagihan</li>
-                                                <li>Untuk info lebih lanjut silahkan hubungin Customer Service BRI di
-                                                    14017 / 021-57987400</li>
-                                            </ul>
-                                        </li>
-                                        <li>Khusus untuk pemegang Kartu Kredit ANZ:
-                                            <ul>
-                                                <li>Biaya administrasi sebesar Rp 10.000 akan dikenakan untuk setiap
-                                                    transaksi yang diubah menjadi cicilan, sesuai dengan kebijakan yang
-                                                    dikeluarkan oleh ANZ</li>
-                                                <li>Fee transaksi Rp. 10.000 akan di debit otomatis dan di informasikan
-                                                    dalam billing tagihan</li>
-                                                <li>Cicilan 0% tidak berlaku untuk Kartu iPay dan Kartu Cicilan</li>
-                                                <li>Untuk info lebih lanjut silahkan hubungin Customer Service ANZ di
-                                                    0804 1000 269 / 021-2758 6777</li>
-                                            </ul>
-                                        </li>
-                                        <li>Promo berlaku untuk semua produk di situs blanja.com yang mengikuti syarat
-                                            dan ketentuan, tidak hanya terbatas pada produk di dalam halaman ini</li>
-                                        <li>Periode 6 Januari &ndash; 31 Maret 2017 untuk MNC BANK, Danamon, AEON, BRI,
-                                            UOB, Permata, Panin, ANZ, OCBC, CitiBank, BCA, HSBC, BUKOPIN, BNI, CIMB
-                                            NIAGA dan Standard Chartered</li>
-                                    </ol>
+                                <div class="col-12 f-t-18">
+                                    <b> Syarat & Ketentuan </b>
+                                </div>
+                                <div class="col-12 data-content pt-10">
+
                                 </div>
                             </div>
                         </div>
@@ -371,7 +334,38 @@
     <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
     <script>
+    function goModal(e) {
+        $('.data-content').html($(e).data(`content`))
+        $('.data-time').html($(e).data(`time`))
+        $('.data-title').html($(e).data(`title`))
+        $('.data-name').html($(e).data(`name`))
+        $('.data-address').html($(e).data(`address`))
+        $('.data-city').html($(e).data(`city`))
+        $('.data-img').css({
+            "background-image": "url('" + $(e).data(`img`) + "')"
+        })
 
+
+        console.log($(e).data(`title`));
+        $('#promo-modal').modal('toggle')
+
+    }
+
+    function getModalPromo() {
+        let searchParams = new URLSearchParams(window.location.search)
+        if (searchParams.has('id_promo')) {
+            let post_id = searchParams.get('id_promo');
+            goModal('#post-' + post_id)
+        }
+
+
+
+    }
+
+    $(document).ready(function() {
+        getModalPromo();
+
+    });
     </script>
 
 </body>

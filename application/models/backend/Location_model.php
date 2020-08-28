@@ -1,30 +1,50 @@
 <?php
-class Location_model extends CI_Model{
+class Location_model extends CI_Model
+{
 
-	function get_all_location(){
-		$result = $this->db->get('tbl_location');
-		return $result; 
-	}
+    public function get_all_location()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_location');
+        $this->db->join('tbl_category', 'location_category_id=category_id', 'left');
+        // $this->db->order_by('post_date', 'DESC');
+        $result = $this->db->get();
+        return $result;
+    }
 
-	function add_new_row($location){
-		$data = array(
-	        'location_name' => $location,
-		);
-		$this->db->insert('tbl_location', $data);
-	}
+    public function get_location_by_category($category)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_location');
+        $this->db->join('tbl_category', 'location_category_id=category_id', 'left');
+        $this->db->where('category_id', $category);
+        $result = $this->db->get();
+        return $result;
+    }
 
-	function edit_row($id,$location){
-		$data = array(
-	        'location_name' => $location
-		);
-		$this->db->where('location_id', $id);
-		$this->db->update('tbl_location', $data);
-	}
+    public function add_new_row($location, $category)
+    {
+        $data = array(
+            'location_name' => $location,
+            'location_category_id' => $category,
+        );
+        $this->db->insert('tbl_location', $data);
+    }
 
-	function delete_row($id){
-		$this->db->where('location_id', $id);
-		$this->db->delete('tbl_location');
-	}
+    public function edit_row($id, $location, $category)
+    {
+        $data = array(
+            'location_name' => $location,
+            'location_category_id' => $category,
+        );
+        $this->db->where('location_id', $id);
+        $this->db->update('tbl_location', $data);
+    }
 
+    public function delete_row($id)
+    {
+        $this->db->where('location_id', $id);
+        $this->db->delete('tbl_location');
+    }
 
 }

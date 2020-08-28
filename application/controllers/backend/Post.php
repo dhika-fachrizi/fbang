@@ -12,11 +12,13 @@ class Post extends CI_Controller
         $this->load->model('backend/Category_model', 'category_model');
         $this->load->model('backend/City_model', 'city_model');
         $this->load->model('backend/Location_model', 'location_model');
+        $this->load->model('backend/Subcategory_model', 'subcategory_model');
         $this->load->model('backend/Additional_model', 'additional_model');
         $this->load->model('backend/Type_model', 'type_model');
         $this->load->model('backend/Post_model', 'post_model');
         $this->load->model('backend/Availability_model', 'availability_model');
         $this->load->model('backend/Social_model', 'social_model');
+        $this->load->model('backend/Additional_model', 'additional_model');
         $this->load->library('upload');
         $this->load->helper('text');
     }
@@ -35,6 +37,8 @@ class Post extends CI_Controller
         $x['city'] = $this->city_model->get_all_city();
         $x['location'] = $this->location_model->get_all_location();
         $x['additional'] = $this->additional_model->get_all_additional();
+        $x['social'] = $this->social_model->get_social();
+        $x['availability'] = $this->availability_model->get_availability();
         $this->load->view('backend/v_add_post', $x);
     }
 
@@ -73,10 +77,13 @@ class Post extends CI_Controller
         $x['tag'] = $this->tag_model->get_all_tag();
         $x['category'] = $this->category_model->get_all_category_by_type(1);
         $x['type'] = $this->type_model->get_all_type();
-        $x['data'] = $this->post_model->get_post_by_id($post_id);
+        $x['data'] = $this->post_model->get_news_post_by_id($post_id);
         $x['city'] = $this->city_model->get_all_city();
         $x['location'] = $this->location_model->get_all_location();
+        $x['availability'] = $this->availability_model->get_availability();
+        $x['social'] = $this->social_model->get_social();
         $x['additional'] = $this->additional_model->get_all_additional();
+
         $this->load->view('backend/v_edit_post', $x);
     }
 
@@ -138,14 +145,23 @@ class Post extends CI_Controller
                 $this->_create_thumbs($img['file_name']);
 
                 $image = $img['file_name'];
+                $image_desc = $this->input->post('image_desc', true);
                 $title = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
                 $category = $this->input->post('category', true);
-                $city = ""; //$this->input->post('city', true);
-                $location = ""; //$this->input->post('location', true);
-                $halal = ""; //$this->input->post('halal', true);
-                $additional = ""; //$this->input->post('additional', true);
+                $city = $this->input->post('city', true);
+                $location = 0;
+                $halal = 0;
+                $additional = 0;
+
+                //detail
+                $detail_id = uniqid('id');
+                $news_name = $this->input->post('news_name', true);
+                $phone = $this->input->post('news_phone', true);
+                $address = $this->input->post('news_address', true);
+                $availability = $this->input->post('availability', true);
+                $social = $this->input->post('social', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -159,14 +175,16 @@ class Post extends CI_Controller
                     $slug = $praslug;
                 }
 
-                $xtags[] = $this->input->post('tag');
-                foreach ($xtags as $tag) {
-                    $tags = @implode(",", $tag);
-                }
+                $tags = $this->input->post('tags', true);
+                // $xtags[] = $this->input->post('tag');
+                // foreach ($xtags as $tag) {
+                //     $tags = @implode(",", $tag);
+                // }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description);
+                $this->post_model->save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -209,6 +227,7 @@ class Post extends CI_Controller
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
                 $category = $this->input->post('category', true);
+                $subcategory = $this->input->post('subcategory', true);
                 $city = $this->input->post('city', true);
                 $location = $this->input->post('location', true);
                 $halal = $this->input->post('halal', true);
@@ -246,7 +265,7 @@ class Post extends CI_Controller
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
 
-                $this->post_model->save_catlist_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -368,20 +387,38 @@ class Post extends CI_Controller
                 $this->_create_thumbs($img['file_name']);
 
                 $image = $img['file_name'];
+                $image_desc = $this->input->post('image_desc', true);
                 $id = $this->input->post('post_id', true);
                 $title = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
                 $category = $this->input->post('category', true);
-                $city = ""; //$this->input->post('city', true);
-                $location = ""; //$this->input->post('location', true);
-                $halal = ""; //$this->input->post('halal', true);
-                $additional = ""; //$this->input->post('additional', true);
+                $subcategory = $this->input->post('subcategory', true);
+                $city = $this->input->post('city', true);
+                $location = 0;
+                $halal = 0;
+                $additional = 0;
+
+                //detail
+                $detail_id = $this->input->post('post_detail_id');
+                $news_name = $this->input->post('news_name', true);
+                $phone = $this->input->post('news_phone', true);
+                $address = $this->input->post('news_address', true);
+                $availability = $this->input->post('availability', true);
+                $social = $this->input->post('social', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
                 $trim = trim($string);
                 $praslug = strtolower(str_replace(" ", "-", $trim));
+
+                $query = $this->db->get_where('tbl_post', array('post_slug' => $praslug));
+                if ($query->num_rows() > 1) {
+                    $uniqe_string = rand();
+                    $slug = $praslug . '-' . $uniqe_string;
+                } else {
+                    $slug = $praslug;
+                }
 
                 $tags = $this->input->post('tags', true);
                 // $xtags[] = $this->input->post('tag');
@@ -394,8 +431,9 @@ class Post extends CI_Controller
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description);
+                $this->post_model->edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -405,14 +443,23 @@ class Post extends CI_Controller
 
         } else {
             $id = $this->input->post('post_id', true);
+            $image_desc = $this->input->post('image_desc', true);
             $title = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
             $contents = $this->input->post('contents');
             $type = $this->input->post('type', true);
             $category = $this->input->post('category', true);
-            $city = ""; //$this->input->post('city', true);
-            $location = ""; //$this->input->post('location', true);
-            $halal = ""; //$this->input->post('halal', true);
-            $additional = ""; //$this->input->post('additional', true);
+            $subcategory = $this->input->post('subcategory', true);
+            $city = $this->input->post('city', true);
+            $location = 0;
+            $halal = 0;
+            $additional = 0;
+            //detail
+            $detail_id = $this->input->post('post_detail_id');
+            $news_name = $this->input->post('news_name', true);
+            $phone = $this->input->post('news_phone', true);
+            $address = $this->input->post('news_address', true);
+            $availability = $this->input->post('availability', true);
+            $social = $this->input->post('social', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -438,8 +485,9 @@ class Post extends CI_Controller
             }
 
             $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+            $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $tags, $description);
+            $this->post_model->edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -477,6 +525,7 @@ class Post extends CI_Controller
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
                 $category = $this->input->post('category', true);
+                $subcategory = $this->input->post('subcategory', true);
                 $city = $this->input->post('city', true);
                 $location = $this->input->post('location', true);
                 $halal = $this->input->post('halal', true);
@@ -515,7 +564,7 @@ class Post extends CI_Controller
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_catlist_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -529,6 +578,7 @@ class Post extends CI_Controller
             $contents = $this->input->post('contents');
             $type = $this->input->post('type', true);
             $category = $this->input->post('category', true);
+            $subcategory = $this->input->post('subcategory', true);
             $city = $this->input->post('city', true);
             $location = $this->input->post('location', true);
             $halal = $this->input->post('halal', true);
@@ -566,7 +616,7 @@ class Post extends CI_Controller
             }
             $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_catlist_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -756,6 +806,20 @@ class Post extends CI_Controller
             }
             $this->image_lib->clear();
         }
+    }
+
+    public function dynamic_attribute()
+    {
+        $category_id = $this->uri->segment(4);
+        $data['subcategory'] = $this->subcategory_model->get_subcategory_by_category($category_id);
+        $data['subcategory_id'] = $this->uri->segment(5);
+        $data['location'] = $this->location_model->get_location_by_category($category_id);
+        $data['location_id'] = $this->uri->segment(6);
+        $data['halal_id'] = $this->uri->segment(7);
+        $data['additional'] = $this->additional_model->get_additional_by_category($category_id);
+        $data['additional_id'] = $this->uri->segment(8);
+
+        $this->load->view('backend/v_attribute_post', $data);
     }
 
 }

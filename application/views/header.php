@@ -14,17 +14,17 @@
 
 			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
-			                        <form action="<?php echo base_url() . 'home/search'; ?>" method="GET">
-			                            <li class="pl-0">
+
+			                        <li class="pl-0">
+			                            <form action="<?php echo base_url() . 'home/search'; ?>" method="get" id="form-search">
 			                                <div class="c-i-s"> <input type="text" name="search_query"
-			                                        class="form-control form-control-sm h-search" id="search_query"
+			                                        class="form-control form-control-sm h-search c-i-h" id="search_query"
 			                                        style="border-radius:20px;">
 			                                </div>
-			                            </li>
-			                            <li><button type="submit"><img
-			                                        src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
-			                                        height="15" /></button></li>
-			                        </form>
+			                            </form>
+			                        </li>
+			                        <li><img src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
+			                                height="15" onclick="w_search_resize()" id="img-s-h" pop="0" /></li>
 			                        <li><a class="btn-search"><span><img
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>
@@ -108,23 +108,23 @@
 
 			                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			                        <ul class="navbar-nav  menu-category mr-auto col-12 r-p">
-			                            <li class="first col-2 ">
-			                                <a class="nav-link " href="#" id="navbarNews" role="button" data-toggle="dropdown"
-			                                    aria-haspopup="true" aria-expanded="false">
+			                            <li class="first col-2 dropdown">
+			                                <a class="nav-link togglea" href="#" id="navbarNews" role="button"
+			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center>News</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarNews">
 			                                    <a class="dropdown-item" href="<?php echo base_url() . 'news'; ?>">Daily News</a>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 pl-0 pr-0">
-			                                <a class="nav-link " href="#" id="navbarRestaurant" role="button"
+			                            <li class="sub col-2 pl-0 pr-0 dropdown">
+			                                <a class="nav-link dropdown-togglea" href="#" id="navbarRestaurant" role="button"
 			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center class="rnc">Restaurant & Cafe</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarRestaurant">
 			                                    <a class="dropdown-item"
-			                                        href="<?php echo base_url() . 'restaurantcafe'; ?>">Restaurant</a>
+			                                        href="<?php echo base_url() . 'catlist/restaurant'; ?>">Restaurant</a>
 			                                    <div class="dropdown-divider"></div>
 			                                    <a class="dropdown-item" href="#">Cafe</a>
 			                                    <div class="dropdown-divider"></div>
@@ -134,9 +134,9 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="#" id="navbarUMKM" role="button" data-toggle="dropdown"
-			                                    aria-haspopup="true" aria-expanded="false">
+			                            <li class="sub col-2 dropdown">
+			                                <a class="nav-link dropdown-togglea" href="#" id="navbarUMKM" role="button"
+			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center>UMKM</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarUMKM">
@@ -148,8 +148,8 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="#" id="navbarStreetFood" role="button"
+			                            <li class="sub col-2 dropdown">
+			                                <a class="nav-link dropdown-togglea" href="#" id="navbarStreetFood" role="button"
 			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center>Street Food</center>
 			                                </a>
@@ -162,13 +162,13 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
+			                            <li class="sub col-2">
 			                                <a class="nav-link " href="#">
 			                                    <center>Healty Food</center>
 			                                </a>
 			                            </li>
 			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="<?php echo base_url() . 'home/promo'; ?>">
+			                                <a class="nav-link " href="<?php echo base_url() . '/promo'; ?>">
 			                                    <center>Promo</center>
 			                                </a>
 

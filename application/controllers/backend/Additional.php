@@ -9,6 +9,7 @@ class Additional extends CI_Controller
             redirect($url);
         };
         $this->load->model('backend/Additional_model', 'additional_model');
+        $this->load->model('backend/Category_model', 'category_model');
         $this->load->model('backend/Type_model', 'type_model');
         $this->load->helper('text');
     }
@@ -16,6 +17,7 @@ class Additional extends CI_Controller
     public function index()
     {
         $x['type'] = $this->type_model->get_all_type();
+        $x['category'] = $this->category_model->get_all_category();
         $x['data'] = $this->additional_model->get_all_additional();
         $this->load->view('backend/v_additional', $x);
     }
@@ -23,11 +25,8 @@ class Additional extends CI_Controller
     public function save()
     {
         $additional = strip_tags(htmlspecialchars($this->input->post('additional', true), ENT_QUOTES));
-        $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $additional);
-        $trim = trim($string);
-        $slug = strtolower(str_replace(" ", "-", $trim));
-        $type = $this->input->post('type', true);
-        $this->additional_model->add_new_row($additional);
+        $category = $this->input->post('category', true);
+        $this->additional_model->add_new_row($additional, $category);
         $this->session->set_flashdata('msg', 'success');
         redirect('backend/additional');
     }
@@ -36,11 +35,8 @@ class Additional extends CI_Controller
     {
         $id = $this->input->post('kode', true);
         $additional = strip_tags(htmlspecialchars($this->input->post('additional2', true), ENT_QUOTES));
-        $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $additional);
-        $trim = trim($string);
-        $slug = strtolower(str_replace(" ", "-", $trim));
-        $type = $this->input->post('type2', true);
-        $this->additional_model->edit_row($id, $additional);
+        $category = $this->input->post('category2', true);
+        $this->additional_model->edit_row($id, $additional, $category);
         $this->session->set_flashdata('msg', 'info');
         redirect('backend/additional');
     }
