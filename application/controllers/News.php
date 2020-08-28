@@ -17,6 +17,10 @@ class News extends CI_Controller
     }
     public function index()
     {
+        if ($_POST) {
+            $l = $this->input->post('limit', true);
+            $this->session->set_userdata('limit', $l);
+        }
         //$this->output->enable_profiler(TRUE);
         $site = $this->site_model->get_site_data()->row_array();
         $data['site_name'] = $site['site_name'];
@@ -29,13 +33,17 @@ class News extends CI_Controller
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
-        $page = $this->input->get('search_query', true);
         $data['popular'] = $this->detail_model->get_popular();
         $start = $this->input->get('per_page', true);
-
+        if ($start == "") {
+            $start = 1;
+        }
         $config['base_url'] = base_url() . '/news';
         $config['total_rows'] = $this->news_model->get_post_news_count();
-        $config['per_page'] = 6;
+        $config['per_page'] = $this->session->userdata('limit');
+        if ($config['per_page'] == "") {
+            $config['per_page'] = 6;
+        }
         $config['page_query_string'] = true;
 
         //
@@ -58,12 +66,12 @@ class News extends CI_Controller
         $config['last_tag_open'] = '<li class="page-item pr-10"> <span class="page-link">';
         $config['last_tagl_close'] = '</span></li>';
 
+        $config['attributes'] = array('limit' => 1);
         $this->pagination->initialize($config);
-
-        if (!$page) {
-            $page = 0;
-        }
+        $data['lasted_news'] = $this->news_model->get_post_news(0, 1);
         $data['news'] = $this->news_model->get_post_news($start, $config['per_page']);
+        $data['limit'] = $config['per_page'];
+
         $this->load->view('news_view', $data);
     }
 
@@ -93,6 +101,7 @@ class News extends CI_Controller
             $data['latest_post'] = $this->home_model->get_latest_post();
             $data['popular_post'] = $this->home_model->get_popular_post();
             $data['detail'] = $this->news_model->get_news_detail($kode);
+            $data['more_to_exploler'] = $this->detail_model->get_more_exploler($q['post_id'], $q['post_type_id'], $q['post_tags']);
             $data['user'] = $this->detail_model->get_user();
             $data['popular'] = $this->detail_model->get_popular();
             $this->home_model->count_views($kode);

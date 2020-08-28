@@ -8,6 +8,7 @@ class Home extends CI_Controller
         parent::__construct();
         $this->load->model('Visitor_model', 'visitor_model');
         $this->load->model('Home_model', 'home_model');
+        $this->load->model('Promo_model', 'promo_model');
         $this->load->model('Site_model', 'site_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
@@ -26,6 +27,9 @@ class Home extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['promo_post'] = $this->promo_model->get_promo_post();
+        // print_r($data['promo_post']);
+        // die();
         $data['feature_article'] = $this->home_model->get_4_future_article();
         $data['slot1'] = $this->home_model->slot1();
         $home = $this->db->get('tbl_home', 1)->row();

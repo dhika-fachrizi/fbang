@@ -27,6 +27,8 @@ $b_availability = json_decode($detail['detail_catlist_availability']);
     <link href="<?php echo base_url() . 'theme/css/jssocials.css' ?>" rel="stylesheet">
     <link href="<?php echo base_url() . 'theme/css/jssocials-theme-flat.css' ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
@@ -225,7 +227,13 @@ echo date_format($date, "d M Y");?>
                                         <div class="col-12  text-thema-split-2" style="height:40px;">
                                             <div class="text-theme-1"
                                                 style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                <?=$item['post_title']?>
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -249,26 +257,20 @@ echo date_format($date, "d M Y");?>
                         </div>
                     </div>
                     <div class="row cpl-0">
-                        <?php foreach ([1, 2, 3, 4] as $item): ?>
+                        <?php foreach ($more_to_exploler as $item): ?>
                         <div class="col-3 ">
                             <div class="row pr-10">
                                 <div class="col-12 image-exploler m-0"
-                                    style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>');">
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>');">
                                 </div>
-                                <div class="col-12 pl-0 text-theme-1 " style="font-size:15px;"><span>14 July
-                                        2020
+                                <div class="col-12 pl-0 text-theme-1 " style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
                                     </span>
                                 </div>
                                 <div class="col-12 pl-0 text-thema-split-2" style="height:50px;">
                                     <div class="text-theme-1" style="margin-top:0px;font-size:15px;font-weight:bold;">
-                                        Lorem ipsum
-                                        dolor sit amet
-                                        con
-                                        adipisicing
-                                        elit. Laboriosam quasi
-                                        repudiandae error in unde delectus corporis atque nisi voluptates
-                                        architecto,
-                                        nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                        <a
+                                            href="<?php echo base_url() . 'catlist/detail/' . $item['post_slug']; ?>"><?=$item['post_title']?></a>
                                     </div>
                                 </div>
                             </div>

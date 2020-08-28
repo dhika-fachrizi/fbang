@@ -114,7 +114,7 @@
                     </div>
                 </div>
             </section>
-            <form method="get">
+            <form method="get" id="catlist-form" action="<?php echo base_url() . 'catlist/restaurant' ?>">
                 <section>
                     <div class="container pt-30">
                         <div class="row mb-30">
@@ -128,32 +128,63 @@
                                         <div class="col-sm-12 t-5-b">
                                             Kategori
                                         </div>
+                                        <?php foreach ($filter_category as $item): ?>
                                         <div class="col-sm-12 pt-10">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="defaultCheck1">
+                                                <input class="form-check-input" name="subcategory[]" type="checkbox" <?php if (is_array($get_category)) {
+    for ($i = 0; $i < count($get_category); $i++) {
+        if ($get_category[$i] == $item->subcategory_id) {
+            echo "checked";
+        }
+    }}?> value=" <?php echo $item->subcategory_id; ?>" onchange="submit()">
                                                 <label class="form-check-label colot-theme-1" for="defaultCheck1">
-                                                    null
+                                                    <?php echo $item->subcategory_name; ?>
                                                 </label>
                                             </div>
                                         </div>
-
+                                        <?php endforeach;?>
+                                    </div>
+                                    <hr>
+                                    <div class="row ">
+                                        <div class="col-sm-12 t-5-b">
+                                            City
+                                        </div>
+                                        <?php foreach ($filter_city as $item): ?>
+                                        <div class="col-sm-12 pt-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="city[]" type="checkbox" <?php if (is_array($get_city)) {
+    for ($i = 0; $i < count($get_city); $i++) {
+        if ($get_city[$i] == $item->post_city_id) {
+            echo "checked";
+        }
+    }}?> value="<?php echo $item->post_city_id; ?>" onchange="submit()">
+                                                <label class="form-check-label colot-theme-1" for="defaultCheck1">
+                                                    <?php echo $item->city_name; ?>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <?php endforeach;?>
                                     </div>
                                     <hr>
                                     <div class="row ">
                                         <div class="col-sm-12 t-5-b">
                                             Lokasi
                                         </div>
+                                        <?php foreach ($filter_location as $item): ?>
                                         <div class="col-sm-12 pt-10">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="defaultCheck1">
+                                                <input class="form-check-input" name="location[]" type="checkbox" <?php if (is_array($get_location)) {
+    for ($i = 0; $i < count($get_location); $i++) {
+        if ($get_location[$i] == $item->location_id) {
+            echo "checked";
+        }
+    }}?> value="<?php echo $item->location_id; ?>" onchange="submit()">
                                                 <label class="form-check-label colot-theme-1" for="defaultCheck1">
-                                                    null
+                                                    <?php echo $item->location_name; ?>
                                                 </label>
                                             </div>
                                         </div>
-
+                                        <?php endforeach;?>
                                     </div>
                                     <hr>
                                     <div class=" row ">
@@ -161,15 +192,21 @@
 
                                             Halal
                                         </div>
+                                        <?php foreach ([['halal_name' => 'Halal', 'halal_id' => 1], ['halal_name' => 'Non Halal', 'halal_id' => 2]] as $item): ?>
                                         <div class="col-sm-12 pt-10">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="defaultCheck1">
+                                                <input class="form-check-input" name="halal[]" type="checkbox" <?php if (is_array($get_halal)) {
+    for ($i = 0; $i < count($get_halal); $i++) {
+        if ($get_halal[$i] == $item['halal_id']) {
+            echo "checked";
+        }
+    }}?> value="<?php echo $item['halal_id']; ?>" onchange="submit()">
                                                 <label class="form-check-label colot-theme-1" for="defaultCheck1">
-                                                    null
+                                                    <?php echo $item['halal_name']; ?>
                                                 </label>
                                             </div>
                                         </div>
+                                        <?php endforeach;?>
                                     </div>
                                     <hr>
 
@@ -177,18 +214,22 @@
                                         <div class="col-sm-12 t-5-b">
                                             Lainnya
                                         </div>
+                                        <?php foreach ($filter_additional as $item): ?>
                                         <div class="col-sm-12 pt-10">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="defaultCheck1">
+                                                <input class="form-check-input" name="additional[]" type="checkbox" <?php if (is_array($get_additional)) {
+    for ($i = 0; $i < count($get_additional); $i++) {
+        if ($get_additional[$i] == $item->additional_id) {
+            echo "checked";
+        }
+    }}?> value="<?php echo $item->additional_id; ?>" onchange="submit()">
                                                 <label class="form-check-label colot-theme-1" for="defaultCheck1">
-                                                    null
+                                                    <?php echo $item->additional_name; ?>
                                                 </label>
                                             </div>
                                         </div>
+                                        <?php endforeach;?>
                                     </div>
-
-
                                 </div>
 
                                 <div class="col-sm-12 pl-0 news-b-image m-0 "
@@ -204,19 +245,27 @@
                                             <div class="col-sm-5">
                                                 <div class="row d-flex justify-content-end">
                                                     <div class="pr-10 pt-10">
-                                                        <div class="" style="width:110px;"> <input type=" text"
-                                                                name="search" class="form-control form-control-sm"
-                                                                id="search_query"
+                                                        <div class="" style="width:110px;"> <input type="text"
+                                                                value="<?php echo $get_search ?>" name="search"
+                                                                class="form-control form-control-sm"
                                                                 style="border-radius:20px;height: 21px;">
                                                         </div>
                                                     </div>
-                                                    <div class="pr-20 pt-10"><i class="fas fa-search"></i>
+                                                    <div class="pr-20 pt-10" onclick="submitme()"><i
+                                                            class="fas fa-search"></i>
 
                                                     </div>
                                                     <div>
-                                                        <select class="form-control form-control-sm" name="filter"
-                                                            style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
-                                                            <option>Urutkan Berdasarkan</option>
+                                                        <select class="form-control form-control-sm" name="short"
+                                                            style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px"
+                                                            onchange="submit()">
+                                                            <option value="" disable>Urutkan Berdasarkan</option>
+                                                            <option value="DESC"
+                                                                <?php echo $get_short == "DESC" ? "selected" : ""; ?>>
+                                                                Postingan Terbaru</option>
+                                                            <option value="ASC"
+                                                                <?php echo $get_short == "ASC" ? "selected" : ""; ?>>
+                                                                Postingan Terlawas</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -275,17 +324,28 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-sm-12 pl-0 mt-10" style="height:50px;">
+                                                            <div class="col-sm-12 pl-0 mt-10" style="height:55px;">
                                                                 <div class="col-sm-12 pl-10">
+                                                                    <?php $count = "";?>
                                                                     <?php $split_tag = explode(",", $item->post_tags);foreach ($split_tag as $tag): ?>
                                                                     <div class="float-left"
                                                                         style="padding:0px 5px 5px 0px">
                                                                         <div class=" "
                                                                             style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
                                                                             <?php echo $tag; ?>
+
+                                                                            <?php $count .= $tag;?>
                                                                         </div>
                                                                     </div>
-
+                                                                    <?php if (strlen($count) >= 40): ?>
+                                                                    <div class="float-left"
+                                                                        style="padding:0px 5px 5px 0px">
+                                                                        <div class=" "
+                                                                            style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
+                                                                            ...
+                                                                        </div>
+                                                                    </div>
+                                                                    <?php break;endif;?>
                                                                     <?php endforeach;?>
                                                                 </div>
                                                             </div>
@@ -295,6 +355,15 @@
                                                 </div>
                                             </div>
                                             <?php endforeach;?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 d-flex justify-content-center pb-60 pt-30">
+                                        <div class="row">
+                                            <a class="a-link-c" style="cursor:pointer;" onclick="submitMore()">MORE</a>
+                                            <input type="number" id="perpage" name="perpage"
+                                                <?php if ($get_perpage >= 0): ?> value="<?php echo $get_perpage; ?>"
+                                                <?php endif;?> style="display: none">
                                         </div>
                                     </div>
 
@@ -379,7 +448,7 @@
             </div>
         </div>
     </div>
-
+    <input type="number" id="dtperpage" value="<?php echo $perpage; ?>" style="display: none">
     <!-- JAVASCRIPT
         ==================================================-->
     <script src="<?php echo base_url('assets/js/popper.js') ?>"></script>
@@ -404,6 +473,16 @@
     <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
     <script>
+    function submitme() {
+        document.getElementById('catlist-form').submit();
+    }
+
+    function submitMore() {
+
+        $dt = parseInt($("#perpage").val()) + parseInt($("#dtperpage").val())
+        $("#perpage").val($dt)
+        document.getElementById('catlist-form').submit();
+    }
     $(function() {
         $(".pop-show").popover({
             container: "body",
