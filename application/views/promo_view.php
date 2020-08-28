@@ -85,7 +85,8 @@
                             <div class="row">
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
-                                        <div class="col-4 t-5-b text-theme-2 fz-25"><i>New Promo</i></div>
+                                        <div class="col-4 t-5-b text-theme-2 fz-25"><i>Diskon Yang Bakal Loe Suka !</i>
+                                        </div>
                                         <div class="col-8">
                                             <div class="row d-flex justify-content-end">
                                                 <div class="pr-20 pt-10"><i class="fas fa-search"></i>
@@ -173,14 +174,14 @@
                                                         </div>
 
                                                         <div class="col-sm-12 mt-30  d-flex align-items-center d-flex justify-content-center btn"
-                                                            data-toggle="modal" onclick="goModal(this)"
-                                                            data-title="<?=$item->post_title;?>"
+                                                            id="post-<?=$item->post_id;?>" data-toggle="modal"
+                                                            onclick="goModal(this)" data-title="<?=$item->post_title;?>"
                                                             data-time="<?=$item->detail_promo_time;?>"
                                                             data-short-desc="<?=$item->detail_promo_short_desc;?>"
                                                             data-address="<?=$item->detail_promo_address;?>"
                                                             data-name="<?=$item->detail_promo_name;?>"
                                                             data-content='<?=$item->post_contents;?>'
-                                                            data-city='<?=$item->city_name;?>'
+                                                            data-city='<?=strtolower($item->city_name);?>'
                                                             data-img="<?php echo base_url() . 'assets/images/' . $item->post_image; ?>"
                                                             style=" background-color:
                                                             #F79D46;height:40px;border-radius:0px;">
@@ -246,7 +247,8 @@
                                                 <div class="row">
                                                     <div><i class="fas fa-map-marker c-t-1">
                                                         </i></div>
-                                                    <div class="pl-10 c-t-2 data-city">Jakarta</div>
+                                                    <div class="pl-10 c-t-2 data-city"
+                                                        style="text-transform: capitalize;">Jakarta</div>
                                                 </div>
 
                                             </div>
@@ -349,8 +351,20 @@
 
     }
 
+    function getModalPromo() {
+        let searchParams = new URLSearchParams(window.location.search)
+        if (searchParams.has('id_promo')) {
+            let post_id = searchParams.get('id_promo');
+            goModal('#post-' + post_id)
+        }
+
+
+
+    }
+
     $(document).ready(function() {
-        $('.data-content').html('haloo')
+        getModalPromo();
+
     });
     </script>
 

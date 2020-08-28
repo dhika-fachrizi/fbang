@@ -168,10 +168,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-                                    <img class="img-circle avatar"
-                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-                                        width="40" height="40" alt="">
-                                    <?php else: ?>
+			                                    <img class="img-circle avatar"
+			                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+			                                        width="40" height="40" alt="">
+			                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -191,13 +191,13 @@ if ($query->num_rows() > 0):
                                     </li>
                                     <li role="presentation" class="divider"></li>
                                     <li role="presentation"><a href="<?php echo site_url('logout'); ?>"><i
-                                                class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                                class="fas fa-sign-out-alt m-r-xs"></i>Log out</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('logout'); ?>"
                                     class="log-out waves-effect waves-button waves-classic">
-                                    <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
+                                    <span><i class="fas fa-sign-out-alt m-r-xs"></i>Log out</span>
                                 </a>
                             </li>
                         </ul><!-- Nav -->
@@ -215,16 +215,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-                        <a href="javascript:void(0);">
-                            <div class="sidebar-profile-image">
-                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-                                    class="img-circle img-responsive" alt="">
-                            </div>
-                            <div class="sidebar-profile-details">
-                                <span><?php echo $this->session->userdata('name'); ?><br>
-                                    <?php if ($row['user_level'] == '1'): ?>
-                                    <small>Administrator</small>
-                                    <?php else: ?>
+			                        <a href="javascript:void(0);">
+			                            <div class="sidebar-profile-image">
+			                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+			                                    class="img-circle img-responsive" alt="">
+			                            </div>
+			                            <div class="sidebar-profile-details">
+			                                <span><?php echo $this->session->userdata('name'); ?><br>
+			                                    <?php if ($row['user_level'] == '1'): ?>
+			                                    <small>Administrator</small>
+			                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -253,7 +253,7 @@ if ($query->num_rows() > 0):
                     <!-- <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li> -->
                     <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span
                                 class="menu-icon icon-pin"></span>
-                            <p>Post</p><span class="arrow"></span>
+                            <p>Post</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New News</a></li>
@@ -274,7 +274,7 @@ if ($query->num_rows() > 0):
 
                         </ul>
                     </li>
-                    <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
+                   <!-- <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
                                 class="menu-icon icon-envelope"></span>
                             <p>Inbox</p>
                         </a></li>
@@ -294,10 +294,10 @@ if ($query->num_rows() > 0):
                     <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span
                                 class="menu-icon icon-user"></span>
                             <p>Users</p>
-                        </a></li>
+                        </a></li> -->
                     <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>"
                             class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
-                            <p>Settings</p><span class="arrow"></span>
+                            <p>Settings</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
@@ -352,24 +352,24 @@ $no = 0;
 foreach ($data->result() as $row):
     $no++;
     ?>
-                                            <tr>
-                                                <td><?php echo $no; ?></td>
-                                                <td><?php echo $row->category_name; ?></td>
-                                                <td><?php echo $row->additional_name; ?></td>
+			                                            <tr>
+			                                                <td><?php echo $no; ?></td>
+			                                                <td><?php echo $row->category_name; ?></td>
+			                                                <td><?php echo $row->additional_name; ?></td>
 
-                                                <td style="text-align: center;">
-                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
-                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>',<?php echo $row->category_id; ?>)"
-                                                        data-id="<?php echo $row->additional_id; ?>"
-                                                        data-additional="<?php echo $row->additional_name; ?>"><span
-                                                            class="fas fa-edit"></span></a>
-                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
-                                                        onclick="del(<?php echo $row->additional_id; ?>)"
-                                                        data-id="<?php echo $row->additional_id; ?>"><span
-                                                            class="fa fa-trash"></span></a>
-                                                </td>
-                                            </tr>
-                                            <?php endforeach;?>
+			                                                <td style="text-align: center;">
+			                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
+			                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>',<?php echo $row->category_id; ?>)"
+			                                                        data-id="<?php echo $row->additional_id; ?>"
+			                                                        data-additional="<?php echo $row->additional_name; ?>"><span
+			                                                            class="fas fa-edit"></span></a>
+			                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
+			                                                        onclick="del(<?php echo $row->additional_id; ?>)"
+			                                                        data-id="<?php echo $row->additional_id; ?>"><span
+			                                                            class="fa fa-trash"></span></a>
+			                                                </td>
+			                                            </tr>
+			                                            <?php endforeach;?>
                                         </tbody>
 
                                     </table>

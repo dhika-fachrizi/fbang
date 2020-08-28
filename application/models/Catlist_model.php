@@ -4,15 +4,46 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Catlist_model extends CI_Model
 {
 
-    public function get_post_catlist($limit, $perpage)
+    public function get_post_catlist($category, $get_city, $get_subcategory, $get_location, $get_halal, $get_additional, $short, $search, $limit, $perpage)
     {
         $this->db->select('*');
         $this->db->from('tbl_post');
         $this->db->where('post_type_id', 2);
-        $this->db->where('post_category_id', 11);
+        $this->db->where('post_category_id', $category);
         $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
         $this->db->join('tbl_city', 'post_city_id=city_id');
-        $this->db->order_by('post_date', 'DESC');
+
+        if (is_array($get_city)) {
+            $this->db->where_in('post_city_id', $get_city);
+        }
+        if (is_array($get_subcategory)) {
+            $this->db->where_in('post_subcategory_id', $get_subcategory);
+        }
+        if (is_array($get_location)) {
+            $this->db->where_in('post_location_id', $get_location);
+        }
+        if (is_array($get_halal)) {
+            $this->db->where_in('post_halal_id', $get_halal);
+        }
+        if (is_array($get_additional)) {
+            $this->db->where_in('post_additional_id', $get_additional);
+        }
+
+        if ($short != "") {
+            $this->db->order_by('post_date', $short);
+        } else {
+            $this->db->order_by('post_date', 'DESC');
+        }
+
+        if (isset($search)) {
+            $dt_search = [
+                'post_title' => $search,
+                'post_description' => $search,
+                'post_title' => $search,
+            ];
+            $this->db->like($dt_search);
+        }
+
         $this->db->limit($perpage, $limit);
         $query = $this->db->get()->result();
         return $query;
@@ -25,6 +56,54 @@ class Catlist_model extends CI_Model
         $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
         $this->db->where('post_slug', $slug);
         $query = $this->db->get()->row_array();
+        return $query;
+    }
+
+    public function get_filter_category($category)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_subcategory');
+        $this->db->join('tbl_category', 'subcategory_category_id=category_id');
+        $this->db->order_by('subcategory_name', 'ASC');
+        $this->db->where('category_id', $category);
+        $query = $this->db->get()->result();
+        return $query;
+    }
+
+    public function get_filter_city($category)
+    {
+        $this->db->select('p.post_city_id,c.city_name');
+        $this->db->distinct();
+        $this->db->from('tbl_post p');
+        $this->db->join('tbl_city c', 'p.post_city_id=c.city_id');
+        $this->db->order_by('city_name', 'ASC');
+        $this->db->where('post_category_id', $category);
+        $query = $this->db->get()->result();
+        // print_r($query);
+        // die();
+        return $query;
+    }
+
+    public function get_filter_location($category)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_location');
+        $this->db->join('tbl_category', 'location_category_id=category_id');
+        $this->db->order_by('location_name', 'ASC');
+        $this->db->where('category_id', $category);
+        $query = $this->db->get()->result();
+
+        return $query;
+    }
+
+    public function get_filter_additional($category)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_additional');
+        $this->db->join('tbl_category', 'additional_category_id=category_id');
+        $this->db->order_by('additional_name', 'ASC');
+        $this->db->where('category_id', $category);
+        $query = $this->db->get()->result();
         return $query;
     }
 

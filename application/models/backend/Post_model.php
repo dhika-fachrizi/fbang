@@ -34,16 +34,17 @@ class Post_model extends CI_Model
         return $result;
     }
 
-    public function save_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $news_name, $phone, $address, $availability, $social)
+    public function save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
             'post_contents' => $contents,
             'post_image' => $image,
+            'post_image_desc' => $image_desc,
             'post_type_id' => $type,
             'post_category_id' => $category,
-            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
             'post_location_id' => $location,
@@ -139,13 +140,15 @@ class Post_model extends CI_Model
 
     }
 
-    public function edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $news_name, $phone, $address, $availability, $social)
+    public function edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
             'post_contents' => $contents,
             'post_image' => $image,
+            'post_image_desc' => $image_desc,
             'post_type_id' => $type,
             'post_category_id' => $category,
             'post_tags' => $tags,
@@ -176,12 +179,14 @@ class Post_model extends CI_Model
         return $result;
     }
 
-    public function edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $news_name, $phone, $address, $availability, $social)
+    public function edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social)
     {
 
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
             'post_type_id' => $type,
             'post_category_id' => $category,
@@ -405,7 +410,7 @@ class Post_model extends CI_Model
         }
 
         if (count($data_insert_db) > 1) {
-            die("atas");
+
             $this->db->insert_batch('tbl_tags', $data_insert_db);
         } else if (count($data_insert_db) == 1) {
             print_r($data_insert_db);

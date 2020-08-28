@@ -197,13 +197,13 @@ if ($query->num_rows() > 0):
                                     </li>
                                     <li role="presentation" class="divider"></li>
                                     <li role="presentation"><a href="<?php echo site_url('logout'); ?>"><i
-                                                class="fa fa-sign-out m-r-xs"></i>Log out</a></li>
+                                                class="fas fa-sign-out-alt m-r-xs"></i>Log out</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="<?php echo site_url('logout'); ?>"
                                     class="log-out waves-effect waves-button waves-classic">
-                                    <span><i class="fa fa-sign-out m-r-xs"></i>Log out</span>
+                                    <span><i class="fas fa-sign-out-alt m-r-xs"></i>Log out</span>
                                 </a>
                             </li>
                         </ul><!-- Nav -->
@@ -259,7 +259,7 @@ if ($query->num_rows() > 0):
                     <!-- <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span><p>Dashboard</p></a></li> -->
                     <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span
                                 class="menu-icon icon-pin"></span>
-                            <p>Post</p><span class="arrow"></span>
+                            <p>Post</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
                             <li class="active"><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New
@@ -273,7 +273,6 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
                             <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
@@ -286,7 +285,7 @@ if ($query->num_rows() > 0):
                         <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span><p>Testimonials</p></a></li>
                         <?php if ($this->session->userdata('access') == '1'): ?>
                         <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span><p>Users</p></a></li>
-                        <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p><span class="arrow"></span></a>
+                        <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span><p>Settings</p><span class="arrow-del"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
                                 <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
@@ -394,6 +393,12 @@ if ($query->num_rows() > 0):
                                         <label>Image</label>
                                         <input type="file" name="filefoto" class="dropify" data-height="190" required>
                                     </div>
+                                    <div class="form-group">
+                                        <label>Image Caption</label>
+                                        <div class="bs-example">
+                                            <input class="form-control" name="image_desc" type="text" />
+                                        </div>
+                                    </div>
                                     <input type="hidden" name="type" value="1">
                                     <div class="form-group">
                                         <label>Category</label>
@@ -457,7 +462,18 @@ if ($query->num_rows() > 0):
 
                                 </div>
                             </div>
-
+                            <div class="panel panel-white">
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>gmaps</label>
+                                        <input type="maps" name="news_maps" class="form-control" id="autocomplete"
+                                            placeholder="" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <div style="height:300px;widtg:100%" id="map"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="panel panel-white">
                                 <div class="panel-body">
 
@@ -491,6 +507,11 @@ if ($query->num_rows() > 0):
 
                             <div class="panel panel-white">
                                 <div class="panel-body">
+                                    <div class="form-group">
+                                        <label>Meta Title</label>
+                                        <input name="description_title" type="text" placeholder="Meta Title"
+                                            class="form-control" />
+                                    </div>
                                     <div class="form-group">
                                         <label>Meta Description</label>
                                         <textarea name="description" cols="6" rows="6" class="form-control"
@@ -532,6 +553,9 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1vd-KfTT7IF7FH7PTozE2Tru3Pk8Bvw&callback=initMap&libraries=places">
+    </script>
     <script>
     function c(dt) {
         console.log(dt);
@@ -567,63 +591,155 @@ if ($query->num_rows() > 0):
         // console.log($("#availability").val());
     }
     $(document).ready(function() {
-                trigger_social();
-                trigger_availability();
-                $('#summernote').summernote({
-                    height: 590,
-                    toolbar: [
-                        ['style', ['style']],
-                        ['font', ['bold', 'italic', 'underline', 'clear']],
-                        ['fontsize', ['fontsize']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']],
-                        ['insert', ['link', 'picture', 'hr']],
-                        ['view', ["fullscreen", "codeview", "help"]],
-                    ],
+        trigger_social();
+        trigger_availability();
+        $('#summernote').summernote({
+            height: 590,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'hr']],
+                ['view', ["fullscreen", "codeview", "help"]],
+            ],
 
-                    onImageUpload: function(files, editor, welEditable) {
-                        sendFile(files[0], editor, welEditable);
-                    }
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0], editor, welEditable);
+            }
 
+        });
 
-
-                    $('.dropify').dropify({
-                        messages: {
-                            default: 'Drag atau drop untuk memilih gambar',
-                            replace: 'Ganti',
-                            remove: 'Hapus',
-                            error: 'error'
-                        }
-                    });
-
-                    $('.title').keyup(function() {
-                        var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g,
-                        '-');
-                        $('.slug').val(title);
-                    });
-
-                    $('.tags').tagsinput({
-                        trimValue: true
-                    });
-
-                    $(".availability_post").change(function() {
-                        trigger_availability();
-                    });
-
-                    $(".social_post").change(function() {
-                        trigger_social();
-                    });
-
-                    $('.title').keyup(function() {
-                        var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g,
-                        '-');
-                        $('.slug').val(title);
-                    });
+        function sendFile(file, editor, welEditable) {
+            data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "<?php echo site_url() ?>backend/post/upload_image",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    editor.insertImage(welEditable, url);
+                }
+            });
+        }
 
 
-                });
+
+        $('.dropify').dropify({
+            messages: {
+                default: 'Drag atau drop untuk memilih gambar',
+                replace: 'Ganti',
+                remove: 'Hapus',
+                error: 'error'
+            }
+        });
+
+        $(".availability_post").change(function() {
+            trigger_availability();
+        });
+
+        $(".social_post").change(function() {
+            trigger_social();
+        });
+
+        $('.title').keyup(function() {
+            var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
+            $('.slug').val(title);
+        });
+
+        $('.tags').tagsinput({
+            trimValue: true
+        });
+
+        $(".tags").change(function() {
+            console.log($(".tags").tagsinput('items'))
+        });
+
+
+    });
     </script>
+    <script>
+    var gmaps = {
+        lat: 0,
+        lng: 0,
+        name: "",
+    }
 
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            mapTypeControl: false,
+            panControl: false,
+            zoomControl: false,
+            streetViewControl: false
+        });
+        var input = document.getElementById('autocomplete');
+        var options = {
+
+            componentRestrictions: {
+                country: 'ID'
+            }
+        };
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        autocomplete.addListener("place_changed", onPlaceChanged);
+
+
+    }
+
+    function handleEvent(event) {
+        //document.getElementById('lat').val
+        geocoder = new google.maps.Geocoder();
+        geocoder.geocode({
+            latLng: event.latLng
+        }, function(responses) {
+            if (responses && responses.length > 0) {
+                console.log(responses[0]);
+                gmaps.lat = responses[0].geometry.location.lat();
+                gmaps.lng = responses[0].geometry.location.lng();
+                gmaps.name = responses[0].formatted_address;
+                document.getElementById('autocomplete').value = responses[0].formatted_address;
+                console.log(gmaps);
+            } else {
+                console.log('Cannot determine address at this location.');
+            }
+        });
+
+
+        // /ue = event.latLng.lat();
+        //.getElementById('lng').value = event.latLng.lng();
+        //console.log(map.getPlace());
+    }
+
+    function onPlaceChanged() {
+        const place = autocomplete.getPlace();
+        const marker = new google.maps.Marker({
+            position: place.geometry.location,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            map: map
+        });
+
+        gmaps.lat = place.geometry.location.lat();
+        gmaps.lng = place.geometry.location.lng();
+        gmaps.name = place.formatted_address;
+
+        console.log(gmaps);
+
+        marker.addListener('dragend', handleEvent);
+        // console.log(google.maps.places);
+        google.maps.event.addListener(marker);
+        if (place.geometry) {
+            map.panTo(place.geometry.location);
+            map.setZoom(15);
+
+        } else {
+            document.getElementById("autocomplete").placeholder = "Enter a city";
+        }
+    }
+    </script>
 </body>
 
 </html>

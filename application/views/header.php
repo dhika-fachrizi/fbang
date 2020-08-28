@@ -108,17 +108,17 @@
 
 			                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			                        <ul class="navbar-nav  menu-category mr-auto col-12 r-p">
-			                            <li class="first col-2 ">
-			                                <a class="nav-link " href="#" id="navbarNews" role="button" data-toggle="dropdown"
-			                                    aria-haspopup="true" aria-expanded="false">
+			                            <li class="first col-2 dropdown">
+			                                <a class="nav-link togglea" href="#" id="navbarNews" role="button"
+			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center>News</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarNews">
 			                                    <a class="dropdown-item" href="<?php echo base_url() . 'news'; ?>">Daily News</a>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 pl-0 pr-0">
-			                                <a class="nav-link " href="#" id="navbarRestaurant" role="button"
+			                            <li class="sub col-2 pl-0 pr-0 dropdown">
+			                                <a class="nav-link dropdown-togglea" href="#" id="navbarRestaurant" role="button"
 			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center class="rnc">Restaurant & Cafe</center>
 			                                </a>
@@ -134,9 +134,9 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="#" id="navbarUMKM" role="button" data-toggle="dropdown"
-			                                    aria-haspopup="true" aria-expanded="false">
+			                            <li class="sub col-2 dropdown">
+			                                <a class="nav-link dropdown-togglea" href="#" id="navbarUMKM" role="button"
+			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center>UMKM</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarUMKM">
@@ -148,8 +148,8 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="#" id="navbarStreetFood" role="button"
+			                            <li class="sub col-2 dropdown">
+			                                <a class="nav-link dropdown-togglea" href="#" id="navbarStreetFood" role="button"
 			                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			                                    <center>Street Food</center>
 			                                </a>
@@ -162,7 +162,7 @@
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
-			                            <li class="sub col-2 ">
+			                            <li class="sub col-2">
 			                                <a class="nav-link " href="#">
 			                                    <center>Healty Food</center>
 			                                </a>

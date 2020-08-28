@@ -27,4 +27,15 @@ class Promo_model extends CI_Model
         return $query;
     }
 
+    public function get_promo_post()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_post');
+        $this->db->where('post_type_id', 6);
+        $this->db->order_by('post_date', 'DESC');
+        $this->db->limit(12);
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+
 }

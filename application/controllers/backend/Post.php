@@ -145,6 +145,7 @@ class Post extends CI_Controller
                 $this->_create_thumbs($img['file_name']);
 
                 $image = $img['file_name'];
+                $image_desc = $this->input->post('image_desc', true);
                 $title = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
                 $contents = $this->input->post('contents');
                 $type = $this->input->post('type', true);
@@ -181,8 +182,9 @@ class Post extends CI_Controller
                 // }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $news_name, $phone, $address, $availability, $social);
+                $this->post_model->save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -385,6 +387,7 @@ class Post extends CI_Controller
                 $this->_create_thumbs($img['file_name']);
 
                 $image = $img['file_name'];
+                $image_desc = $this->input->post('image_desc', true);
                 $id = $this->input->post('post_id', true);
                 $title = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
                 $contents = $this->input->post('contents');
@@ -409,6 +412,14 @@ class Post extends CI_Controller
                 $trim = trim($string);
                 $praslug = strtolower(str_replace(" ", "-", $trim));
 
+                $query = $this->db->get_where('tbl_post', array('post_slug' => $praslug));
+                if ($query->num_rows() > 1) {
+                    $uniqe_string = rand();
+                    $slug = $praslug . '-' . $uniqe_string;
+                } else {
+                    $slug = $praslug;
+                }
+
                 $tags = $this->input->post('tags', true);
                 // $xtags[] = $this->input->post('tag');
                 // foreach ($xtags as $tag) {
@@ -420,8 +431,9 @@ class Post extends CI_Controller
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_with_img(id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $news_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -431,6 +443,7 @@ class Post extends CI_Controller
 
         } else {
             $id = $this->input->post('post_id', true);
+            $image_desc = $this->input->post('image_desc', true);
             $title = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
             $contents = $this->input->post('contents');
             $type = $this->input->post('type', true);
@@ -472,8 +485,9 @@ class Post extends CI_Controller
             }
 
             $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+            $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $news_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }

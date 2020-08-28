@@ -148,8 +148,13 @@ echo date_format($date, "d M Y");?>
                                         <?=$slot1['post_title']?>
                                     </div>
                                     <div class="col-12 ">
-                                        <a class="a-link-c"
-                                            href="<?php echo base_url() . 'news/detail/' . $slot1['post_slug']; ?>">Read
+                                        <a class="a-link-c" href="<?php
+if ($slot1['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $slot1['post_slug'];
+} else if ($slot1['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $slot1['post_slug'];
+}
+?>">Read
                                             Now</a>
                                     </div>
                                 </div>
@@ -170,8 +175,13 @@ echo date_format($date, "d M Y");?>
                                                 <?=$item['post_title']?>
                                             </div>
                                             <div class="col-12 ">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail/' . $item['post_slug']; ?>">Read
+                                                <a class="a-link-c" href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>">Read
                                                     Now</a>
                                             </div>
                                         </div>
@@ -203,7 +213,13 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($item['post_title'], $item[
                                         <div class="col-12  text-thema-split-2" style="height:86px;">
                                             <div class="text-theme-1"
                                                 style="margin-top: 0px;font-size:24px;font-weight:bold;">
-                                                <?=$item['post_title']?>
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                         <div class="col-12  text-thema-split-4" text-theme-1>
@@ -239,10 +255,16 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($item['post_title'], $item[
                                                 <?php $date = date_create($item['post_date']);
 echo date_format($date, "d M Y");?>
                                             </span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:40px;">
+                                        <div class="col-12  text-thema-split-2" style="height:45px;">
                                             <div class="text-theme-1"
                                                 style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                <?=$item['post_title']?>
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -268,39 +290,91 @@ echo date_format($date, "d M Y");?>
                     <div class="row cpl-0">
                         <div class="col-sm-12 p-0 ">
                             <div class="slider demo">
-                                <?php foreach ($popular_image as $item): ?>
+                                <?php foreach ($promo_post as $item): ?>
                                 <div class="pr-10">
-                                    <div class="popular-b-image promo-barner"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+                                    <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                        <div class="popular-b-image promo-barner"
+                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
 								    </div>
+                                    </a>
+                                </div>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
+                                <div class=" pr-10">
+                                            <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                <div class="popular-b-image promo-barner"
+                                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+								    </div>
+                                    </a>
+                                </div>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
+                                <div class=" pr-10">
+                                                    <a
+                                                        href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                        <div class="popular-b-image promo-barner"
+                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+								    </div>
+                                    </a>
+                                </div>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
+                                <div class=" pr-10">
+                                                            <a
+                                                                href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                                <div class="popular-b-image promo-barner"
+                                                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+								    </div>
+                                    </a>
+                                </div>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
+                                <div class=" pr-10">
+                                                                    <a
+                                                                        href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                                        <div class="popular-b-image promo-barner"
+                                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+								    </div>
+                                    </a>
                                 </div>
                                 <?php endforeach;?>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
 			</section>
 
 			<section class=" pb-30 pt-30">
-                                        <div class=" container">
-                                            <div class="d-flex justify-content-center">
-                                                <form class="form-inline" action="<?php echo site_url('subscribe'); ?>"
-                                                    method="post">
-                                                    <div class="pr-10 text-theme-2 subcribe-text"> <i><b>Subscribe for
-                                                                more updates! </b></i></div>
-                                                    <div class="pr-10"><input class="form-control" style="width:30vw;"
-                                                            type="email" name="email" placeholder="send your email"
-                                                            required></div>
-                                                    <div class="pr-10"><button type="submit"
-                                                            class="btn btn-primary mb-2"
-                                                            style="color: black;background-color: #F79D46;border-color: #F79D46;">Subscribe</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div><?php echo $this->session->flashdata('message'); ?></div>
-                                        </div>
+                                                                            <div class=" container">
+                                                                                <div
+                                                                                    class="d-flex justify-content-center">
+                                                                                    <form class="form-inline"
+                                                                                        action="<?php echo site_url('subscribe'); ?>"
+                                                                                        method="post">
+                                                                                        <div
+                                                                                            class="pr-10 text-theme-2 subcribe-text">
+                                                                                            <i><b>Subscribe
+                                                                                                    for
+                                                                                                    more updates!
+                                                                                                </b></i></div>
+                                                                                        <div class="pr-10"><input
+                                                                                                class="form-control"
+                                                                                                style="width:30vw;"
+                                                                                                type="email"
+                                                                                                name="email"
+                                                                                                placeholder="send your email"
+                                                                                                required></div>
+                                                                                        <div class="pr-10"><button
+                                                                                                type="submit"
+                                                                                                class="btn btn-primary mb-2"
+                                                                                                style="color: black;background-color: #F79D46;border-color: #F79D46;">Subscribe</button>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                                <div>
+                                                                                    <?php echo $this->session->flashdata('message'); ?>
+                                                                                </div>
+                                                                            </div>
             </section>
 
 
