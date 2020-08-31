@@ -162,7 +162,7 @@ echo date_format($date, "d M Y");?>, <?=$detail['user_name']?> |
                                                             <div><a href="http://<?php echo $a->availability_value; ?>"><img
                                                                         src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
                                                                         class="img-fluid pr-10 pb-10"
-                                                                        alt="Responsive image">
+                                                                        alt="Responsive image" style="height:25px;">
                                                                 </a>
                                                             </div>
 

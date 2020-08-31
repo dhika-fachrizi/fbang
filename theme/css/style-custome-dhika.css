@@ -135,6 +135,10 @@ t
 	font-weight: 750;
 }
 
+#c-search {
+	transition: width 1s;
+}
+
 .c-i-s {
 	width: 10px;
 	transition: width 1s;
