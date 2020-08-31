@@ -30,11 +30,22 @@ class Promo extends CI_Controller
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
+        $data['filter_city'] = $this->promo_model->get_filter_city();
+        $data['get_city'] = $this->input->get('city', true);
+        $data['get_short'] = $this->input->get('short', true);
+        $data['get_search'] = $this->input->get('search', true);
+        $data['get_perpage'] = $this->input->get('perpage', true);
+        $data['perpage'] = 2;
+        if ($data['get_perpage'] == "") {
+            $data['get_perpage'] = $data['perpage'];
+        }
+
         $page = $this->input->get('search_query', true);
         if (!$page) {
             $page = 0;
         }
-        $data['promo'] = $this->promo_model->get_post_promo($page, 12);
+
+        $data['promo'] = $this->promo_model->get_post_promo($data['get_search'], $data['get_city'], $data['get_short'], $page, $data['get_perpage']);
         //print_r($data['promo']);
         $this->load->view('promo_view', $data);
     }

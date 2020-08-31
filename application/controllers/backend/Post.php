@@ -264,8 +264,10 @@ class Post extends CI_Controller
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $image_desc = $this->input->post('image_desc', true);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -345,8 +347,10 @@ class Post extends CI_Controller
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $image_desc = $this->input->post('image_desc', true);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_promo_post($title, $contents, $type, $category, $slug, $city, $image, $tags, $description, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end);
+                $this->post_model->save_promo_post($title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -563,8 +567,10 @@ class Post extends CI_Controller
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $image_desc = $this->input->post('image_desc', true);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -614,9 +620,12 @@ class Post extends CI_Controller
             if ($tags) {
                 print_r($this->post_model->save_tags_post($tags));
             }
-            $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+            $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+            $image_desc = $this->input->post('image_desc', true);
+            $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
+
+            $this->post_model->edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -689,8 +698,10 @@ class Post extends CI_Controller
                 }
 
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
+                $image_desc = $this->input->post('image_desc', true);
+                $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_promo_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $tags, $description, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end);
+                $this->post_model->edit_post_promo_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -741,8 +752,10 @@ class Post extends CI_Controller
                 $this->post_model->save_tags_post($tags);
             }
             $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
-            print_r($_POST);
-            $this->post_model->edit_post_promo_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end);
+            $image_desc = $this->input->post('image_desc', true);
+            $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
+
+            $this->post_model->edit_post_promo_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }

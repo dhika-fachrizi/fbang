@@ -70,15 +70,18 @@ class Post_model extends CI_Model
 
     }
 
-    public function save_catlist_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social)
+    public function save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
             'post_image' => $image,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
             'post_location_id' => $location,
@@ -104,7 +107,7 @@ class Post_model extends CI_Model
 
     }
 
-    public function save_promo_post($title, $contents, $type, $category, $slug, $city, $image, $tags, $description, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
+    public function save_promo_post($title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
     {
         // print_r($start);
         // print_r($and);
@@ -112,6 +115,8 @@ class Post_model extends CI_Model
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
             'post_image' => $image,
             'post_type_id' => $type,
@@ -216,11 +221,13 @@ class Post_model extends CI_Model
         $result = $this->db->update('tbl_detail_news', $detail);
     }
 
-    public function edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social)
+    public function edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
             'post_image' => $image,
             'post_type_id' => $type,
@@ -255,11 +262,13 @@ class Post_model extends CI_Model
 
     }
 
-    public function edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $catlist_name, $phone, $address, $availability, $social)
+    public function edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
             'post_type_id' => $type,
             'post_category_id' => $category,
@@ -291,11 +300,13 @@ class Post_model extends CI_Model
         return $result;
     }
 
-    public function edit_post_promo_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $tags, $description, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_promo_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
     {
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
             'post_image' => $image,
             'post_type_id' => $type,
@@ -328,7 +339,7 @@ class Post_model extends CI_Model
 
     }
 
-    public function edit_post_promo_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $tags, $description, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_promo_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
     {
 
         // print_r($and);
@@ -336,8 +347,9 @@ class Post_model extends CI_Model
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
+            'post_description_title' => $description_title,
+            'post_image_desc' => $image_desc,
             'post_contents' => $contents,
-
             'post_type_id' => $type,
             'post_category_id' => $category,
             'post_tags' => $tags,

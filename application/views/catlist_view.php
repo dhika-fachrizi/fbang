@@ -81,7 +81,7 @@
                     <div class="row pb-20">
 
                         <div class="col-sm-7 news-b-image m-0"
-                            style="background-image: url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') ;height:430px;">
+                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $thumbnail->detail_category_image; ?>') ;height:430px;">
 
                         </div>
 
@@ -93,18 +93,12 @@
                             <div class="col-sm-12  text-thema-split-7" style="height:330px;">
                                 <div class="text-theme-1"
                                     style="margin-top: 0px;font-size:40px;font-weight:bold; line-height: normal;">
-                                    Lorem ipsum
-                                    dolor sit amet
-                                    consectetur
-                                    adipisicing
-                                    elit. Laboriosam quasi
-                                    repudiandae error in unde delectus corporis atque nisi voluptates
-                                    architecto,
-                                    nulla ad dolore harum id voluptate incidunt fugiat et saepe.
+                                    <?php echo $thumbnail->detail_category_title; ?>
                                 </div>
                             </div>
                             <div class="col-sm-12 pt-40">
-                                <div style="color:#919191;font-size:12px;"> Cover Foto : Restoran Lorem Ipsum Jakarta
+                                <div style="color:#919191;font-size:12px;"> Cover Foto :
+                                    <?php echo $thumbnail->detail_category_desc; ?>
                                 </div>
 
                             </div>
@@ -159,7 +153,7 @@
         }
     }}?> value="<?php echo $item->post_city_id; ?>" onchange="submit()">
                                                 <label class="form-check-label colot-theme-1" for="defaultCheck1">
-                                                    <?php echo $item->city_name; ?>
+                                                    <?php echo strtolower($item->city_name); ?>
                                                 </label>
                                             </div>
                                         </div>
@@ -240,19 +234,21 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="row">
-                                            <div class="col-sm-7 t-5-b">Menampilkan 1 - 12 dari total 200 Resaturants
+                                            <div class="col-sm-7 t-5-b">Menampilkan 1 - <?php echo count($catlist) ?>
+                                                dari total <?php echo $catlist_count ?> Resaturants
                                             </div>
                                             <div class="col-sm-5">
                                                 <div class="row d-flex justify-content-end">
-                                                    <div class="pr-10 pt-10">
-                                                        <div class="" style="width:110px;"> <input type="text"
+                                                    <div class="pr-10 pt-0">
+                                                        <div class="" style="width:0px;" id="c-search"> <input
+                                                                type="text" id="c-search-input"
                                                                 value="<?php echo $get_search ?>" name="search"
                                                                 class="form-control form-control-sm"
-                                                                style="border-radius:20px;height: 21px;">
+                                                                style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px ;padding:0px;">
                                                         </div>
                                                     </div>
-                                                    <div class="pr-20 pt-10" onclick="submitme()"><i
-                                                            class="fas fa-search"></i>
+                                                    <div class="pr-20 pt-10" onclick="submitme()" id="i-search" pop="0">
+                                                        <i class="fas fa-search"></i>
 
                                                     </div>
                                                     <div>
@@ -276,6 +272,7 @@
 
                                     <div class="col-sm-12">
                                         <div class="row mt-10">
+                                            <?php if (count($catlist) > 0): ?>
                                             <?php foreach ($catlist as $item): ?>
                                             <div class="col-md-4 pb-20">
                                                 <div class="row pl-10">
@@ -355,17 +352,38 @@
                                                 </div>
                                             </div>
                                             <?php endforeach;?>
+                                            <?php else: ?>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="container">
+                                                        <div class="row mt-70 mb-30">
+                                                            <div class="col-md-12 d-flex justify-content-center">
+                                                                <h1 style="color: #919191">Opppss....</h1>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex justify-content-center">
+                                                                <p style="color: #919191">No Article found</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php endif;?>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12 d-flex justify-content-center pb-60 pt-30">
                                         <div class="row">
+                                            <?php if (count($catlist) > 0): ?>
+                                            <?php if (count($catlist) % $get_perpage == 0): ?>
                                             <a class="a-link-c" style="cursor:pointer;" onclick="submitMore()">MORE</a>
+                                            <?php endif;?>
                                             <input type="number" id="perpage" name="perpage"
                                                 <?php if ($get_perpage >= 0): ?> value="<?php echo $get_perpage; ?>"
                                                 <?php endif;?> style="display: none">
+                                            <?php endif;?>
                                         </div>
                                     </div>
+
 
                                     <div class="col-sm-12 bc" hidden>
                                         <div class="container pb-10 pt-10">
@@ -473,8 +491,46 @@
     <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
     <script>
+    let searchParams = new URLSearchParams(window.location.search)
+
+    function setSearch() {
+        input = $('#i-search');
+        container = $('#c-search');
+        containerInput = $('#c-search-input');
+
+        if (searchParams.has('search')) {
+            if (containerInput.val() != "") {
+                containerInput.css({
+                    'padding': '.25rem .5rem',
+                })
+                container.css({
+                    'width': '110px',
+                })
+                input.attr('pop', 1)
+            }
+        }
+    }
+
     function submitme() {
-        document.getElementById('catlist-form').submit();
+        input = $('#i-search');
+        container = $('#c-search');
+        containerInput = $('#c-search-input');
+
+        if (containerInput.val() == "" && input.attr('pop') == 0) {
+            containerInput.css({
+                'padding': '.25rem .5rem',
+            })
+            container.css({
+                'width': '110px',
+            })
+            input.attr('pop', 1)
+        } else if (containerInput.val() != "" && input.attr('pop') == 0) {
+            document.getElementById('catlist-form').submit();
+        } else if (containerInput.val() != "" && input.attr('pop') == 1) {
+            document.getElementById('catlist-form').submit();
+        } else if (containerInput.val() == "" && input.attr('pop') == 1) {
+            document.getElementById('catlist-form').submit();
+        }
     }
 
     function submitMore() {
@@ -484,6 +540,7 @@
         document.getElementById('catlist-form').submit();
     }
     $(function() {
+        setSearch()
         $(".pop-show").popover({
             container: "body",
             html: true,

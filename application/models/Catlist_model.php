@@ -29,13 +29,13 @@ class Catlist_model extends CI_Model
             $this->db->where_in('post_additional_id', $get_additional);
         }
 
-        if ($short != "") {
+        if ($short != "" && $short != null) {
             $this->db->order_by('post_date', $short);
         } else {
             $this->db->order_by('post_date', 'DESC');
         }
 
-        if (isset($search)) {
+        if ($search != "" && $search != null) {
             $dt_search = [
                 'post_title' => $search,
                 'post_description' => $search,
@@ -46,6 +46,49 @@ class Catlist_model extends CI_Model
 
         $this->db->limit($perpage, $limit);
         $query = $this->db->get()->result();
+        return $query;
+    }
+
+    public function get_post_catlist_count($category, $get_city, $get_subcategory, $get_location, $get_halal, $get_additional, $short, $search)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_post');
+        $this->db->where('post_type_id', 2);
+        $this->db->where('post_category_id', $category);
+        $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        $this->db->join('tbl_city', 'post_city_id=city_id');
+
+        if (is_array($get_city)) {
+            $this->db->where_in('post_city_id', $get_city);
+        }
+        if (is_array($get_subcategory)) {
+            $this->db->where_in('post_subcategory_id', $get_subcategory);
+        }
+        if (is_array($get_location)) {
+            $this->db->where_in('post_location_id', $get_location);
+        }
+        if (is_array($get_halal)) {
+            $this->db->where_in('post_halal_id', $get_halal);
+        }
+        if (is_array($get_additional)) {
+            $this->db->where_in('post_additional_id', $get_additional);
+        }
+
+        if ($short != "" && $short != null) {
+            $this->db->order_by('post_date', $short);
+        } else {
+            $this->db->order_by('post_date', 'DESC');
+        }
+
+        if ($search != "" && $search != null) {
+            $dt_search = [
+                'post_title' => $search,
+                'post_description' => $search,
+                'post_title' => $search,
+            ];
+            $this->db->like($dt_search);
+        }
+        $query = $this->db->count_all_results();
         return $query;
     }
 
