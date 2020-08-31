@@ -96,7 +96,8 @@ $b_availability = json_decode($detail['detail_catlist_availability']);
                                     <div class="row">
                                         <div class="col-sm-7 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
 echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
-                                            <?=$detail['post_views']?> Mins read</div>
+                                            <?=min_of_read($detail['post_title'], $detail['post_contents'])?> Mins read
+                                        </div>
                                         <div class="col-sm-5 d-flex justify-content-end pr-30">
                                             <div class="SocialShareArticle" style="color: #fff;font-size: 10px;"></div>
                                         </div>
@@ -121,7 +122,7 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-10 text-thema-1 text-theme-color-1"
                                     style="font-size:12px">
-                                    Photo caption Lorem ipsum dolor sit amet
+                                    Photo caption : <?=$detail['post_image_desc']?>
                                 </div>
                             </div>
 
@@ -162,7 +163,7 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
                                                             <div><a href="http://<?php echo $a->availability_value; ?>"><img
                                                                         src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
                                                                         class="img-fluid pr-10 pb-10"
-                                                                        alt="Responsive image">
+                                                                        alt="Responsive image" style="height:25px;">
                                                                 </a>
                                                             </div>
                                                             <?php endforeach;?>
@@ -282,7 +283,7 @@ echo date_format($date, "d M Y");?>
                     </div>
                     <div class="row pt-20">
                         <div class="col-sm-12 d-flex justify-content-end">
-                            <a href="" class="a-link-c">SEE MORE >></a>
+                            <!-- <a href="" class="a-link-c">SEE MORE >></a> -->
                         </div>
                     </div>
 

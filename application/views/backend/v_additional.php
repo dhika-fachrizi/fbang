@@ -168,10 +168,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-			                                    <img class="img-circle avatar"
-			                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-			                                        width="40" height="40" alt="">
-			                                    <?php else: ?>
+				                                    <img class="img-circle avatar"
+				                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+				                                        width="40" height="40" alt="">
+				                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -215,16 +215,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-			                        <a href="javascript:void(0);">
-			                            <div class="sidebar-profile-image">
-			                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-			                                    class="img-circle img-responsive" alt="">
-			                            </div>
-			                            <div class="sidebar-profile-details">
-			                                <span><?php echo $this->session->userdata('name'); ?><br>
-			                                    <?php if ($row['user_level'] == '1'): ?>
-			                                    <small>Administrator</small>
-			                                    <?php else: ?>
+				                        <a href="javascript:void(0);">
+				                            <div class="sidebar-profile-image">
+				                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+				                                    class="img-circle img-responsive" alt="">
+				                            </div>
+				                            <div class="sidebar-profile-details">
+				                                <span><?php echo $this->session->userdata('name'); ?><br>
+				                                    <?php if ($row['user_level'] == '1'): ?>
+				                                    <small>Administrator</small>
+				                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -265,6 +265,8 @@ if ($query->num_rows() > 0):
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+<li><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a></li>
+<li><a href="<?php echo site_url('backend/detail_category'); ?>">Category Detail</a></li>
                             <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li class="active"><a href="<?php echo site_url('backend/additional'); ?>">Additional</a>
@@ -352,24 +354,24 @@ $no = 0;
 foreach ($data->result() as $row):
     $no++;
     ?>
-			                                            <tr>
-			                                                <td><?php echo $no; ?></td>
-			                                                <td><?php echo $row->category_name; ?></td>
-			                                                <td><?php echo $row->additional_name; ?></td>
+				                                            <tr>
+				                                                <td><?php echo $no; ?></td>
+				                                                <td><?php echo $row->category_name; ?></td>
+				                                                <td><?php echo $row->additional_name; ?></td>
 
-			                                                <td style="text-align: center;">
-			                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
-			                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>',<?php echo $row->category_id; ?>)"
-			                                                        data-id="<?php echo $row->additional_id; ?>"
-			                                                        data-additional="<?php echo $row->additional_name; ?>"><span
-			                                                            class="fas fa-edit"></span></a>
-			                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
-			                                                        onclick="del(<?php echo $row->additional_id; ?>)"
-			                                                        data-id="<?php echo $row->additional_id; ?>"><span
-			                                                            class="fa fa-trash"></span></a>
-			                                                </td>
-			                                            </tr>
-			                                            <?php endforeach;?>
+				                                                <td style="text-align: center;">
+				                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
+				                                                        onclick="edt(<?php echo $row->additional_id; ?>,'<?php echo $row->additional_name; ?>',<?php echo $row->category_id; ?>)"
+				                                                        data-id="<?php echo $row->additional_id; ?>"
+				                                                        data-additional="<?php echo $row->additional_name; ?>"><span
+				                                                            class="fas fa-edit"></span></a>
+				                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
+				                                                        onclick="del(<?php echo $row->additional_id; ?>)"
+				                                                        data-id="<?php echo $row->additional_id; ?>"><span
+				                                                            class="fa fa-trash"></span></a>
+				                                                </td>
+				                                            </tr>
+				                                            <?php endforeach;?>
                                         </tbody>
 
                                     </table>
