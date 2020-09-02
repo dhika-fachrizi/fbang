@@ -63,8 +63,8 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <?php
-$count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
-?>
+                            $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
+                            ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -76,9 +76,9 @@ $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-$query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
-foreach ($query_msg->result() as $row):
-?>
+                                            $query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
+                                            foreach ($query_msg->result() as $row) :
+                                            ?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/inbox'); ?>">
                                                         <div class="msg-img">
@@ -92,7 +92,7 @@ foreach ($query_msg->result() as $row):
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach;?>
+                                            <?php endforeach; ?>
 
                                         </ul>
                                     </li>
@@ -100,8 +100,8 @@ foreach ($query_msg->result() as $row):
                                 </ul>
                             </li>
                             <?php
-$count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
-?>
+                            $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
+                            ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-comment"></i><span class="badge badge-success pull-right"><?php echo $count_comment->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -112,9 +112,9 @@ $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-$query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
-foreach ($query_cmt->result() as $row):
-?>
+                                            $query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
+                                            foreach ($query_cmt->result() as $row) :
+                                            ?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/comment/unpublish'); ?>">
                                                         <div class="msg-img">
@@ -128,7 +128,7 @@ foreach ($query_cmt->result() as $row):
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach;?>
+                                            <?php endforeach; ?>
 
                                         </ul>
                                     </li>
@@ -139,15 +139,15 @@ foreach ($query_cmt->result() as $row):
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                     <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
                                     <?php
-$user_id = $this->session->userdata('id');
-$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-if ($query->num_rows() > 0):
-    $row = $query->row_array();
-    ?>
-			                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
-			                                    <?php else: ?>
+                                    $user_id = $this->session->userdata('id');
+                                    $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+                                    if ($query->num_rows() > 0) :
+                                        $row = $query->row_array();
+                                    ?>
+                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
+                                    <?php else : ?>
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
-                                    <?php endif;?>
+                                    <?php endif; ?>
                                 </a>
                                 <ul class="dropdown-menu dropdown-list" role="menu">
                                     <li role="presentation"><a href="<?php echo site_url('backend/change_pass'); ?>"><i class="fa fa-key"></i>Change Password</a></li>
@@ -174,41 +174,41 @@ if ($query->num_rows() > 0):
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
                         <?php
-$user_id = $this->session->userdata('id');
-$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-if ($query->num_rows() > 0):
-    $row = $query->row_array();
-    ?>
-			                            <a href="javascript:void(0);">
-			                                <div class="sidebar-profile-image">
-			                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
-			                                </div>
-			                                <div class="sidebar-profile-details">
-			                                    <span><?php echo $this->session->userdata('name'); ?><br>
-			                                        <?php if ($row['user_level'] == '1'): ?>
-			                                            <small>Administrator</small>
-			                                        <?php else: ?>
+                        $user_id = $this->session->userdata('id');
+                        $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+                        if ($query->num_rows() > 0) :
+                            $row = $query->row_array();
+                        ?>
+                            <a href="javascript:void(0);">
+                                <div class="sidebar-profile-image">
+                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
+                                </div>
+                                <div class="sidebar-profile-details">
+                                    <span><?php echo $this->session->userdata('name'); ?><br>
+                                        <?php if ($row['user_level'] == '1') : ?>
+                                            <small>Administrator</small>
+                                        <?php else : ?>
                                             <small>Author</small>
-                                        <?php endif;?>
+                                        <?php endif; ?>
                                     </span>
                                 </div>
                             </a>
-                        <?php else: ?>
+                        <?php else : ?>
                             <a href="javascript:void(0);">
                                 <div class="sidebar-profile-image">
                                     <img src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1'): ?>
+                                        <?php if ($row['user_level'] == '1') : ?>
                                             <small>Administrator</small>
-                                        <?php else: ?>
+                                        <?php else : ?>
                                             <small>Author</small>
-                                        <?php endif;?>
+                                        <?php endif; ?>
                                     </span>
                                 </div>
                             </a>
-                        <?php endif;?>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <ul class="menu accordion-menu">
@@ -223,13 +223,22 @@ if ($query->num_rows() > 0):
                             <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
+                            <li><a href="<?php echo site_url('backend/post/add_umkm_new'); ?>">Add New
+                                    Umkm</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_stfood_new'); ?>">Add New
+                                    Street Food</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_hltfood_new'); ?>">Add New
+                                    Healty Food</a>
+                            </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
                                     Promo</a>
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-<li><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a></li>
-<li><a href="<?php echo site_url('backend/detail_category'); ?>">Category Detail</a></li>
+                            <li><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a></li>
+                            <li><a href="<?php echo site_url('backend/detail_category'); ?>">Category Detail</a></li>
                             <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
@@ -249,7 +258,7 @@ if ($query->num_rows() > 0):
                     <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span>
                             <p>Testimonials</p>
                         </a></li>
-                    <?php if ($this->session->userdata('access') == '1'): ?>
+                    <?php if ($this->session->userdata('access') == '1') : ?>
                         <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span>
                                 <p>Users</p>
                             </a></li>
@@ -263,8 +272,8 @@ if ($query->num_rows() > 0):
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li>
                             </ul>
                         </li>
-                    <?php else: ?>
-                    <?php endif;?>
+                    <?php else : ?>
+                    <?php endif; ?>
                     <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span>
                             <p>Log Out</p>
                         </a></li>
@@ -365,7 +374,7 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/js/modern.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/toastr/jquery.toast.min.js' ?>"></script>
     <!--Toast Message-->
-    <?php if ($this->session->flashdata('msg') == 'success'): ?>
+    <?php if ($this->session->flashdata('msg') == 'success') : ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
@@ -377,9 +386,9 @@ if ($query->num_rows() > 0):
                 bgColor: '#7EC857'
             });
         </script>
-    <?php else: ?>
+    <?php else : ?>
 
-    <?php endif;?>
+    <?php endif; ?>
 
 </body>
 

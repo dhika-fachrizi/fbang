@@ -260,6 +260,15 @@ if ($query->num_rows() > 0):
                             <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
+                            <li><a href="<?php echo site_url('backend/post/add_umkm_new'); ?>">Add New
+                                    Umkm</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_stfood_new'); ?>">Add New
+                                    Street Food</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_hltfood_new'); ?>">Add New
+                                    Healty Food</a>
+                            </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
                                     Promo</a>
                             </li>
