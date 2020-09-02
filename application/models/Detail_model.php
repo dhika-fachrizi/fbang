@@ -81,6 +81,7 @@ class Detail_model extends CI_Model
     ///
     public function get_more_exploler($id, $type, $tags)
     {
+
         $temp_like = [];
         $tags_array = explode(',', strtolower($tags));
         if (count($tags_array) > 3) {
@@ -122,6 +123,24 @@ class Detail_model extends CI_Model
                 array_push($query, $q2);
             }
         }
+
+        if (count($query) < 5) {
+            $this->db->from('tbl_post');
+            $this->db->order_by('post_date', 'DESC');
+            $this->db->where_not_in('post_type_id', array(1, 6));
+            $this->db->where('post_id !=', $id);
+            foreach ($query as $q) {
+                $this->db->where('post_id !=', $q['post_id']);
+            }
+
+            $query3 = $this->db->get()->result_array();
+            foreach ($query3 as $q3) {
+                array_push($query, $q3);
+            }
+        }
+
+        // print_r($query);
+        // die();
 
         $res = [];
         for ($i = 0; $i < 4; $i++) {

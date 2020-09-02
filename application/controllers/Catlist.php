@@ -64,7 +64,7 @@ class Catlist extends CI_Controller
         $this->load->view('catlist_view', $data);
     }
 
-    public function catlist()
+    public function home()
     {
         $category = $this->category_model->get_category_by_slug($this->uri->segment(3));
         $site = $this->site_model->get_site_data()->row_array();
@@ -105,8 +105,8 @@ class Catlist extends CI_Controller
         if (!$page) {
             $page = 0;
         }
-        $data['catlist'] = $this->catlist_model->get_post_catlist($category['category_id'], $data['get_city'], $data['get_category'], $data['get_location'], $data['get_halal'], $data['get_additional'], $data['get_short'], $data['get_search'], $page, $data['get_perpage']);
-        $data['catlist_count'] = $this->catlist_model->get_post_catlist_count($category['category_id'], $data['get_city'], $data['get_category'], $data['get_location'], $data['get_halal'], $data['get_additional'], $data['get_short'], $data['get_search']);
+        $data['catlist'] = $this->catlist_model->get_post_catlist($category['category_type_id'], $category['category_id'], $data['get_city'], $data['get_category'], $data['get_location'], $data['get_halal'], $data['get_additional'], $data['get_short'], $data['get_search'], $page, $data['get_perpage']);
+        $data['catlist_count'] = $this->catlist_model->get_post_catlist_count($category['category_type_id'], $category['category_id'], $data['get_city'], $data['get_category'], $data['get_location'], $data['get_halal'], $data['get_additional'], $data['get_short'], $data['get_search']);
         $this->load->view('catlist_view', $data);
     }
 
@@ -132,12 +132,13 @@ class Catlist extends CI_Controller
             $data['site_image'] = $site['site_logo_big'];
 
             $data['more_to_exploler'] = $this->detail_model->get_more_exploler($q['post_id'], $q['post_type_id'], $q['post_tags']);
+
             $site_info = $this->db->get('tbl_site', 1)->row();
             $v['logo'] = $site_info->site_logo_header;
             $data['icon'] = $site_info->site_favicon;
             $data['header'] = $this->load->view('header', $v, true);
             $data['footer'] = $this->load->view('footer', '', true);
-            $data['detail'] = $q;
+            $data['detail'] = $this->catlist_model->get_post_dynamic($data['post_id'], $data['post_type_id'], $data['post_category_id']);
             $data['user'] = $this->detail_model->get_user();
             $data['popular'] = $this->detail_model->get_popular();
 

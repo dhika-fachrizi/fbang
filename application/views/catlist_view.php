@@ -1,3 +1,12 @@
+<?php if ($category['type_id'] == 2) {
+    $dynamic_detail_link = 'catlist/detail/';
+} else if ($category['type_id'] == 3) {
+    $dynamic_detail_link = 'umkm/detail/';
+} else if ($category['type_id'] == 4) {
+    $dynamic_detail_link = 'stfood/detail/';
+} else if ($category['type_id'] == 5) {
+    $dynamic_detail_link = 'hltfood/detail/';
+}?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -424,7 +433,7 @@
                                                                 <div class="text-theme-1"
                                                                     style="margin-top:0px;font-size:18px;font-weight:bold;letter-spacing: 0px; line-height: normal;">
                                                                     <a
-                                                                        href="<?php echo base_url() . 'catlist/detail/' . $item->post_slug; ?>">
+                                                                        href="<?php echo base_url() . $dynamic_detail_link . $item->post_slug; ?>">
                                                                         <?php echo $item->post_title; ?>
                                                                     </a>
                                                                 </div>
@@ -437,9 +446,19 @@
                                                                         </i>
 
                                                                     </div>
+
                                                                     <div class="col-sm-11 colot-theme-1 pl-0"
                                                                         style="font-size:12px;">
-                                                                        <?php echo $item->detail_catlist_name; ?>
+                                                                        <?php if ($item->post_type_id == 2) {
+    echo $item->detail_catlist_name;
+} else if ($item->post_type_id == 3) {
+    echo $item->detail_umkm_name;
+} else if ($item->post_type_id == 4) {
+    echo $item->detail_stfood_name;
+} else if ($item->post_type_id == 5) {
+    echo $item->detail_hltfood_name;
+}?>
+
 
                                                                     </div>
 

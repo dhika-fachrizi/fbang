@@ -262,6 +262,15 @@ if ($query->num_rows() > 0):
                             <li class=""><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
                             </li>
+                            <li><a href="<?php echo site_url('backend/post/add_umkm_new'); ?>">Add New
+                                    Umkm</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_stfood_new'); ?>">Add New
+                                    Street Food</a>
+                            </li>
+                            <li><a href="<?php echo site_url('backend/post/add_hltfood_new'); ?>">Add New
+                                    Healty Food</a>
+                            </li>
                             <li class=""><a href="<?php echo site_url('backend/post/add_promo_new'); ?>">Add New
                                     Promo</a>
                             </li>
@@ -369,15 +378,25 @@ foreach ($data->result() as $row):
                                                         <?php elseif ($row->post_type_id == 6): ?>
                                                         <a href="<?php echo site_url('backend/post/get_promo_edit/' . $row->post_id); ?>"
                                                             class="btn btn-xs">
-                                                            <?php else: ?>
-                                                            <a href="<?php echo site_url('backend/post/get_edit/' . $row->post_id); ?>"
+                                                            <?php elseif ($row->post_type_id == 3): ?>
+                                                            <a href="<?php echo site_url('backend/post/get_umkm_edit/' . $row->post_id); ?>"
                                                                 class="btn btn-xs">
-                                                                <?php endif;?>
-                                                                <i class="fas fa-edit"></i></span></a>
-                                                            <a href="javascript:void(0);" class="btn btn-xs btn-delete"
-                                                                onclick="del(<?php echo $row->post_id; ?>)"
-                                                                data-id="<?php echo $row->post_id; ?>"><span
-                                                                    class="fa fa-trash"></span></a>
+                                                                <?php elseif ($row->post_type_id == 4): ?>
+                                                                <a href="<?php echo site_url('backend/post/get_stfood_edit/' . $row->post_id); ?>"
+                                                                    class="btn btn-xs">
+                                                                    <?php elseif ($row->post_type_id == 5): ?>
+                                                                    <a href="<?php echo site_url('backend/post/get_hltfood_edit/' . $row->post_id); ?>"
+                                                                        class="btn btn-xs">
+                                                                        <?php else: ?>
+                                                                        <a href="<?php echo site_url('backend/post/get_edit/' . $row->post_id); ?>"
+                                                                            class="btn btn-xs">
+                                                                            <?php endif;?>
+                                                                            <i class="fas fa-edit"></i></span></a>
+                                                                        <a href="javascript:void(0);"
+                                                                            class="btn btn-xs btn-delete"
+                                                                            onclick="del(<?php echo $row->post_id; ?>)"
+                                                                            data-id="<?php echo $row->post_id; ?>"><span
+                                                                                class="fa fa-trash"></span></a>
                                                 </td>
                                             </tr>
                                             <?php endforeach;?>

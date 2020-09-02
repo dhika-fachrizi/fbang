@@ -1,6 +1,17 @@
 <?php
-$b_social = json_decode($detail['detail_catlist_social']);
-$b_availability = json_decode($detail['detail_catlist_availability']);
+$dymc = "";
+if ($detail['post_type_id'] == 2) {
+    $dymc = "detail_catlist_";
+} else if ($detail['post_type_id'] == 3) {
+    $dymc = "detail_umkm_";
+} else if ($detail['post_type_id'] == 4) {
+    $dymc = "detail_stfood_";
+} else if ($detail['post_type_id'] == 5) {
+    $dymc = "detail_hltfood_";
+}
+
+$b_social = json_decode($detail[$dymc . 'social']);
+$b_availability = json_decode($detail[$dymc . 'availability']);
 //print_r($b_availability)
 ?>
 <!DOCTYPE html>
@@ -144,12 +155,12 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
                                             <div class="col-7">
                                                 <div class="row" style="min-height:100%;">
                                                     <div class="col-12 pt-10" style="color:red;">
-                                                        <?=$detail['detail_catlist_name']?>
+                                                        <?=$detail[$dymc . 'name']?>
                                                     </div>
                                                     <div class="col-12" style="font-size:12px;">
-                                                        <?=$detail['detail_catlist_address']?></div>
+                                                        <?=$detail[$dymc . 'address']?></div>
                                                     <div class="col-12  d-flex align-items-end" style="font-size:12px;">
-                                                        <?=$detail['detail_catlist_phone']?>
+                                                        <?=$detail[$dymc . 'phone']?>
                                                     </div>
                                                 </div>
                                             </div>
