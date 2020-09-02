@@ -53,7 +53,7 @@ class Catlist_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_post');
-        $this->db->where('post_type_id', 2);
+        // $this->db->where('post_type_id', 2);
         $this->db->where('post_category_id', $category);
         $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
         $this->db->join('tbl_city', 'post_city_id=city_id');
@@ -97,6 +97,7 @@ class Catlist_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_post');
         $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        $this->db->join('tbl_category', 'post_category_id=category_id');
         $this->db->where('post_slug', $slug);
         $query = $this->db->get()->row_array();
         return $query;

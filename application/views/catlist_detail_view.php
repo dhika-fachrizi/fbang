@@ -80,7 +80,7 @@ $b_availability = json_decode($detail['detail_catlist_availability']);
                 <div class="container">
                     <div class="row  cpl-0">
                         <div class="col-sm-12 pt-30 pb-30 pl-0 " style="font-size:12px;">
-                            Home/Catlist/<a href=""><u>Detail</u> </a>
+                            Home/<?=$detail['category_name']?>/<a href=""><u><?=$detail['post_title']?></u> </a>
                         </div>
                     </div>
                 </div>

@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="<?php echo base_url('theme/css/style.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url('theme/css/style-custome-dhika.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css') ?>" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables.min.css' ?>" rel="stylesheet"
+        type="text/css" />
+
     <!-- Favicons -->
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
@@ -40,50 +45,14 @@
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
-
     <style>
-    .cty-ul {
+    .c {
         list-style-type: none;
-        padding: 10px 0;
+        padding: 0;
         margin: 0;
-        -webkit-column-count: 4;
-        -moz-column-count: 4;
-        column-count: 4;
-
-    }
-
-    .btn-city {
-        min-width: 150px !important;
-        padding: 0 20px !important;
-        line-height: unset !important;
-    }
-
-    .cty-li {
-        /* margin: 5px 0; */
-    }
-
-    .popover {
-        top: 46% !important;
-        /* left:100px !important; */
-    }
-
-    .popover>.arrow {
-        display: none;
-        /* left:100px !important; */
-    }
-
-    .popover-body {
-        padding: unset;
-    }
-
-    .nofocus-input:focus {
-        border: 0px;
-        background-color: unset;
-        outline: unset;
-    }
-
-    ul#myMenu {
-        padding-left: 10px;
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
     }
     </style>
 </head>
@@ -115,29 +84,26 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <?php if (!empty($category)): ?>
-                        <div class="col-sm-12 pt-30 pb-30 pl-0" style="font-size:12px;">
-                            Home/<?php echo $category['type_name'] ?>/<a
-                                href=""><u><?php echo $category['category_name'] ?></u> </a>
-                        </div>
-                        <?php else: ?>
                         <div class="col-sm-12 pt-30 pb-30 pl-0" style="font-size:12px;">
                             Home/Restaurant & Cafe/<a href=""><u>Restautant</u> </a>
                         </div>
-                        <?php endif;?>
                     </div>
                 </div>
             </section>
-            <?php if (!empty($thumbnail)): ?>
+
             <section name="top-ras">
                 <div class="container">
                     <div class="row pb-20">
+
                         <div class="col-sm-7 news-b-image m-0"
                             style="background-image: url('<?php echo base_url() . 'assets/images/' . $thumbnail->detail_category_image; ?>') ;height:430px;">
+
                         </div>
+
                         <div class="col-sm-5">
                             <div class="col-sm-12">
-                                <div style="color:red;font-size:25px;"> <?php echo $category['category_name'] ?></div>
+                                <div style="color:red;font-size:25px;"> Restaurant</div>
+
                             </div>
                             <div class="col-sm-12  text-thema-split-7" style="height:330px;">
                                 <div class="text-theme-1"
@@ -149,16 +115,17 @@
                                 <div style="color:#919191;font-size:12px;"> Cover Foto :
                                     <?php echo $thumbnail->detail_category_desc; ?>
                                 </div>
+
                             </div>
+
                         </div>
 
                     </div>
                 </div>
             </section>
-            <?php endif;?>
-            <form method="get" id="catlist-form">
+            <form method="get" id="catlist-form" action="<?php echo base_url() . 'catlist/restaurant' ?>">
                 <section>
-                    <div class=" container pt-30">
+                    <div class="container pt-30">
                         <div class="row mb-30">
                             <div class="col-sm-3 pl-0">
                                 <div class="col-sm-12 pl-0 t-5-b">
@@ -166,7 +133,6 @@
                                 </div>
                                 <div class="col-sm-12 pb-20 pt-10 mb-30"
                                     style="border:1px #DDDDDD solid;border-radius:3px;">
-                                    <?php if (!empty($filter_category)): ?>
                                     <div class="row ">
                                         <div class="col-sm-12 t-5-b">
                                             Kategori
@@ -188,8 +154,6 @@
                                         <?php endforeach;?>
                                     </div>
                                     <hr>
-                                    <?php endif;?>
-                                    <?php if (!empty($filter_city)): ?>
                                     <div class="row ">
                                         <div class="col-sm-12 t-5-b">
                                             City
@@ -209,91 +173,8 @@
                                             </div>
                                         </div>
                                         <?php endforeach;?>
-                                        <div class="col-sm-12">
-                                            <!-- <a tabindex="0" class="btn btn-lg btn-danger" id="order-popover"
-                                                data-toggle="popover" data-html="true" data-placement="bottom">OPEN</a>
-                                            <div id="popover_content_wrapper" style="display:none;">
-                                                <div style="width: 100px;">
-                                                    <div class="round">
-                                                        <input type="checkbox" id="checkbox3" />
-                                                        <label for="checkbox3"></label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                            <!-- <button type="button" class="btn btn-lg btn-danger" data-toggle="popover"
-                                                title="Popover title"
-                                                data-content="And here's some amazing content. It's very engaging. Right?">Click
-                                                to toggle popover</button> -->
-
-                                            <!-- <button id="subscribe" type="button" class="btn btn-lg btn-default"
-                                                data-container="body" data-toggle="popover"
-                                                data-placement="left">Subscribe</button> -->
-                                            <div id="hiddenInput" hidden></div>
-                                            <div id="popover-form" hidden>
-                                                <div style="width:600px;">
-                                                    <div class="col-sm-12 pb-10" style="border: 5px solid #DDDDDD;"
-                                                        class="">
-                                                        <div class="pt-10 pb-0 pl-20 row">
-                                                            <div class="pr-10 colot-theme-1"><i
-                                                                    class="fas fa-search"></i></div>
-                                                            <div>
-                                                                <input type="text" id="search-city" style="border:0px;"
-                                                                    class="nofocus-input" onkeydown="cityFind(this)">
-                                                            </div>
-                                                        </div>
-                                                        <hr style="margin-top:5px;">
-                                                        <div class="" style="overflow: auto; height:380px;">
-                                                            <ul id="myMenu">
-                                                                <?php foreach ($city as $key => $value): ?>
-                                                                <?php foreach ($value as $key2 => $value2): ?>
-                                                                <li> <?php echo $key2 ?></li>
-                                                                <li>
-                                                                    <ul class="cty-ul">
-                                                                        <?php foreach ($value2 as $value3): ?>
-                                                                        <li class="cty-li colot-theme-1">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input"
-                                                                                    type="checkbox"
-                                                                                    value="<?php echo $value3['city_id'] ?>"
-                                                                                    name="city[]"
-                                                                                    onchange="cityCheck(this)">
-                                                                                <label class="form-check-label"
-                                                                                    for="defaultCheck1">
-                                                                                    <?php echo strtolower($value3['city_name']) ?>
-                                                                                </label>
-                                                                            </div>
-                                                                        </li>
-                                                                        <?php endforeach;?>
-                                                                    </ul>
-                                                                </li>
-                                                                <?php endforeach;?>
-                                                                <?php endforeach;?>
-                                                            </ul>
-                                                        </div>
-                                                        <hr style="margin-top:10px;margin-bottom:10px;">
-                                                        <div class="row  pr-20 d-flex justify-content-end">
-                                                            <div><button class="btn-city"
-                                                                    class="btn btn-sm">Reset</button></div>
-                                                            <div><button class="btn-city"
-                                                                    style="background-color:#F79D46;"
-                                                                    onclick="submitMoreCity()"
-                                                                    class="btn btn-sm">Submit</button>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="a-link-c pt-10">
-                                                <a class="a-link-c" data-container="body" data-toggle="popover">
-                                                    selengkapnya
-                                                </a>
-                                            </div>
-                                        </div>
                                     </div>
                                     <hr>
-                                    <?php endif;?>
-                                    <?php if (!empty($filter_location)): ?>
                                     <div class="row ">
                                         <div class="col-sm-12 t-5-b">
                                             Lokasi
@@ -315,7 +196,6 @@
                                         <?php endforeach;?>
                                     </div>
                                     <hr>
-                                    <?php endif;?>
                                     <div class=" row ">
                                         <div class=" col-sm-12 t-5-b">
 
@@ -337,7 +217,6 @@
                                         </div>
                                         <?php endforeach;?>
                                     </div>
-                                    <?php if (!empty($filter_additional)): ?>
                                     <hr>
 
                                     <div class="row ">
@@ -360,7 +239,6 @@
                                         </div>
                                         <?php endforeach;?>
                                     </div>
-                                    <?php endif;?>
                                 </div>
 
                                 <div class="col-sm-12 pl-0 news-b-image m-0 "
@@ -520,10 +398,118 @@
                                             <?php endif;?>
                                         </div>
                                     </div>
+                                    <div class="col-sm-12 bc">
+                                        <div class="table-responsive" hidden>
+                                            <table id="data-table" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
 
+                                                        <th>Title</th>
+                                                        <th>Publish Date</th>
+                                                        <th>Publish Date</th>
 
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3">A</td>
+                                                        <td style="display: none;"></td>
+                                                        <td style="display: none;"></td>
 
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Indonse</td>
+                                                        <td>data table</td>
+                                                        <td>data table</td>
 
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <input type="text" id="search-city">
+                                        <ul id="myMenu">
+                                            <li> a </li>
+                                            <li>
+                                                <ul class="c">
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="defaultCheck1">
+                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                angin
+                                                            </label>
+                                                        </div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="defaultCheck1">
+                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                aufna
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="defaultCheck1">
+                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                agij
+                                                            </label>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li> b </li>
+                                            <li>
+                                                <ul class="c">
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="defaultCheck1">
+                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                bangin
+                                                            </label>
+                                                        </div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="defaultCheck1">
+                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                baufna
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="defaultCheck1">
+                                                            <label class="form-check-label" for="defaultCheck1">
+                                                                bagij
+                                                            </label>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                        <a href="#" id="order-popover" data-toggle="popover" data-html="true"
+                                            data-placement="bottom">OPEN</a>
+                                        <div id="popover_content_wrapper" style="display:none;">
+                                            <div style="width: 100px;">
+                                                <div class="round">
+                                                    <input type="checkbox" id="checkbox3" />
+                                                    <label for="checkbox3"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -562,11 +548,19 @@
     <input type="number" id="dtperpage" value="<?php echo $perpage; ?>" style="display: none">
     <!-- JAVASCRIPT
         ==================================================-->
+
     <script src="<?php echo base_url('assets/js/popper.js') ?>"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
     <script src="<?php echo base_url('theme/js/jquery-2.2.4.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.easing.min.js') ?>"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-    </script>
+    <script src="<?php echo base_url('theme/js/bootstrap.min.js') ?>"></script>
+
     <script src="<?php echo base_url('theme/js/waypoints.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.scrollTo.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.localScroll.min.js') ?>"></script>
@@ -583,17 +577,9 @@
     <script src="<?php echo base_url('theme/js/wow.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/datatables/js/jquery.datatables.min.js' ?>"></script>
     <script>
     let searchParams = new URLSearchParams(window.location.search)
-    let cityParams = [];
-
-    function cityCheck(e) {
-        if ($(e).prop("checked") == true) {
-            cityParams.push($(e).val());
-        } else if ($(e).prop("checked") == false) {
-            cityParams = cityParams.filter(city => city != $(e).val());
-        }
-    }
 
     function setSearch() {
         input = $('#i-search');
@@ -611,16 +597,6 @@
                 input.attr('pop', 1)
             }
         }
-    }
-
-    function toHidden(e) {
-        $('#hiddenInput').append(e);
-    }
-
-    function cityFind(e) {
-        var matches = $('ul#myMenu').find('li:contains(' + $(e).val() + ') ');
-        $('li', 'ul#myMenu').not(matches).slideUp();
-        matches.slideDown();
     }
 
     function submitme() {
@@ -651,50 +627,22 @@
         $("#perpage").val($dt)
         document.getElementById('catlist-form').submit();
     }
-
-    function submitMoreCity() {
-        $('#hiddenInput').empty();
-        cityParams.forEach(e => {
-            $('#hiddenInput').append('<input type="hidden" name="city[]" value="' + e + '">');
-        });
-        document.getElementById('catlist-form').submit();
-    }
     $(function() {
+        $('#data-table').dataTable();
         setSearch()
-        // $("#subscribe").popover({
-        //     title: '<h4>Newsletter Subscription</h4>',
-        //     container: 'body',
-        //     placement: 'bottom',
-        //     html: true,
-        //     content: function() {
-        //         return $('#popover-form').html();
-        //     }
-        // });
 
-        $('[data-toggle="popover"]').popover({
+        $('#order-popover').popover({
             html: true,
-            placement: 'right',
             content: function() {
-                return $('#popover-form').html();
+                return $('#popover_content_wrapper').html();
             }
-        })
+        }).on('shown.bs.popover', function() {});
 
-        // $('#order-popover').popover({
-        //     html: true,
-        //     content: function() {
-        //         return $('#popover_content_wrapper').html();
-        //     }
-        // }).on('shown.bs.popover', function() {});
 
         $('#search-city').keyup(function() {
-            var filter = $(this).val();
-            $("ul li").each(function() {
-                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                    $(this).hide();
-                } else {
-                    $(this).show()
-                }
-            });
+            var matches = $('ul#myMenu').find('li:contains(' + $(this).val() + ') ');
+            $('li', 'ul#myMenu').not(matches).slideUp();
+            matches.slideDown();
         });
     })
     </script>
