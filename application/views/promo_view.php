@@ -78,130 +78,183 @@
 
 
             <section>
-                <div class="container">
-                    <div class="row mb-30">
+                <form method="get" id="promo-form">
+                    <div class="container">
+                        <div class="row mb-30">
 
-                        <div class="col-sm-12">
-                            <div class="row">
-                                <div class="col-sm-12 pl-0">
-                                    <div class="row">
-                                        <div class="col-4 t-5-b text-theme-2 fz-25"><i>Diskon Yang Bakal Loe Suka !</i>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="row d-flex justify-content-end">
-                                                <div class="pr-20 pt-10"><i class="fas fa-search"></i>
-                                                </div>
-                                                <div class="pr-10">
-                                                    <select class="form-control form-control-sm"
-                                                        style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
-                                                        <option>Lokasi</option>
-                                                        <option>Jakarta</option>
-                                                        <option>Bandung</option>
-                                                    </select>
-                                                </div>
-                                                <div>
-                                                    <select class="form-control form-control-sm"
-                                                        style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
-                                                        <option>Urutkan Berdasarkan</option>
-                                                        <option>Harga</option>
-                                                        <option>Tempat</option>
-                                                    </select>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12 pl-0">
+                                        <div class="row">
+                                            <div class="col-4 t-5-b text-theme-2 fz-25"><i>Diskon Yang Bakal Loe Suka
+                                                    !</i>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row d-flex justify-content-end">
+                                                    <div class="pr-10 pt-0">
+                                                        <div class="" style="width:0px;" id="c-search"> <input
+                                                                type="text" value="<?php echo $get_search ?>"
+                                                                id="c-search-input" name="search"
+                                                                class="form-control form-control-sm"
+                                                                style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px ;padding:0px;">
+                                                        </div>
+                                                    </div>
+                                                    <div class="pr-20 pt-10" onclick="submitme()" id="i-search" pop="0">
+                                                        <i class="fas fa-search"></i>
+                                                    </div>
+                                                    <div class="pr-10" style="width:167px">
+                                                        <select class="form-control form-control-sm" onchange="submit()"
+                                                            name="city"
+                                                            style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px;text-transform: capitalize;">
+                                                            <option value="" disable>Pilih Kota</option>
+                                                            <?php foreach ($filter_city as $item): ?>
+                                                            <option value="<?php echo $item->city_id ?>"
+                                                                <?php echo $item->city_id == $get_city ? "selected" : ""; ?>>
+                                                                <?php echo strtolower($item->city_name) ?></option>
+                                                            <?php endforeach;?>
+                                                        </select>
+                                                    </div>
+                                                    <div>
+                                                        <select class="form-control form-control-sm" name="short"
+                                                            style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px"
+                                                            onchange="submit()">
+                                                            <option value="" disable>Urutkan Berdasarkan</option>
+                                                            <option value="DESC"
+                                                                <?php echo $get_short == "DESC" ? "selected" : ""; ?>>
+                                                                Postingan Terbaru</option>
+                                                            <option value="ASC"
+                                                                <?php echo $get_short == "ASC" ? "selected" : ""; ?>>
+                                                                Postingan Terlawas</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
-
                                     </div>
-                                </div>
-                                <div class="col-sm-12 pl-0">
-                                    <div class="row mt-10">
-                                        <?php foreach ($promo as $item): ?>
-                                        <div class="col-md-4 pb-20">
-                                            <div class="row pl-10">
-                                                <div class="col-sm-12">
-                                                    <div class="row"
-                                                        style="border:1px #DDDDDD solid;border-radius:3px;">
-                                                        <div class="col-sm-12 popular-b-image m-0 pl-10"
-                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>') ; height:250px;">
-                                                        </div>
-                                                        <div class="col-sm-12 mt-10 pl-10 text-thema-split-2"
-                                                            style="height:60px;">
-                                                            <div class="text-theme-1"
-                                                                style="margin-top:0px;font-size:18px;font-weight:bold;">
-                                                                <?=$item->post_title;?>
+                                    <div class="col-sm-12 pl-0">
+                                        <div class="row mt-10">
+                                            <?php if (count($promo) > 0): ?>
+                                            <?php foreach ($promo as $item): ?>
+                                            <div class="col-md-4 pb-20">
+                                                <div class="row pl-10">
+                                                    <div class="col-sm-12">
+                                                        <div class="row"
+                                                            style="border:1px #DDDDDD solid;border-radius:3px;">
+                                                            <div class="col-sm-12 popular-b-image m-0 pl-10"
+                                                                style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>') ; height:250px;">
                                                             </div>
-                                                        </div>
-                                                        <div class="col-sm-12 mtc-5 ">
-                                                            <div class="row">
-                                                                <div class="col-lg-6">
-                                                                    <div class="row  pl-10">
-                                                                        <div class="pr-10 ">
-                                                                            <i class="fas fa-home c-t-1"
-                                                                                style="font-size:12px;width:10px">
-                                                                            </i>
+                                                            <div class="col-sm-12 mt-10 pl-10 text-thema-split-2"
+                                                                style="height:60px;">
+                                                                <div class="text-theme-1"
+                                                                    style="margin-top:0px;font-size:18px;font-weight:bold;">
+                                                                    <?=$item->post_title;?>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12 mtc-5 ">
+                                                                <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                        <div class="row  pl-10">
+                                                                            <div class="pr-10 ">
+                                                                                <i class="fas fa-home c-t-1"
+                                                                                    style="font-size:12px;width:10px">
+                                                                                </i>
+                                                                            </div>
+                                                                            <div class="color-theme-1 f-t-12">
+                                                                                <?=$item->detail_promo_name;?>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="color-theme-1 f-t-12">
-                                                                            <?=$item->detail_promo_name;?>
+                                                                        <div class="row  pl-10">
+                                                                            <div class="pr-10 ">
+                                                                                <i class="fas fas fa-map-marker c-t-1"
+                                                                                    style="font-size:12px;width:10px">
+                                                                                </i>
+                                                                            </div>
+                                                                            <div class="color-theme-1 f-t-12"
+                                                                                style="text-transform: capitalize;">
+                                                                                <?=strtolower($item->city_name)?>
+                                                                            </div>
                                                                         </div>
+
                                                                     </div>
-                                                                    <div class="row  pl-10">
-                                                                        <div class="pr-10 ">
-                                                                            <i class="fas fas fa-map-marker c-t-1"
-                                                                                style="font-size:12px;width:10px">
-                                                                            </i>
+                                                                    <div class="col-lg-6">
+                                                                        <div class="row  pl-10">
+                                                                            <div class="pr-10 ">
+                                                                                <i class="fas fa-clock c-t-1"
+                                                                                    style="font-size:12px;width:10px">
+                                                                                </i>
+                                                                            </div>
+                                                                            <div class="color-theme-1 f-t-12">
+                                                                                <?=$item->detail_promo_time;?>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="color-theme-1 f-t-12"
-                                                                            style="text-transform: capitalize;">
-                                                                            <?=strtolower($item->city_name)?>
-                                                                        </div>
+
                                                                     </div>
 
                                                                 </div>
-                                                                <div class="col-lg-6">
-                                                                    <div class="row  pl-10">
-                                                                        <div class="pr-10 ">
-                                                                            <i class="fas fa-clock c-t-1"
-                                                                                style="font-size:12px;width:10px">
-                                                                            </i>
-                                                                        </div>
-                                                                        <div class="color-theme-1 f-t-12">
-                                                                            <?=$item->detail_promo_time;?>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-
                                                             </div>
-                                                        </div>
 
-                                                        <div class="col-sm-12 mt-30  d-flex align-items-center d-flex justify-content-center btn"
-                                                            id="post-<?=$item->post_id;?>" data-toggle="modal"
-                                                            onclick="goModal(this)" data-title="<?=$item->post_title;?>"
-                                                            data-time="<?=$item->detail_promo_time;?>"
-                                                            data-short-desc="<?=$item->detail_promo_short_desc;?>"
-                                                            data-address="<?=$item->detail_promo_address;?>"
-                                                            data-name="<?=$item->detail_promo_name;?>"
-                                                            data-content='<?=$item->post_contents;?>'
-                                                            data-city='<?=strtolower($item->city_name);?>'
-                                                            data-img="<?php echo base_url() . 'assets/images/' . $item->post_image; ?>"
-                                                            style=" background-color:
+                                                            <div class="col-sm-12 mt-30  d-flex align-items-center d-flex justify-content-center btn"
+                                                                id="post-<?=$item->post_id;?>" data-toggle="modal"
+                                                                onclick="goModal(this)"
+                                                                data-title="<?=$item->post_title;?>"
+                                                                data-time="<?=$item->detail_promo_time;?>"
+                                                                data-short-desc="<?=$item->detail_promo_short_desc;?>"
+                                                                data-address="<?=$item->detail_promo_address;?>"
+                                                                data-name="<?=$item->detail_promo_name;?>"
+                                                                data-content='<?=$item->post_contents;?>'
+                                                                data-city='<?=strtolower($item->city_name);?>'
+                                                                data-img="<?php echo base_url() . 'assets/images/' . $item->post_image; ?>"
+                                                                style=" background-color:
                                                             #F79D46;height:40px;border-radius:0px;">
 
-                                                            <div class="">
-                                                                CHECK PROMO
-                                                            </div>
+                                                                <div class="">
+                                                                    CHECK PROMO
+                                                                </div>
 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <?php endforeach;?>
+                                            <?php else: ?>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="container" style="height:100vh;">
+                                                        <div class="row mt-70 mb-70">
+                                                            <div class="col-md-12 d-flex justify-content-center">
+                                                                <h1 style="color: #919191">Opppss....</h1>
+                                                            </div>
+                                                            <div class="col-md-12 d-flex justify-content-center">
+                                                                <p style="color: #919191">No Article found</p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
+                                            <?php endif;?>
                                         </div>
-                                        <?php endforeach;?>
+                                    </div>
+
+                                    <div class="col-md-12 d-flex justify-content-center pb-60 pt-30">
+                                        <div class="row">
+                                            <?php if (count($promo) > 0): ?>
+                                            <?php if (count($promo) % $get_perpage == 0): ?>
+                                            <a class="a-link-c" style="cursor:pointer;" onclick="submitMore()">MORE</a>
+                                            <?php endif;?>
+                                            <input type="number" id="perpage" name="perpage"
+                                                <?php if ($get_perpage >= 0): ?> value="<?php echo $get_perpage; ?>"
+                                                <?php endif;?> style="display: none">
+                                            <?php endif;?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                </form>
+
             </section>
 
 
@@ -312,6 +365,7 @@
             </div>
         </div>
     </div>
+    <input type="number" id="dtperpage" value="<?php echo $perpage; ?>" style="display: none">
     <!-- JAVASCRIPT
 		==================================================-->
     <script src="<?php echo base_url('theme/js/jquery-2.2.4.min.js') ?>"></script>
@@ -334,6 +388,58 @@
     <script src="<?php echo base_url('theme/js/script.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/stickybits.min.js') ?>"></script>
     <script>
+    let searchParams = new URLSearchParams(window.location.search)
+
+    function setSearch() {
+        input = $('#i-search');
+        container = $('#c-search');
+        containerInput = $('#c-search-input');
+
+        if (searchParams.has('search')) {
+            if (containerInput.val() != "") {
+                containerInput.css({
+                    'padding': '.25rem .5rem',
+                })
+                container.css({
+                    'width': '110px',
+                })
+                input.attr('pop', 1)
+            }
+        }
+    }
+
+    function submitMore() {
+
+        $dt = parseInt($("#perpage").val()) + parseInt($("#dtperpage").val())
+        $("#perpage").val($dt)
+        document.getElementById('promo-form').submit();
+    }
+
+    function submitme() {
+        input = $('#i-search');
+        container = $('#c-search');
+        containerInput = $('#c-search-input');
+
+        if (containerInput.val() == "" && input.attr('pop') == 0) {
+            containerInput.css({
+                'padding': '.25rem .5rem',
+            })
+            container.css({
+                'width': '110px',
+            })
+            input.attr('pop', 1)
+        } else if (containerInput.val() != "" && input.attr('pop') == 0) {
+            document.getElementById('promo-form').submit();
+        } else if (containerInput.val() != "" && input.attr('pop') == 1) {
+            document.getElementById('promo-form').submit();
+        } else if (containerInput.val() == "" && input.attr('pop') == 1) {
+            document.getElementById('promo-form').submit();
+        }
+
+        console.log(containerInput.val())
+        // document.getElementById('promo-form').submit();
+    }
+
     function goModal(e) {
         $('.data-content').html($(e).data(`content`))
         $('.data-time').html($(e).data(`time`))
@@ -357,12 +463,12 @@
             let post_id = searchParams.get('id_promo');
             goModal('#post-' + post_id)
         }
-
-
-
     }
 
+
     $(document).ready(function() {
+        setSearch()
+
         getModalPromo();
 
     });

@@ -13,8 +13,9 @@ $b_availability = json_decode($detail['detail_catlist_availability']);
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="<?= $detail['post_description'] ?>" />
+    <meta name="keywords" content="<?= $detail['post_description_title'] ?>" />
+    <meta name="keywords" content="<?= $detail['post_title'] ?>" />
     <meta name="author" content="" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
@@ -27,8 +28,7 @@ $b_availability = json_decode($detail['detail_catlist_availability']);
     <link href="<?php echo base_url() . 'theme/css/jssocials.css' ?>" rel="stylesheet">
     <link href="<?php echo base_url() . 'theme/css/jssocials-theme-flat.css' ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
@@ -95,8 +95,14 @@ $b_availability = json_decode($detail['detail_catlist_availability']);
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
                                         <div class="col-sm-7 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
+<<<<<<< Updated upstream
 echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
-                                            <?=$detail['post_views']?> Mins read</div>
+                                            <?=min_of_read($detail['post_title'], $detail['post_contents'])?> Mins read
+                                        </div>
+=======
+                                                                                                                        echo date_format($date, "d M Y"); ?>, by <?= $user['user_name'] ?> |
+                                            <?= $detail['post_views'] ?> Mins read</div>
+>>>>>>> Stashed changes
                                         <div class="col-sm-5 d-flex justify-content-end pr-30">
                                             <div class="SocialShareArticle" style="color: #fff;font-size: 10px;"></div>
                                         </div>
@@ -105,37 +111,39 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
 
                                 </div>
                                 <div class="col-sm-12 pl-0 text-theme-2" style="font-size:40px">
-                                    <?=$detail['post_title']?>
+                                    <?= $detail['post_title'] ?>
                                 </div>
                             </div>
                             <div class="row lbpr-30 ">
 
-                                <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
+                                <div class="col-sm-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-30">
-                                    <img src="<?php echo base_url() . 'assets/images/' . $detail['post_image']; ?>."
-                                        class="img-fluid" alt="Responsive image" width="100%">
+                                    <img src="<?php echo base_url() . 'assets/images/' . $detail['post_image']; ?>." class="img-fluid" alt="Responsive image" width="100%">
                                 </div>
 
+<<<<<<< Updated upstream
                                 <div class="col-sm-12 pl-0 pr-0 pt-10 text-thema-1 text-theme-color-1"
                                     style="font-size:12px">
+                                    Photo caption : <?=$detail['post_image_desc']?>
+=======
+                                <div class="col-sm-12 pl-0 pr-0 pt-10 text-thema-1 text-theme-color-1" style="font-size:12px">
                                     Photo caption Lorem ipsum dolor sit amet
+>>>>>>> Stashed changes
                                 </div>
                             </div>
 
                             <div class="row lbpr-30 pt-20">
                                 <div class="col-sm-12 pl-0 text-thema-1" style="font-size:15px">
-                                    <?=$detail['post_contents']?>
+                                    <?= $detail['post_contents'] ?>
                                 </div>
                             </div>
 
                             <div class="mt-30 lbpr-30 mb-30">
                                 <div class="row" style=" background-color:#FFF9EA;">
                                     <div class="col-3 pl-0 pr-0">
-                                        <div class="col-12 pl-0 news-b-image m-0 "
-                                            style="background-image: url('') ; background-color:#F4F4F4; min-height: 140px;height:100%">
+                                        <div class="col-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; min-height: 140px;height:100%">
                                         </div>
                                     </div>
                                     <div class="col-9 pb-10">
@@ -143,39 +151,44 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
                                             <div class="col-7">
                                                 <div class="row" style="min-height:100%;">
                                                     <div class="col-12 pt-10" style="color:red;">
-                                                        <?=$detail['detail_catlist_name']?>
+                                                        <?= $detail['detail_catlist_name'] ?>
                                                     </div>
                                                     <div class="col-12" style="font-size:12px;">
-                                                        <?=$detail['detail_catlist_address']?></div>
+                                                        <?= $detail['detail_catlist_address'] ?></div>
                                                     <div class="col-12  d-flex align-items-end" style="font-size:12px;">
-                                                        <?=$detail['detail_catlist_phone']?>
+                                                        <?= $detail['detail_catlist_phone'] ?>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-5">
                                                 <div class="row" style="min-height:100%;">
-                                                    <div class="pt-10 col-12 d-flex justify-content-end"
-                                                        style="font-size:10px;">avalibel at</div>
+                                                    <div class="pt-10 col-12 d-flex justify-content-end" style="font-size:10px;">avalibel at</div>
                                                     <div class="pt-10 col-12  d-flex flex-row-reverse">
                                                         <div class="row ">
+<<<<<<< Updated upstream
                                                             <?php foreach ($b_availability as $a): ?>
                                                             <div><a href="http://<?php echo $a->availability_value; ?>"><img
                                                                         src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
                                                                         class="img-fluid pr-10 pb-10"
-                                                                        alt="Responsive image">
+                                                                        alt="Responsive image" style="height:25px;">
                                                                 </a>
                                                             </div>
                                                             <?php endforeach;?>
+=======
+                                                            <?php foreach ($b_availability as $a) : ?>
+                                                                <div><a href="http://<?php echo $a->availability_value; ?>"><img src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>" class="img-fluid pr-10 pb-10" alt="Responsive image">
+                                                                    </a>
+                                                                </div>
+                                                            <?php endforeach; ?>
+>>>>>>> Stashed changes
                                                         </div>
                                                     </div>
 
-                                                    <div
-                                                        class="pt-10 pr-0 col-12 row d-flex flex-row-reverse d-flex align-items-end">
-                                                        <?php foreach ($b_social as $s): ?>
-                                                        <a href="http://<?php echo $s->social_value; ?>"><i
-                                                                class="<?php echo $s->social_icon; ?> pl-10"></i></a>
+                                                    <div class="pt-10 pr-0 col-12 row d-flex flex-row-reverse d-flex align-items-end">
+                                                        <?php foreach ($b_social as $s) : ?>
+                                                            <a href="http://<?php echo $s->social_value; ?>"><i class="<?php echo $s->social_icon; ?> pl-10"></i></a>
 
-                                                        <?php endforeach;?>
+                                                        <?php endforeach; ?>
                                                     </div>
 
                                                 </div>
@@ -189,12 +202,12 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
 
                             <div class="row mb-30">
                                 <div class="col-12 pl-0">
-                                    <?php $split_tag = explode(",", $detail['post_tags']);foreach ($split_tag as $tag): ?>
-                                    <div class="float-left mr-10"
-                                        style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
-                                        <a href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
-                                    </div>
-                                    <?php endforeach;?>
+                                    <?php $split_tag = explode(",", $detail['post_tags']);
+                                    foreach ($split_tag as $tag) : ?>
+                                        <div class="float-left mr-10" style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
+                                            <a href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
 
@@ -203,8 +216,7 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
 
                             <div>
                                 <div class="row">
-                                    <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%">
+                                    <div class="col-sm-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%">
                                     </div>
                                 </div>
                                 <div class="row text-theme-2 pt-30 pb-30  cpl-0">
@@ -214,31 +226,29 @@ echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
                                     </div>
                                 </div>
 
-                                <?php foreach ($popular as $item): ?>
-                                <div class="row pb-20 cpl-0">
-                                    <div class="col-4 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
-                                    </div>
-                                    <div class="col-8 pl-0 pr-0">
-                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>
-                                                <?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?>
-                                            </span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:40px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                <a href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>"><?=$item['post_title']?></a>
+                                <?php foreach ($popular as $item) : ?>
+                                    <div class="row pb-20 cpl-0">
+                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                        </div>
+                                        <div class="col-8 pl-0 pr-0">
+                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:15px;"><span>
+                                                    <?php $date = date_create($item['post_date']);
+                                                    echo date_format($date, "d M Y"); ?>
+                                                </span></div>
+                                            <div class="col-12  text-thema-split-2" style="height:40px;">
+                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
+                                                    <a href="<?php
+                                                                if ($item['post_type_id'] == 1) {
+                                                                    echo base_url() . 'news/detail/' . $item['post_slug'];
+                                                                } else if ($item['post_type_id'] == 2) {
+                                                                    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+                                                                }
+                                                                ?>"><?= $item['post_title'] ?></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php endforeach?>
+                                <?php endforeach ?>
                             </div>
 
 
@@ -257,32 +267,30 @@ if ($item['post_type_id'] == 1) {
                         </div>
                     </div>
                     <div class="row cpl-0">
-                        <?php foreach ($more_to_exploler as $item): ?>
-                        <div class="col-3 ">
-                            <div class="row pr-10">
-                                <div class="col-12 image-exploler m-0"
-                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>');">
-                                </div>
-                                <div class="col-12 pl-0 text-theme-1 " style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?>
-                                    </span>
-                                </div>
-                                <div class="col-12 pl-0 text-thema-split-2" style="height:50px;">
-                                    <div class="text-theme-1" style="margin-top:0px;font-size:15px;font-weight:bold;">
-                                        <a
-                                            href="<?php echo base_url() . 'catlist/detail/' . $item['post_slug']; ?>"><?=$item['post_title']?></a>
+                        <?php foreach ($more_to_exploler as $item) : ?>
+                            <div class="col-3 ">
+                                <div class="row pr-10">
+                                    <div class="col-12 image-exploler m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>');">
+                                    </div>
+                                    <div class="col-12 pl-0 text-theme-1 " style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
+                                                                                                            echo date_format($date, "d M Y"); ?>
+                                        </span>
+                                    </div>
+                                    <div class="col-12 pl-0 text-thema-split-2" style="height:50px;">
+                                        <div class="text-theme-1" style="margin-top:0px;font-size:15px;font-weight:bold;">
+                                            <a href="<?php echo base_url() . 'catlist/detail/' . $item['post_slug']; ?>"><?= $item['post_title'] ?></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php endforeach;?>
+                        <?php endforeach; ?>
 
 
 
                     </div>
                     <div class="row pt-20">
                         <div class="col-sm-12 d-flex justify-content-end">
-                            <a href="" class="a-link-c">SEE MORE >></a>
+                            <!-- <a href="" class="a-link-c">SEE MORE >></a> -->
                         </div>
                     </div>
 
@@ -340,26 +348,26 @@ echo date_format($date, "d M Y");?>
     </script>
     <script src="<?php echo base_url('theme/js/jssocials.min.js') ?>"></script>
     <script>
-    $(document).ready(function() {
-        $(".SocialShareArticle").jsSocials({
-            showCount: false,
-            showLabel: true,
-            shareIn: "popup",
-            shares: [{
-                    share: "twitter",
-                    label: "Twitter"
-                },
-                {
-                    share: "facebook",
-                    label: "Facebook"
-                },
-                {
-                    share: "whatsapp",
-                    label: "WhatsApp"
-                }
-            ]
+        $(document).ready(function() {
+            $(".SocialShareArticle").jsSocials({
+                showCount: false,
+                showLabel: true,
+                shareIn: "popup",
+                shares: [{
+                        share: "twitter",
+                        label: "Twitter"
+                    },
+                    {
+                        share: "facebook",
+                        label: "Facebook"
+                    },
+                    {
+                        share: "whatsapp",
+                        label: "WhatsApp"
+                    }
+                ]
+            });
         });
-    });
     </script>
 
 </body>

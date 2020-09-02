@@ -24,33 +24,41 @@ class Subscribe extends CI_Controller
 			$email = $this->input->post('email', TRUE);
 			$checking_email = $this->subscribe_model->checking_email($email);
 			if ($checking_email->num_rows() > 0) {
-				//send email to subscribe
+				$this->session->set_flashdata('message', '<div class="alert alert-info">Anda telah berlangganan.</div>');
+				redirect($url);
+			} else {
+				$message = $this->load->view('email/newsupdate','', true);
+				// $config['mailtype'] = 'html';
+				// $config['protocol'] = 'smtp';
+				// $config['smtp_host'] = 'smtp.mailtrap.io';
+				// $config['smtp_user'] = '3b599c5fbb1bb2';
+				// $config['smtp_pass'] = 'f0cdd5ebfefb36';
+				// $config['smtp_port'] = 2525;
+				// $config['newline'] = "\r\n";
 				$config['mailtype'] = 'html';
 				$config['protocol'] = 'smtp';
-				$config['smtp_host'] = 'smtp.mailtrap.io';
-				$config['smtp_user'] = '3b599c5fbb1bb2';
-				$config['smtp_pass'] = 'f0cdd5ebfefb36';
-				$config['smtp_port'] = 2525;
-				$config['newline'] = "\r\n";
+				$config['smtp_host'] = 'smtp.yandex.com';
+				$config['smtp_user'] = 'limin.mus@yandex.com';
+				$config['smtp_pass'] = 'Superm@n123';
+				$config['smtp_port'] = 465;
+				$config['charset'] = "utf-8";
+				$config['SMTPSecure '] = "ssl";
+				$config['SMTPAuth'] = true;
+				
 
 				$this->load->library('email', $config);
-				$this->email->from('noreply@mywebsite.com');
+
+				$this->email->from('no-reply@foodbang.com');
 				$this->email->to($email);
-
-
-				$this->email->subject("Welcome to Foodbang"); #change
-				$this->email->message("welcome"); #change
-				//end
+				$this->email->subject('Welcome to Foodbang');
+				$this->email->message($message);
 				if ($this->email->send()) {
-					$this->session->set_flashdata('message', '<div class="alert alert-info">Anda telah berlangganan.</div>');
+					$this->subscribe_model->save_subcribe($email);
+					$this->session->set_flashdata('message', '<div class="alert alert-info">Terima kasih telah berlangganan.</div>');
 					redirect($url);
 				} else {
 					var_dump($this->email->print_debugger());
 				}
-			} else {
-				$this->subscribe_model->save_subcribe($email);
-				$this->session->set_flashdata('message', '<div class="alert alert-info">Terima kasih telah berlangganan.</div>');
-				redirect($url);
 			}
 		}
 	}

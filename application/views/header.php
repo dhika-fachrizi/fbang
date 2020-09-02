@@ -168,7 +168,7 @@
 			                                </a>
 			                            </li>
 			                            <li class="sub col-2 ">
-			                                <a class="nav-link " href="<?php echo base_url() . '/promo'; ?>">
+			                                <a class="nav-link " href="<?php echo base_url() . 'promo'; ?>">
 			                                    <center>Promo</center>
 			                                </a>
 
