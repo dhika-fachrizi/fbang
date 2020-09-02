@@ -566,7 +566,7 @@ CREATE TABLE `tbl_availability` (
   `availability_id` int(11) NOT NULL,
   `availability_name` varchar(20) NOT NULL,
   `availability_img` varchar(200) NOT NULL,
-  `availability_created_at` int(11) NOT NULL DEFAULT current_timestamp()
+  `availability_created_at` int(11) NOT NULL DEFAULT 2147483647
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1145,8 +1145,8 @@ CREATE TABLE `tbl_detail_catlist` (
   `detail_catlist_address` varchar(100) NOT NULL,
   `detail_catlist_phone` varchar(15) NOT NULL,
   `detail_catlist_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_catlist_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_catlist_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_catlist_created_at` int(50) NOT NULL DEFAULT 2147483647,
+  `detail_catlist_update_at` int(50) NOT NULL DEFAULT 2147483647
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1177,8 +1177,8 @@ CREATE TABLE `tbl_detail_news` (
   `detail_news_address` varchar(100) NOT NULL,
   `detail_news_phone` varchar(15) NOT NULL,
   `detail_news_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_news_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_news_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_news_created_at` int(50) NOT NULL DEFAULT 2147483647,
+  `detail_news_update_at` int(50) NOT NULL DEFAULT 2147483647
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1209,8 +1209,8 @@ CREATE TABLE `tbl_detail_promo` (
   `detail_promo_time` varchar(100) NOT NULL,
   `detail_promo_start` int(50) NOT NULL,
   `detail_promo_end` int(50) NOT NULL,
-  `detail_promo_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_promo_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_promo_created_at` int(50) NOT NULL DEFAULT 1598100441,
+  `detail_promo_update_at` int(50) NOT NULL DEFAULT 1598101244
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1540,7 +1540,7 @@ CREATE TABLE `tbl_social` (
   `social_id` int(11) NOT NULL,
   `social_name` varchar(50) NOT NULL,
   `social_icon` varchar(255) NOT NULL,
-  `created_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `created_at` int(50) NOT NULL DEFAULT 1597723692
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1584,7 +1584,7 @@ INSERT INTO `tbl_subcategory` (`subcategory_id`, `subcategory_name`, `subcategor
 CREATE TABLE `tbl_subscribe` (
   `subscribe_id` int(11) NOT NULL,
   `subscribe_email` varchar(100) DEFAULT NULL,
-  `subscribe_created_at` timestamp NULL DEFAULT current_timestamp(),
+  `subscribe_created_at` timestamp NULL DEFAULT null,
   `subscribe_status` int(11) DEFAULT 0,
   `subscribe_rating` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
