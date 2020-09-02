@@ -377,7 +377,7 @@
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="type" value="2">
+                                    <input type="hidden" name="type" value="5">
                                     <div class="form-group">
                                         <label>Category</label>
                                         <select class="form-control" name="category" required onchange="dynamicAttribute(this)">
