@@ -444,7 +444,7 @@ if ($query->num_rows() > 0):
                                         </div>
                                     </div>
 
-                                    <input type="hidden" name="type" value="2">
+                                    <input type="hidden" name="type" value="5">
                                     <div class="form-group">
                                         <label>Category</label>
                                         <select class="form-control" id="category" name="category" required

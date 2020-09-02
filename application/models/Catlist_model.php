@@ -4,13 +4,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Catlist_model extends CI_Model
 {
 
-    public function get_post_catlist($category, $get_city, $get_subcategory, $get_location, $get_halal, $get_additional, $short, $search, $limit, $perpage)
+    public function get_post_catlist($type, $category, $get_city, $get_subcategory, $get_location, $get_halal, $get_additional, $short, $search, $limit, $perpage)
     {
         $this->db->select('*');
         $this->db->from('tbl_post');
-        $this->db->where('post_type_id', 2);
+        $this->db->where('post_type_id', $type);
         $this->db->where('post_category_id', $category);
-        $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        if ($type == 2) {
+            $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        } else if ($type == 3) {
+            $this->db->join('tbl_detail_umkm', 'post_detail_id=detail_umkm_id');
+        } else if ($type == 4) {
+            $this->db->join('tbl_detail_stfood', 'post_detail_id=detail_stfood_id');
+        } else if ($type == 5) {
+            $this->db->join('tbl_detail_hltfood', 'post_detail_id=detail_hltfood_id');
+        }
+
         $this->db->join('tbl_city', 'post_city_id=city_id');
 
         if (is_array($get_city)) {
@@ -49,13 +58,21 @@ class Catlist_model extends CI_Model
         return $query;
     }
 
-    public function get_post_catlist_count($category, $get_city, $get_subcategory, $get_location, $get_halal, $get_additional, $short, $search)
+    public function get_post_catlist_count($type, $category, $get_city, $get_subcategory, $get_location, $get_halal, $get_additional, $short, $search)
     {
         $this->db->select('*');
         $this->db->from('tbl_post');
-        $this->db->where('post_type_id', 2);
+        $this->db->where('post_type_id', $type);
         $this->db->where('post_category_id', $category);
-        $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        if ($type == 2) {
+            $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        } else if ($type == 3) {
+            $this->db->join('tbl_detail_umkm', 'post_detail_id=detail_umkm_id');
+        } else if ($type == 4) {
+            $this->db->join('tbl_detail_stfood', 'post_detail_id=detail_stfood_id');
+        } else if ($type == 5) {
+            $this->db->join('tbl_detail_hltfood', 'post_detail_id=detail_hltfood_id');
+        }
         $this->db->join('tbl_city', 'post_city_id=city_id');
 
         if (is_array($get_city)) {
@@ -96,8 +113,27 @@ class Catlist_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_post');
-        $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        $this->db->join('tbl_category', 'post_category_id=category_id');
         $this->db->where('post_slug', $slug);
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
+
+    public function get_post_dynamic($id, $type, $category)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_post');
+        if ($type == 2) {
+            $this->db->join('tbl_detail_catlist', 'post_detail_id=detail_catlist_id');
+        } else if ($type == 3) {
+            $this->db->join('tbl_detail_umkm', 'post_detail_id=detail_umkm_id');
+        } else if ($type == 4) {
+            $this->db->join('tbl_detail_stfood', 'post_detail_id=detail_stfood_id');
+        } else if ($type == 5) {
+            $this->db->join('tbl_detail_hltfood', 'post_detail_id=detail_hltfood_id');
+        }
+        $this->db->join('tbl_category', 'post_category_id=category_id');
+        $this->db->where('post_id', $id);
         $query = $this->db->get()->row_array();
         return $query;
     }

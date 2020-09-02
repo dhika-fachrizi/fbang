@@ -56,7 +56,6 @@ class Post extends CI_Controller
         $this->load->view('backend/v_add_catlist_post', $x);
     }
 
-    
     public function add_umkm_new()
     {
 
@@ -710,7 +709,6 @@ class Post extends CI_Controller
             redirect('backend/post');
         }
     }
-
 
     public function edit()
     {

@@ -124,13 +124,16 @@
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarRestaurant">
 			                                    <a class="dropdown-item"
-			                                        href="<?php echo base_url() . 'catlist/restaurant'; ?>">Restaurant</a>
+			                                        href="<?php echo base_url() . 'catlist/home/restaurant'; ?>">Restaurant</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Cafe</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'catlist/home/cafe'; ?>">Cafe</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Coffe Shop</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'catlist/home/coffe-shop'; ?>">Coffe Shop</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Nightlife</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'catlist/home/nightlife'; ?>">Nightlife</a>
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
@@ -140,11 +143,14 @@
 			                                    <center>UMKM</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarUMKM">
-			                                    <a class="dropdown-item" href="#">Homefood</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'umkm/home/homefood'; ?>">Homefood</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Frozen Food</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'umkm/home/frozen-food'; ?>">Frozen Food</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Snack/Oleh-oleh</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'umkm/home/snack-oleh-oleh'; ?>">Snack/Oleh-oleh</a>
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
@@ -154,16 +160,22 @@
 			                                    <center>Street Food</center>
 			                                </a>
 			                                <div class="dropdown-menu" aria-labelledby="navbarStreetFood">
-			                                    <a class="dropdown-item" href="#">Makanan Kenyang</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'stfood/home/makan-kenyang'; ?>">Makanan
+			                                        Kenyang</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Makanan Ringan</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'stfood/home/makan-ringan'; ?>">Makanan
+			                                        Ringan</a>
 			                                    <div class="dropdown-divider"></div>
-			                                    <a class="dropdown-item" href="#">Sweets & Drink</a>
+			                                    <a class="dropdown-item"
+			                                        href="<?php echo base_url() . 'stfood/home/snacks-drinks'; ?>">Sweets &
+			                                        Drink</a>
 			                                    <div class="dropdown-divider"></div>
 			                                </div>
 			                            </li>
 			                            <li class="sub col-2">
-			                                <a class="nav-link " href="#">
+			                                <a class="nav-link " href="<?php echo base_url() . 'hltfood/home/healthy-food'; ?>">
 			                                    <center>Healty Food</center>
 			                                </a>
 			                            </li>
