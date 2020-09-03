@@ -53,11 +53,8 @@
                     </a>
                 </div>
                 <div class="logo-box">
-                    <a href="<?php echo site_url('backend/dashboard'); ?>" class="logo-text"><span>MBLOG</span></a>
+                    <a href="<?php echo site_url('backend/dashboard'); ?>" class="logo-text"><span>FOODBANG</span></a>
                 </div><!-- Logo Box -->
-                <div class="search-button">
-                    <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
-                </div>
                 <div class="topmenu-outer">
                     <div class="top-menu">
                         <ul class="nav navbar-nav navbar-left">
@@ -69,7 +66,7 @@
                             <?php
                             $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
                             ?>
-                            <li class="dropdown">
+                            <!-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
 
@@ -138,7 +135,7 @@
                                     </li>
                                     <li class="drop-all"><a href="<?php echo site_url('backend/comment/unpublish'); ?>" class="text-center">All Comments</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                     <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
@@ -153,7 +150,7 @@
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
                                     <?php endif; ?>
                                 </a>
-                                <ul class="dropdown-menu dropdown-list" role="menu">
+                                <!-- <ul class="dropdown-menu dropdown-list" role="menu">
                                     <li role="presentation"><a href="<?php echo site_url('backend/change_pass'); ?>"><i class="fa fa-key"></i>Change Password</a></li>
                                     <li role="presentation"><a href="<?php echo site_url('backend/comment/unpublish'); ?>"><i class="fa fa-comment"></i>Comments<span class="badge badge-success pull-right"><?php echo $count_comment->num_rows(); ?></span></a>
                                     </li>
@@ -161,7 +158,7 @@
                                     </li>
                                     <li role="presentation" class="divider"></li>
                                     <li role="presentation"><a href="<?php echo site_url('logout'); ?>"><i class="fas fa-sign-out-alt m-r-xs"></i>Log out</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
                             <li>
                                 <a href="<?php echo site_url('logout'); ?>" class="log-out waves-effect waves-button waves-classic">
@@ -223,7 +220,7 @@
                             <p>Post</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class=""><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New News</a>
+                            <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New News</a>
                             </li>
                             <li class="active"><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
                                     Catlist</a>
@@ -241,51 +238,53 @@
                                     Promo</a>
                             </li>
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
+                        </ul>
+                    </li>
+                    <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span>
+                            <p>Attribute</p><span class="arrow-del"></span>
+                        </a>
+                        <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
                             <li><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a></li>
                             <li><a href="<?php echo site_url('backend/detail_category'); ?>">Category Detail</a></li>
+                            <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
                             <li><a href="<?php echo site_url('backend/location'); ?>">Location</a></li>
                             <li><a href="<?php echo site_url('backend/tag'); ?>">Tag</a></li>
                         </ul>
                     </li>
-                    <!-- <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span
-                                class="menu-icon icon-envelope"></span>
+                    <!-- <li><a href="<?php echo site_url('backend/inbox'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-envelope"></span>
                             <p>Inbox</p>
-                        </a></li>
-                    <li><a href="<?php echo site_url('backend/comment'); ?>" class="waves-effect waves-button"><span
-                                class="menu-icon icon-bubbles"></span>
+                        </a></li> -->
+                    <!-- <li><a href="<?php echo site_url('backend/comment'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-bubbles"></span>
                             <p>Comments</p>
-                        </a></li>
-                    <li><a href="<?php echo site_url('backend/subscriber'); ?>" class="waves-effect waves-button"><span
-                                class="menu-icon icon-users"></span>
+                        </a></li> -->
+                    <li><a href="<?php echo site_url('backend/subscriber'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-users"></span>
                             <p>Subscribers</p>
                         </a></li>
-                    <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span
-                                class="menu-icon icon-like"></span>
+                    <!-- <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span>
                             <p>Testimonials</p>
-                        </a></li>
-                    <?php if ($this->session->userdata('access') == '1') : ?>
-                    <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span
-                                class="menu-icon icon-user"></span>
-                            <p>Users</p>
                         </a></li> -->
-                    <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
-                            <p>Settings</p><span class="arrow-del"></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
-                            <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
-                            <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
-                            <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li>
-                        </ul>
-                    </li><?php else : ?>
-                <?php endif; ?>
-                <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span>
-                        <p>Log Out</p>
-                    </a></li>
-
+                    <?php if ($this->session->userdata('access') == '1') : ?>
+                        <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span>
+                                <p>Users</p>
+                            </a></li>
+                        <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
+                                <p>Settings</p><span class="arrow-del"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
+                                <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
+                                <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
+                                <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
+                            </ul>
+                        </li>
+                    <?php else : ?>
+                    <?php endif; ?>
+                    <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span>
+                            <p>Log Out</p>
+                        </a></li>
                 </ul>
             </div><!-- Page Sidebar Inner -->
         </div><!-- Page Sidebar -->
@@ -449,7 +448,7 @@
                                         <input type="maps" name="news_maps" class="form-control" id="autocomplete" placeholder="" required>
                                     </div>
                                     <div class="form-group">
-                                        <div style="height:300px;widtg:100%" id="map"></div>
+                                        <div style="height:300px;width:100%" id="map"></div>
                                     </div>
                                 </div>
                             </div>
