@@ -27,6 +27,21 @@ class Post_model extends CI_Model
         $result = $this->db->query("SELECT * FROM tbl_post p left JOIN tbl_detail_catlist c ON p.post_detail_id = c.detail_catlist_id WHERE post_id='$post_id'");
         return $result;
     }
+    public function get_umkm_post_by_id($post_id)
+    {
+        $result = $this->db->query("SELECT * FROM tbl_post p left JOIN tbl_detail_umkm c ON p.post_detail_id = c.detail_umkm_id WHERE post_id='$post_id'");
+        return $result;
+    }
+    public function get_stfood_post_by_id($post_id)
+    {
+        $result = $this->db->query("SELECT * FROM tbl_post p left JOIN tbl_detail_stfood c ON p.post_detail_id = c.detail_stfood_id WHERE post_id='$post_id'");
+        return $result;
+    }
+    public function get_hltfood_post_by_id($post_id)
+    {
+        $result = $this->db->query("SELECT * FROM tbl_post p left JOIN tbl_detail_hltfood c ON p.post_detail_id = c.detail_hltfood_id WHERE post_id='$post_id'");
+        return $result;
+    }
 
     public function get_promo_post_by_id($post_id)
     {
@@ -495,7 +510,7 @@ class Post_model extends CI_Model
     }
 
     //edit umkm
-    public function edit_post_umkm_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_umkm_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
@@ -506,8 +521,12 @@ class Post_model extends CI_Model
             'post_image' => $image,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
+            'post_location_id' => $location,
+            'post_halal_id' => $halal,
+            'post_additional_id' => $additional,
             'post_slug' => $slug,
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
@@ -517,14 +536,12 @@ class Post_model extends CI_Model
         $this->db->update('tbl_post', $data);
 
         $detail = array(
-
             'detail_umkm_name' => $umkm_name,
-            'detail_umkm_short_desc' => $short_desc,
+            'detail_umkm_availability' => $availability,
+            'detail_umkm_social' => $social,
             'detail_umkm_address' => $address,
-            'detail_umkm_time' => $time,
-            'detail_umkm_start' => strtotime($start),
-            'detail_umkm_end' => strtotime($end),
-            'detail_umkm_update_at' => time(),
+            'detail_umkm_phone' => $phone,
+            'detail_umkm_gmaps' => '',
         );
 
         $this->db->where('detail_umkm_id', $detail_id);
@@ -534,11 +551,8 @@ class Post_model extends CI_Model
 
     }
 
-    public function edit_post_umkm_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_umkm_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social)
     {
-
-        // print_r($and);
-
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
@@ -547,38 +561,37 @@ class Post_model extends CI_Model
             'post_contents' => $contents,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
+            'post_location_id' => $location,
+            'post_halal_id' => $halal,
+            'post_additional_id' => $additional,
             'post_slug' => $slug,
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
         );
 
-        $detail = array(
-
-            'detail_umkm_name' => $umkm_name,
-            'detail_umkm_short_desc' => $short_desc,
-            'detail_umkm_address' => $address,
-            'detail_umkm_time' => $time,
-            'detail_umkm_start' => strtotime($start),
-            'detail_umkm_end' => strtotime($end),
-            'detail_umkm_update_at' => time(),
-        );
-
-        print_r($detail);
-
         $this->db->where('post_id', $id);
         $this->db->update('tbl_post', $data);
+
+        $detail = array(
+            'detail_umkm_name' => $umkm_name,
+            'detail_umkm_availability' => $availability,
+            'detail_umkm_social' => $social,
+            'detail_umkm_address' => $address,
+            'detail_umkm_phone' => $phone,
+            'detail_umkm_gmaps' => '',
+        );
+
         $this->db->where('detail_umkm_id', $detail_id);
         $result = $this->db->update('tbl_detail_umkm', $detail);
-
         return $result;
-
     }
     //end
 
     //edit stfood
-    public function edit_post_stfood_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_stfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
@@ -589,8 +602,12 @@ class Post_model extends CI_Model
             'post_image' => $image,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
+            'post_location_id' => $location,
+            'post_halal_id' => $halal,
+            'post_additional_id' => $additional,
             'post_slug' => $slug,
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
@@ -600,14 +617,12 @@ class Post_model extends CI_Model
         $this->db->update('tbl_post', $data);
 
         $detail = array(
-
             'detail_stfood_name' => $stfood_name,
-            'detail_stfood_short_desc' => $short_desc,
+            'detail_stfood_availability' => $availability,
+            'detail_stfood_social' => $social,
             'detail_stfood_address' => $address,
-            'detail_stfood_time' => $time,
-            'detail_stfood_start' => strtotime($start),
-            'detail_stfood_end' => strtotime($end),
-            'detail_stfood_update_at' => time(),
+            'detail_stfood_phone' => $phone,
+            'detail_stfood_gmaps' => '',
         );
 
         $this->db->where('detail_stfood_id', $detail_id);
@@ -617,11 +632,8 @@ class Post_model extends CI_Model
 
     }
 
-    public function edit_post_stfood_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_stfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social)
     {
-
-        // print_r($and);
-
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
@@ -630,38 +642,37 @@ class Post_model extends CI_Model
             'post_contents' => $contents,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
+            'post_location_id' => $location,
+            'post_halal_id' => $halal,
+            'post_additional_id' => $additional,
             'post_slug' => $slug,
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
         );
 
-        $detail = array(
-
-            'detail_stfood_name' => $stfood_name,
-            'detail_stfood_short_desc' => $short_desc,
-            'detail_stfood_address' => $address,
-            'detail_stfood_time' => $time,
-            'detail_stfood_start' => strtotime($start),
-            'detail_stfood_end' => strtotime($end),
-            'detail_stfood_update_at' => time(),
-        );
-
-        print_r($detail);
-
         $this->db->where('post_id', $id);
         $this->db->update('tbl_post', $data);
+
+        $detail = array(
+            'detail_stfood_name' => $stfood_name,
+            'detail_stfood_availability' => $availability,
+            'detail_stfood_social' => $social,
+            'detail_stfood_address' => $address,
+            'detail_stfood_phone' => $phone,
+            'detail_stfood_gmaps' => '',
+        );
+
         $this->db->where('detail_stfood_id', $detail_id);
         $result = $this->db->update('tbl_detail_stfood', $detail);
-
         return $result;
-
     }
     //end
 
     //edit hltfood
-    public function edit_post_hltfood_with_img($id, $title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_hltfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social)
     {
         $data = array(
             'post_title' => $title,
@@ -672,8 +683,12 @@ class Post_model extends CI_Model
             'post_image' => $image,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
+            'post_location_id' => $location,
+            'post_halal_id' => $halal,
+            'post_additional_id' => $additional,
             'post_slug' => $slug,
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
@@ -683,14 +698,12 @@ class Post_model extends CI_Model
         $this->db->update('tbl_post', $data);
 
         $detail = array(
-
             'detail_hltfood_name' => $hltfood_name,
-            'detail_hltfood_short_desc' => $short_desc,
+            'detail_hltfood_availability' => $availability,
+            'detail_hltfood_social' => $social,
             'detail_hltfood_address' => $address,
-            'detail_hltfood_time' => $time,
-            'detail_hltfood_start' => strtotime($start),
-            'detail_hltfood_end' => strtotime($end),
-            'detail_hltfood_update_at' => time(),
+            'detail_hltfood_phone' => $phone,
+            'detail_hltfood_gmaps' => '',
         );
 
         $this->db->where('detail_hltfood_id', $detail_id);
@@ -700,11 +713,8 @@ class Post_model extends CI_Model
 
     }
 
-    public function edit_post_hltfood_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $short_desc, $address, $time, $start, $end)
+    public function edit_post_hltfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social)
     {
-
-        // print_r($and);
-
         $data = array(
             'post_title' => $title,
             'post_description' => $description,
@@ -713,33 +723,32 @@ class Post_model extends CI_Model
             'post_contents' => $contents,
             'post_type_id' => $type,
             'post_category_id' => $category,
+            'post_subcategory_id' => $subcategory,
             'post_tags' => $tags,
             'post_city_id' => $city,
+            'post_location_id' => $location,
+            'post_halal_id' => $halal,
+            'post_additional_id' => $additional,
             'post_slug' => $slug,
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
         );
 
-        $detail = array(
-
-            'detail_hltfood_name' => $hltfood_name,
-            'detail_hltfood_short_desc' => $short_desc,
-            'detail_hltfood_address' => $address,
-            'detail_hltfood_time' => $time,
-            'detail_hltfood_start' => strtotime($start),
-            'detail_hltfood_end' => strtotime($end),
-            'detail_hltfood_update_at' => time(),
-        );
-
-        print_r($detail);
-
         $this->db->where('post_id', $id);
         $this->db->update('tbl_post', $data);
+
+        $detail = array(
+            'detail_hltfood_name' => $hltfood_name,
+            'detail_hltfood_availability' => $availability,
+            'detail_hltfood_social' => $social,
+            'detail_hltfood_address' => $address,
+            'detail_hltfood_phone' => $phone,
+            'detail_hltfood_gmaps' => '',
+        );
+
         $this->db->where('detail_hltfood_id', $detail_id);
         $result = $this->db->update('tbl_detail_hltfood', $detail);
-
         return $result;
-
     }
     //end
 
