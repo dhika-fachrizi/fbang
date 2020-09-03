@@ -1453,7 +1453,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_hltfoodt_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_hltfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -1508,7 +1508,7 @@ class Post extends CI_Controller
             $image_desc = $this->input->post('image_desc', true);
             $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_hltfoodt_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_hltfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
