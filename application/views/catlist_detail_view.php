@@ -122,8 +122,9 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                             </div>
                             <div class="row lbpr-30 ">
 
-                                <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
+                                <div class="col-sm-12 pl-0 news-b-image m-0"
+                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%"
+                                    hidden>
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-30">
@@ -147,7 +148,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                 <div class="row" style=" background-color:#FFF9EA;">
                                     <div class="col-3 pl-0 pr-0">
                                         <div class="col-12 pl-0 news-b-image m-0 "
-                                            style="background-image: url('') ; background-color:#F4F4F4; min-height: 140px;height:100%">
+                                            style="background-image: url('<?php echo base_url() . 'assets/images/map.png' ?>') ; background-color:#F4F4F4; min-height: 140px;height:100%">
                                         </div>
                                     </div>
                                     <div class="col-9 pb-10">
@@ -215,8 +216,9 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
 
                             <div>
                                 <div class="row">
-                                    <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%">
+                                    <div class="col-sm-12 pl-0 news-b-image m-0"
+                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%"
+                                        hidden>
                                     </div>
                                 </div>
                                 <div class="row text-theme-2 pt-30 pb-30  cpl-0">
