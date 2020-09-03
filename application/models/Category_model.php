@@ -28,4 +28,14 @@ class Category_model extends CI_Model
         $query = $this->db->get()->row_array();
         return $query;
     }
+
+    public function get_category_by_slug($slug)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_category');
+        $this->db->join('tbl_type', 'category_type_id=type_id');
+        $this->db->where('category_slug', $slug);
+        $query = $this->db->get()->row_array();
+        return $query;
+    }
 }
