@@ -72,7 +72,7 @@
     }
 
     .popover {
-        top: 46% !important;
+
         /* left:100px !important; */
     }
 
