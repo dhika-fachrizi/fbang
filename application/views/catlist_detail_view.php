@@ -106,7 +106,7 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
                                 <div class="col-sm-12 pl-0">
                                     <div class="row">
                                         <div class="col-sm-7 text-thema-1 text-theme-color-1" style="font-size:12px"><?php $date = date_create($detail['post_date']);
-echo date_format($date, "d M Y");?>, <?=$user['user_name']?> |
+echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                             <?=min_of_read($detail['post_title'], $detail['post_contents'])?> Mins read
                                         </div>
                                         <div class="col-sm-5 d-flex justify-content-end pr-30">

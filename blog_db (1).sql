@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2020 at 12:44 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
+-- Waktu pembuatan: 03 Sep 2020 pada 03.38
+-- Versi server: 10.4.13-MariaDB
+-- Versi PHP: 7.4.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `city_1`
+-- Struktur dari tabel `city_1`
 --
 
 CREATE TABLE `city_1` (
@@ -35,7 +34,7 @@ CREATE TABLE `city_1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `city_1`
+-- Dumping data untuk tabel `city_1`
 --
 
 INSERT INTO `city_1` (`city_id`, `city_name`, `city_prov_id`) VALUES
@@ -518,7 +517,7 @@ INSERT INTO `city_1` (`city_id`, `city_name`, `city_prov_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_about`
+-- Struktur dari tabel `tbl_about`
 --
 
 CREATE TABLE `tbl_about` (
@@ -528,7 +527,7 @@ CREATE TABLE `tbl_about` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_about`
+-- Dumping data untuk tabel `tbl_about`
 --
 
 INSERT INTO `tbl_about` (`about_id`, `about_image`, `about_description`) VALUES
@@ -537,7 +536,7 @@ INSERT INTO `tbl_about` (`about_id`, `about_image`, `about_description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_additional`
+-- Struktur dari tabel `tbl_additional`
 --
 
 CREATE TABLE `tbl_additional` (
@@ -547,7 +546,7 @@ CREATE TABLE `tbl_additional` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_additional`
+-- Dumping data untuk tabel `tbl_additional`
 --
 
 INSERT INTO `tbl_additional` (`additional_id`, `additional_name`, `additional_category_id`) VALUES
@@ -589,7 +588,7 @@ INSERT INTO `tbl_additional` (`additional_id`, `additional_name`, `additional_ca
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_availability`
+-- Struktur dari tabel `tbl_availability`
 --
 
 CREATE TABLE `tbl_availability` (
@@ -600,7 +599,7 @@ CREATE TABLE `tbl_availability` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_availability`
+-- Dumping data untuk tabel `tbl_availability`
 --
 
 INSERT INTO `tbl_availability` (`availability_id`, `availability_name`, `availability_img`, `availability_created_at`) VALUES
@@ -611,7 +610,7 @@ INSERT INTO `tbl_availability` (`availability_id`, `availability_name`, `availab
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_category`
+-- Struktur dari tabel `tbl_category`
 --
 
 CREATE TABLE `tbl_category` (
@@ -622,7 +621,7 @@ CREATE TABLE `tbl_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_category`
+-- Dumping data untuk tabel `tbl_category`
 --
 
 INSERT INTO `tbl_category` (`category_id`, `category_type_id`, `category_name`, `category_slug`) VALUES
@@ -638,13 +637,13 @@ INSERT INTO `tbl_category` (`category_id`, `category_type_id`, `category_name`, 
 (17, 3, 'Snack / Oleh-Oleh', 'snack-oleh-oleh'),
 (18, 4, 'Makan Kenyang', 'makan-kenyang'),
 (19, 4, 'Makan Ringan', 'makan-ringan'),
-(20, 4, 'Sweets & Drinks', 'snacks-drinks'),
+(20, 4, 'Snacks/Drinks', 'snacks/drinks'),
 (24, 5, 'Healthy Food', 'healthy-food');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_city`
+-- Struktur dari tabel `tbl_city`
 --
 
 CREATE TABLE `tbl_city` (
@@ -654,7 +653,7 @@ CREATE TABLE `tbl_city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_city`
+-- Dumping data untuk tabel `tbl_city`
 --
 
 INSERT INTO `tbl_city` (`city_id`, `city_name`, `city_prov_id`) VALUES
@@ -1137,7 +1136,7 @@ INSERT INTO `tbl_city` (`city_id`, `city_name`, `city_prov_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_comment`
+-- Struktur dari tabel `tbl_comment`
 --
 
 CREATE TABLE `tbl_comment` (
@@ -1153,7 +1152,7 @@ CREATE TABLE `tbl_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_comment`
+-- Dumping data untuk tabel `tbl_comment`
 --
 
 INSERT INTO `tbl_comment` (`comment_id`, `comment_date`, `comment_name`, `comment_email`, `comment_message`, `comment_status`, `comment_parent`, `comment_post_id`, `comment_image`) VALUES
@@ -1165,7 +1164,7 @@ INSERT INTO `tbl_comment` (`comment_id`, `comment_date`, `comment_name`, `commen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_category`
+-- Struktur dari tabel `tbl_detail_category`
 --
 
 CREATE TABLE `tbl_detail_category` (
@@ -1177,7 +1176,7 @@ CREATE TABLE `tbl_detail_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_category`
+-- Dumping data untuk tabel `tbl_detail_category`
 --
 
 INSERT INTO `tbl_detail_category` (`detail_category_id`, `detail_category_title`, `detail_category_desc`, `detail_category_image`, `detail_category_category_id`) VALUES
@@ -1187,7 +1186,7 @@ INSERT INTO `tbl_detail_category` (`detail_category_id`, `detail_category_title`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_catlist`
+-- Struktur dari tabel `tbl_detail_catlist`
 --
 
 CREATE TABLE `tbl_detail_catlist` (
@@ -1203,7 +1202,7 @@ CREATE TABLE `tbl_detail_catlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_catlist`
+-- Dumping data untuk tabel `tbl_detail_catlist`
 --
 
 INSERT INTO `tbl_detail_catlist` (`detail_catlist_id`, `detail_catlist_name`, `detail_catlist_availability`, `detail_catlist_social`, `detail_catlist_address`, `detail_catlist_phone`, `detail_catlist_gmaps`, `detail_catlist_created_at`, `detail_catlist_update_at`) VALUES
@@ -1220,7 +1219,7 @@ INSERT INTO `tbl_detail_catlist` (`detail_catlist_id`, `detail_catlist_name`, `d
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_hltfood`
+-- Struktur dari tabel `tbl_detail_hltfood`
 --
 
 CREATE TABLE `tbl_detail_hltfood` (
@@ -1236,16 +1235,16 @@ CREATE TABLE `tbl_detail_hltfood` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_hltfood`
+-- Dumping data untuk tabel `tbl_detail_hltfood`
 --
 
 INSERT INTO `tbl_detail_hltfood` (`detail_hltfood_id`, `detail_hltfood_name`, `detail_hltfood_availability`, `detail_hltfood_social`, `detail_hltfood_address`, `detail_hltfood_phone`, `detail_hltfood_gmaps`, `detail_hltfood_created_at`, `detail_hltfood_update_at`) VALUES
-('id5f4f60c1cfe67', 'dddddddd', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'ddddddddddd', '02113456789', '[]', 2147483647, 2147483647);
+('id5f4e5d6867d8f', 'dwwqd', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'wdqwdqwdq', '02113456789', '[]', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_news`
+-- Struktur dari tabel `tbl_detail_news`
 --
 
 CREATE TABLE `tbl_detail_news` (
@@ -1261,7 +1260,7 @@ CREATE TABLE `tbl_detail_news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_news`
+-- Dumping data untuk tabel `tbl_detail_news`
 --
 
 INSERT INTO `tbl_detail_news` (`detail_news_id`, `detail_news_name`, `detail_news_availability`, `detail_news_social`, `detail_news_address`, `detail_news_phone`, `detail_news_gmaps`, `detail_news_created_at`, `detail_news_update_at`) VALUES
@@ -1277,7 +1276,7 @@ INSERT INTO `tbl_detail_news` (`detail_news_id`, `detail_news_name`, `detail_new
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_promo`
+-- Struktur dari tabel `tbl_detail_promo`
 --
 
 CREATE TABLE `tbl_detail_promo` (
@@ -1293,7 +1292,7 @@ CREATE TABLE `tbl_detail_promo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_promo`
+-- Dumping data untuk tabel `tbl_detail_promo`
 --
 
 INSERT INTO `tbl_detail_promo` (`detail_promo_id`, `detail_promo_name`, `detail_promo_address`, `detail_promo_short_desc`, `detail_promo_time`, `detail_promo_start`, `detail_promo_end`, `detail_promo_created_at`, `detail_promo_update_at`) VALUES
@@ -1305,7 +1304,7 @@ INSERT INTO `tbl_detail_promo` (`detail_promo_id`, `detail_promo_name`, `detail_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_stfood`
+-- Struktur dari tabel `tbl_detail_stfood`
 --
 
 CREATE TABLE `tbl_detail_stfood` (
@@ -1321,16 +1320,17 @@ CREATE TABLE `tbl_detail_stfood` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_stfood`
+-- Dumping data untuk tabel `tbl_detail_stfood`
 --
 
 INSERT INTO `tbl_detail_stfood` (`detail_stfood_id`, `detail_stfood_name`, `detail_stfood_availability`, `detail_stfood_social`, `detail_stfood_address`, `detail_stfood_phone`, `detail_stfood_gmaps`, `detail_stfood_created_at`, `detail_stfood_update_at`) VALUES
-('id5f4e568c9c17d', 'raja kepiting', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. Raya Serpong No. 35, Pondok Jagung, Kec. Serpong Utara, Kab. Tangerang Selatan. ', '02113456789', '[]', 2147483647, 2147483647);
+('id5f4e568c9c17d', 'raja kepiting', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. Raya Serpong No. 35, Pondok Jagung, Kec. Serpong Utara, Kab. Tangerang Selatan. ', '02113456789', '[]', 2147483647, 2147483647),
+('id5f5048812c3b6', 'Nasi Tutug Oncom', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. Aria Santika No.43A, Margasari, Kec. Karawaci, Kota Tangerang, Banten', '+62881024130321', '[]', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_detail_umkm`
+-- Struktur dari tabel `tbl_detail_umkm`
 --
 
 CREATE TABLE `tbl_detail_umkm` (
@@ -1346,16 +1346,18 @@ CREATE TABLE `tbl_detail_umkm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_detail_umkm`
+-- Dumping data untuk tabel `tbl_detail_umkm`
 --
 
 INSERT INTO `tbl_detail_umkm` (`detail_umkm_id`, `detail_umkm_name`, `detail_umkm_availability`, `detail_umkm_social`, `detail_umkm_address`, `detail_umkm_phone`, `detail_umkm_gmaps`, `detail_umkm_created_at`, `detail_umkm_update_at`) VALUES
-('id5f4e5454b23a9', 'Dinas Koperasi Dan UKM Kota Tangerang Selatan', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Serua, Kec. Ciputat, Kota Tangerang Selatan, Banten 15414', '02113456789', '[]', 2147483647, 2147483647);
+('id5f4e5454b23a9', 'Dinas Koperasi Dan UKM Kota Tangerang Selatan', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Serua, Kec. Ciputat, Kota Tangerang Selatan, Banten 15414', '02113456789', '[]', 2147483647, 2147483647),
+('id5f4f5e1277196', 'efewf', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'fewfew', '02113456789', '[]', 2147483647, 2147483647),
+('id5f4fa82189ef0', 'Geprek Bensu Cimone', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Plaza Shinta, Jl. Teuku Umar No.38, RT.003/RW.008, Cimone Jaya, Kec. Karawaci, Kota Tangerang, Bante', '02113456789', '', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_future_article`
+-- Struktur dari tabel `tbl_future_article`
 --
 
 CREATE TABLE `tbl_future_article` (
@@ -1365,7 +1367,7 @@ CREATE TABLE `tbl_future_article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_future_article`
+-- Dumping data untuk tabel `tbl_future_article`
 --
 
 INSERT INTO `tbl_future_article` (`id`, `name_slot`, `post_id`) VALUES
@@ -1378,7 +1380,7 @@ INSERT INTO `tbl_future_article` (`id`, `name_slot`, `post_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_home`
+-- Struktur dari tabel `tbl_home`
 --
 
 CREATE TABLE `tbl_home` (
@@ -1390,7 +1392,7 @@ CREATE TABLE `tbl_home` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_home`
+-- Dumping data untuk tabel `tbl_home`
 --
 
 INSERT INTO `tbl_home` (`home_id`, `home_caption_1`, `home_caption_2`, `home_bg_heading`, `home_bg_testimonial`) VALUES
@@ -1399,7 +1401,7 @@ INSERT INTO `tbl_home` (`home_id`, `home_caption_1`, `home_caption_2`, `home_bg_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_inbox`
+-- Struktur dari tabel `tbl_inbox`
 --
 
 CREATE TABLE `tbl_inbox` (
@@ -1413,7 +1415,7 @@ CREATE TABLE `tbl_inbox` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_inbox`
+-- Dumping data untuk tabel `tbl_inbox`
 --
 
 INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_name`, `inbox_email`, `inbox_subject`, `inbox_message`, `inbox_created_at`, `inbox_status`) VALUES
@@ -1422,7 +1424,7 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_name`, `inbox_email`, `inbox_subject
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_location`
+-- Struktur dari tabel `tbl_location`
 --
 
 CREATE TABLE `tbl_location` (
@@ -1432,7 +1434,7 @@ CREATE TABLE `tbl_location` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_location`
+-- Dumping data untuk tabel `tbl_location`
 --
 
 INSERT INTO `tbl_location` (`location_id`, `location_name`, `location_category_id`) VALUES
@@ -1476,7 +1478,7 @@ INSERT INTO `tbl_location` (`location_id`, `location_name`, `location_category_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_navbar`
+-- Struktur dari tabel `tbl_navbar`
 --
 
 CREATE TABLE `tbl_navbar` (
@@ -1487,7 +1489,7 @@ CREATE TABLE `tbl_navbar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_navbar`
+-- Dumping data untuk tabel `tbl_navbar`
 --
 
 INSERT INTO `tbl_navbar` (`navbar_id`, `navbar_name`, `navbar_slug`, `navbar_parent_id`) VALUES
@@ -1501,7 +1503,7 @@ INSERT INTO `tbl_navbar` (`navbar_id`, `navbar_name`, `navbar_slug`, `navbar_par
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_post`
+-- Struktur dari tabel `tbl_post`
 --
 
 CREATE TABLE `tbl_post` (
@@ -1527,51 +1529,56 @@ CREATE TABLE `tbl_post` (
   `post_status` int(11) DEFAULT NULL COMMENT '1=Publish, 0=Unpublish',
   `post_views` int(11) DEFAULT 0,
   `post_user_id` int(11) DEFAULT NULL,
-  `post_detail_id` varchar(255) CHARACTER SET utf8mb4 NOT NULL
+  `post_detail_id` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `email_news_update` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_post`
+-- Dumping data untuk tabel `tbl_post`
 --
 
-INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_description_title`, `post_contents`, `post_image`, `post_image_desc`, `post_date`, `post_last_update`, `post_type_id`, `post_category_id`, `post_subcategory_id`, `post_tags`, `post_slug`, `post_feature_article`, `post_city_id`, `post_location_id`, `post_halal_id`, `post_additional_id`, `post_status`, `post_views`, `post_user_id`, `post_detail_id`) VALUES
-(2, '7 Tips untuk menemukan passion Anda', '', '', '<p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\" sans\",=\"\" sans-serif;=\"\" color:=\"\" rgb(78,=\"\" 94,=\"\" 106);\"=\"\">Ini adalah Sub Heading&nbsp;</h3><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p>', '787f035149ba2179b8bc4c5ac01c5001.jpg', '', '2019-04-05 07:52:06', '2019-04-14 09:08:10', 0, 1, 0, 'Psikologi,Motivasi', 'tips-untuk-menemukan-passion-anda', 0, 0, 0, 0, 0, 1, 4, 1, ''),
-(3, '5 Alasan kenapa Anda perlu berbuat baik', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\" sans\",=\"\" sans-serif;=\"\" color:=\"\" rgb(78,=\"\" 94,=\"\" 106);\"=\"\">Ini adalah Sub Heading&nbsp;</h3><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p>', 'a06ae9341405a292ae12b67ed85dc1dc.jpg', '', '2019-04-05 12:25:13', '2019-04-14 09:08:51', 0, 2, 0, 'Psikologi,Motivasi,Kesehatan', '5-alasan-kenapa-anda-perlu-berbuat-baik', 0, 0, 0, 0, 0, 1, 0, 1, ''),
-(4, '7 Tips untuk meningkatkan pendapatan Anda', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\" sans\",=\"\" sans-serif;=\"\" color:=\"\" rgb(78,=\"\" 94,=\"\" 106);\"=\"\">Ini adalah Sub Heading&nbsp;</h3><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p>', '9a734ed5d107f0f378da0a1e13dfc92e.jpg', '', '2019-04-05 12:26:55', '2019-04-14 09:09:16', 0, 3, 0, 'Teknologi,Motivasi', 'tips-untuk-meningkatkan-pendapatan-anda', 0, 0, 0, 0, 0, 1, 0, 1, ''),
-(7, '3 Teknik Efektif Membaca Cepat', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah\r\n artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\">Ini adalah Sub Heading&nbsp;</h3><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p>', 'b69bd34db0726b6cf7747a816c99254f.jpg', '', '2020-01-12 04:30:20', NULL, 0, 1, 0, 'Psikologi,Motivasi', '3-teknik-efektif-membaca-cepat', 0, 0, 0, 0, 0, 1, 0, 1, ''),
-(9, '4 Cara Menjadi Lebih Aktif dalam Belajar', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah\r\n artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\">Ini adalah Sub Heading&nbsp;</h3><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p>', 'ec77cde530b2eb464b9add2c31316b10.jpg', '', '2020-01-12 04:34:01', NULL, 0, 1, 0, 'Psikologi,Motivasi', '4-cara-menjadi-lebih-aktif-dalam-belajar', 0, 0, 0, 0, 0, 1, 0, 1, ''),
-(11, 'BASO ACI AKANG', '', '', 'baso aci akanga baso yang sedang viral di kalangan anak milenial terutama di daerah tangeranag', '58fe0c716e50edeabc7737a07cdf1db9.jpg', '', '2020-08-10 13:22:44', NULL, 0, 1, 0, 'Psikologi', 'baso-aci-akang', 0, 2, 2, 1, 1, 1, 0, 1, ''),
-(12, 'Baso Aci ', '', '', '<hr><p>Makanan yang sedang viral di kalangan anak milenial ini sekarang menjadi&nbsp;</p><p>salah satu makanan yang sangat di gemari dengan berbagai varian baru yang ada</p><p>menambah minat dari para penkmatnya.</p><p><br></p><img src=\"http://localhost/fbang/assets/images/seafod-santa-681.jpg\" style=\"width: 800px;\"><p><br></p>', '289098b431f76d402c8827c59f9ab907.jpg', '', '2020-08-11 00:53:22', '2020-08-20 08:14:12', 1, 1, 0, '', 'baso-aci-', 0, 1, 1, 1, 1, 1, 0, 1, ''),
-(13, 'Gudeg jogoja', '', '', '<p></p><p>makan khas jogja</p><p><br></p><br><p></p><img src=\"http://localhost/fbang/assets/images/seafod-santa-68.jpg\" style=\"width: 800px;\">', 'aa1818548127b313bea0f480d9b991db.jpg', '', '2020-08-12 13:13:48', '2020-08-20 08:17:43', 1, 1, 0, 'gudeg', 'gudeg-jogoja', 0, 1, 1, 1, 1, 1, 0, 1, ''),
-(19, 'Bebek Ginyo', '', '', '<span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\">Masakah dengan bahan daging bebek memiliki keunikan cita rasa sehingga memiliki penggemar tersendiri. Bebek Ginyo merupakan salah satu tempat makan di daerah Jakarta Selatan yang menyajikan berbagai jenis menu masakan bebek. Berbagai masakan dengan bahan utama daging bebek seperti bebek bakar dan bebek kremes. Penggemar masakan pedas juga dapat mencoba menu unik berupa bebek balado dan bebek cabe hijau. Sedangkan mereka yang kurang suka masakan bebek bakar juga dapat mencoba memesan pepes bebek di warung ini. Warung masakan bebek Ginyo yang berdiri sejak tahun 2007 ini dapat dikunjungi di Jalan Tebet Dalam nomor 12, Tebet, Jakarta Selatan.</span>', 'dcaccfae248b23ca53fcc956749709a7.jpg', '', '2020-08-19 02:24:54', NULL, 2, 2, 0, 'bbq', 'facebook', 0, 1, 1, 1, 1, 1, 1, 1, 'id5f3c8d76ba080'),
-(20, 'Seafod Santa 68ga', '', '', '<p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><span style=\"font-weight: bold;\">Masakan laut atau sea food menjadi jenis makanan lain yang memiliki banyak penggemar. Salah satu tempat terbaik untuk menikmati masakan laut dengan rasa lezat dan harga terjangkau adalah Seafood Santa 68</span>. Bahan – bahan segar dan cara mengolah dengan bumbu lezat menjadi salah satu alasan mengapa Seafood Santa 68 memiliki sangat banyak pelanggan. Berbagai menu masakan laut dengan bahan ikan, udang, cumi hingga kepiting dan kerang dapat dinikmati di warung makan yang sering disesaki pelanggan ini. Warung makan Seafood Santa 68 dapat dikunjungi di Jalan Wolter Monginsidi nomor 58 Senopati, Jakarta Selatan.</span></p><p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><br></span></p>', '987c2b7911590afad585a6e4a2ea5f17.jpg', '', '2020-08-19 04:26:49', NULL, 2, 11, 1, 'seafood,baso', 'seafod-santa-68ga', 0, 2, 2, 2, 1, 1, 2, 1, 'id5f3caa0906f7a'),
-(29, 'GrabFood Promo TERBARU!', '', '', 'GrabFood Promo', '576b5f14d1c3c427ee8a64d0161214c3.png', '', '2020-08-19 09:49:59', NULL, 6, 0, 0, 'grab,grabfood', 'grabfood-promo', 0, 1, 0, 0, 0, 1, 1, 1, 'id5f3cf5c7e250c'),
-(30, 'Foodbang in web', '', '', 'Foodbang in web', '082c6fcf205ff1a0ce4770716a871039.png', '', '2020-08-20 03:42:02', '2020-08-20 10:43:11', 1, 1, 0, 'foodbang', 'foodbang-in-web', 0, 0, 0, 0, 0, 1, 1, 1, ''),
-(31, 'test news', '', '', 'test news', '7296ddd40a9c351e4b33a27e97917d83.jpg', '', '2020-08-21 06:57:08', NULL, 1, 5, 0, 'makanan murah', 'gofood', 0, 152, 1, 1, 2, 1, 0, 1, 'id5f3f7044af2f3'),
-(32, 'Warung Nagih Jakarta', 'ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.</span>', '06cb9e6d8b2391edd15d08e7391dca85.jpg', '', '2020-08-21 10:03:32', NULL, 1, 5, 0, 'warung', 'grabfood-co-id-', 0, 152, 2, 1, 2, 1, 2, 1, 'id5f3f9bf4548d1'),
-(33, 'Bubur Kwang Tung', 'Makan steak malam-malam, kenapa tidak ! Adalah Joni Steak yang berlokasi beberapa tempat di Jakarta, seperti di Jl. Kalimalang Raya No. 28 Blok A2/3C Pondok Kelapa / Lampiri, Jl. Samanhudi No. 65, Pasar Baru Jakarta Pusat, atau di Jl. Gajah Mada No. 91 / dekat dengan Bakmi Gajah Mada.  Buka mulai pukul 6 sore hingga jam 1 dini hari, tentunya pas untuk Anda dan teman yang sedang lapar di malam hari. Harga yang ditawarkan untuk 1 porsi tidak terlalu mahal, hanya sekitar Rp 20.000 atau hingga Rp 30.000. Adapun menu andalan di tempat ini adalah salmon steak,  tenderloin atau sirloin steak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Ingin mencari bubur hangat di malam hari, kunjungi saja bubur Kwang Tung yang ada di Jl, Pecenongan, No 671, Jakarta Pusat. Menu utama di tempat ini tentu saja bubur, yang bernama bubur Kwang Tung. Ini adalah menu bubur seafood Hongkong, sekaligus menu utama yang harus Anda coba. &nbsp;&nbsp;Rumah makan yang buka selama 24 jam ini menyajikan beberapa menu bubur seafood, seperti kepiting, ayam, udang, ikan, sapi, dll. Selain menu bubur, menu lainnya yang juga ada di rumah makan tersebut adalah chinese food, dll.</span>', '30f65fc5b8d1bb0d50432b774deb2ae1.jpg', '', '2020-08-21 10:06:03', NULL, 1, 5, 0, 'steak', 'gofood-com', 0, 152, 1, 1, 1, 1, 1, 1, 'id5f3f9c8b5f534'),
-(34, 'Bubur Ayam Barito', 'Bubur Ayam barito yang terletak di Jl. Gandaria Tengah 3, Jakarta ini dapat Anda jadikan tempat makan malam berikutnya. Seperti nama restoran tersebut, menu utama dari rumah makan tersebut adalah bubur ayam. Namun yang membedakan bubur ayam di tempat ini dan tempat lainnya adalah teksturnya yang lembut, dengan tambahan toping yang cukup banyak, membuat 1 porsi bubur, cukup untuk mengisi perut Anda. Harga untuk 1 porsi sendiri juga tidak terlalu mahal, hanya sekitar Rp 3.000 hingga Rp 13.000. Rumah makan yang satu ini buka mulai jam 7 pagi hingga tengah malam.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Bubur Ayam barito yang terletak di Jl. Gandaria Tengah 3, Jakarta ini dapat Anda jadikan tempat makan malam berikutnya. Seperti nama restoran tersebut, menu utama dari rumah makan tersebut adalah bubur ayam. Namun yang membedakan bubur ayam di tempat ini dan tempat lainnya adalah teksturnya yang lembut, dengan tambahan toping yang cukup banyak, membuat 1 porsi bubur, cukup untuk mengisi perut Anda. Harga untuk 1 porsi sendiri juga tidak terlalu mahal, hanya sekitar Rp 3.000 hingga Rp 13.000. Rumah makan yang satu ini buka mulai jam 7 pagi hingga tengah malam.</span>', 'cdfee9843405b646748639d40dc262c3.jpg', '', '2020-08-21 10:08:53', NULL, 1, 5, 0, 'bubur ayam', 'grab-co-id', 0, 153, 1, 1, 1, 1, 2, 1, 'id5f3f9d3528f63'),
-(35, 'Jl. Pecenongan', 'Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.</span>', '1e44084611ea7e0e2014982dba25aa68.jpg', '', '2020-08-21 10:12:17', NULL, 1, 5, 0, 'cafe', 'jl--pecenongan', 0, 153, 2, 1, 2, 1, 3, 1, 'id5f3f9e01ebae4'),
-(36, 'Cafe Siang Malam ? 18 ? Palmerah', 'Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.</span>', '0d49618fa6dc203f8fdeaf054ab14cc5.jpg', '', '2020-08-21 10:13:49', NULL, 1, 5, 0, 'cafe', 'cafe-siang-malam--18--palmerah', 0, 156, 2, 1, 2, 1, 4, 1, 'id5f3f9e5d111aa'),
-(37, 'Kemang Food Festifal', 'OTW Food Street', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">kuliner malam Jakarta berikutnya adalah Kemang Food Festifal. Seperti namanya, kuliner yang satu ini berlokasi di kawasan Kemang, Tepatnya di Jl. Kemang Raya no 19, Mampang Prapatan, Jakarta Selatan. Di lokasi yang satu ini, Anda akan menemukan berbagai macam menu makanan dengan konsep food courd. Menu makanan yang ditawarkan, mulai dari aneka menu tradisional, hingga aneka makanan Eropa. Untuk masalah harga, tidak pelru khawatir, aneka kuliner yang ada di tempat ini memiliki harga yang sangat terjangkau untuk kalangan mahasiswa dan pelajar. Lokasi tempat makan tentunya sangat nyaman, selain itu, tempat makan yang satu ini, buka mulai jam 5 sore hingga tengah malam.</span>', '8ed7a6f2a53370bb61e3c9b6a85b2f38.jpg', '', '2020-08-21 10:16:20', NULL, 1, 5, 0, 'steak,cafe', 'gofood-com-1933888409', 0, 16, 2, 1, 2, 1, 4, 1, 'id5f3f9ef40251b'),
-(38, 'Akira Back', 'Akira Back', '', '<p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Akira Back adalah salah satu restaurant bintang 5 yang terletak di Setiabudi, Jakarta Selatan. Akira menghadirkan makanan khas Jepang yang difusion dengan makanan Korea. Kretivitas dari Chef Akira sendiri lah dalam mengolah setiap menu di restauran ini membuat Akira Back Restaurant memiliki banyak penggemar walaupun memiliki harga yang mahal.</p><p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Setiap review tentang restauran ini selalu menceritakan jika ingin sekali-kali mencicipi hidangan di restauran ini, setidaknya Anda harus membawa uang sekitar diatas Rp900 ribu rupiah untuk 2 orang. Tapi kebanyakan orang berujung setidaknya harus mengeluarkan Rp1,3 juta sebagai standar budget minimal untuk menikmati hidangan di restauran ini secara&nbsp;<em style=\"border: 0px; margin: 0px; padding: 0px;\">proper</em>&nbsp;mulai dari appetizer, main course, dessert hingga pajak dan biaya servicenya.</p><p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Menu yang paling direkomendasikan dari restauran ini adalah Pizza Tuna, Seared Halibut, Spring Chicken &amp; Foie Roulade, Wagyu Cheek dan Black Forest.</p>', '7ca533b41dbb1db811060a92e2c64d34.jpg', '', '2020-08-22 05:46:10', NULL, 2, 11, 2, 'restaurant terbaik', 'akira-back', 0, 155, 1, 1, 1, 1, 1, 1, 'id5f40b122eb898'),
-(39, 'Namaaz Dining', 'Namaaz Dining', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Restoran yang terletak di Kebayoran Baru, Jakarta Selatan ini memiliki set menu seharga Rp 1,25 juta untuk sekali&nbsp;<em>dining in</em>. Set menu mahal ini dianggap wajar saja karena set makanan yang akan ditawarkan ke kamu akan membuat kamu bingung dan terheran-heran.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Berawal dari Youtuber populer Raditya Dika yang mereview berbagai hidangan unik yang ditawarkan oleh restoran ini. Namaaz Dining pun berhasil viral dan menjadi incaran banyak para food hunter berikutnya.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Teknik Gastronomi Molekuler yang diciptakan dalam penyajian setiap hidangan di restoran ini menjadi kan Namaaz Dining menjadi satu-satunya<a href=\"https://republika.co.id/tag/restoran-di-jakarta\" style=\"text-decoration-line: underline; color: rgb(0, 0, 0); font-weight: 600; line-height: 1.35em;\">&nbsp;restoran di Jakarta&nbsp;</a>bahka mungkin di Indonesia yang mengusung konsep tersebut.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Menu-menu di restoran ini ada yang bisa meledak sendiri, berbentuk abstrak hingga super aneh. Di mana bentuk/visual dari menu tersebut bisa menipu kamu sedemikian rupa sehingga ketika kamu mencobanya kamu akan sangat terkejut. Pokoknya mind blowing banget deh.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Yang unik lagi dari restoran ini adalah, durasi makannya dan sistem bookingnya. Setiap pengunjung yang ingin makan di restoran ini wajib melakukan booking terlebih dahulu, tidak boleh terlambat dan harus memberikan informasi yang detail tentang alergi makanan yang dimiliki.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Untuk durasi makannya, karena penyajian makananannya yg unik waktu yang dibutuhkan untuk mengeluarkan setiap menu pun memakan banyak waktu juga, jadi setiap pengunjung setidaknya harus menghabiskan 2-3 jam setiap kunjungan untuk setiap pemilihan paket set menu Rp 1,25 juta tersebut.</p>', 'dfe57ccd077e2b227a34ac61fb6dd322.jpg', '', '2020-08-22 05:50:08', NULL, 2, 11, 2, 'restaurant terbaik', 'namaaz-dining', 0, 155, 1, 1, 1, 1, 0, 1, 'id5f40b210b2ba5'),
-(40, 'Le Quartier', 'Le Quartier', '', '<p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">enopati, Kebayoran Baru memang gudangnya tempat makanan mewah, selain Namaaz Dining. Le Quartier juga merupakan salah satu restoran mewah populer yang ada di kawasan elite tersebut. Le Quartier adalah restoran ala eropa yang menyajikan makanan khas perancis.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Interior dari restoran ini sendiri pun kental dengan suasana Eropanya, dengan&nbsp;<em>furniture</em>&nbsp;kayu yang disusun secara cantik, lampu gantung&nbsp;<em>chandilier</em>&nbsp;mini yang bergantu di setiap meja. Hingga suasananya yang sedikit temaram membuat makan malam di restoran ini seperti layaknya makan malam di Prancis.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Walaupun elite, Le Quartier adalah golongan restoran elite yang masih memiliki menu makanan yang ramah untuk kantong. Kamu masih bisa makan secara pas dan kenyang dengan biaya Rp 500-Rp 600 ribu untuk 2 orang di restoran ini untuk set menu mulai dari appetizer,&nbsp;<em>main course</em>&nbsp;hingga&nbsp;<em>dessert.</em></p>', '0e1c8001370d505dd3f90858faa0ff99.jpg', '', '2020-08-22 05:53:07', NULL, 2, 11, 2, 'restaurant terbaik', 'le-quartier', 0, 155, 1, 1, 1, 1, 1, 1, 'id5f40b2c3dd925'),
-(41, 'Pasola – The Ritz Carlton Pacific Place', 'Pasola', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Dari namanya saja kamu pasti tau kalau restoran ini pasti restoran berkelas bintang 5 dengan interior restoran yang super mewah dan elegan. Terletak di lantai 6 di salah satu hotel mewah di Jakarta Ritz Carlton, Pasola sudah sering masuk<a href=\"https://republika.co.id/tag/daftar-restoran\" style=\"text-decoration-line: underline; color: rgb(0, 0, 0); font-weight: 600; line-height: 1.35em;\">&nbsp;daftar restoran&nbsp;</a>mewah yang paling direkomendasikan di Jakarta.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Pasola menyajikan menu&nbsp;<em>fusion</em>&nbsp;layakanya restoran mewah pada umumnya, yaitu gabungan kreasi makanan barat dengan hidangan tradisional Indonesia. Interior mewah dan disajikan pemandangan indah Ibu Kota membuat siapa saja tentu akan merasa nyaman untuk menghabiskan waktu makan dengan keluarga.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Untuk bisa menikmati hidangan di Pasola secara pas dan kenyang rata-rata para pengunjung setidaknya harus mengeluarkan Rp 700 ribu untuk 2 orang. Tapi untuk kamu yang mau menikmati hidangan di restoran ini dengan harga yang lebih murah lagi. Bisa mencoba hidangan buffet nya mulai dari Rp 298 ribu di&nbsp;<em>weekdays</em>&nbsp;dan Rp 398 ribu di&nbsp;<em>weekend.</em>&nbsp;Di Buffet Pasola ini kamu bisa memakan semua hidangan&nbsp;<em>buffet</em>&nbsp;sebanyak apa pun atau&nbsp;<em>all you can eat</em>.</p>', 'ac7d4117bcbb13387749d153966d635c.jpg', '', '2020-08-22 05:54:37', NULL, 2, 11, 0, 'restaurant terbaik', 'pasola--the-ritz-carlton-pacific-place', 0, 156, 1, 2, 1, 1, 2, 1, 'id5f40b31dd0b69'),
-(42, 'Vong Kitchen', 'Vong Kitchen', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">vong Kitchen menjadi favorit pecinta kuliner, terutama kuliner Eropa karena restoran ini adalah satu-satunya di Jakarta yang pengolahan makanannya dilakukan oleh Chef dengan gelar Michelin. Bagi yang sedikit bingung, Michelin adalah gelar profesional tertinggi di dalam industri kuliner. Gelar ini sangatlah ekslusif dan prestigius, itu mengapa masih sangat sedikit restoran-restoran yang menyandang gelar ini dan kebanyakan di antaranya berada di luar negeri.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Tapi sekarang kamu tidak perlu khawatir, sekarang restoran dengan level yang sama telah hadir, Vong Kitchen yang berlokasi di SCBD, Jakarta Selatan adalah restoran yang menyajikan hidangan khas Prancis dan Inggris sebagai konsep menu utama mereka.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Semua menunya sendiri diciptakan langsung oleh chef Michelin bintang 3 asal Prancis, Jean-Georges Vongerichten, bersama putranya Cédric Vongerichten yang mengikuti jejak sang ayah sebagai seorang chef profesional. Dengan semua fakta di atas, tidak heran&nbsp;<em>dong</em>&nbsp;jika harganya juga bisa menggoyang dompet kamu?</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Biaya yang setidaknya harus kamu keluarkan untuk menikmati hidangan di restoran ini secara pas dan kenyang adalah Rp 800 ribu untuk 2 orang. Dengan kualitas rasa dan penyajiannya tentu saja harga tersebut dikatakan cukup pantas, terutama untuk para pecinta kuliner Eropa.</p>', '8033d3d99827cd4a7c23995060a3c1d7.jpg', '', '2020-08-22 05:57:09', NULL, 2, 11, 0, 'restaurant terbaik', 'vong-kitchen', 0, 153, 1, 1, 1, 1, 1, 1, 'id5f40b3b5ba114'),
-(43, 'House of Yuen - Fairmont', 'House of Yuen - Fairmont', '', '<p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Untuk kamu pecinta kuliner Cina, pasti tertarik&nbsp;<em>dong</em>&nbsp;sekali-sekali mencoba hidangan khas negara pohon bambu ini tapi versi mewah?</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Berlokasi di daerah Senayan, Jakarta Selatan, House of Yuen – Fairmont adalah restoran hidangan kuliner khas Cina yang wajib kamu kunjungi walaupun hanya sekali dalam seumur hidup!. Berada di lt.3 di salah satu hotel bintang 5 di Jakarta, Fairmont Hotel tentu saja kata mewah dan VIP adalah deskripsi yang tepat untuk menggambarkan restoran autentik Cina tersebut.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Pernah baca artikel yang mengatakan, bahwa makan di restoran ini bisa rogoh kocek sampai Rp 100 juta? Yep House of Yuen adalah restoran tersebut.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Menyediakan hidangan Cina kelas satu tentu saja biaya untuk makan di restoran tersebut tidak bisa dianggap murah. Kalau kamu penasaran banget dan nekat, jangan lupa yang siapkan budget sekitar Rp 700 ribu untuk sekali makan yang berlaku untuk 1 orang saja jika kamu mau makan dengan porsi pas dan kenyang di restoran ini.</p>', '7d101d7ddf3fa96c7ff41f73ed8d0398.jpg', '', '2020-08-22 05:58:21', NULL, 2, 11, 2, 'restaurant terbaik,privateroom,whiteglass,promo, tomato marmalade, salsa verde, ciabatta 10', 'house-of-yuen---fairmont', 0, 155, 1, 1, 1, 1, 0, 1, 'id5f40b3fd81015'),
-(44, 'Promo GrabFood Agustus 2020', 'Promo GrabFood Agustus 2020', '', '<ol><li style=\"text-size-adjust: 100%; margin-top: 0px;\">Pesan aneka makanan dan minuman pilihan Anda dengan kode promo GrabFood ini untuk diskon Rp 20.000 off. Promo ini berlaku dengan metode pembayaran menggunakan OVO.</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Penawaran Diskon:</b>&nbsp;50% off Max Rp 20.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Minimum Belanja:</b>&nbsp;Rp 40.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Pembatasan Pengguna:</b>&nbsp;Pengguna baru</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Keterbatasan Brand:</b>&nbsp;Untuk semua outlet</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Ketentuan Berlaku:</b>&nbsp;3x pemakaian</li></ol>', '5019d790f2a17c797fccb75ce97b480f.jpg', '', '2020-08-22 12:24:29', NULL, 6, 0, 0, 'grab', 'berlaku-hanya-bylan-a', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f410e7d1466f'),
-(46, 'Donat Indomie', 'Indomie Meta Description', 'Indomie Meta Titlesd', '<p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\">Merupakan salah satu kreasi Indomie yang unik, donat Indomie mampu mencuri hati setiap orang. Bagaimana tidak? Hanya dalam sekali gigitan, kalian akan mendapatkan rasa khas Indomie yang dipadu dengan potongan daging serta lelehan keju mozarella.</p><p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\"><em>Hmm, so yummy!</em></p>', 'b00f91287a1e32d1cb2885a15b3de34d.jpg', 'MLD Sporsd', '2020-08-27 12:21:21', NULL, 1, 5, 0, 'indomie', 'donat-indomie', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f47a5417d489'),
-(48, 'Jimbaran Lounge', 'Di tengah hutan beton Sudirman kamu bisa juga lho merasakan suasana yang menyejukkan ala Bali. Dimana lagi kalau bukan di Jimbaran Lounge, Ayana Midplaza. Dengan konsep tempat makan terapung di atas kolam, Jimbaran Lounge bisa jadi alternatif nongkrong yang menyegarkan pikiran.', 'Di tengah hutan beton ', '<span style=\"color: rgb(82, 82, 82); font-family: Poppins; font-size: 16px;\">Di tengah hutan beton Sudirman kamu bisa juga lho merasakan suasana yang menyejukkan ala Bali. Dimana lagi kalau bukan di Jimbaran Lounge, Ayana Midplaza. Dengan konsep tempat makan terapung di atas kolam, Jimbaran Lounge bisa jadi alternatif nongkrong yang menyegarkan pikiran.</span>', '7386c1365583e84f9028ea05fabc6e70.jpeg', '@ayanajakarta', '2020-08-28 11:52:02', NULL, 2, 11, 1, 'outdoor', 'jimbaran-lounge', 0, 156, 1, 1, 1, 1, 0, 1, 'id5f48efe2aff62'),
-(49, 'Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!s', 'grabpromosd', 'grabpromosdsd', '<ol><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!<br></li></ol>', '40d94caa276ae78d6e39b786b4c4b7a6.jpg', 'grabfoodd', '2020-08-29 11:07:27', NULL, 6, 0, 0, 'grabfood', 'promo-gofood-juli-2020--psbb--promonya-serius-banyak-banget!s', 0, 153, 0, 0, 0, 1, 0, 1, 'id5f4a36ef3ce58'),
-(50, 'Kerupuk Seblak', 'Jika biasanya seblak terbuat dari kerupuk yang sudah direndam air kemudian diberi bumbu pedas. Lain halnya dengan kerupuk seblak ini. ', 'Kerupuk Seblak', '<p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">Jika biasanya seblak terbuat dari kerupuk yang sudah direndam air kemudian diberi bumbu pedas. Lain halnya dengan kerupuk seblak ini. Rasanya tetap sama dengan pedas level tinggi hanya saja ini tidak direndam air melainkan langsung digoreng bersama dengan bumbu halus hingga mereka tercampur dan menghasilkan rasa pedas dan gurih.</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">Peluang bisnis cemilan kerupuk seblak ini sama bagusnya dengan seblak pada umumnya</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">karena orang Indonesia memang pencinta pedas. Jadi tak ada salahnya jika Anda membuka</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">bisnis kerupuk seblak ini. Camilan pedas ini pun bisa Anda jual dengan harga Rp 2000</p>', 'ce3258d4605591d66968d10a98893925.jpg', 'Kerupuk Seblak', '2020-09-01 14:01:56', NULL, 3, 15, 20, 'kerupuk', 'kerupuk-seblak', 0, 250, 21, 1, 19, 1, 0, 1, 'id5f4e5454b23a9'),
-(52, 'Raja Kepiting', 'Jika Anda ingin menikmati makanan seafood Anda bisa mengunjungi tempat makan satu ini. Suasananya yang nyaman akan membuat nafsu makan Anda nambah. Apalagi menu di tempat ini sangat banyak dan membuat Anda bingung.', 'Raja Kepiting', '<p style=\"margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 18px; line-height: inherit; font-family: Lora; vertical-align: baseline; color: rgb(66, 66, 66); background-color: rgb(245, 245, 245);\">Jika Anda ingin menikmati makanan seafood Anda bisa mengunjungi tempat makan satu ini. Suasananya yang nyaman akan membuat nafsu makan Anda nambah. Apalagi menu di tempat ini sangat banyak dan membuat Anda bingung. Namun menu andalan di Raja Kepiting yakni Cumi Goreng dan Kepiting Asam Manis. Untuk kepitingnya bisa memesan jantan atau yang betina, dimana yang betina akan ada telur di dalamnya.</p><p style=\"margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 18px; line-height: inherit; font-family: Lora; vertical-align: baseline; color: rgb(66, 66, 66); background-color: rgb(245, 245, 245);\">Bagi Anda yang tidak menyukai seafood Anda juga bisa memesan menu selain seafood. Tentu saja soal rasanya tidak bisa diragukan lagi. Untuk menuju tempat makan ini Anda bisa ke Jl. Raya Serpong KM 7 No. 35, Tangerang Selatan. Harga yang ditawarkan di tempat makan ini cukup terjangkau yakni mulai dari Rp. 80 ribuan. Jam bukanya mulai dari 10.30 hingga 22.00 WIB.</p>', '16568a78308a8f20c5cd8cf92006caf9.jpg', 'Raja Kepiting', '2020-09-01 14:11:24', NULL, 4, 18, 33, 'kepiting', 'raja-kepiting-13738249', 0, 250, 26, 1, 28, 1, 0, 1, 'id5f4e568c9c17d'),
-(55, 'dddddddddddddddd', 'ddddddddddddd', 'dddddddddddd', 'dddddddddddd', '927da368a9b4e6bafd4e1aee1f9f44ab.jpg', 'ddddddddddddd', '2020-09-02 09:07:13', NULL, 5, 24, 48, 'ddd', 'dddddddddddddddd', 0, 16, 34, 1, 35, 1, 0, 1, 'id5f4f60c1cfe67');
+INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_description_title`, `post_contents`, `post_image`, `post_image_desc`, `post_date`, `post_last_update`, `post_type_id`, `post_category_id`, `post_subcategory_id`, `post_tags`, `post_slug`, `post_feature_article`, `post_city_id`, `post_location_id`, `post_halal_id`, `post_additional_id`, `post_status`, `post_views`, `post_user_id`, `post_detail_id`, `email_news_update`) VALUES
+(2, '7 Tips untuk menemukan passion Anda', '', '', '<p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\" sans\",=\"\" sans-serif;=\"\" color:=\"\" rgb(78,=\"\" 94,=\"\" 106);\"=\"\">Ini adalah Sub Heading&nbsp;</h3><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p>', '787f035149ba2179b8bc4c5ac01c5001.jpg', '', '2019-04-05 07:52:06', '2019-04-14 09:08:10', 0, 1, 0, 'Psikologi,Motivasi', 'tips-untuk-menemukan-passion-anda', 0, 0, 0, 0, 0, 1, 5, 1, '', 0),
+(3, '5 Alasan kenapa Anda perlu berbuat baik', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\" sans\",=\"\" sans-serif;=\"\" color:=\"\" rgb(78,=\"\" 94,=\"\" 106);\"=\"\">Ini adalah Sub Heading&nbsp;</h3><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p>', 'a06ae9341405a292ae12b67ed85dc1dc.jpg', '', '2019-04-05 12:25:13', '2019-04-14 09:08:51', 0, 2, 0, 'Psikologi,Motivasi,Kesehatan', '5-alasan-kenapa-anda-perlu-berbuat-baik', 0, 0, 0, 0, 0, 1, 0, 1, '', 0),
+(4, '7 Tips untuk meningkatkan pendapatan Anda', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\" sans\",=\"\" sans-serif;=\"\" color:=\"\" rgb(78,=\"\" 94,=\"\" 106);\"=\"\">Ini adalah Sub Heading&nbsp;</h3><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini adalah artikel konten.</p>', '9a734ed5d107f0f378da0a1e13dfc92e.jpg', '', '2019-04-05 12:26:55', '2019-04-14 09:09:16', 0, 3, 0, 'Teknologi,Motivasi', 'tips-untuk-meningkatkan-pendapatan-anda', 0, 0, 0, 0, 0, 1, 0, 1, '', 0),
+(7, '3 Teknik Efektif Membaca Cepat', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah\r\n artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\">Ini adalah Sub Heading&nbsp;</h3><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p>', 'b69bd34db0726b6cf7747a816c99254f.jpg', '', '2020-01-12 04:30:20', NULL, 0, 1, 0, 'Psikologi,Motivasi', '3-teknik-efektif-membaca-cepat', 0, 0, 0, 0, 0, 1, 0, 1, '', 0),
+(9, '4 Cara Menjadi Lebih Aktif dalam Belajar', '', '', '<p>Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini adalah\r\n artikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten.</p><p>Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten.</p><h3 style=\"font-family: \" open=\"\">Ini adalah Sub Heading&nbsp;</h3><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p style=\"outline: 0px !important;\">Ini\r\n adalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten.</p><p>Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten.</p><p>Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten.</p><p>Ini adalah artikel konten Ini \r\nadalah artikel konten Ini adalah artikel konten Ini adalah artikel \r\nkonten Ini adalah artikel konten Ini adalah artikel konten Ini adalah \r\nartikel konten Ini adalah artikel konten Ini adalah artikel konten Ini \r\nadalah artikel konten.</p>', 'ec77cde530b2eb464b9add2c31316b10.jpg', '', '2020-01-12 04:34:01', NULL, 0, 1, 0, 'Psikologi,Motivasi', '4-cara-menjadi-lebih-aktif-dalam-belajar', 0, 0, 0, 0, 0, 1, 0, 1, '', 0),
+(11, 'BASO ACI AKANG', '', '', 'baso aci akanga baso yang sedang viral di kalangan anak milenial terutama di daerah tangeranag', '58fe0c716e50edeabc7737a07cdf1db9.jpg', '', '2020-08-10 13:22:44', NULL, 0, 1, 0, 'Psikologi', 'baso-aci-akang', 0, 2, 2, 1, 1, 1, 0, 1, '', 0),
+(12, 'Baso Aci ', '', '', '<hr><p>Makanan yang sedang viral di kalangan anak milenial ini sekarang menjadi&nbsp;</p><p>salah satu makanan yang sangat di gemari dengan berbagai varian baru yang ada</p><p>menambah minat dari para penkmatnya.</p><p><br></p><img src=\"http://localhost/fbang/assets/images/seafod-santa-681.jpg\" style=\"width: 800px;\"><p><br></p>', '289098b431f76d402c8827c59f9ab907.jpg', '', '2020-08-11 00:53:22', '2020-08-20 08:14:12', 1, 1, 0, '', 'baso-aci-', 0, 1, 1, 1, 1, 1, 0, 1, '', 0),
+(13, 'Gudeg jogoja', '', '', '<p></p><p>makan khas jogja</p><p><br></p><br><p></p><img src=\"http://localhost/fbang/assets/images/seafod-santa-68.jpg\" style=\"width: 800px;\">', 'aa1818548127b313bea0f480d9b991db.jpg', '', '2020-08-12 13:13:48', '2020-08-20 08:17:43', 1, 1, 0, 'gudeg', 'gudeg-jogoja', 0, 1, 1, 1, 1, 1, 0, 1, '', 0),
+(19, 'Bebek Ginyo', '', '', '<span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\">Masakah dengan bahan daging bebek memiliki keunikan cita rasa sehingga memiliki penggemar tersendiri. Bebek Ginyo merupakan salah satu tempat makan di daerah Jakarta Selatan yang menyajikan berbagai jenis menu masakan bebek. Berbagai masakan dengan bahan utama daging bebek seperti bebek bakar dan bebek kremes. Penggemar masakan pedas juga dapat mencoba menu unik berupa bebek balado dan bebek cabe hijau. Sedangkan mereka yang kurang suka masakan bebek bakar juga dapat mencoba memesan pepes bebek di warung ini. Warung masakan bebek Ginyo yang berdiri sejak tahun 2007 ini dapat dikunjungi di Jalan Tebet Dalam nomor 12, Tebet, Jakarta Selatan.</span>', 'dcaccfae248b23ca53fcc956749709a7.jpg', '', '2020-08-19 02:24:54', NULL, 2, 2, 0, 'bbq', 'facebook', 0, 1, 1, 1, 1, 1, 1, 1, 'id5f3c8d76ba080', 0),
+(20, 'Seafod Santa 68ga', '', '', '<p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><span style=\"font-weight: bold;\">Masakan laut atau sea food menjadi jenis makanan lain yang memiliki banyak penggemar. Salah satu tempat terbaik untuk menikmati masakan laut dengan rasa lezat dan harga terjangkau adalah Seafood Santa 68</span>. Bahan – bahan segar dan cara mengolah dengan bumbu lezat menjadi salah satu alasan mengapa Seafood Santa 68 memiliki sangat banyak pelanggan. Berbagai menu masakan laut dengan bahan ikan, udang, cumi hingga kepiting dan kerang dapat dinikmati di warung makan yang sering disesaki pelanggan ini. Warung makan Seafood Santa 68 dapat dikunjungi di Jalan Wolter Monginsidi nomor 58 Senopati, Jakarta Selatan.</span></p><p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><br></span></p>', '987c2b7911590afad585a6e4a2ea5f17.jpg', '', '2020-08-19 04:26:49', NULL, 2, 11, 1, 'seafood,baso', 'seafod-santa-68ga', 0, 2, 2, 2, 1, 1, 2, 1, 'id5f3caa0906f7a', 1),
+(29, 'GrabFood Promo TERBARU!', '', '', 'GrabFood Promo', '576b5f14d1c3c427ee8a64d0161214c3.png', '', '2020-08-19 09:49:59', NULL, 6, 0, 0, 'grab,grabfood', 'grabfood-promo', 0, 1, 0, 0, 0, 1, 1, 1, 'id5f3cf5c7e250c', 1),
+(30, 'Foodbang in web', '', '', 'Foodbang in web', '082c6fcf205ff1a0ce4770716a871039.png', '', '2020-08-20 03:42:02', '2020-08-20 10:43:11', 1, 1, 0, 'foodbang', 'foodbang-in-web', 0, 0, 0, 0, 0, 1, 1, 1, '', 1),
+(31, 'test news', '', '', 'test news', '7296ddd40a9c351e4b33a27e97917d83.jpg', '', '2020-08-21 06:57:08', NULL, 1, 5, 0, 'makanan murah', 'gofood', 0, 152, 1, 1, 2, 1, 0, 1, 'id5f3f7044af2f3', 0),
+(32, 'Warung Nagih Jakarta', 'ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.</span>', '06cb9e6d8b2391edd15d08e7391dca85.jpg', '', '2020-08-21 10:03:32', NULL, 1, 5, 0, 'warung', 'grabfood-co-id-', 0, 152, 2, 1, 2, 1, 2, 1, 'id5f3f9bf4548d1', 0),
+(33, 'Bubur Kwang Tung', 'Makan steak malam-malam, kenapa tidak ! Adalah Joni Steak yang berlokasi beberapa tempat di Jakarta, seperti di Jl. Kalimalang Raya No. 28 Blok A2/3C Pondok Kelapa / Lampiri, Jl. Samanhudi No. 65, Pasar Baru Jakarta Pusat, atau di Jl. Gajah Mada No. 91 / dekat dengan Bakmi Gajah Mada.  Buka mulai pukul 6 sore hingga jam 1 dini hari, tentunya pas untuk Anda dan teman yang sedang lapar di malam hari. Harga yang ditawarkan untuk 1 porsi tidak terlalu mahal, hanya sekitar Rp 20.000 atau hingga Rp 30.000. Adapun menu andalan di tempat ini adalah salmon steak,  tenderloin atau sirloin steak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Ingin mencari bubur hangat di malam hari, kunjungi saja bubur Kwang Tung yang ada di Jl, Pecenongan, No 671, Jakarta Pusat. Menu utama di tempat ini tentu saja bubur, yang bernama bubur Kwang Tung. Ini adalah menu bubur seafood Hongkong, sekaligus menu utama yang harus Anda coba. &nbsp;&nbsp;Rumah makan yang buka selama 24 jam ini menyajikan beberapa menu bubur seafood, seperti kepiting, ayam, udang, ikan, sapi, dll. Selain menu bubur, menu lainnya yang juga ada di rumah makan tersebut adalah chinese food, dll.</span>', '30f65fc5b8d1bb0d50432b774deb2ae1.jpg', '', '2020-08-21 10:06:03', NULL, 1, 5, 0, 'steak', 'gofood-com', 0, 152, 1, 1, 1, 1, 1, 1, 'id5f3f9c8b5f534', 0),
+(34, 'Bubur Ayam Barito', 'Bubur Ayam barito yang terletak di Jl. Gandaria Tengah 3, Jakarta ini dapat Anda jadikan tempat makan malam berikutnya. Seperti nama restoran tersebut, menu utama dari rumah makan tersebut adalah bubur ayam. Namun yang membedakan bubur ayam di tempat ini dan tempat lainnya adalah teksturnya yang lembut, dengan tambahan toping yang cukup banyak, membuat 1 porsi bubur, cukup untuk mengisi perut Anda. Harga untuk 1 porsi sendiri juga tidak terlalu mahal, hanya sekitar Rp 3.000 hingga Rp 13.000. Rumah makan yang satu ini buka mulai jam 7 pagi hingga tengah malam.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Bubur Ayam barito yang terletak di Jl. Gandaria Tengah 3, Jakarta ini dapat Anda jadikan tempat makan malam berikutnya. Seperti nama restoran tersebut, menu utama dari rumah makan tersebut adalah bubur ayam. Namun yang membedakan bubur ayam di tempat ini dan tempat lainnya adalah teksturnya yang lembut, dengan tambahan toping yang cukup banyak, membuat 1 porsi bubur, cukup untuk mengisi perut Anda. Harga untuk 1 porsi sendiri juga tidak terlalu mahal, hanya sekitar Rp 3.000 hingga Rp 13.000. Rumah makan yang satu ini buka mulai jam 7 pagi hingga tengah malam.</span>', 'cdfee9843405b646748639d40dc262c3.jpg', '', '2020-08-21 10:08:53', NULL, 1, 5, 0, 'bubur ayam', 'grab-co-id', 0, 153, 1, 1, 1, 1, 2, 1, 'id5f3f9d3528f63', 0),
+(35, 'Jl. Pecenongan', 'Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.</span>', '1e44084611ea7e0e2014982dba25aa68.jpg', '', '2020-08-21 10:12:17', NULL, 1, 5, 0, 'cafe', 'jl--pecenongan', 0, 153, 2, 1, 2, 1, 3, 1, 'id5f3f9e01ebae4', 0),
+(36, 'Cafe Siang Malam ? 18 ? Palmerah', 'Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.</span>', '0d49618fa6dc203f8fdeaf054ab14cc5.jpg', '', '2020-08-21 10:13:49', NULL, 1, 5, 0, 'cafe', 'cafe-siang-malam--18--palmerah', 0, 156, 2, 1, 2, 1, 4, 1, 'id5f3f9e5d111aa', 0),
+(37, 'Kemang Food Festifal', 'OTW Food Street', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">kuliner malam Jakarta berikutnya adalah Kemang Food Festifal. Seperti namanya, kuliner yang satu ini berlokasi di kawasan Kemang, Tepatnya di Jl. Kemang Raya no 19, Mampang Prapatan, Jakarta Selatan. Di lokasi yang satu ini, Anda akan menemukan berbagai macam menu makanan dengan konsep food courd. Menu makanan yang ditawarkan, mulai dari aneka menu tradisional, hingga aneka makanan Eropa. Untuk masalah harga, tidak pelru khawatir, aneka kuliner yang ada di tempat ini memiliki harga yang sangat terjangkau untuk kalangan mahasiswa dan pelajar. Lokasi tempat makan tentunya sangat nyaman, selain itu, tempat makan yang satu ini, buka mulai jam 5 sore hingga tengah malam.</span>', '8ed7a6f2a53370bb61e3c9b6a85b2f38.jpg', '', '2020-08-21 10:16:20', NULL, 1, 5, 0, 'steak,cafe', 'gofood-com-1933888409', 0, 16, 2, 1, 2, 1, 5, 1, 'id5f3f9ef40251b', 0),
+(38, 'Akira Back', 'Akira Back', '', '<p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Akira Back adalah salah satu restaurant bintang 5 yang terletak di Setiabudi, Jakarta Selatan. Akira menghadirkan makanan khas Jepang yang difusion dengan makanan Korea. Kretivitas dari Chef Akira sendiri lah dalam mengolah setiap menu di restauran ini membuat Akira Back Restaurant memiliki banyak penggemar walaupun memiliki harga yang mahal.</p><p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Setiap review tentang restauran ini selalu menceritakan jika ingin sekali-kali mencicipi hidangan di restauran ini, setidaknya Anda harus membawa uang sekitar diatas Rp900 ribu rupiah untuk 2 orang. Tapi kebanyakan orang berujung setidaknya harus mengeluarkan Rp1,3 juta sebagai standar budget minimal untuk menikmati hidangan di restauran ini secara&nbsp;<em style=\"border: 0px; margin: 0px; padding: 0px;\">proper</em>&nbsp;mulai dari appetizer, main course, dessert hingga pajak dan biaya servicenya.</p><p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Menu yang paling direkomendasikan dari restauran ini adalah Pizza Tuna, Seared Halibut, Spring Chicken &amp; Foie Roulade, Wagyu Cheek dan Black Forest.</p>', '7ca533b41dbb1db811060a92e2c64d34.jpg', '', '2020-08-22 05:46:10', NULL, 2, 11, 2, 'restaurant terbaik', 'akira-back', 0, 155, 1, 1, 1, 1, 1, 1, 'id5f40b122eb898', 0),
+(39, 'Namaaz Dining', 'Namaaz Dining', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Restoran yang terletak di Kebayoran Baru, Jakarta Selatan ini memiliki set menu seharga Rp 1,25 juta untuk sekali&nbsp;<em>dining in</em>. Set menu mahal ini dianggap wajar saja karena set makanan yang akan ditawarkan ke kamu akan membuat kamu bingung dan terheran-heran.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Berawal dari Youtuber populer Raditya Dika yang mereview berbagai hidangan unik yang ditawarkan oleh restoran ini. Namaaz Dining pun berhasil viral dan menjadi incaran banyak para food hunter berikutnya.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Teknik Gastronomi Molekuler yang diciptakan dalam penyajian setiap hidangan di restoran ini menjadi kan Namaaz Dining menjadi satu-satunya<a href=\"https://republika.co.id/tag/restoran-di-jakarta\" style=\"text-decoration-line: underline; color: rgb(0, 0, 0); font-weight: 600; line-height: 1.35em;\">&nbsp;restoran di Jakarta&nbsp;</a>bahka mungkin di Indonesia yang mengusung konsep tersebut.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Menu-menu di restoran ini ada yang bisa meledak sendiri, berbentuk abstrak hingga super aneh. Di mana bentuk/visual dari menu tersebut bisa menipu kamu sedemikian rupa sehingga ketika kamu mencobanya kamu akan sangat terkejut. Pokoknya mind blowing banget deh.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Yang unik lagi dari restoran ini adalah, durasi makannya dan sistem bookingnya. Setiap pengunjung yang ingin makan di restoran ini wajib melakukan booking terlebih dahulu, tidak boleh terlambat dan harus memberikan informasi yang detail tentang alergi makanan yang dimiliki.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Untuk durasi makannya, karena penyajian makananannya yg unik waktu yang dibutuhkan untuk mengeluarkan setiap menu pun memakan banyak waktu juga, jadi setiap pengunjung setidaknya harus menghabiskan 2-3 jam setiap kunjungan untuk setiap pemilihan paket set menu Rp 1,25 juta tersebut.</p>', 'dfe57ccd077e2b227a34ac61fb6dd322.jpg', '', '2020-08-22 05:50:08', NULL, 2, 11, 2, 'restaurant terbaik', 'namaaz-dining', 0, 155, 1, 1, 1, 1, 0, 1, 'id5f40b210b2ba5', 0),
+(40, 'Le Quartier', 'Le Quartier', '', '<p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">enopati, Kebayoran Baru memang gudangnya tempat makanan mewah, selain Namaaz Dining. Le Quartier juga merupakan salah satu restoran mewah populer yang ada di kawasan elite tersebut. Le Quartier adalah restoran ala eropa yang menyajikan makanan khas perancis.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Interior dari restoran ini sendiri pun kental dengan suasana Eropanya, dengan&nbsp;<em>furniture</em>&nbsp;kayu yang disusun secara cantik, lampu gantung&nbsp;<em>chandilier</em>&nbsp;mini yang bergantu di setiap meja. Hingga suasananya yang sedikit temaram membuat makan malam di restoran ini seperti layaknya makan malam di Prancis.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Walaupun elite, Le Quartier adalah golongan restoran elite yang masih memiliki menu makanan yang ramah untuk kantong. Kamu masih bisa makan secara pas dan kenyang dengan biaya Rp 500-Rp 600 ribu untuk 2 orang di restoran ini untuk set menu mulai dari appetizer,&nbsp;<em>main course</em>&nbsp;hingga&nbsp;<em>dessert.</em></p>', '0e1c8001370d505dd3f90858faa0ff99.jpg', '', '2020-08-22 05:53:07', NULL, 2, 11, 2, 'restaurant terbaik', 'le-quartier', 0, 155, 1, 1, 1, 1, 1, 1, 'id5f40b2c3dd925', 0),
+(41, 'Pasola – The Ritz Carlton Pacific Place', 'Pasola', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Dari namanya saja kamu pasti tau kalau restoran ini pasti restoran berkelas bintang 5 dengan interior restoran yang super mewah dan elegan. Terletak di lantai 6 di salah satu hotel mewah di Jakarta Ritz Carlton, Pasola sudah sering masuk<a href=\"https://republika.co.id/tag/daftar-restoran\" style=\"text-decoration-line: underline; color: rgb(0, 0, 0); font-weight: 600; line-height: 1.35em;\">&nbsp;daftar restoran&nbsp;</a>mewah yang paling direkomendasikan di Jakarta.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Pasola menyajikan menu&nbsp;<em>fusion</em>&nbsp;layakanya restoran mewah pada umumnya, yaitu gabungan kreasi makanan barat dengan hidangan tradisional Indonesia. Interior mewah dan disajikan pemandangan indah Ibu Kota membuat siapa saja tentu akan merasa nyaman untuk menghabiskan waktu makan dengan keluarga.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Untuk bisa menikmati hidangan di Pasola secara pas dan kenyang rata-rata para pengunjung setidaknya harus mengeluarkan Rp 700 ribu untuk 2 orang. Tapi untuk kamu yang mau menikmati hidangan di restoran ini dengan harga yang lebih murah lagi. Bisa mencoba hidangan buffet nya mulai dari Rp 298 ribu di&nbsp;<em>weekdays</em>&nbsp;dan Rp 398 ribu di&nbsp;<em>weekend.</em>&nbsp;Di Buffet Pasola ini kamu bisa memakan semua hidangan&nbsp;<em>buffet</em>&nbsp;sebanyak apa pun atau&nbsp;<em>all you can eat</em>.</p>', 'ac7d4117bcbb13387749d153966d635c.jpg', '', '2020-08-22 05:54:37', NULL, 2, 11, 0, 'restaurant terbaik', 'pasola--the-ritz-carlton-pacific-place', 0, 156, 1, 2, 1, 1, 2, 1, 'id5f40b31dd0b69', 0),
+(42, 'Vong Kitchen', 'Vong Kitchen', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">vong Kitchen menjadi favorit pecinta kuliner, terutama kuliner Eropa karena restoran ini adalah satu-satunya di Jakarta yang pengolahan makanannya dilakukan oleh Chef dengan gelar Michelin. Bagi yang sedikit bingung, Michelin adalah gelar profesional tertinggi di dalam industri kuliner. Gelar ini sangatlah ekslusif dan prestigius, itu mengapa masih sangat sedikit restoran-restoran yang menyandang gelar ini dan kebanyakan di antaranya berada di luar negeri.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Tapi sekarang kamu tidak perlu khawatir, sekarang restoran dengan level yang sama telah hadir, Vong Kitchen yang berlokasi di SCBD, Jakarta Selatan adalah restoran yang menyajikan hidangan khas Prancis dan Inggris sebagai konsep menu utama mereka.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Semua menunya sendiri diciptakan langsung oleh chef Michelin bintang 3 asal Prancis, Jean-Georges Vongerichten, bersama putranya Cédric Vongerichten yang mengikuti jejak sang ayah sebagai seorang chef profesional. Dengan semua fakta di atas, tidak heran&nbsp;<em>dong</em>&nbsp;jika harganya juga bisa menggoyang dompet kamu?</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Biaya yang setidaknya harus kamu keluarkan untuk menikmati hidangan di restoran ini secara pas dan kenyang adalah Rp 800 ribu untuk 2 orang. Dengan kualitas rasa dan penyajiannya tentu saja harga tersebut dikatakan cukup pantas, terutama untuk para pecinta kuliner Eropa.</p>', '8033d3d99827cd4a7c23995060a3c1d7.jpg', '', '2020-08-22 05:57:09', NULL, 2, 11, 0, 'restaurant terbaik', 'vong-kitchen', 0, 153, 1, 1, 1, 1, 1, 1, 'id5f40b3b5ba114', 0),
+(43, 'House of Yuen - Fairmont', 'House of Yuen - Fairmont', '', '<p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Untuk kamu pecinta kuliner Cina, pasti tertarik&nbsp;<em>dong</em>&nbsp;sekali-sekali mencoba hidangan khas negara pohon bambu ini tapi versi mewah?</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Berlokasi di daerah Senayan, Jakarta Selatan, House of Yuen – Fairmont adalah restoran hidangan kuliner khas Cina yang wajib kamu kunjungi walaupun hanya sekali dalam seumur hidup!. Berada di lt.3 di salah satu hotel bintang 5 di Jakarta, Fairmont Hotel tentu saja kata mewah dan VIP adalah deskripsi yang tepat untuk menggambarkan restoran autentik Cina tersebut.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Pernah baca artikel yang mengatakan, bahwa makan di restoran ini bisa rogoh kocek sampai Rp 100 juta? Yep House of Yuen adalah restoran tersebut.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Menyediakan hidangan Cina kelas satu tentu saja biaya untuk makan di restoran tersebut tidak bisa dianggap murah. Kalau kamu penasaran banget dan nekat, jangan lupa yang siapkan budget sekitar Rp 700 ribu untuk sekali makan yang berlaku untuk 1 orang saja jika kamu mau makan dengan porsi pas dan kenyang di restoran ini.</p>', '7d101d7ddf3fa96c7ff41f73ed8d0398.jpg', '', '2020-08-22 05:58:21', NULL, 2, 11, 2, 'restaurant terbaik,privateroom,whiteglass,promo, tomato marmalade, salsa verde, ciabatta 10', 'house-of-yuen---fairmont', 0, 155, 1, 1, 1, 1, 0, 1, 'id5f40b3fd81015', 0),
+(44, 'Promo GrabFood Agustus 2020', 'Promo GrabFood Agustus 2020', '', '<ol><li style=\"text-size-adjust: 100%; margin-top: 0px;\">Pesan aneka makanan dan minuman pilihan Anda dengan kode promo GrabFood ini untuk diskon Rp 20.000 off. Promo ini berlaku dengan metode pembayaran menggunakan OVO.</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Penawaran Diskon:</b>&nbsp;50% off Max Rp 20.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Minimum Belanja:</b>&nbsp;Rp 40.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Pembatasan Pengguna:</b>&nbsp;Pengguna baru</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Keterbatasan Brand:</b>&nbsp;Untuk semua outlet</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Ketentuan Berlaku:</b>&nbsp;3x pemakaian</li></ol>', '5019d790f2a17c797fccb75ce97b480f.jpg', '', '2020-08-22 12:24:29', NULL, 6, 0, 0, 'grab', 'berlaku-hanya-bylan-a', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f410e7d1466f', 0),
+(46, 'Donat Indomie', 'Indomie Meta Description', 'Indomie Meta Titlesd', '<p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\">Merupakan salah satu kreasi Indomie yang unik, donat Indomie mampu mencuri hati setiap orang. Bagaimana tidak? Hanya dalam sekali gigitan, kalian akan mendapatkan rasa khas Indomie yang dipadu dengan potongan daging serta lelehan keju mozarella.</p><p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\"><em>Hmm, so yummy!</em></p>', 'b00f91287a1e32d1cb2885a15b3de34d.jpg', 'MLD Sporsd', '2020-08-27 12:21:21', NULL, 1, 5, 0, 'indomie', 'donat-indomie', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f47a5417d489', 0),
+(48, 'Jimbaran Lounge', 'Di tengah hutan beton Sudirman kamu bisa juga lho merasakan suasana yang menyejukkan ala Bali. Dimana lagi kalau bukan di Jimbaran Lounge, Ayana Midplaza. Dengan konsep tempat makan terapung di atas kolam, Jimbaran Lounge bisa jadi alternatif nongkrong yang menyegarkan pikiran.', 'Di tengah hutan beton ', '<span style=\"color: rgb(82, 82, 82); font-family: Poppins; font-size: 16px;\">Di tengah hutan beton Sudirman kamu bisa juga lho merasakan suasana yang menyejukkan ala Bali. Dimana lagi kalau bukan di Jimbaran Lounge, Ayana Midplaza. Dengan konsep tempat makan terapung di atas kolam, Jimbaran Lounge bisa jadi alternatif nongkrong yang menyegarkan pikiran.</span>', '7386c1365583e84f9028ea05fabc6e70.jpeg', '@ayanajakarta', '2020-08-28 11:52:02', NULL, 2, 11, 1, 'outdoor', 'jimbaran-lounge', 0, 156, 1, 1, 1, 1, 0, 1, 'id5f48efe2aff62', 0),
+(49, 'Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!s', 'grabpromosd', 'grabpromosdsd', '<ol><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!<br></li></ol>', '40d94caa276ae78d6e39b786b4c4b7a6.jpg', 'grabfoodd', '2020-08-29 11:07:27', NULL, 6, 0, 0, 'grabfood', 'promo-gofood-juli-2020--psbb--promonya-serius-banyak-banget!s', 0, 153, 0, 0, 0, 1, 0, 1, 'id5f4a36ef3ce58', 0),
+(50, 'Kerupuk Seblak', 'Jika biasanya seblak terbuat dari kerupuk yang sudah direndam air kemudian diberi bumbu pedas. Lain halnya dengan kerupuk seblak ini. ', 'Kerupuk Seblak', '<p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">Jika biasanya seblak terbuat dari kerupuk yang sudah direndam air kemudian diberi bumbu pedas. Lain halnya dengan kerupuk seblak ini. Rasanya tetap sama dengan pedas level tinggi hanya saja ini tidak direndam air melainkan langsung digoreng bersama dengan bumbu halus hingga mereka tercampur dan menghasilkan rasa pedas dan gurih.</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">Peluang bisnis cemilan kerupuk seblak ini sama bagusnya dengan seblak pada umumnya</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">karena orang Indonesia memang pencinta pedas. Jadi tak ada salahnya jika Anda membuka</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">bisnis kerupuk seblak ini. Camilan pedas ini pun bisa Anda jual dengan harga Rp 2000</p>', 'ce3258d4605591d66968d10a98893925.jpg', 'Kerupuk Seblak', '2020-09-01 14:01:56', NULL, 2, 15, 20, 'kerupuk', 'kerupuk-seblak', 0, 250, 21, 1, 19, 1, 0, 1, 'id5f4e5454b23a9', 0),
+(52, 'Raja Kepiting', 'Jika Anda ingin menikmati makanan seafood Anda bisa mengunjungi tempat makan satu ini. Suasananya yang nyaman akan membuat nafsu makan Anda nambah. Apalagi menu di tempat ini sangat banyak dan membuat Anda bingung.', 'Raja Kepiting', '<p style=\"margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 18px; line-height: inherit; font-family: Lora; vertical-align: baseline; color: rgb(66, 66, 66); background-color: rgb(245, 245, 245);\">Jika Anda ingin menikmati makanan seafood Anda bisa mengunjungi tempat makan satu ini. Suasananya yang nyaman akan membuat nafsu makan Anda nambah. Apalagi menu di tempat ini sangat banyak dan membuat Anda bingung. Namun menu andalan di Raja Kepiting yakni Cumi Goreng dan Kepiting Asam Manis. Untuk kepitingnya bisa memesan jantan atau yang betina, dimana yang betina akan ada telur di dalamnya.</p><p style=\"margin-bottom: 20px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; font-size: 18px; line-height: inherit; font-family: Lora; vertical-align: baseline; color: rgb(66, 66, 66); background-color: rgb(245, 245, 245);\">Bagi Anda yang tidak menyukai seafood Anda juga bisa memesan menu selain seafood. Tentu saja soal rasanya tidak bisa diragukan lagi. Untuk menuju tempat makan ini Anda bisa ke Jl. Raya Serpong KM 7 No. 35, Tangerang Selatan. Harga yang ditawarkan di tempat makan ini cukup terjangkau yakni mulai dari Rp. 80 ribuan. Jam bukanya mulai dari 10.30 hingga 22.00 WIB.</p>', '16568a78308a8f20c5cd8cf92006caf9.jpg', 'Raja Kepiting', '2020-09-01 14:11:24', NULL, 2, 18, 33, 'kepiting', 'raja-kepiting-13738249', 0, 250, 26, 1, 28, 1, 0, 1, 'id5f4e568c9c17d', 0),
+(53, 'asdqw', 'wdwqddqw', 'wqddwq', 'wqdqwwqdqwd', 'eaec9f2e2d2cb706b78b0a9ded080e9b.jpg', 'dwqwqddwq', '2020-09-01 14:25:55', NULL, 2, 24, 48, 'dqwdqw', 'asdqw', 0, 322, 34, 1, 35, 1, 0, 1, 'id5f4e59f35b321', 0),
+(54, 'aaaaa', 'wqdwqdwdq', 'wdwdq', 'wdqqwdwqd', '99ddf2a0cd428f09e3fe6b1edc7e2a90.png', 'wqdwqd', '2020-09-01 14:40:40', NULL, 2, 11, 1, 'wqdwq', 'aaaaa', 0, 322, 1, 1, 1, 1, 0, 1, 'id5f4e5d6867d8f', 0),
+(55, 'wefewfefw', 'fewfew', 's', 'fewfewewf', '48b99d071e7a1e24b5ed9fb75be80281.jpg', 'fewfewfew', '2020-09-02 08:55:46', NULL, 2, 16, 25, 'ewffew', 'wefewfefw', 0, 33, 22, 1, 21, 1, 0, 1, 'id5f4f5e1277196', 0),
+(56, ' Ayam geprek', 'Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari', ' Ayam geprek', '<span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari. Beberapa fried chicken lokal pun menjamur di berbagai tempat. Banyak juga yang menawarkan paket kemitraan atau franchise untuk siapa saja yang ingin membuka usaha.</span><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sebut saja Ranisa Fried Chicken, Sabana, Orchi Chicken hingga Cheese Chicken yang menjajakan ayamnya dengan harga dibawah Rp 15 ribuan. Paket yang dijual juga sangat beragam, mulai dari gerobak sampai outlet.</span>', '5e77cf831f36c3d4d1ac275c0cf61407.jpeg', ' Ayam geprek', '2020-09-02 14:11:45', NULL, 3, 15, 20, 'ayam', '-ayam-geprek', 0, 322, 21, 1, 19, 1, 0, 1, 'id5f4fa82189ef0', 0),
+(57, 'Nasi Tutug Oncom', 'Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.', 'Nasi Tutug Oncom', '<span style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\">Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.</span><br style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\"><span style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\">Anda bisa mampir ke Nasi Tutug Oncom Pamulang di jalan Pamulang Permai I No 21 Tangerang. Ada paket nasi timbel hingga nasi tutug oncom. Anda bisa habiskan sekitar Rp 50.000 untuk dua orang di tempat makan ini.</span>', 'b7d18e196edc2e8fa6db958f5b0cbd9e.jpg', 'Nasi Tutug Oncom', '2020-09-03 01:36:01', NULL, 4, 18, 33, 'nasi', 'nasi-tutug-oncom', 0, 246, 26, 1, 28, 1, 0, 1, 'id5f5048812c3b6', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_post_views`
+-- Struktur dari tabel `tbl_post_views`
 --
 
 CREATE TABLE `tbl_post_views` (
@@ -1582,7 +1589,7 @@ CREATE TABLE `tbl_post_views` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_post_views`
+-- Dumping data untuk tabel `tbl_post_views`
 --
 
 INSERT INTO `tbl_post_views` (`view_id`, `view_date`, `view_ip`, `view_post_id`) VALUES
@@ -1667,12 +1674,14 @@ INSERT INTO `tbl_post_views` (`view_id`, `view_date`, `view_ip`, `view_post_id`)
 (79, '2020-08-25 15:43:31', '::1', 32),
 (80, '2020-08-27 12:36:58', '::1', 37),
 (81, '2020-08-27 12:39:45', '::1', 46),
-(82, '2020-08-28 12:06:38', '::1', 37);
+(82, '2020-08-28 12:06:38', '::1', 37),
+(83, '2020-09-02 12:58:06', '::1', 2),
+(84, '2020-09-02 14:19:33', '::1', 37);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_site`
+-- Struktur dari tabel `tbl_site`
 --
 
 CREATE TABLE `tbl_site` (
@@ -1692,7 +1701,7 @@ CREATE TABLE `tbl_site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_site`
+-- Dumping data untuk tabel `tbl_site`
 --
 
 INSERT INTO `tbl_site` (`site_id`, `site_name`, `site_title`, `site_description`, `site_favicon`, `site_logo_header`, `site_logo_footer`, `site_logo_big`, `site_facebook`, `site_twitter`, `site_instagram`, `site_pinterest`, `site_linkedin`) VALUES
@@ -1701,7 +1710,7 @@ INSERT INTO `tbl_site` (`site_id`, `site_name`, `site_title`, `site_description`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_social`
+-- Struktur dari tabel `tbl_social`
 --
 
 CREATE TABLE `tbl_social` (
@@ -1712,7 +1721,7 @@ CREATE TABLE `tbl_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_social`
+-- Dumping data untuk tabel `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_icon`, `created_at`) VALUES
@@ -1723,7 +1732,7 @@ INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_icon`, `created_at
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_subcategory`
+-- Struktur dari tabel `tbl_subcategory`
 --
 
 CREATE TABLE `tbl_subcategory` (
@@ -1733,7 +1742,7 @@ CREATE TABLE `tbl_subcategory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_subcategory`
+-- Dumping data untuk tabel `tbl_subcategory`
 --
 
 INSERT INTO `tbl_subcategory` (`subcategory_id`, `subcategory_name`, `subcategory_category_id`) VALUES
@@ -1789,7 +1798,7 @@ INSERT INTO `tbl_subcategory` (`subcategory_id`, `subcategory_name`, `subcategor
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_subscribe`
+-- Struktur dari tabel `tbl_subscribe`
 --
 
 CREATE TABLE `tbl_subscribe` (
@@ -1801,7 +1810,7 @@ CREATE TABLE `tbl_subscribe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_subscribe`
+-- Dumping data untuk tabel `tbl_subscribe`
 --
 
 INSERT INTO `tbl_subscribe` (`subscribe_id`, `subscribe_email`, `subscribe_created_at`, `subscribe_status`, `subscribe_rating`) VALUES
@@ -1813,7 +1822,7 @@ INSERT INTO `tbl_subscribe` (`subscribe_id`, `subscribe_email`, `subscribe_creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tags`
+-- Struktur dari tabel `tbl_tags`
 --
 
 CREATE TABLE `tbl_tags` (
@@ -1822,7 +1831,7 @@ CREATE TABLE `tbl_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_tags`
+-- Dumping data untuk tabel `tbl_tags`
 --
 
 INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
@@ -1854,12 +1863,14 @@ INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
 (31, 'kepiting'),
 (32, 'dqwdqw'),
 (33, 'wqdwq'),
-(34, 'ddd');
+(34, 'ewffew'),
+(35, 'ayam'),
+(36, 'nasi');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_testimonial`
+-- Struktur dari tabel `tbl_testimonial`
 --
 
 CREATE TABLE `tbl_testimonial` (
@@ -1871,7 +1882,7 @@ CREATE TABLE `tbl_testimonial` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_testimonial`
+-- Dumping data untuk tabel `tbl_testimonial`
 --
 
 INSERT INTO `tbl_testimonial` (`testimonial_id`, `testimonial_name`, `testimonial_content`, `testimonial_image`, `testimonial_created_at`) VALUES
@@ -1880,7 +1891,7 @@ INSERT INTO `tbl_testimonial` (`testimonial_id`, `testimonial_name`, `testimonia
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_type`
+-- Struktur dari tabel `tbl_type`
 --
 
 CREATE TABLE `tbl_type` (
@@ -1889,12 +1900,12 @@ CREATE TABLE `tbl_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_type`
+-- Dumping data untuk tabel `tbl_type`
 --
 
 INSERT INTO `tbl_type` (`type_id`, `type_name`) VALUES
 (1, 'News'),
-(2, 'Restaurant & Cafe'),
+(2, 'Restourant & Cofe'),
 (3, 'UMKM'),
 (4, 'Street Food'),
 (5, 'Healthy Food'),
@@ -1903,7 +1914,7 @@ INSERT INTO `tbl_type` (`type_id`, `type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -1917,7 +1928,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_level`, `user_status`, `user_photo`) VALUES
@@ -1927,7 +1938,7 @@ INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_visitors`
+-- Struktur dari tabel `tbl_visitors`
 --
 
 CREATE TABLE `tbl_visitors` (
@@ -1938,7 +1949,7 @@ CREATE TABLE `tbl_visitors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_visitors`
+-- Dumping data untuk tabel `tbl_visitors`
 --
 
 INSERT INTO `tbl_visitors` (`visit_id`, `visit_date`, `visit_ip`, `visit_platform`) VALUES
@@ -2000,324 +2011,325 @@ INSERT INTO `tbl_visitors` (`visit_id`, `visit_date`, `visit_ip`, `visit_platfor
 (541382, '2020-08-30 02:56:25', '::1', 'Chrome'),
 (541383, '2020-08-31 01:57:05', '::1', 'Chrome'),
 (541384, '2020-09-01 02:47:01', '::1', 'Chrome'),
-(541385, '2020-09-02 01:59:39', '::1', 'Chrome');
+(541385, '2020-09-02 01:59:39', '::1', 'Chrome'),
+(541386, '2020-09-03 01:06:54', '::1', 'Chrome');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `city_1`
+-- Indeks untuk tabel `city_1`
 --
 ALTER TABLE `city_1`
   ADD PRIMARY KEY (`city_id`);
 
 --
--- Indexes for table `tbl_about`
+-- Indeks untuk tabel `tbl_about`
 --
 ALTER TABLE `tbl_about`
   ADD PRIMARY KEY (`about_id`);
 
 --
--- Indexes for table `tbl_additional`
+-- Indeks untuk tabel `tbl_additional`
 --
 ALTER TABLE `tbl_additional`
   ADD PRIMARY KEY (`additional_id`);
 
 --
--- Indexes for table `tbl_availability`
+-- Indeks untuk tabel `tbl_availability`
 --
 ALTER TABLE `tbl_availability`
   ADD PRIMARY KEY (`availability_id`);
 
 --
--- Indexes for table `tbl_category`
+-- Indeks untuk tabel `tbl_category`
 --
 ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `tbl_city`
+-- Indeks untuk tabel `tbl_city`
 --
 ALTER TABLE `tbl_city`
   ADD PRIMARY KEY (`city_id`);
 
 --
--- Indexes for table `tbl_comment`
+-- Indeks untuk tabel `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   ADD PRIMARY KEY (`comment_id`);
 
 --
--- Indexes for table `tbl_detail_category`
+-- Indeks untuk tabel `tbl_detail_category`
 --
 ALTER TABLE `tbl_detail_category`
   ADD PRIMARY KEY (`detail_category_id`),
   ADD UNIQUE KEY `detail_category_category_id` (`detail_category_category_id`);
 
 --
--- Indexes for table `tbl_detail_catlist`
+-- Indeks untuk tabel `tbl_detail_catlist`
 --
 ALTER TABLE `tbl_detail_catlist`
   ADD PRIMARY KEY (`detail_catlist_id`);
 
 --
--- Indexes for table `tbl_detail_news`
+-- Indeks untuk tabel `tbl_detail_news`
 --
 ALTER TABLE `tbl_detail_news`
   ADD PRIMARY KEY (`detail_news_id`);
 
 --
--- Indexes for table `tbl_detail_promo`
+-- Indeks untuk tabel `tbl_detail_promo`
 --
 ALTER TABLE `tbl_detail_promo`
   ADD PRIMARY KEY (`detail_promo_id`);
 
 --
--- Indexes for table `tbl_home`
+-- Indeks untuk tabel `tbl_home`
 --
 ALTER TABLE `tbl_home`
   ADD PRIMARY KEY (`home_id`);
 
 --
--- Indexes for table `tbl_inbox`
+-- Indeks untuk tabel `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
   ADD PRIMARY KEY (`inbox_id`);
 
 --
--- Indexes for table `tbl_location`
+-- Indeks untuk tabel `tbl_location`
 --
 ALTER TABLE `tbl_location`
   ADD PRIMARY KEY (`location_id`);
 
 --
--- Indexes for table `tbl_navbar`
+-- Indeks untuk tabel `tbl_navbar`
 --
 ALTER TABLE `tbl_navbar`
   ADD PRIMARY KEY (`navbar_id`);
 
 --
--- Indexes for table `tbl_post`
+-- Indeks untuk tabel `tbl_post`
 --
 ALTER TABLE `tbl_post`
   ADD PRIMARY KEY (`post_id`),
   ADD KEY `post_detail_restaurant_id` (`post_detail_id`);
 
 --
--- Indexes for table `tbl_post_views`
+-- Indeks untuk tabel `tbl_post_views`
 --
 ALTER TABLE `tbl_post_views`
   ADD PRIMARY KEY (`view_id`);
 
 --
--- Indexes for table `tbl_site`
+-- Indeks untuk tabel `tbl_site`
 --
 ALTER TABLE `tbl_site`
   ADD PRIMARY KEY (`site_id`);
 
 --
--- Indexes for table `tbl_social`
+-- Indeks untuk tabel `tbl_social`
 --
 ALTER TABLE `tbl_social`
   ADD PRIMARY KEY (`social_id`);
 
 --
--- Indexes for table `tbl_subcategory`
+-- Indeks untuk tabel `tbl_subcategory`
 --
 ALTER TABLE `tbl_subcategory`
   ADD PRIMARY KEY (`subcategory_id`);
 
 --
--- Indexes for table `tbl_subscribe`
+-- Indeks untuk tabel `tbl_subscribe`
 --
 ALTER TABLE `tbl_subscribe`
   ADD PRIMARY KEY (`subscribe_id`);
 
 --
--- Indexes for table `tbl_tags`
+-- Indeks untuk tabel `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
   ADD PRIMARY KEY (`tag_id`);
 
 --
--- Indexes for table `tbl_testimonial`
+-- Indeks untuk tabel `tbl_testimonial`
 --
 ALTER TABLE `tbl_testimonial`
   ADD PRIMARY KEY (`testimonial_id`);
 
 --
--- Indexes for table `tbl_type`
+-- Indeks untuk tabel `tbl_type`
 --
 ALTER TABLE `tbl_type`
   ADD PRIMARY KEY (`type_id`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `tbl_visitors`
+-- Indeks untuk tabel `tbl_visitors`
 --
 ALTER TABLE `tbl_visitors`
   ADD PRIMARY KEY (`visit_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `city_1`
+-- AUTO_INCREMENT untuk tabel `city_1`
 --
 ALTER TABLE `city_1`
   MODIFY `city_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=476;
 
 --
--- AUTO_INCREMENT for table `tbl_about`
+-- AUTO_INCREMENT untuk tabel `tbl_about`
 --
 ALTER TABLE `tbl_about`
   MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_additional`
+-- AUTO_INCREMENT untuk tabel `tbl_additional`
 --
 ALTER TABLE `tbl_additional`
   MODIFY `additional_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `tbl_availability`
+-- AUTO_INCREMENT untuk tabel `tbl_availability`
 --
 ALTER TABLE `tbl_availability`
   MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_category`
+-- AUTO_INCREMENT untuk tabel `tbl_category`
 --
 ALTER TABLE `tbl_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `tbl_city`
+-- AUTO_INCREMENT untuk tabel `tbl_city`
 --
 ALTER TABLE `tbl_city`
   MODIFY `city_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=478;
 
 --
--- AUTO_INCREMENT for table `tbl_comment`
+-- AUTO_INCREMENT untuk tabel `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_detail_category`
+-- AUTO_INCREMENT untuk tabel `tbl_detail_category`
 --
 ALTER TABLE `tbl_detail_category`
   MODIFY `detail_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_home`
+-- AUTO_INCREMENT untuk tabel `tbl_home`
 --
 ALTER TABLE `tbl_home`
   MODIFY `home_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_inbox`
+-- AUTO_INCREMENT untuk tabel `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
   MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_location`
+-- AUTO_INCREMENT untuk tabel `tbl_location`
 --
 ALTER TABLE `tbl_location`
   MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `tbl_navbar`
+-- AUTO_INCREMENT untuk tabel `tbl_navbar`
 --
 ALTER TABLE `tbl_navbar`
   MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `tbl_post`
+-- AUTO_INCREMENT untuk tabel `tbl_post`
 --
 ALTER TABLE `tbl_post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `tbl_post_views`
+-- AUTO_INCREMENT untuk tabel `tbl_post_views`
 --
 ALTER TABLE `tbl_post_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
--- AUTO_INCREMENT for table `tbl_site`
+-- AUTO_INCREMENT untuk tabel `tbl_site`
 --
 ALTER TABLE `tbl_site`
   MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_social`
+-- AUTO_INCREMENT untuk tabel `tbl_social`
 --
 ALTER TABLE `tbl_social`
   MODIFY `social_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_subcategory`
+-- AUTO_INCREMENT untuk tabel `tbl_subcategory`
 --
 ALTER TABLE `tbl_subcategory`
   MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT for table `tbl_subscribe`
+-- AUTO_INCREMENT untuk tabel `tbl_subscribe`
 --
 ALTER TABLE `tbl_subscribe`
   MODIFY `subscribe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_tags`
+-- AUTO_INCREMENT untuk tabel `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `tbl_testimonial`
+-- AUTO_INCREMENT untuk tabel `tbl_testimonial`
 --
 ALTER TABLE `tbl_testimonial`
   MODIFY `testimonial_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_type`
+-- AUTO_INCREMENT untuk tabel `tbl_type`
 --
 ALTER TABLE `tbl_type`
   MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_visitors`
+-- AUTO_INCREMENT untuk tabel `tbl_visitors`
 --
 ALTER TABLE `tbl_visitors`
-  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541386;
+  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541387;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tbl_detail_catlist`
+-- Ketidakleluasaan untuk tabel `tbl_detail_catlist`
 --
 ALTER TABLE `tbl_detail_catlist`
   ADD CONSTRAINT `tbl_detail_catlist_ibfk_1` FOREIGN KEY (`detail_catlist_id`) REFERENCES `tbl_post` (`post_detail_id`);
 
 --
--- Constraints for table `tbl_detail_news`
+-- Ketidakleluasaan untuk tabel `tbl_detail_news`
 --
 ALTER TABLE `tbl_detail_news`
   ADD CONSTRAINT `tbl_detail_news_ibfk_1` FOREIGN KEY (`detail_news_id`) REFERENCES `tbl_post` (`post_detail_id`);

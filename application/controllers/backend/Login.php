@@ -28,7 +28,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('backend/post');
+                	redirect('backend/dashboard');
 
              	}else{ //Others User 
                  	$this->session->set_userdata('access','2');
@@ -36,7 +36,7 @@ class Login extends CI_Controller{
                 	$name=$x['user_name'];
                 	$this->session->set_userdata('id',$id);
                 	$this->session->set_userdata('name',$name);
-                	redirect('backend/post');
+                	redirect('backend/dashboard');
              	}	
             }else{
                 $url=base_url('administrator');
