@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 03 Sep 2020 pada 03.38
--- Versi server: 10.4.13-MariaDB
--- Versi PHP: 7.4.8
+-- Generation Time: Sep 03, 2020 at 10:43 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -24,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `city_1`
+-- Table structure for table `city_1`
 --
 
 CREATE TABLE `city_1` (
@@ -34,7 +35,7 @@ CREATE TABLE `city_1` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `city_1`
+-- Dumping data for table `city_1`
 --
 
 INSERT INTO `city_1` (`city_id`, `city_name`, `city_prov_id`) VALUES
@@ -517,7 +518,7 @@ INSERT INTO `city_1` (`city_id`, `city_name`, `city_prov_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_about`
+-- Table structure for table `tbl_about`
 --
 
 CREATE TABLE `tbl_about` (
@@ -527,7 +528,7 @@ CREATE TABLE `tbl_about` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_about`
+-- Dumping data for table `tbl_about`
 --
 
 INSERT INTO `tbl_about` (`about_id`, `about_image`, `about_description`) VALUES
@@ -536,7 +537,7 @@ INSERT INTO `tbl_about` (`about_id`, `about_image`, `about_description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_additional`
+-- Table structure for table `tbl_additional`
 --
 
 CREATE TABLE `tbl_additional` (
@@ -546,7 +547,7 @@ CREATE TABLE `tbl_additional` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_additional`
+-- Dumping data for table `tbl_additional`
 --
 
 INSERT INTO `tbl_additional` (`additional_id`, `additional_name`, `additional_category_id`) VALUES
@@ -588,7 +589,7 @@ INSERT INTO `tbl_additional` (`additional_id`, `additional_name`, `additional_ca
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_availability`
+-- Table structure for table `tbl_availability`
 --
 
 CREATE TABLE `tbl_availability` (
@@ -599,7 +600,7 @@ CREATE TABLE `tbl_availability` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_availability`
+-- Dumping data for table `tbl_availability`
 --
 
 INSERT INTO `tbl_availability` (`availability_id`, `availability_name`, `availability_img`, `availability_created_at`) VALUES
@@ -610,7 +611,7 @@ INSERT INTO `tbl_availability` (`availability_id`, `availability_name`, `availab
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_category`
+-- Table structure for table `tbl_category`
 --
 
 CREATE TABLE `tbl_category` (
@@ -621,7 +622,7 @@ CREATE TABLE `tbl_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_category`
+-- Dumping data for table `tbl_category`
 --
 
 INSERT INTO `tbl_category` (`category_id`, `category_type_id`, `category_name`, `category_slug`) VALUES
@@ -643,7 +644,7 @@ INSERT INTO `tbl_category` (`category_id`, `category_type_id`, `category_name`, 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_city`
+-- Table structure for table `tbl_city`
 --
 
 CREATE TABLE `tbl_city` (
@@ -653,7 +654,7 @@ CREATE TABLE `tbl_city` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `tbl_city`
+-- Dumping data for table `tbl_city`
 --
 
 INSERT INTO `tbl_city` (`city_id`, `city_name`, `city_prov_id`) VALUES
@@ -1136,7 +1137,7 @@ INSERT INTO `tbl_city` (`city_id`, `city_name`, `city_prov_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_comment`
+-- Table structure for table `tbl_comment`
 --
 
 CREATE TABLE `tbl_comment` (
@@ -1152,7 +1153,7 @@ CREATE TABLE `tbl_comment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_comment`
+-- Dumping data for table `tbl_comment`
 --
 
 INSERT INTO `tbl_comment` (`comment_id`, `comment_date`, `comment_name`, `comment_email`, `comment_message`, `comment_status`, `comment_parent`, `comment_post_id`, `comment_image`) VALUES
@@ -1164,7 +1165,7 @@ INSERT INTO `tbl_comment` (`comment_id`, `comment_date`, `comment_name`, `commen
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_category`
+-- Table structure for table `tbl_detail_category`
 --
 
 CREATE TABLE `tbl_detail_category` (
@@ -1176,7 +1177,7 @@ CREATE TABLE `tbl_detail_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_category`
+-- Dumping data for table `tbl_detail_category`
 --
 
 INSERT INTO `tbl_detail_category` (`detail_category_id`, `detail_category_title`, `detail_category_desc`, `detail_category_image`, `detail_category_category_id`) VALUES
@@ -1186,7 +1187,7 @@ INSERT INTO `tbl_detail_category` (`detail_category_id`, `detail_category_title`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_catlist`
+-- Table structure for table `tbl_detail_catlist`
 --
 
 CREATE TABLE `tbl_detail_catlist` (
@@ -1202,7 +1203,7 @@ CREATE TABLE `tbl_detail_catlist` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_catlist`
+-- Dumping data for table `tbl_detail_catlist`
 --
 
 INSERT INTO `tbl_detail_catlist` (`detail_catlist_id`, `detail_catlist_name`, `detail_catlist_availability`, `detail_catlist_social`, `detail_catlist_address`, `detail_catlist_phone`, `detail_catlist_gmaps`, `detail_catlist_created_at`, `detail_catlist_update_at`) VALUES
@@ -1219,7 +1220,7 @@ INSERT INTO `tbl_detail_catlist` (`detail_catlist_id`, `detail_catlist_name`, `d
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_hltfood`
+-- Table structure for table `tbl_detail_hltfood`
 --
 
 CREATE TABLE `tbl_detail_hltfood` (
@@ -1235,7 +1236,7 @@ CREATE TABLE `tbl_detail_hltfood` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_hltfood`
+-- Dumping data for table `tbl_detail_hltfood`
 --
 
 INSERT INTO `tbl_detail_hltfood` (`detail_hltfood_id`, `detail_hltfood_name`, `detail_hltfood_availability`, `detail_hltfood_social`, `detail_hltfood_address`, `detail_hltfood_phone`, `detail_hltfood_gmaps`, `detail_hltfood_created_at`, `detail_hltfood_update_at`) VALUES
@@ -1244,7 +1245,7 @@ INSERT INTO `tbl_detail_hltfood` (`detail_hltfood_id`, `detail_hltfood_name`, `d
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_news`
+-- Table structure for table `tbl_detail_news`
 --
 
 CREATE TABLE `tbl_detail_news` (
@@ -1260,7 +1261,7 @@ CREATE TABLE `tbl_detail_news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_news`
+-- Dumping data for table `tbl_detail_news`
 --
 
 INSERT INTO `tbl_detail_news` (`detail_news_id`, `detail_news_name`, `detail_news_availability`, `detail_news_social`, `detail_news_address`, `detail_news_phone`, `detail_news_gmaps`, `detail_news_created_at`, `detail_news_update_at`) VALUES
@@ -1276,7 +1277,7 @@ INSERT INTO `tbl_detail_news` (`detail_news_id`, `detail_news_name`, `detail_new
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_promo`
+-- Table structure for table `tbl_detail_promo`
 --
 
 CREATE TABLE `tbl_detail_promo` (
@@ -1292,7 +1293,7 @@ CREATE TABLE `tbl_detail_promo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_promo`
+-- Dumping data for table `tbl_detail_promo`
 --
 
 INSERT INTO `tbl_detail_promo` (`detail_promo_id`, `detail_promo_name`, `detail_promo_address`, `detail_promo_short_desc`, `detail_promo_time`, `detail_promo_start`, `detail_promo_end`, `detail_promo_created_at`, `detail_promo_update_at`) VALUES
@@ -1304,7 +1305,7 @@ INSERT INTO `tbl_detail_promo` (`detail_promo_id`, `detail_promo_name`, `detail_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_stfood`
+-- Table structure for table `tbl_detail_stfood`
 --
 
 CREATE TABLE `tbl_detail_stfood` (
@@ -1320,17 +1321,17 @@ CREATE TABLE `tbl_detail_stfood` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_stfood`
+-- Dumping data for table `tbl_detail_stfood`
 --
 
 INSERT INTO `tbl_detail_stfood` (`detail_stfood_id`, `detail_stfood_name`, `detail_stfood_availability`, `detail_stfood_social`, `detail_stfood_address`, `detail_stfood_phone`, `detail_stfood_gmaps`, `detail_stfood_created_at`, `detail_stfood_update_at`) VALUES
 ('id5f4e568c9c17d', 'raja kepiting', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. Raya Serpong No. 35, Pondok Jagung, Kec. Serpong Utara, Kab. Tangerang Selatan. ', '02113456789', '[]', 2147483647, 2147483647),
-('id5f5048812c3b6', 'Nasi Tutug Oncom', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. Aria Santika No.43A, Margasari, Kec. Karawaci, Kota Tangerang, Banten', '+62881024130321', '[]', 2147483647, 2147483647);
+('id5f5048812c3b6', 'Nasi Tutug Oncom', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. Aria Santika No.43A, Margasari, Kec. Karawaci, Kota Tangerang, Banten', '+62881024130321', '', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_detail_umkm`
+-- Table structure for table `tbl_detail_umkm`
 --
 
 CREATE TABLE `tbl_detail_umkm` (
@@ -1346,18 +1347,18 @@ CREATE TABLE `tbl_detail_umkm` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_detail_umkm`
+-- Dumping data for table `tbl_detail_umkm`
 --
 
 INSERT INTO `tbl_detail_umkm` (`detail_umkm_id`, `detail_umkm_name`, `detail_umkm_availability`, `detail_umkm_social`, `detail_umkm_address`, `detail_umkm_phone`, `detail_umkm_gmaps`, `detail_umkm_created_at`, `detail_umkm_update_at`) VALUES
 ('id5f4e5454b23a9', 'Dinas Koperasi Dan UKM Kota Tangerang Selatan', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Serua, Kec. Ciputat, Kota Tangerang Selatan, Banten 15414', '02113456789', '[]', 2147483647, 2147483647),
 ('id5f4f5e1277196', 'efewf', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'fewfew', '02113456789', '[]', 2147483647, 2147483647),
-('id5f4fa82189ef0', 'Geprek Bensu Cimone', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Plaza Shinta, Jl. Teuku Umar No.38, RT.003/RW.008, Cimone Jaya, Kec. Karawaci, Kota Tangerang, Bante', '02113456789', '', 2147483647, 2147483647);
+('id5f4fa82189ef0', 'Geprek Bensu Cimonee', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Plaza Shinta, Jl. Teuku Umar No.38, RT.003/RW.008, Cimone Jaya, Kec. Karawaci, Kota Tangerang, Bante', '02113456789', '', 2147483647, 2147483647);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_future_article`
+-- Table structure for table `tbl_future_article`
 --
 
 CREATE TABLE `tbl_future_article` (
@@ -1367,7 +1368,7 @@ CREATE TABLE `tbl_future_article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_future_article`
+-- Dumping data for table `tbl_future_article`
 --
 
 INSERT INTO `tbl_future_article` (`id`, `name_slot`, `post_id`) VALUES
@@ -1380,7 +1381,7 @@ INSERT INTO `tbl_future_article` (`id`, `name_slot`, `post_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_home`
+-- Table structure for table `tbl_home`
 --
 
 CREATE TABLE `tbl_home` (
@@ -1392,7 +1393,7 @@ CREATE TABLE `tbl_home` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_home`
+-- Dumping data for table `tbl_home`
 --
 
 INSERT INTO `tbl_home` (`home_id`, `home_caption_1`, `home_caption_2`, `home_bg_heading`, `home_bg_testimonial`) VALUES
@@ -1401,7 +1402,7 @@ INSERT INTO `tbl_home` (`home_id`, `home_caption_1`, `home_caption_2`, `home_bg_
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_inbox`
+-- Table structure for table `tbl_inbox`
 --
 
 CREATE TABLE `tbl_inbox` (
@@ -1415,7 +1416,7 @@ CREATE TABLE `tbl_inbox` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_inbox`
+-- Dumping data for table `tbl_inbox`
 --
 
 INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_name`, `inbox_email`, `inbox_subject`, `inbox_message`, `inbox_created_at`, `inbox_status`) VALUES
@@ -1424,7 +1425,7 @@ INSERT INTO `tbl_inbox` (`inbox_id`, `inbox_name`, `inbox_email`, `inbox_subject
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_location`
+-- Table structure for table `tbl_location`
 --
 
 CREATE TABLE `tbl_location` (
@@ -1434,7 +1435,7 @@ CREATE TABLE `tbl_location` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_location`
+-- Dumping data for table `tbl_location`
 --
 
 INSERT INTO `tbl_location` (`location_id`, `location_name`, `location_category_id`) VALUES
@@ -1478,7 +1479,7 @@ INSERT INTO `tbl_location` (`location_id`, `location_name`, `location_category_i
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_navbar`
+-- Table structure for table `tbl_navbar`
 --
 
 CREATE TABLE `tbl_navbar` (
@@ -1489,7 +1490,7 @@ CREATE TABLE `tbl_navbar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_navbar`
+-- Dumping data for table `tbl_navbar`
 --
 
 INSERT INTO `tbl_navbar` (`navbar_id`, `navbar_name`, `navbar_slug`, `navbar_parent_id`) VALUES
@@ -1503,7 +1504,7 @@ INSERT INTO `tbl_navbar` (`navbar_id`, `navbar_name`, `navbar_slug`, `navbar_par
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_post`
+-- Table structure for table `tbl_post`
 --
 
 CREATE TABLE `tbl_post` (
@@ -1534,7 +1535,7 @@ CREATE TABLE `tbl_post` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_post`
+-- Dumping data for table `tbl_post`
 --
 
 INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_description_title`, `post_contents`, `post_image`, `post_image_desc`, `post_date`, `post_last_update`, `post_type_id`, `post_category_id`, `post_subcategory_id`, `post_tags`, `post_slug`, `post_feature_article`, `post_city_id`, `post_location_id`, `post_halal_id`, `post_additional_id`, `post_status`, `post_views`, `post_user_id`, `post_detail_id`, `email_news_update`) VALUES
@@ -1572,13 +1573,14 @@ INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_descr
 (53, 'asdqw', 'wdwqddqw', 'wqddwq', 'wqdqwwqdqwd', 'eaec9f2e2d2cb706b78b0a9ded080e9b.jpg', 'dwqwqddwq', '2020-09-01 14:25:55', NULL, 2, 24, 48, 'dqwdqw', 'asdqw', 0, 322, 34, 1, 35, 1, 0, 1, 'id5f4e59f35b321', 0),
 (54, 'aaaaa', 'wqdwqdwdq', 'wdwdq', 'wdqqwdwqd', '99ddf2a0cd428f09e3fe6b1edc7e2a90.png', 'wqdwqd', '2020-09-01 14:40:40', NULL, 2, 11, 1, 'wqdwq', 'aaaaa', 0, 322, 1, 1, 1, 1, 0, 1, 'id5f4e5d6867d8f', 0),
 (55, 'wefewfefw', 'fewfew', 's', 'fewfewewf', '48b99d071e7a1e24b5ed9fb75be80281.jpg', 'fewfewfew', '2020-09-02 08:55:46', NULL, 2, 16, 25, 'ewffew', 'wefewfefw', 0, 33, 22, 1, 21, 1, 0, 1, 'id5f4f5e1277196', 0),
-(56, ' Ayam geprek', 'Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari', ' Ayam geprek', '<span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari. Beberapa fried chicken lokal pun menjamur di berbagai tempat. Banyak juga yang menawarkan paket kemitraan atau franchise untuk siapa saja yang ingin membuka usaha.</span><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sebut saja Ranisa Fried Chicken, Sabana, Orchi Chicken hingga Cheese Chicken yang menjajakan ayamnya dengan harga dibawah Rp 15 ribuan. Paket yang dijual juga sangat beragam, mulai dari gerobak sampai outlet.</span>', '5e77cf831f36c3d4d1ac275c0cf61407.jpeg', ' Ayam geprek', '2020-09-02 14:11:45', NULL, 3, 15, 20, 'ayam', '-ayam-geprek', 0, 322, 21, 1, 19, 1, 0, 1, 'id5f4fa82189ef0', 0),
-(57, 'Nasi Tutug Oncom', 'Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.', 'Nasi Tutug Oncom', '<span style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\">Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.</span><br style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\"><span style=\"color: rgb(0, 0, 0); font-family: &quot;?????? Pro W3&quot;, &quot;Hiragino Kaku Gothic Pro&quot;, ????, Meiryo, Osaka, sans-serif; font-size: 16px;\">Anda bisa mampir ke Nasi Tutug Oncom Pamulang di jalan Pamulang Permai I No 21 Tangerang. Ada paket nasi timbel hingga nasi tutug oncom. Anda bisa habiskan sekitar Rp 50.000 untuk dua orang di tempat makan ini.</span>', 'b7d18e196edc2e8fa6db958f5b0cbd9e.jpg', 'Nasi Tutug Oncom', '2020-09-03 01:36:01', NULL, 4, 18, 33, 'nasi', 'nasi-tutug-oncom', 0, 246, 26, 1, 28, 1, 0, 1, 'id5f5048812c3b6', 0);
+(56, ' Ayam geprek', 'Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari', ' Ayam geprek', '<span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari. Beberapa fried chicken lokal pun menjamur di berbagai tempat. Banyak juga yang menawarkan paket kemitraan atau franchise untuk siapa saja yang ingin membuka usaha.</span><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sebut saja Ranisa Fried Chicken, Sabana, Orchi Chicken hingga Cheese Chicken yang menjajakan ayamnya dengan harga dibawah Rp 15 ribuan. Paket yang dijual juga sangat beragam, mulai dari gerobak sampai outlet.</span>', 'b884630bc917c1da2a1236b2e9dac5b3.jpg', ' Ayam geprek', '2020-09-02 14:11:45', NULL, 3, 15, 20, 'ayam', '-ayam-geprek', 0, 322, 21, 1, 19, 1, 0, 1, 'id5f4fa82189ef0', 0);
+INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_description_title`, `post_contents`, `post_image`, `post_image_desc`, `post_date`, `post_last_update`, `post_type_id`, `post_category_id`, `post_subcategory_id`, `post_tags`, `post_slug`, `post_feature_article`, `post_city_id`, `post_location_id`, `post_halal_id`, `post_additional_id`, `post_status`, `post_views`, `post_user_id`, `post_detail_id`, `email_news_update`) VALUES
+(57, 'Nasi Tutug Oncom', 'Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.', 'Nasi Tutug Oncom', '<span style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\">Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.</span><br style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\"><br style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\"><span style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\">Anda bisa mampir ke Nasi Tutug Oncom Pamulang di jalan Pamulang Permai I No 21 Tangerang. Ada paket nasi timbel hingga nasi tutug oncom. Anda bisa habiskan sekitar Rp 50.000 untuk dua orang di tempat makan ini.</span>', '377ef5ce4357f42d15e14eb6692bb2d8.jpg', 'Nasi Tutug Oncom', '2020-09-03 01:36:01', NULL, 4, 18, 33, 'nasi', 'nasi-tutug-oncom', 0, 246, 26, 2, 27, 1, 0, 1, 'id5f5048812c3b6', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_post_views`
+-- Table structure for table `tbl_post_views`
 --
 
 CREATE TABLE `tbl_post_views` (
@@ -1589,7 +1591,7 @@ CREATE TABLE `tbl_post_views` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_post_views`
+-- Dumping data for table `tbl_post_views`
 --
 
 INSERT INTO `tbl_post_views` (`view_id`, `view_date`, `view_ip`, `view_post_id`) VALUES
@@ -1681,7 +1683,7 @@ INSERT INTO `tbl_post_views` (`view_id`, `view_date`, `view_ip`, `view_post_id`)
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_site`
+-- Table structure for table `tbl_site`
 --
 
 CREATE TABLE `tbl_site` (
@@ -1701,16 +1703,40 @@ CREATE TABLE `tbl_site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_site`
+-- Dumping data for table `tbl_site`
 --
 
 INSERT INTO `tbl_site` (`site_id`, `site_name`, `site_title`, `site_description`, `site_favicon`, `site_logo_header`, `site_logo_footer`, `site_logo_big`, `site_facebook`, `site_twitter`, `site_instagram`, `site_pinterest`, `site_linkedin`) VALUES
-(1, 'Foodbang', 'Foodbang', 'Open Source source code untuk personal blog, simple, elegan, full responsif, dan mudah di customize.  ', 'favicon.png', 'logo2.png', 'favicon.png', 'logo1.png', 'https://www.facebook.com/mfikridotcom/', 'https://twitter.com/MFikri75770694/', 'https://www.instagram.com/mfikricom/', 'https://id.pinterest.com/mfikricom/', 'https://www.linkedin.com/in/m-fikri-setiadi-b03370148/');
+(1, 'Foodbang', 'Foodbang', 'Foodbang', 'favicon.png', 'logo2.png', 'favicon.png', 'logo1.png', 'https://www.facebook.com/Foodbang/', 'https://twitter.com/Foodbang/', 'https://www.instagram.com/Foodbang/', 'https://id.pinterest.com/Foodbang/', 'https://www.linkedin.com/in/Foodbang/');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_social`
+-- Table structure for table `tbl_slider`
+--
+
+CREATE TABLE `tbl_slider` (
+  `slider_id` int(11) NOT NULL,
+  `slider_title` varchar(255) NOT NULL,
+  `slider_desc` varchar(255) NOT NULL,
+  `slider_image` varchar(255) NOT NULL,
+  `slider_link` varchar(255) NOT NULL,
+  `slider_order` int(200) NOT NULL,
+  `slider_created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_slider`
+--
+
+INSERT INTO `tbl_slider` (`slider_id`, `slider_title`, `slider_desc`, `slider_image`, `slider_link`, `slider_order`, `slider_created_at`) VALUES
+(1, 'Jakartas 6 Best Spots for Casual Dining', 'Donec dapibus mauris id odio ornare tempus duis sit.', '2294601da149c17cba080a510699af7f.jpg', 'facebook.com', 1, '2020-09-03 05:32:31'),
+(2, 'Jakartas 6 Best Spots for Casual Dining', 'Donec dapibus mauris id odio ornare tempus duis sit.', 'f5233c5272c776e35d7f2adf36eb6b93.jpg', 'facebook.com', 2, '2020-09-02 22:32:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_social`
 --
 
 CREATE TABLE `tbl_social` (
@@ -1721,7 +1747,7 @@ CREATE TABLE `tbl_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_social`
+-- Dumping data for table `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_icon`, `created_at`) VALUES
@@ -1732,7 +1758,7 @@ INSERT INTO `tbl_social` (`social_id`, `social_name`, `social_icon`, `created_at
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_subcategory`
+-- Table structure for table `tbl_subcategory`
 --
 
 CREATE TABLE `tbl_subcategory` (
@@ -1742,7 +1768,7 @@ CREATE TABLE `tbl_subcategory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_subcategory`
+-- Dumping data for table `tbl_subcategory`
 --
 
 INSERT INTO `tbl_subcategory` (`subcategory_id`, `subcategory_name`, `subcategory_category_id`) VALUES
@@ -1798,7 +1824,7 @@ INSERT INTO `tbl_subcategory` (`subcategory_id`, `subcategory_name`, `subcategor
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_subscribe`
+-- Table structure for table `tbl_subscribe`
 --
 
 CREATE TABLE `tbl_subscribe` (
@@ -1810,7 +1836,7 @@ CREATE TABLE `tbl_subscribe` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_subscribe`
+-- Dumping data for table `tbl_subscribe`
 --
 
 INSERT INTO `tbl_subscribe` (`subscribe_id`, `subscribe_email`, `subscribe_created_at`, `subscribe_status`, `subscribe_rating`) VALUES
@@ -1822,7 +1848,7 @@ INSERT INTO `tbl_subscribe` (`subscribe_id`, `subscribe_email`, `subscribe_creat
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_tags`
+-- Table structure for table `tbl_tags`
 --
 
 CREATE TABLE `tbl_tags` (
@@ -1831,7 +1857,7 @@ CREATE TABLE `tbl_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_tags`
+-- Dumping data for table `tbl_tags`
 --
 
 INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
@@ -1870,7 +1896,7 @@ INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_testimonial`
+-- Table structure for table `tbl_testimonial`
 --
 
 CREATE TABLE `tbl_testimonial` (
@@ -1882,7 +1908,7 @@ CREATE TABLE `tbl_testimonial` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_testimonial`
+-- Dumping data for table `tbl_testimonial`
 --
 
 INSERT INTO `tbl_testimonial` (`testimonial_id`, `testimonial_name`, `testimonial_content`, `testimonial_image`, `testimonial_created_at`) VALUES
@@ -1891,7 +1917,7 @@ INSERT INTO `tbl_testimonial` (`testimonial_id`, `testimonial_name`, `testimonia
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_type`
+-- Table structure for table `tbl_type`
 --
 
 CREATE TABLE `tbl_type` (
@@ -1900,7 +1926,7 @@ CREATE TABLE `tbl_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `tbl_type`
+-- Dumping data for table `tbl_type`
 --
 
 INSERT INTO `tbl_type` (`type_id`, `type_name`) VALUES
@@ -1914,7 +1940,7 @@ INSERT INTO `tbl_type` (`type_id`, `type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -1928,7 +1954,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_level`, `user_status`, `user_photo`) VALUES
@@ -1938,7 +1964,7 @@ INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_email`, `user_password`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_visitors`
+-- Table structure for table `tbl_visitors`
 --
 
 CREATE TABLE `tbl_visitors` (
@@ -1949,7 +1975,7 @@ CREATE TABLE `tbl_visitors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tbl_visitors`
+-- Dumping data for table `tbl_visitors`
 --
 
 INSERT INTO `tbl_visitors` (`visit_id`, `visit_date`, `visit_ip`, `visit_platform`) VALUES
@@ -2019,317 +2045,329 @@ INSERT INTO `tbl_visitors` (`visit_id`, `visit_date`, `visit_ip`, `visit_platfor
 --
 
 --
--- Indeks untuk tabel `city_1`
+-- Indexes for table `city_1`
 --
 ALTER TABLE `city_1`
   ADD PRIMARY KEY (`city_id`);
 
 --
--- Indeks untuk tabel `tbl_about`
+-- Indexes for table `tbl_about`
 --
 ALTER TABLE `tbl_about`
   ADD PRIMARY KEY (`about_id`);
 
 --
--- Indeks untuk tabel `tbl_additional`
+-- Indexes for table `tbl_additional`
 --
 ALTER TABLE `tbl_additional`
   ADD PRIMARY KEY (`additional_id`);
 
 --
--- Indeks untuk tabel `tbl_availability`
+-- Indexes for table `tbl_availability`
 --
 ALTER TABLE `tbl_availability`
   ADD PRIMARY KEY (`availability_id`);
 
 --
--- Indeks untuk tabel `tbl_category`
+-- Indexes for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indeks untuk tabel `tbl_city`
+-- Indexes for table `tbl_city`
 --
 ALTER TABLE `tbl_city`
   ADD PRIMARY KEY (`city_id`);
 
 --
--- Indeks untuk tabel `tbl_comment`
+-- Indexes for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   ADD PRIMARY KEY (`comment_id`);
 
 --
--- Indeks untuk tabel `tbl_detail_category`
+-- Indexes for table `tbl_detail_category`
 --
 ALTER TABLE `tbl_detail_category`
   ADD PRIMARY KEY (`detail_category_id`),
   ADD UNIQUE KEY `detail_category_category_id` (`detail_category_category_id`);
 
 --
--- Indeks untuk tabel `tbl_detail_catlist`
+-- Indexes for table `tbl_detail_catlist`
 --
 ALTER TABLE `tbl_detail_catlist`
   ADD PRIMARY KEY (`detail_catlist_id`);
 
 --
--- Indeks untuk tabel `tbl_detail_news`
+-- Indexes for table `tbl_detail_news`
 --
 ALTER TABLE `tbl_detail_news`
   ADD PRIMARY KEY (`detail_news_id`);
 
 --
--- Indeks untuk tabel `tbl_detail_promo`
+-- Indexes for table `tbl_detail_promo`
 --
 ALTER TABLE `tbl_detail_promo`
   ADD PRIMARY KEY (`detail_promo_id`);
 
 --
--- Indeks untuk tabel `tbl_home`
+-- Indexes for table `tbl_home`
 --
 ALTER TABLE `tbl_home`
   ADD PRIMARY KEY (`home_id`);
 
 --
--- Indeks untuk tabel `tbl_inbox`
+-- Indexes for table `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
   ADD PRIMARY KEY (`inbox_id`);
 
 --
--- Indeks untuk tabel `tbl_location`
+-- Indexes for table `tbl_location`
 --
 ALTER TABLE `tbl_location`
   ADD PRIMARY KEY (`location_id`);
 
 --
--- Indeks untuk tabel `tbl_navbar`
+-- Indexes for table `tbl_navbar`
 --
 ALTER TABLE `tbl_navbar`
   ADD PRIMARY KEY (`navbar_id`);
 
 --
--- Indeks untuk tabel `tbl_post`
+-- Indexes for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
   ADD PRIMARY KEY (`post_id`),
   ADD KEY `post_detail_restaurant_id` (`post_detail_id`);
 
 --
--- Indeks untuk tabel `tbl_post_views`
+-- Indexes for table `tbl_post_views`
 --
 ALTER TABLE `tbl_post_views`
   ADD PRIMARY KEY (`view_id`);
 
 --
--- Indeks untuk tabel `tbl_site`
+-- Indexes for table `tbl_site`
 --
 ALTER TABLE `tbl_site`
   ADD PRIMARY KEY (`site_id`);
 
 --
--- Indeks untuk tabel `tbl_social`
+-- Indexes for table `tbl_slider`
+--
+ALTER TABLE `tbl_slider`
+  ADD PRIMARY KEY (`slider_id`);
+
+--
+-- Indexes for table `tbl_social`
 --
 ALTER TABLE `tbl_social`
   ADD PRIMARY KEY (`social_id`);
 
 --
--- Indeks untuk tabel `tbl_subcategory`
+-- Indexes for table `tbl_subcategory`
 --
 ALTER TABLE `tbl_subcategory`
   ADD PRIMARY KEY (`subcategory_id`);
 
 --
--- Indeks untuk tabel `tbl_subscribe`
+-- Indexes for table `tbl_subscribe`
 --
 ALTER TABLE `tbl_subscribe`
   ADD PRIMARY KEY (`subscribe_id`);
 
 --
--- Indeks untuk tabel `tbl_tags`
+-- Indexes for table `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
   ADD PRIMARY KEY (`tag_id`);
 
 --
--- Indeks untuk tabel `tbl_testimonial`
+-- Indexes for table `tbl_testimonial`
 --
 ALTER TABLE `tbl_testimonial`
   ADD PRIMARY KEY (`testimonial_id`);
 
 --
--- Indeks untuk tabel `tbl_type`
+-- Indexes for table `tbl_type`
 --
 ALTER TABLE `tbl_type`
   ADD PRIMARY KEY (`type_id`);
 
 --
--- Indeks untuk tabel `tbl_user`
+-- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indeks untuk tabel `tbl_visitors`
+-- Indexes for table `tbl_visitors`
 --
 ALTER TABLE `tbl_visitors`
   ADD PRIMARY KEY (`visit_id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `city_1`
+-- AUTO_INCREMENT for table `city_1`
 --
 ALTER TABLE `city_1`
   MODIFY `city_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=476;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_about`
+-- AUTO_INCREMENT for table `tbl_about`
 --
 ALTER TABLE `tbl_about`
   MODIFY `about_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_additional`
+-- AUTO_INCREMENT for table `tbl_additional`
 --
 ALTER TABLE `tbl_additional`
   MODIFY `additional_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_availability`
+-- AUTO_INCREMENT for table `tbl_availability`
 --
 ALTER TABLE `tbl_availability`
   MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_category`
+-- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_city`
+-- AUTO_INCREMENT for table `tbl_city`
 --
 ALTER TABLE `tbl_city`
   MODIFY `city_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=478;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_comment`
+-- AUTO_INCREMENT for table `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_detail_category`
+-- AUTO_INCREMENT for table `tbl_detail_category`
 --
 ALTER TABLE `tbl_detail_category`
-  MODIFY `detail_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `detail_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_home`
+-- AUTO_INCREMENT for table `tbl_home`
 --
 ALTER TABLE `tbl_home`
   MODIFY `home_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_inbox`
+-- AUTO_INCREMENT for table `tbl_inbox`
 --
 ALTER TABLE `tbl_inbox`
   MODIFY `inbox_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_location`
+-- AUTO_INCREMENT for table `tbl_location`
 --
 ALTER TABLE `tbl_location`
   MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_navbar`
+-- AUTO_INCREMENT for table `tbl_navbar`
 --
 ALTER TABLE `tbl_navbar`
   MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_post`
+-- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_post_views`
+-- AUTO_INCREMENT for table `tbl_post_views`
 --
 ALTER TABLE `tbl_post_views`
   MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_site`
+-- AUTO_INCREMENT for table `tbl_site`
 --
 ALTER TABLE `tbl_site`
   MODIFY `site_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_social`
+-- AUTO_INCREMENT for table `tbl_slider`
+--
+ALTER TABLE `tbl_slider`
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_social`
 --
 ALTER TABLE `tbl_social`
   MODIFY `social_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_subcategory`
+-- AUTO_INCREMENT for table `tbl_subcategory`
 --
 ALTER TABLE `tbl_subcategory`
   MODIFY `subcategory_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_subscribe`
+-- AUTO_INCREMENT for table `tbl_subscribe`
 --
 ALTER TABLE `tbl_subscribe`
   MODIFY `subscribe_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_tags`
+-- AUTO_INCREMENT for table `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
   MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_testimonial`
+-- AUTO_INCREMENT for table `tbl_testimonial`
 --
 ALTER TABLE `tbl_testimonial`
   MODIFY `testimonial_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_type`
+-- AUTO_INCREMENT for table `tbl_type`
 --
 ALTER TABLE `tbl_type`
   MODIFY `type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_user`
+-- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_visitors`
+-- AUTO_INCREMENT for table `tbl_visitors`
 --
 ALTER TABLE `tbl_visitors`
   MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541387;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_detail_catlist`
+-- Constraints for table `tbl_detail_catlist`
 --
 ALTER TABLE `tbl_detail_catlist`
   ADD CONSTRAINT `tbl_detail_catlist_ibfk_1` FOREIGN KEY (`detail_catlist_id`) REFERENCES `tbl_post` (`post_detail_id`);
 
 --
--- Ketidakleluasaan untuk tabel `tbl_detail_news`
+-- Constraints for table `tbl_detail_news`
 --
 ALTER TABLE `tbl_detail_news`
   ADD CONSTRAINT `tbl_detail_news_ibfk_1` FOREIGN KEY (`detail_news_id`) REFERENCES `tbl_post` (`post_detail_id`);

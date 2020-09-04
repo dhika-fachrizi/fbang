@@ -72,7 +72,7 @@
     }
 
     .popover {
-        top: 46% !important;
+
         /* left:100px !important; */
     }
 
@@ -373,7 +373,7 @@
                                 </div>
 
                                 <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 238px;">
+                                    style="background-image: url('') ; background-color:#F4F4F4; height: 238px;" hidden>
                                 </div>
                             </div>
                             <div class="col-sm-9">

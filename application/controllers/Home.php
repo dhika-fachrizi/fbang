@@ -10,6 +10,7 @@ class Home extends CI_Controller
         $this->load->model('Home_model', 'home_model');
         $this->load->model('Promo_model', 'promo_model');
         $this->load->model('Site_model', 'site_model');
+        $this->load->model('backend/Slider_model', 'slider_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
     }
@@ -43,6 +44,7 @@ class Home extends CI_Controller
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
         $data['footer'] = $this->load->view('footer', '', true);
+        $data['slider'] = $this->slider_model->get_all_post();
         $data['news_update'] = $this->home_model->get_news_update();
         $data['popular'] = $this->home_model->get_popular();
         $data['popular_image'] = $this->home_model->get_popular_image();

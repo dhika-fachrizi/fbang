@@ -70,8 +70,8 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <?php
-                            $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
-                            ?>
+$count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
+?>
                             <!-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -83,9 +83,9 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-                                            $query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
-                                            foreach ($query_msg->result() as $row) :
-                                            ?>
+$query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
+foreach ($query_msg->result() as $row):
+?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/inbox'); ?>">
                                                         <div class="msg-img">
@@ -99,7 +99,7 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php endforeach;?>
 
                                         </ul>
                                     </li>
@@ -107,8 +107,8 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                 </ul>
                             </li>
                             <?php
-                            $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
-                            ?>
+$count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
+?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-comment"></i><span class="badge badge-success pull-right"><?php echo $count_comment->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -119,9 +119,9 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-                                            $query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
-                                            foreach ($query_cmt->result() as $row) :
-                                            ?>
+$query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
+foreach ($query_cmt->result() as $row):
+?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/comment/unpublish'); ?>">
                                                         <div class="msg-img">
@@ -135,7 +135,7 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php endforeach;?>
 
                                         </ul>
                                     </li>
@@ -146,15 +146,15 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                     <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
                                     <?php
-                                    $user_id = $this->session->userdata('id');
-                                    $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-                                    if ($query->num_rows() > 0) :
-                                        $row = $query->row_array();
-                                    ?>
-                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
-                                    <?php else : ?>
+$user_id = $this->session->userdata('id');
+$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+if ($query->num_rows() > 0):
+    $row = $query->row_array();
+    ?>
+	                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
+	                                    <?php else: ?>
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
-                                    <?php endif; ?>
+                                    <?php endif;?>
                                 </a>
                                 <!-- <ul class="dropdown-menu dropdown-list" role="menu">
                                     <li role="presentation"><a href="<?php echo site_url('backend/change_pass'); ?>"><i class="fa fa-key"></i>Change Password</a></li>
@@ -181,41 +181,41 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
                         <?php
-                        $user_id = $this->session->userdata('id');
-                        $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-                        if ($query->num_rows() > 0) :
-                            $row = $query->row_array();
-                        ?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1') : ?>
-                                            <small>Administrator</small>
-                                        <?php else : ?>
+$user_id = $this->session->userdata('id');
+$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+if ($query->num_rows() > 0):
+    $row = $query->row_array();
+    ?>
+	                            <a href="javascript:void(0);">
+	                                <div class="sidebar-profile-image">
+	                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
+	                                </div>
+	                                <div class="sidebar-profile-details">
+	                                    <span><?php echo $this->session->userdata('name'); ?><br>
+	                                        <?php if ($row['user_level'] == '1'): ?>
+	                                            <small>Administrator</small>
+	                                        <?php else: ?>
                                             <small>Author</small>
-                                        <?php endif; ?>
+                                        <?php endif;?>
                                     </span>
                                 </div>
                             </a>
-                        <?php else : ?>
+                        <?php else: ?>
                             <a href="javascript:void(0);">
                                 <div class="sidebar-profile-image">
                                     <img src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1') : ?>
+                                        <?php if ($row['user_level'] == '1'): ?>
                                             <small>Administrator</small>
-                                        <?php else : ?>
+                                        <?php else: ?>
                                             <small>Author</small>
-                                        <?php endif; ?>
+                                        <?php endif;?>
                                     </span>
                                 </div>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                     </div>
                 </div>
                 <ul class="menu accordion-menu">
@@ -272,7 +272,7 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                     <!-- <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span>
                             <p>Testimonials</p>
                         </a></li> -->
-                    <?php if ($this->session->userdata('access') == '1') : ?>
+                    <?php if ($this->session->userdata('access') == '1'): ?>
                         <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span>
                                 <p>Users</p>
                             </a></li>
@@ -281,13 +281,14 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                             </a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
+<li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
                                 <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
                             </ul>
                         </li>
-                    <?php else : ?>
-                    <?php endif; ?>
+                    <?php else: ?>
+                    <?php endif;?>
                     <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span>
                             <p>Log Out</p>
                         </a></li>
@@ -331,14 +332,14 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                     <div class="panel panel-white">
                                         <div class="panel-body">
                                             <div class="row">
-                                                <?php foreach ($social->result() as $row) : ?>
+                                                <?php foreach ($social->result() as $row): ?>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label><?php echo $row->social_name; ?></label>
-                                                            <input type="text" detail_name='<?php echo json_encode($row); ?>' <?php foreach ($b_social as $soc) : ?> <?php if ($soc->social_id == $row->social_id) : ?> value="<?php echo $soc->social_value ?>" <?php endif; ?> <?php endforeach; ?> class="form-control social_post" placeholder="<?php echo $row->social_name; ?> link">
+                                                            <input type="text" detail_name='<?php echo json_encode($row); ?>' <?php foreach ($b_social as $soc): ?> <?php if ($soc->social_id == $row->social_id): ?> value="<?php echo $soc->social_value ?>" <?php endif;?> <?php endforeach;?> class="form-control social_post" placeholder="<?php echo $row->social_name; ?> link">
                                                         </div>
                                                     </div>
-                                                <?php endforeach; ?>
+                                                <?php endforeach;?>
                                             </div>
                                             <input id="social" type="hidden" name="social" value="[]">
                                         </div>
@@ -348,14 +349,14 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                     <div class="panel panel-white">
                                         <div class="panel-body">
                                             <div class="row">
-                                                <?php foreach ($availability->result() as $row) : ?>
+                                                <?php foreach ($availability->result() as $row): ?>
                                                     <div class="col-sm-4">
                                                         <div class="form-group">
                                                             <label><?php echo $row->availability_name; ?></label>
-                                                            <input type="text" detail_name='<?php echo json_encode($row, 0); ?>' <?php foreach ($b_availability as $soc) : ?> <?php if ($soc->availability_id == $row->availability_id) : ?> value="<?php echo $soc->availability_value ?>" <?php endif; ?> <?php endforeach; ?> class="form-control availability_post" placeholder="<?php echo $row->availability_name; ?> Link">
+                                                            <input type="text" detail_name='<?php echo json_encode($row, 0); ?>' <?php foreach ($b_availability as $soc): ?> <?php if ($soc->availability_id == $row->availability_id): ?> value="<?php echo $soc->availability_value ?>" <?php endif;?> <?php endforeach;?> class="form-control availability_post" placeholder="<?php echo $row->availability_name; ?> Link">
                                                         </div>
                                                     </div>
-                                                <?php endforeach; ?>
+                                                <?php endforeach;?>
                                             </div>
                                             <input id="availability" type="hidden" name="availability" value="[]">
                                         </div>
@@ -384,15 +385,15 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                         <label>Category</label>
                                         <select class="form-control" id="category" name="category" required onchange="dynamicAttribute(this)">
                                             <option value="">-Select Option-</option>
-                                            <?php foreach ($category->result() as $row) : ?>
-                                                <?php if ($b['post_category_id'] == $row->category_id) : ?>
+                                            <?php foreach ($category->result() as $row): ?>
+                                                <?php if ($b['post_category_id'] == $row->category_id): ?>
                                                     <option value="<?php echo $row->category_id; ?>" selected>
                                                         <?php echo $row->category_name; ?></option>
-                                                <?php else : ?>
+                                                <?php else: ?>
                                                     <option value="<?php echo $row->category_id; ?>">
                                                         <?php echo $row->category_name; ?></option>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
+                                                <?php endif;?>
+                                            <?php endforeach;?>
                                         </select>
                                     </div>
                                     <div id="dynamic-attribute">
@@ -400,38 +401,38 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                             <label>Location</label>
                                             <select class="form-control" name="location" required>
                                                 <option value="">-Select Option-</option>
-                                                <?php foreach ($location->result() as $row) : ?>
-                                                    <?php if ($b['post_location_id'] == $row->location_id) : ?>
+                                                <?php foreach ($location->result() as $row): ?>
+                                                    <?php if ($b['post_location_id'] == $row->location_id): ?>
                                                         <option value="<?php echo $row->location_id; ?>" selected>
                                                             <?php echo $row->location_name; ?></option>
-                                                    <?php else : ?>
+                                                    <?php else: ?>
                                                         <option value="<?php echo $row->location_id; ?>">
                                                             <?php echo $row->location_name; ?></option>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
+                                                    <?php endif;?>
+                                                <?php endforeach;?>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Halal</label>
                                             <select class="form-control" name="halal" required>
                                                 <option value="">-Select Option-</option>
-                                                <option value="1" <?php if ($b['post_halal_id'] == 1) : ?> selected <?php else : ?> <?php endif; ?>> Halal</option>
-                                                <option value="2" <?php if ($b['post_halal_id'] == 2) : ?> selected <?php else : ?> <?php endif; ?>>Non Halal</option>
+                                                <option value="1" <?php if ($b['post_halal_id'] == 1): ?> selected <?php else: ?> <?php endif;?>> Halal</option>
+                                                <option value="2" <?php if ($b['post_halal_id'] == 2): ?> selected <?php else: ?> <?php endif;?>>Non Halal</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Additional</label>
                                             <select class="form-control" name="additional" required>
                                                 <option value="">-Select Option-</option>
-                                                <?php foreach ($additional->result() as $row) : ?>
-                                                    <?php if ($b['post_additional_id'] == $row->additional_id) : ?>
+                                                <?php foreach ($additional->result() as $row): ?>
+                                                    <?php if ($b['post_additional_id'] == $row->additional_id): ?>
                                                         <option value="<?php echo $row->additional_id; ?>" selected>
                                                             <?php echo $row->additional_name; ?></option>
-                                                    <?php else : ?>
+                                                    <?php else: ?>
                                                         <option value="<?php echo $row->additional_id; ?>">
                                                             <?php echo $row->additional_name; ?></option>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
+                                                    <?php endif;?>
+                                                <?php endforeach;?>
                                             </select>
                                         </div>
                                     </div>
@@ -446,16 +447,16 @@ $b_gmaps = json_decode($b['detail_stfood_gmaps']);
                                         <label>City</label>
                                         <select class="form-control" name="city" style="text-transform: capitalize;" required>
                                             <option value="">-Select Option-</option>
-                                            <?php foreach ($city->result() as $row) : ?>
-                                                <?php if ($b['post_city_id'] == $row->city_id) : ?>
+                                            <?php foreach ($city->result() as $row): ?>
+                                                <?php if ($b['post_city_id'] == $row->city_id): ?>
                                                     <option value="<?php echo $row->city_id; ?>" selected>
                                                         <?php echo strtolower($row->city_name); ?></option>
-                                                <?php else : ?>
+                                                <?php else: ?>
                                                     <option value="<?php echo $row->city_id; ?>">
                                                         <?php echo strtolower($row->city_name); ?>
                                                     </option>
-                                                <?php endif; ?>
-                                            <?php endforeach; ?>
+                                                <?php endif;?>
+                                            <?php endforeach;?>
                                         </select>
                                     </div>
 

@@ -13,26 +13,38 @@
     <link rel="shortcut icon" href="<?php echo base_url() . 'assets/images/favicon.png' ?>">
 
     <!-- Styles -->
-    <link href="<?php echo base_url() . 'assets/plugins/pace-master/themes/blue/pace-theme-flash.css' ?>" rel="stylesheet" />
+    <link href="<?php echo base_url() . 'assets/plugins/pace-master/themes/blue/pace-theme-flash.css' ?>"
+        rel="stylesheet" />
     <link href="<?php echo base_url() . 'assets/plugins/uniform/css/uniform.default.min.css' ?>" rel="stylesheet" />
-    <link href="<?php echo base_url() . 'assets/plugins/bootstrap/css/bootstrap.min.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/fontawesome/css/font-awesome.css' ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/bootstrap/css/bootstrap.min.css' ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/fontawesome/css/font-awesome.css' ?>" rel="stylesheet"
+        type="text/css" />
     <link href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/line-icons/simple-line-icons.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css' ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/line-icons/simple-line-icons.css' ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/offcanvasmenueffects/css/menu_cornerbox.css' ?>"
+        rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() . 'assets/plugins/waves/waves.min.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/switchery/switchery.min.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/3d-bold-navigation/css/style.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/slidepushmenus/css/component.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables.min.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables_themeroller.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.css' ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/switchery/switchery.min.css' ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/3d-bold-navigation/css/style.css' ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/slidepushmenus/css/component.css' ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables.min.css' ?>" rel="stylesheet"
+        type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/datatables/css/jquery.datatables_themeroller.css' ?>"
+        rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.css' ?>" rel="stylesheet"
+        type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/dropify.min.css' ?>" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.css">
 
     <!-- Theme Styles -->
     <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() . 'assets/css/themes/green.css' ?>" class="theme-color" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() . 'assets/css/themes/green.css' ?>" class="theme-color" rel="stylesheet"
+        type="text/css" />
     <link href="<?php echo base_url() . 'assets/css/custom.css' ?>" rel="stylesheet" type="text/css" />
 
     <script src="<?php echo base_url() . 'assets/plugins/3d-bold-navigation/js/modernizr.js' ?>"></script>
@@ -44,7 +56,7 @@
 <body class="page-header-fixed  compact-menu  pace-done page-sidebar-fixed">
     <div class="overlay"></div>
     <main class="page-content content-wrap">
-    <div class="navbar">
+        <div class="navbar">
             <div class="navbar-inner">
                 <div class="sidebar-pusher">
                     <a href="javascript:void(0);" class="waves-effect waves-button waves-classic push-sidebar">
@@ -58,13 +70,15 @@
                     <div class="top-menu">
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <a href="javascript:void(0);" class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
+                                <a href="javascript:void(0);"
+                                    class="waves-effect waves-button waves-classic sidebar-toggle"><i
+                                        class="fa fa-bars"></i></a>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <?php
-                            $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
-                            ?>
+$count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
+?>
                             <!-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -76,9 +90,9 @@
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-                                            $query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
-                                            foreach ($query_msg->result() as $row) :
-                                            ?>
+$query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
+foreach ($query_msg->result() as $row):
+?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/inbox'); ?>">
                                                         <div class="msg-img">
@@ -92,7 +106,7 @@
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php endforeach;?>
 
                                         </ul>
                                     </li>
@@ -100,8 +114,8 @@
                                 </ul>
                             </li>
                             <?php
-                            $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
-                            ?>
+$count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
+?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-comment"></i><span class="badge badge-success pull-right"><?php echo $count_comment->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -112,9 +126,9 @@
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-                                            $query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
-                                            foreach ($query_cmt->result() as $row) :
-                                            ?>
+$query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
+foreach ($query_cmt->result() as $row):
+?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/comment/unpublish'); ?>">
                                                         <div class="msg-img">
@@ -128,7 +142,7 @@
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php endforeach;?>
 
                                         </ul>
                                     </li>
@@ -136,18 +150,24 @@
                                 </ul>
                             </li> -->
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                    <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
+                                <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic"
+                                    data-toggle="dropdown">
+                                    <span class="user-name"><?php echo $this->session->userdata('name'); ?><i
+                                            class="fa fa-angle-down"></i></span>
                                     <?php
-                                    $user_id = $this->session->userdata('id');
-                                    $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-                                    if ($query->num_rows() > 0) :
-                                        $row = $query->row_array();
-                                    ?>
-                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
-                                    <?php else : ?>
-                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
-                                    <?php endif; ?>
+$user_id = $this->session->userdata('id');
+$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+if ($query->num_rows() > 0):
+    $row = $query->row_array();
+    ?>
+	                                    <img class="img-circle avatar"
+	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+	                                        width="40" height="40" alt="">
+	                                    <?php else: ?>
+                                    <img class="img-circle avatar"
+                                        src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
+                                        height="40" alt="">
+                                    <?php endif;?>
                                 </a>
                                 <!-- <ul class="dropdown-menu dropdown-list" role="menu">
                                     <li role="presentation"><a href="<?php echo site_url('backend/change_pass'); ?>"><i class="fa fa-key"></i>Change Password</a></li>
@@ -160,7 +180,8 @@
                                 </ul> -->
                             </li>
                             <li>
-                                <a href="<?php echo site_url('logout'); ?>" class="log-out waves-effect waves-button waves-classic">
+                                <a href="<?php echo site_url('logout'); ?>"
+                                    class="log-out waves-effect waves-button waves-classic">
                                     <span><i class="fas fa-sign-out-alt m-r-xs"></i>Log out</span>
                                 </a>
                             </li>
@@ -174,48 +195,52 @@
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
                         <?php
-                        $user_id = $this->session->userdata('id');
-                        $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-                        if ($query->num_rows() > 0) :
-                            $row = $query->row_array();
-                        ?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1') : ?>
-                                            <small>Administrator</small>
-                                        <?php else : ?>
-                                            <small>Author</small>
-                                        <?php endif; ?>
-                                    </span>
-                                </div>
-                            </a>
-                        <?php else : ?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1') : ?>
-                                            <small>Administrator</small>
-                                        <?php else : ?>
-                                            <small>Author</small>
-                                        <?php endif; ?>
-                                    </span>
-                                </div>
-                            </a>
-                        <?php endif; ?>
+$user_id = $this->session->userdata('id');
+$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+if ($query->num_rows() > 0):
+    $row = $query->row_array();
+    ?>
+	                        <a href="javascript:void(0);">
+	                            <div class="sidebar-profile-image">
+	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+	                                    class="img-circle img-responsive" alt="">
+	                            </div>
+	                            <div class="sidebar-profile-details">
+	                                <span><?php echo $this->session->userdata('name'); ?><br>
+	                                    <?php if ($row['user_level'] == '1'): ?>
+	                                    <small>Administrator</small>
+	                                    <?php else: ?>
+                                    <small>Author</small>
+                                    <?php endif;?>
+                                </span>
+                            </div>
+                        </a>
+                        <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-image">
+                                <img src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>"
+                                    class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span><?php echo $this->session->userdata('name'); ?><br>
+                                    <?php if ($row['user_level'] == '1'): ?>
+                                    <small>Administrator</small>
+                                    <?php else: ?>
+                                    <small>Author</small>
+                                    <?php endif;?>
+                                </span>
+                            </div>
+                        </a>
+                        <?php endif;?>
                     </div>
                 </div>
                 <ul class="menu accordion-menu">
-                    <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-home"></span>
+                    <li><a href="<?php echo site_url('backend/dashboard'); ?>" class="waves-effect waves-button"><span
+                                class="menu-icon icon-home"></span>
                             <p>Dashboard</p>
                         </a></li>
-                    <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span>
+                    <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span
+                                class="menu-icon icon-pin"></span>
                             <p>Post</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
@@ -239,13 +264,15 @@
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                         </ul>
                     </li>
-                    <li class="droplink"><a href="#" class="waves-effect waves-button"><span class="menu-icon icon-pin"></span>
+                    <li class="droplink"><a href="#" class="waves-effect waves-button"><span
+                                class="menu-icon icon-pin"></span>
                             <p>Attribute</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
                             <li><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a></li>
-                            <li class="active"><a href="<?php echo site_url('backend/detail_category'); ?>">Category Detail</a></li>
+                            <li class="active"><a href="<?php echo site_url('backend/detail_category'); ?>">Category
+                                    Detail</a></li>
                             <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
                             <li><a href="<?php echo site_url('backend/additional'); ?>">Additional</a></li>
@@ -259,29 +286,34 @@
                     <!-- <li><a href="<?php echo site_url('backend/comment'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-bubbles"></span>
                             <p>Comments</p>
                         </a></li> -->
-                    <li><a href="<?php echo site_url('backend/subscriber'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-users"></span>
+                    <li><a href="<?php echo site_url('backend/subscriber'); ?>" class="waves-effect waves-button"><span
+                                class="menu-icon icon-users"></span>
                             <p>Subscribers</p>
                         </a></li>
                     <!-- <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span>
                             <p>Testimonials</p>
                         </a></li> -->
-                    <?php if ($this->session->userdata('access') == '1') : ?>
-                        <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span>
-                                <p>Users</p>
-                            </a></li>
-                        <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
-                                <p>Settings</p><span class="arrow-del"></span>
-                            </a>
-                            <ul class="sub-menu">
-                                <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
-                                <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
+                    <?php if ($this->session->userdata('access') == '1'): ?>
+                    <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span
+                                class="menu-icon icon-user"></span>
+                            <p>Users</p>
+                        </a></li>
+                    <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>"
+                            class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
+                            <p>Settings</p><span class="arrow-del"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
+<li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
-                            </ul>
-                        </li>
-                    <?php else : ?>
-                    <?php endif; ?>
-                    <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span>
+                        </ul>
+                    </li>
+                    <?php else: ?>
+                    <?php endif;?>
+                    <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span
+                                class="menu-icon icon-logout"></span>
                             <p>Log Out</p>
                         </a></li>
                 </ul>
@@ -300,7 +332,8 @@
             </div>
             <div id="main-wrapper">
                 <div class="row">
-                    <form action="<?php echo base_url() . 'backend/detail_category/publish' ?>" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() . 'backend/detail_category/publish' ?>" method="post"
+                        enctype="multipart/form-data">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-6">
@@ -309,7 +342,8 @@
                                             <input type="hidden" name="category" value="<?php echo $category_id ?>">
                                             <div class="form-group">
                                                 <label>Image</label>
-                                                <input type="file" name="filefoto" class="dropify" data-height="400" required>
+                                                <input type="file" name="filefoto" class="dropify" data-height="400"
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
@@ -319,16 +353,19 @@
                                         <div class="panel-body">
                                             <div class="form-group">
                                                 <label>Title</label>
-                                                <textarea name="title" cols="6" rows="16" class="form-control" placeholder="Title"></textarea>
+                                                <textarea name="title" cols="6" rows="16" class="form-control"
+                                                    placeholder="Title"></textarea>
 
                                             </div>
                                             <div class="form-group">
                                                 <label>Description</label>
 
-                                                <input type="text" name="description" class="form-control title" placeholder="Description" required>
+                                                <input type="text" name="description" class="form-control title"
+                                                    placeholder="Description" required>
                                             </div>
                                             <div class="btn-group btn-group-justified" role="group">
-                                                <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span>
+                                                <button type="submit" class="btn btn-primary btn-lg"
+                                                    style="width:100%"><span class="icon-cursor"></span>
                                                     PUBLISH</button>
                                             </div>
                                         </div>
@@ -368,115 +405,115 @@
     <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1vd-KfTT7IF7FH7PTozE2Tru3Pk8Bvw&callback=initMap&libraries=places">
-    </script>
+    <!-- <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1vd-KfTT7IF7FH7PTozE2Tru3Pk8Bvw&callback=initMap&libraries=places">
+    </script> -->
     <script>
-        function c(dt) {
-            console.log(dt);
-        }
+    function c(dt) {
+        console.log(dt);
+    }
 
-        function trigger_social() {
-            var input_social = $(".social_post");
-            var temp_post = [];
-            for (var i = 0; i < input_social.length; i++) {
-                if ($(input_social[i]).val() !== "" && $(input_social[i]).val() !== null) {
-                    var temp_data = JSON.parse($(input_social[i]).attr('detail_name'))
-                    temp_data.social_value = $(input_social[i]).val();
-                    temp_post.push(temp_data);
-                }
-
-            }
-            $("#social").val(JSON.stringify(temp_post))
-
-            c($("#social").val());
-        }
-
-        function trigger_availability() {
-            var input_availability = $(".availability_post");
-            var temp_post = [];
-            for (var i = 0; i < input_availability.length; i++) {
-                if ($(input_availability[i]).val() !== "" && $(input_availability[i]).val() !== null) {
-                    var temp_data = JSON.parse($(input_availability[i]).attr('detail_name'))
-                    temp_data.availability_value = $(input_availability[i]).val();
-                    temp_post.push(temp_data);
-                }
-            }
-            $("#availability").val(JSON.stringify(temp_post))
-            // console.log($("#availability").val());
-        }
-        $(document).ready(function() {
-            trigger_social();
-            trigger_availability();
-            $('#summernote').summernote({
-                height: 590,
-                toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'italic', 'underline', 'clear']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link', 'picture', 'hr']],
-                    ['view', ["fullscreen", "codeview", "help"]],
-                ],
-
-                onImageUpload: function(files, editor, welEditable) {
-                    sendFile(files[0], editor, welEditable);
-                }
-
-            });
-
-            function sendFile(file, editor, welEditable) {
-                data = new FormData();
-                data.append("file", file);
-                $.ajax({
-                    data: data,
-                    type: "POST",
-                    url: "<?php echo site_url() ?>backend/post/upload_image",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    success: function(url) {
-                        editor.insertImage(welEditable, url);
-                    }
-                });
+    function trigger_social() {
+        var input_social = $(".social_post");
+        var temp_post = [];
+        for (var i = 0; i < input_social.length; i++) {
+            if ($(input_social[i]).val() !== "" && $(input_social[i]).val() !== null) {
+                var temp_data = JSON.parse($(input_social[i]).attr('detail_name'))
+                temp_data.social_value = $(input_social[i]).val();
+                temp_post.push(temp_data);
             }
 
+        }
+        $("#social").val(JSON.stringify(temp_post))
 
+        c($("#social").val());
+    }
 
-            $('.dropify').dropify({
-                messages: {
-                    default: 'Drag atau drop untuk memilih gambar',
-                    replace: 'Ganti',
-                    remove: 'Hapus',
-                    error: 'error'
-                }
-            });
+    function trigger_availability() {
+        var input_availability = $(".availability_post");
+        var temp_post = [];
+        for (var i = 0; i < input_availability.length; i++) {
+            if ($(input_availability[i]).val() !== "" && $(input_availability[i]).val() !== null) {
+                var temp_data = JSON.parse($(input_availability[i]).attr('detail_name'))
+                temp_data.availability_value = $(input_availability[i]).val();
+                temp_post.push(temp_data);
+            }
+        }
+        $("#availability").val(JSON.stringify(temp_post))
+        // console.log($("#availability").val());
+    }
+    $(document).ready(function() {
+        trigger_social();
+        trigger_availability();
+        $('#summernote').summernote({
+            height: 590,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['insert', ['link', 'picture', 'hr']],
+                ['view', ["fullscreen", "codeview", "help"]],
+            ],
 
-            $(".availability_post").change(function() {
-                trigger_availability();
-            });
-
-            $(".social_post").change(function() {
-                trigger_social();
-            });
-
-            $('.title').keyup(function() {
-                var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
-                $('.slug').val(title);
-            });
-
-            $('.tags').tagsinput({
-                trimValue: true
-            });
-
-            $(".tags").change(function() {
-                console.log($(".tags").tagsinput('items'))
-            });
-
+            onImageUpload: function(files, editor, welEditable) {
+                sendFile(files[0], editor, welEditable);
+            }
 
         });
+
+        function sendFile(file, editor, welEditable) {
+            data = new FormData();
+            data.append("file", file);
+            $.ajax({
+                data: data,
+                type: "POST",
+                url: "<?php echo site_url() ?>backend/post/upload_image",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(url) {
+                    editor.insertImage(welEditable, url);
+                }
+            });
+        }
+
+
+
+        $('.dropify').dropify({
+            messages: {
+                default: 'Drag atau drop untuk memilih gambar',
+                replace: 'Ganti',
+                remove: 'Hapus',
+                error: 'error'
+            }
+        });
+
+        $(".availability_post").change(function() {
+            trigger_availability();
+        });
+
+        $(".social_post").change(function() {
+            trigger_social();
+        });
+
+        $('.title').keyup(function() {
+            var title = $(this).val().toLowerCase().replace(/[&\/\\#^, +()$~%.'":*?<>{}]/g, '-');
+            $('.slug').val(title);
+        });
+
+        $('.tags').tagsinput({
+            trimValue: true
+        });
+
+        $(".tags").change(function() {
+            console.log($(".tags").tagsinput('items'))
+        });
+
+
+    });
     </script>
-    <script>
+    <!-- <script>
         var gmaps = {
             lat: 0,
             lng: 0,
@@ -553,7 +590,7 @@
                 document.getElementById("autocomplete").placeholder = "Enter a city";
             }
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
