@@ -44,7 +44,7 @@
     <!-- End SEO Tag. -->
 </head>
 
-<body class="content-animate">
+<body class="content-animate"  style="letter-spacing: 0px;word-spacing: -1px;">
 
     <!-- PRELOADER
 		==================================================-->
