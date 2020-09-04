@@ -1581,10 +1581,9 @@ class Post extends CI_Controller
         $data['subcategory_id'] = $this->uri->segment(5);
         $data['location'] = $this->location_model->get_location_by_category($category_id);
         $data['location_id'] = $this->uri->segment(6);
-        $data['halal_id'] = $this->uri->segment(7);
         $data['additional'] = $this->additional_model->get_additional_by_category($category_id);
-        $data['additional_id'] = $this->uri->segment(8);
-
+        $data['additional_id'] = $this->uri->segment(7);
+        $data['halal_id'] = $this->uri->segment(8);
         $this->load->view('backend/v_attribute_post', $data);
     }
 
