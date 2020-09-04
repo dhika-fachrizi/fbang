@@ -173,10 +173,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-								                                    <img class="img-circle avatar"
-								                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-								                                        width="40" height="40" alt="">
-								                                    <?php else: ?>
+									                                    <img class="img-circle avatar"
+									                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+									                                        width="40" height="40" alt="">
+									                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -220,16 +220,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-								                        <a href="javascript:void(0);">
-								                            <div class="sidebar-profile-image">
-								                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-								                                    class="img-circle img-responsive" alt="">
-								                            </div>
-								                            <div class="sidebar-profile-details">
-								                                <span><?php echo $this->session->userdata('name'); ?><br>
-								                                    <?php if ($row['user_level'] == '1'): ?>
-								                                    <small>Administrator</small>
-								                                    <?php else: ?>
+									                        <a href="javascript:void(0);">
+									                            <div class="sidebar-profile-image">
+									                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+									                                    class="img-circle img-responsive" alt="">
+									                            </div>
+									                            <div class="sidebar-profile-details">
+									                                <span><?php echo $this->session->userdata('name'); ?><br>
+									                                    <?php if ($row['user_level'] == '1'): ?>
+									                                    <small>Administrator</small>
+									                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -308,6 +308,7 @@ if ($query->num_rows() > 0):
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
+<li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
                             <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                             <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                             <li class="active"><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li>

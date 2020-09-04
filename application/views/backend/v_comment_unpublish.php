@@ -59,8 +59,8 @@
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <?php
-                            $count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
-                            ?>
+$count_inbox = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'));
+?>
                             <!-- <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right"><?php echo $count_inbox->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -72,9 +72,9 @@
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-                                            $query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
-                                            foreach ($query_msg->result() as $row) :
-                                            ?>
+$query_msg = $this->db->get_where('tbl_inbox', array('inbox_status' => '0'), 6);
+foreach ($query_msg->result() as $row):
+?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/inbox'); ?>">
                                                         <div class="msg-img">
@@ -88,7 +88,7 @@
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php endforeach;?>
 
                                         </ul>
                                     </li>
@@ -96,8 +96,8 @@
                                 </ul>
                             </li>
                             <?php
-                            $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
-                            ?>
+$count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
+?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-comment"></i><span class="badge badge-success pull-right"><?php echo $count_comment->num_rows(); ?></span></a>
                                 <ul class="dropdown-menu title-caret dropdown-lg" role="menu">
@@ -108,9 +108,9 @@
                                     <li class="dropdown-menu-list slimscroll messages">
                                         <ul class="list-unstyled">
                                             <?php
-                                            $query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
-                                            foreach ($query_cmt->result() as $row) :
-                                            ?>
+$query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
+foreach ($query_cmt->result() as $row):
+?>
                                                 <li>
                                                     <a href="<?php echo site_url('backend/comment/unpublish'); ?>">
                                                         <div class="msg-img">
@@ -124,7 +124,7 @@
                                                         </p>
                                                     </a>
                                                 </li>
-                                            <?php endforeach; ?>
+                                            <?php endforeach;?>
 
                                         </ul>
                                     </li>
@@ -135,15 +135,15 @@
                                 <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
                                     <span class="user-name"><?php echo $this->session->userdata('name'); ?><i class="fa fa-angle-down"></i></span>
                                     <?php
-                                    $user_id = $this->session->userdata('id');
-                                    $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-                                    if ($query->num_rows() > 0) :
-                                        $row = $query->row_array();
-                                    ?>
-                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
-                                    <?php else : ?>
+$user_id = $this->session->userdata('id');
+$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+if ($query->num_rows() > 0):
+    $row = $query->row_array();
+    ?>
+	                                        <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" width="40" height="40" alt="">
+	                                    <?php else: ?>
                                         <img class="img-circle avatar" src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40" height="40" alt="">
-                                    <?php endif; ?>
+                                    <?php endif;?>
                                 </a>
                                 <!-- <ul class="dropdown-menu dropdown-list" role="menu">
                                     <li role="presentation"><a href="<?php echo site_url('backend/change_pass'); ?>"><i class="fa fa-key"></i>Change Password</a></li>
@@ -170,41 +170,41 @@
                 <div class="sidebar-header">
                     <div class="sidebar-profile">
                         <?php
-                        $user_id = $this->session->userdata('id');
-                        $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
-                        if ($query->num_rows() > 0) :
-                            $row = $query->row_array();
-                        ?>
-                            <a href="javascript:void(0);">
-                                <div class="sidebar-profile-image">
-                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
-                                </div>
-                                <div class="sidebar-profile-details">
-                                    <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1') : ?>
-                                            <small>Administrator</small>
-                                        <?php else : ?>
+$user_id = $this->session->userdata('id');
+$query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
+if ($query->num_rows() > 0):
+    $row = $query->row_array();
+    ?>
+	                            <a href="javascript:void(0);">
+	                                <div class="sidebar-profile-image">
+	                                    <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>" class="img-circle img-responsive" alt="">
+	                                </div>
+	                                <div class="sidebar-profile-details">
+	                                    <span><?php echo $this->session->userdata('name'); ?><br>
+	                                        <?php if ($row['user_level'] == '1'): ?>
+	                                            <small>Administrator</small>
+	                                        <?php else: ?>
                                             <small>Author</small>
-                                        <?php endif; ?>
+                                        <?php endif;?>
                                     </span>
                                 </div>
                             </a>
-                        <?php else : ?>
+                        <?php else: ?>
                             <a href="javascript:void(0);">
                                 <div class="sidebar-profile-image">
                                     <img src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" class="img-circle img-responsive" alt="">
                                 </div>
                                 <div class="sidebar-profile-details">
                                     <span><?php echo $this->session->userdata('name'); ?><br>
-                                        <?php if ($row['user_level'] == '1') : ?>
+                                        <?php if ($row['user_level'] == '1'): ?>
                                             <small>Administrator</small>
-                                        <?php else : ?>
+                                        <?php else: ?>
                                             <small>Author</small>
-                                        <?php endif; ?>
+                                        <?php endif;?>
                                     </span>
                                 </div>
                             </a>
-                        <?php endif; ?>
+                        <?php endif;?>
                     </div>
                 </div>
                 <ul class="menu accordion-menu">
@@ -261,7 +261,7 @@
                     <!-- <li><a href="<?php echo site_url('backend/testimonial'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-like"></span>
                             <p>Testimonials</p>
                         </a></li> -->
-                    <?php if ($this->session->userdata('access') == '1') : ?>
+                    <?php if ($this->session->userdata('access') == '1'): ?>
                         <li><a href="<?php echo site_url('backend/users'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-user"></span>
                                 <p>Users</p>
                             </a></li>
@@ -270,13 +270,14 @@
                             </a>
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
+<li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
                                 <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
                             </ul>
                         </li>
-                    <?php else : ?>
-                    <?php endif; ?>
+                    <?php else: ?>
+                    <?php endif;?>
                     <li><a href="<?php echo site_url('logout'); ?>" class="waves-effect waves-button"><span class="menu-icon icon-logout"></span>
                             <p>Log Out</p>
                         </a></li>
@@ -316,15 +317,15 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div role="tabpanel" class="tab-pane fade active in p-v-lg" id="unpublish">
-                                            <?php foreach ($data->result() as $row) : ?>
+                                            <?php foreach ($data->result() as $row): ?>
                                                 <div class="search-item">
                                                     <div class="pull-left m-r-md">
                                                         <a href="javascript:void(0);" class="btn-image" data-comment_id="<?php echo $row->comment_id; ?>" data-name="<?php echo $row->comment_name; ?>" data-email="<?php echo $row->comment_email; ?>">
-                                                            <?php if (!empty($row->comment_image)) : ?>
+                                                            <?php if (!empty($row->comment_image)): ?>
                                                                 <img src="<?php echo base_url() . 'assets/images/' . $row->comment_image; ?>" class="img-circle" width="50" height="50" alt="<?php echo $row->comment_name ?>">
-                                                            <?php else : ?>
+                                                            <?php else: ?>
                                                                 <img src="<?php echo base_url() . 'assets/images/user_blank.png' ?>" class="img-circle" width="50" alt="<?php echo $row->comment_name ?>">
-                                                            <?php endif; ?>
+                                                            <?php endif;?>
                                                         </a>
                                                     </div>
                                                     <div class="pull-right m-r-md">
@@ -333,32 +334,32 @@
                                                                 Action <span class="caret"></span>
                                                             </button>
                                                             <ul class="dropdown-menu dropdown-menu-right">
-                                                                <?php if ($row->comment_status == '0') : ?>
+                                                                <?php if ($row->comment_status == '0'): ?>
                                                                     <li><a href="javascript:void(0);" class="btn-publish" data-comment_id="<?php echo $row->comment_id; ?>"><span class="fa fa-send"></span> Publish</a></li>
                                                                     <li><a href="javascript:void(0);" class="btn-edit" data-comment_id="<?php echo $row->comment_id; ?>" data-comment_msg="<?php echo $row->comment_message; ?>"><span class="fa fa-edit"></span> Edit</a></li>
                                                                     <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id; ?>"><span class="fa fa-trash"></span> Delete</a></li>
-                                                                <?php else : ?>
+                                                                <?php else: ?>
                                                                     <li><a href="javascript:void(0);" class="btn-reply" data-comment_id="<?php echo $row->comment_id; ?>" data-post_id="<?php echo $row->post_id; ?>"><span class="fa fa-reply"></span> Reply</a></li>
                                                                     <li><a href="javascript:void(0);" class="btn-edit" data-comment_id="<?php echo $row->comment_id; ?>" data-comment_msg="<?php echo $row->comment_message; ?>"><span class="fa fa-edit"></span> Edit</a></li>
                                                                     <li><a href="javascript:void(0);" class="btn-delete" data-comment_id="<?php echo $row->comment_id; ?>"><span class="fa fa-trash"></span> Delete</a></li>
-                                                                <?php endif; ?>
+                                                                <?php endif;?>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                     <h3 class="no-m"><a href="<?php echo site_url('blog/' . $row->post_slug); ?>" target="_blank"><?php echo $row->post_title; ?></a></h3>
                                                     <a href="javascript:void(0);" class="search-link"><b><?php echo $row->comment_name ?></b>, <?php echo $row->comment_date; ?></a> <?php if ($row->comment_status == '0') {
-                                                                                                                                                                                            echo "<span class='label label-danger'>Unpublish</span>";
-                                                                                                                                                                                        } else {
-                                                                                                                                                                                        } ?>
+    echo "<span class='label label-danger'>Unpublish</span>";
+} else {
+}?>
                                                     <div style="margin-left: 6.5%;">
                                                         <p><?php echo $row->comment_message; ?></p>
                                                     </div>
                                                 </div>
                                                 <?php
-                                                $comment_id = $row->comment_id;
-                                                $result = $this->db->query("SELECT comment_id,DATE_FORMAT(comment_date,'%d %M %Y %H:%i') AS comment_date,comment_name,comment_email,comment_message,post_id,post_title,post_slug FROM tbl_comment JOIN tbl_post ON comment_post_id=post_id WHERE comment_parent='$comment_id' ORDER BY comment_id ASC");
-                                                foreach ($result->result() as $row) :
-                                                ?>
+$comment_id = $row->comment_id;
+$result = $this->db->query("SELECT comment_id,DATE_FORMAT(comment_date,'%d %M %Y %H:%i') AS comment_date,comment_name,comment_email,comment_message,post_id,post_title,post_slug FROM tbl_comment JOIN tbl_post ON comment_post_id=post_id WHERE comment_parent='$comment_id' ORDER BY comment_id ASC");
+foreach ($result->result() as $row):
+?>
                                                     <div class="col-md-offset-1">
                                                         <div class="search-item">
                                                             <div class="pull-left m-r-md">
@@ -382,8 +383,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                <?php endforeach; ?>
-                                            <?php endforeach; ?>
+                                                <?php endforeach;?>
+                                            <?php endforeach;?>
 
                                             <?php echo $page; ?>
                                         </div>
@@ -629,7 +630,7 @@
         });
     </script>
     <!--Toast Message-->
-    <?php if ($this->session->flashdata('msg') == 'success') : ?>
+    <?php if ($this->session->flashdata('msg') == 'success'): ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
@@ -641,7 +642,7 @@
                 bgColor: '#7EC857'
             });
         </script>
-    <?php elseif ($this->session->flashdata('msg') == 'info') : ?>
+    <?php elseif ($this->session->flashdata('msg') == 'info'): ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Info',
@@ -653,7 +654,7 @@
                 bgColor: '#00C9E6'
             });
         </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success-delete') : ?>
+    <?php elseif ($this->session->flashdata('msg') == 'success-delete'): ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
@@ -665,7 +666,7 @@
                 bgColor: '#7EC857'
             });
         </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success-edit') : ?>
+    <?php elseif ($this->session->flashdata('msg') == 'success-edit'): ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
@@ -677,7 +678,7 @@
                 bgColor: '#7EC857'
             });
         </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success-publish') : ?>
+    <?php elseif ($this->session->flashdata('msg') == 'success-publish'): ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
@@ -689,7 +690,7 @@
                 bgColor: '#7EC857'
             });
         </script>
-    <?php elseif ($this->session->flashdata('msg') == 'success-change') : ?>
+    <?php elseif ($this->session->flashdata('msg') == 'success-change'): ?>
         <script type="text/javascript">
             $.toast({
                 heading: 'Success',
@@ -701,9 +702,9 @@
                 bgColor: '#7EC857'
             });
         </script>
-    <?php else : ?>
+    <?php else: ?>
 
-    <?php endif; ?>
+    <?php endif;?>
 </body>
 
 </html>
