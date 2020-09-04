@@ -10,7 +10,7 @@
 								<div class="col-sm-4">
 									<div class="row" style="height:120px;">
 										<div class="col-sm-12"><img src="<?php echo base_url() . 'theme/images/' . $logo; ?>" width="230" height="50" alt="" /></div>
-										<div class="col-sm-12 align-self-end font-footer-c" style="font-family: 'Noto Sans JP', sans-serif;word-spacing: -4px;">Copyright © 2020 foodbang, all rights
+										<div class="col-sm-12 align-self-end font-footer-c" style="font-family: 'Noto Sans JP', sans-serif;word-spacing: -4px;letter-spacing: 0px;word-spacing: 0px;">Copyright © 2020 foodbang, all rights
 											reserved</div>
 									</div>
 								</div>
@@ -23,7 +23,7 @@
 											</div>
 										</div>
 										<div class="col-sm-12  d-flex c-justify-content-end md-left-to-ceter pl-0" >
-											<ul class="menu-footer font-footer-m pl-0" style="font-family: 'Noto Sans JP', sans-serif;">
+											<ul class="menu-footer font-footer-m pl-0" style="font-family: 'Noto Sans JP', sans-serif;letter-spacing: 0px;word-spacing: 0px;">
 												<li class="pl-0"><a href="#home">Home</a></li>
 												<li><a href="#news">News</a></li>
 												<li><a href="#contact">Contact</a></li>
