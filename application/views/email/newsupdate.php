@@ -1,5 +1,18 @@
 <!DOCTYPE html>
+<?php
 
+$server = "localhost";
+$user = "root";
+$password = "";
+$nama_database = "blog_db";
+
+$db = mysqli_connect($server, $user, $password, $nama_database);
+
+if( !$db ){
+    die("Gagal terhubung dengan database: " . mysqli_connect_error());
+}
+
+?>
 <head>
     <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -21,6 +34,80 @@
             padding: 0;
         }
 
+        .col,
+        .col-1,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-auto,
+        .col-lg,
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-auto,
+        .col-md,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-auto,
+        .col-sm,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-sm-auto,
+        .col-xl,
+        .col-xl-1,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-auto {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+
         table,
         td,
         tr {
@@ -38,7 +125,7 @@
         }
 
         .header {
-            width: 640px;
+            width: 615px;
             height: 50px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             opacity: 1;
@@ -48,7 +135,7 @@
         }
 
         .content {
-            width: 550px;
+            width: 520px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             box-shadow: 0px 0px 10px #00000019;
             opacity: 1;
@@ -57,14 +144,17 @@
             margin-top: 150px;
             margin-left: 30px;
         }
-
-        .content p {
-            margin-top: 30px;
-        }
     </style>
     <style id="media-query" type="text/css">
         @media (max-width: 660px) {
-
+            .header {
+            width: 600px;
+            height: 50px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            opacity: 1;
+            border-bottom: 0px solid #ccc;
+            padding: 10px
+        }
             .block-grid,
             .col {
                 min-width: 320px !important;
@@ -183,24 +273,34 @@
                                                     Suspendisse potenti.</p>
                                                 <p> Aliquam fringilla orci tincidunt, ullamcorper erat in, malesuada metus. Vivamus
                                                     luctus maximus vestibulum. Donec et enim vitae tellus auctor ornare.</p>
-                                                <?php foreach ($news_update->result() as $item) : ?>
+                                                    <?php
+                                                    $sql = "SELECT * FROM tbl_post WHERE email_news_update = 1";
+                                                    $query = mysqli_query($db, $sql);
+
+                                                    while($item = mysqli_fetch_array($query)){?>
                                                     <div class="row" style="margin-bottom:20px">
                                                         <div class="col-md-3">
-                                                            <img src="<?php echo base_url() . 'assets/images/' . $item->post_image; ?>" alt="" width="100px" height="110px">
+                                                            <img src="<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>" alt="" width="100px" height="110px">
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <p><?php $date = date_create($item->post_date);
+                                                            <p><?php $date = date_create($item['post_date']);
                                                                 echo date_format($date, "d M Y"); ?></p>
                                                             <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
-                                                                <a href="<?php if ($item->post_type_id == 1) {
-                                                                                echo base_url() . 'news/detail/' . $item->post_slug;
-                                                                            } else if ($item->post_type_id == 2) {
-                                                                                echo base_url() . 'catlist/detail/' . $item->post_slug;
-                                                                            } ?>"><?= $item->post_title ?></a>
+                                                                <a href="<?php if ($item['post_type_id'] == 1) {
+                                                                                echo base_url() . 'news/detail/' . $item['post_slug'];
+                                                                            } else if ($item['post_type_id'] == 2) {
+                                                                                echo base_url() . 'catlist/detail/' . $item['post_slug'];
+                                                                            } else if ($item['post_type_id'] == 3) {
+                                                                                echo base_url() . 'umkm/detail/' . $item['post_slug'];
+                                                                            } else if ($item['post_type_id'] == 4) {
+                                                                                echo base_url() . 'stfood/detail/' . $item['post_slug'];
+                                                                            } else if ($item['post_type_id'] == 5) {
+                                                                                echo base_url() . 'hltfood/detail/' . $item['post_slug'];
+                                                                            } ?>"><?= $item['post_title'] ?></a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                <?php endforeach; ?>
+                                                <?php } ?>
                                                 <p></p>
                                                 <p>Vestibulum blandit viverra convallis. Pellentesque ligula urna, fermentum ut semper in, tincidunt nec
                                                     dui. Morbi mauris lacus, consequat eget justo in, semper gravida enim. Donec ultrices varius ligula. Ut
