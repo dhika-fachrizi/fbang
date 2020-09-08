@@ -638,7 +638,11 @@ a:hover {
     justify-content: space-around;
   }
 
-  /* home */
+  /* home 700 */
+
+  .promo-barner {
+    height: 300px;
+  }
 
   .news-b-image {
     width: 100%;

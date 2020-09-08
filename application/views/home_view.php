@@ -346,51 +346,24 @@ if ($item['post_type_id'] == 1) {
                         <div class="col-sm-12 p-0 ">
                             <div class="slider demo">
                                 <?php foreach ($promo_post as $item): ?>
-                                <div class="pr-10">
-                                    <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                        <div class=" promo-barner"
-                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
-								    </div>
-                                    </a>
+                                <div>
+                                    <div class="pr-10">
+                                        <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                            <div class=" promo-barner pr-10"
+                                                style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+								             </div>
+                                         </a>
+                                    </div>
                                 </div>
-                                <?php endforeach;?>
-                                <?php foreach ($promo_post as $item): ?>
-                                <div class=" pr-10">
-                                            <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                <div class=" promo-barner"
-                                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
-								    </div>
-                                    </a>
-                                </div>
-                                <?php endforeach;?>
-                                <?php foreach ($promo_post as $item): ?>
-                                <div class=" pr-10">
-                                                    <a
-                                                        href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                        <div class=" promo-barner"
-                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
-								    </div>
-                                    </a>
-                                </div>
-                                <?php endforeach;?>
-                                <?php foreach ($promo_post as $item): ?>
-                                <div class=" pr-10">
-                                                            <a
-                                                                href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                                <div class=" promo-barner"
-                                                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
-								    </div>
-                                    </a>
-                                </div>
-                                <?php endforeach;?>
-                                <?php foreach ($promo_post as $item): ?>
-                                <div class=" pr-10">
-                                                                    <a
-                                                                        href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                                        <div class=" promo-barner"
-                                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
-								    </div>
-                                    </a>
+                                <div>
+                                    <div class=" pr-10">
+                                                <a
+                                                    href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                    <div class=" promo-barner pr-10"
+                                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+								             </div>
+                                         </a>
+                                    </div>
                                 </div>
                                 <?php endforeach;?>
                             </div>
@@ -400,41 +373,34 @@ if ($item['post_type_id'] == 1) {
 			</section>
 
 			<section class=" pb-30 pt-30 hide-m">
-                                                                            <div
-                                                                                class=" container d-flex justify-content-center">
-                                                                                <form class="form-inline"
-                                                                                    action="<?php echo site_url('subscribe'); ?>"
-                                                                                    method="post">
-                                                                                    <div
-                                                                                        class="row d-flex justify-content-center">
+                                                        <div class=" container d-flex justify-content-center">
+                                                            <form class="form-inline"
+                                                                action="<?php echo site_url('subscribe'); ?>"
+                                                                method="post">
+                                                                <div class="row d-flex justify-content-center">
 
-                                                                                        <div
-                                                                                            class="pr-10 text-theme-2 subcribe-text">
-                                                                                            <i><b>Subscribe
-                                                                                                    for
-                                                                                                    more updates!
-                                                                                                </b></i>
-                                                                                        </div>
-                                                                                        <div class="pr-10"><input
-                                                                                                class="form-control"
-                                                                                                style="width:30vw;"
-                                                                                                type="email"
-                                                                                                name="email"
-                                                                                                placeholder="send your email"
-                                                                                                required></div>
-                                                                                        <div class="pr-10 d-flex align-items-end"
-                                                                                            style="margin:0px;padding:0px;">
-                                                                                            <button type="submit"
-                                                                                                class="btn btn-primary"
-                                                                                                style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
-                                                                                        </div>
+                                                                    <div class="pr-10 text-theme-2 subcribe-text">
+                                                                        <i><b>Subscribe
+                                                                                for
+                                                                                more updates!
+                                                                            </b></i>
+                                                                    </div>
+                                                                    <div class="pr-10"><input class="form-control"
+                                                                            style="width:30vw;" type="email"
+                                                                            name="email" placeholder="send your email"
+                                                                            required></div>
+                                                                    <div class="pr-10 d-flex align-items-end"
+                                                                        style="margin:0px;padding:0px;">
+                                                                        <button type="submit" class="btn btn-primary"
+                                                                            style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                                                                    </div>
 
-                                                                                    </div>
-                                                                                    <div>
-                                                                                        <?php echo $this->session->flashdata('message'); ?>
-                                                                                    </div>
-                                                                                </form>
-                                                                            </div>
+                                                                </div>
+                                                                <div>
+                                                                    <?php echo $this->session->flashdata('message'); ?>
+                                                                </div>
+                                                            </form>
+                                                        </div>
             </section>
 
             <section class=" pb-30 pt-30 unhide-m">
@@ -449,9 +415,9 @@ if ($item['post_type_id'] == 1) {
                                         more updates!
                                     </b></i>
                             </div>
-                            <div class="col-8 pr-10"><input class="form-control" type="email" name="email"
+                            <div class="col-7 pr-10"><input class="form-control" type="email" name="email"
                                     placeholder="send your email" required></div>
-                            <div class="col-4 pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
+                            <div class="col-5 pr-10 d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary"
                                     style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
                             </div>
