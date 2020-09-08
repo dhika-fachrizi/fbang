@@ -67,14 +67,6 @@
         line-height: unset !important;
     }
 
-    .cty-li {
-        /* margin: 5px 0; */
-    }
-
-    .popover {
-
-        /* left:100px !important; */
-    }
 
     .popover>.arrow {
         display: none;
