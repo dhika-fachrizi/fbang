@@ -563,7 +563,8 @@
                                                             style="max-height:65px;">
                                                             <div class="text-theme-1"
                                                                 style="margin-top: 0px;font-size:15px;font-weight:bold;">
-                                                                <a href=""><?=$item->post_title?></a>
+                                                                <a
+                                                                    href="<?php echo base_url() . $dynamic_detail_link . $item->post_slug; ?>"><?=$item->post_title?></a>
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mtc-5 ">

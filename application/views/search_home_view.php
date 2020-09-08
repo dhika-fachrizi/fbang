@@ -1,3 +1,12 @@
+<?php if ($category['type_id'] == 2) {
+    $dynamic_detail_link = 'catlist/detail/';
+} else if ($category['type_id'] == 3) {
+    $dynamic_detail_link = 'umkm/detail/';
+} else if ($category['type_id'] == 4) {
+    $dynamic_detail_link = 'stfood/detail/';
+} else if ($category['type_id'] == 5) {
+    $dynamic_detail_link = 'hltfood/detail/';
+}?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +51,7 @@
     <!-- End SEO Tag. -->
 </head>
 
-<body class="content-animate">
+<body class="content-animate" style="letter-spacing: 0px;word-spacing: -1px;">
 
     <!-- PRELOADER
 		==================================================-->
@@ -82,111 +91,105 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12  pb-30 cpl-0 text-theme-1" style="font-size:18px;">
-                            Search result for : <b class="ext-theme-2" style="font-size:21px;"><u><?=$keyword?></u></b>
+                            Search result for : <b class="ext-theme-2" style="font-size:21px;"><u><?= $keyword ?></u></b>
                         </div>
                     </div>
                 </div>
             </section>
-            <?php if ($search_result): ?>
-            <section>
-                <div class="container">
-                    <div class="row mb-30">
-                        <div class="col-sm-3 cpl-0">
-                            <div class="col-sm-12 pl-0 t-5-b">
-                                <p>Filter</p>
-                            </div>
-                            <div class="col-sm-12 pb-20 pt-10 mb-30"
-                                style="border:1px #DDDDDD solid;border-radius:3px;">
-                                <div class="row ">
-                                    <div class="col-sm-12 t-5-b">
-                                        Kategori
-                                    </div>
-                                    <div class="col-sm-12 pt-10">
-                                        <?php foreach ($category as $item): ?>
-                                        <div class="form-check pb-10">
-                                            <input class="form-check-input" type="checkbox"
-                                                value="<?=$item['category_id']?>" id="<?=$item['category_name']?>">
-                                            <label class="form-check-label colot-theme-1"
-                                                for="<?=$item['category_name']?>">
-                                                <?=$item['category_name']?>
-                                            </label>
+            <?php if ($search_result) : ?>
+                <section>
+                    <div class="container">
+                        <div class="row mb-30">
+                            <div class="col-sm-3 cpl-0">
+                                <div class="col-sm-12 pl-0 t-5-b">
+                                    <p>Filter</p>
+                                </div>
+                                <div class="col-sm-12 pb-20 pt-10 mb-30" style="border:1px #DDDDDD solid;border-radius:3px;">
+                                    <div class="row ">
+                                        <div class="col-sm-12 t-5-b">
+                                            Kategori
                                         </div>
-                                        <?php endforeach;?>
+                                        <div class="col-sm-12 pt-10">
+                                            <?php foreach ($category as $item) : ?>
+                                                <div class="form-check pb-10">
+                                                    <input class="form-check-input" type="checkbox" value="<?= $item['category_id'] ?>" id="<?= $item['category_name'] ?>">
+                                                    <label class="form-check-label colot-theme-1" for="<?= $item['category_name'] ?>">
+                                                        <?= $item['category_name'] ?>
+                                                    </label>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+
                                     </div>
 
                                 </div>
 
+                                <div class="col-sm-12 cpl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 238px; width:100%" hidden>
+                                </div>
                             </div>
-
-                            <div class="col-sm-12 cpl-0 news-b-image m-0 "
-                                style="background-image: url('') ; background-color:#F4F4F4; height: 238px; width:100%"
-                                hidden>
-                            </div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="row pb-20">
-                                        <div class="col-sm-12 t-5-b">Show 5 of <?=$search_result?> Results</div>
-                                    </div>
-                                    <?php foreach ($data as $item): ?>
-                                    <div class="row pb-20 cpl-0">
-
-                                        <div class="col-5 news-b-image m-0"
-                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
-
+                            <div class="col-sm-9">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row pb-20">
+                                            <div class="col-sm-12 t-5-b">Show 5 of <?= $search_result ?> Results</div>
                                         </div>
+                                        <?php foreach ($data as $item) : ?>
+                                            <div class="row pb-20 cpl-0">
 
-                                        <div class="col-7">
-                                            <div class="col-12 colot-theme-1" style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?>
-                                                    | <?=$item['post_views']?>
-                                                    Min Read</span></div>
-                                            <div class="col-12  text-thema-split-2" style="height:86px;">
-                                                <div class="text-theme-1"
-                                                    style="margin-top: 0px;font-size:24px;font-weight:bold;">
-                                                    <?=$item['post_title']?>
-                                                </div>
-                                            </div>
-                                            <div class="col-12  text-thema-split-4" text-theme-1>
-                                                <div class="colot-theme-1" style="font-size:15px;">
-                                                    <?=$item['post_description']?>
+                                                <div class="col-5 news-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+
                                                 </div>
 
-                                            </div>
-                                            <div class="col-12 mt-10" style="font-size:15px;">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail/' . $item['post_slug']; ?>">Read
-                                                    Now</a>
-                                            </div>
-                                        </div>
+                                                <div class="col-7">
+                                                    <div class="col-12 colot-theme-1" style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
+                                                                                                                    echo date_format($date, "d M Y"); ?>
+                                                            | <?= $item['post_views'] ?>
+                                                            Min Read</span></div>
+                                                    <div class="col-12  text-thema-split-2" style="height:86px;">
+                                                        <div class="text-theme-1" style="margin-top: 0px;font-size:24px;font-weight:bold;">
+                                                            <?= $item['post_title'] ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12  text-thema-split-4" text-theme-1>
+                                                        <div class="colot-theme-1" style="font-size:15px;">
+                                                            <?= $item['post_description'] ?>
+                                                        </div>
 
-                                    </div>
-                                    <?php endforeach?>
-                                    <div class="row pt-20">
-                                        <div class="col-sm-12 d-flex justify-content-end">
-                                            <a href="" class="a-link-c">SEE MORE >></a>
+                                                    </div>
+                                                    <div class="col-12 mt-10" style="font-size:15px;">
+                                                        <a class="a-link-c" href="
+                                                        <?php echo base_url() . 'news/detail/' . $item['post_slug']; ?>
+                                                        ">Read
+                                                            Now</a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        <?php endforeach ?>
+                                        <div class="row pt-20">
+                                            <div class="col-sm-12 d-flex justify-content-end">
+                                                <a href="" class="a-link-c">SEE MORE >></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-            </section>
-            <?php else: ?>
-            <section>
-                <div class="container">
-                    <div class="row mb-30">
-                        <div class="col-md-12 d-flex justify-content-center">
-                            <h1 style="color: #919191">Opppss....</h1>
+                </section>
+            <?php else : ?>
+                <section>
+                    <div class="container">
+                        <div class="row mb-30">
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <h1 style="color: #919191">Opppss....</h1>
+                            </div>
+                            <div class="col-md-12 d-flex justify-content-center">
+                                <p style="color: #919191">No Article found</p>
+                            </div>
                         </div>
-                        <div class="col-md-12 d-flex justify-content-center">
-                            <p style="color: #919191">No Article found</p>
-                        </div>
                     </div>
-                </div>
-            </section>
-            <?php endif?>
+                </section>
+            <?php endif ?>
 
 
 
@@ -200,19 +203,15 @@ echo date_format($date, "d M Y");?>
     </div>
 
     <!-- Modal Search-->
-    <div class="modal fade" id="ModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-        style="z-index: 10000;">
+    <div class="modal fade" id="ModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="z-index: 10000;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-body">
                     <form action="<?php echo site_url('search'); ?>" method="GET">
                         <div class="input-group">
-                            <input type="text" name="search_query" class="form-control input-search"
-                                style="height: 40px;" placeholder="Search..." required>
+                            <input type="text" name="search_query" class="form-control input-search" style="height: 40px;" placeholder="Search..." required>
                             <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit"
-                                    style="height: 40px;background-color: #ccc;"><span
-                                        class="fa fa-search"></span></button>
+                                <button class="btn btn-default" type="submit" style="height: 40px;background-color: #ccc;"><span class="fa fa-search"></span></button>
                             </span>
                         </div>
                     </form>

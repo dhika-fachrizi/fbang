@@ -56,7 +56,7 @@
     </style>
 </head>
 
-<body class="content-animate">
+<body class="content-animate" style="letter-spacing: 0px;word-spacing: -1px;">
 
     <!-- PRELOADER
 		==================================================-->
@@ -81,7 +81,7 @@
             <!-- HOME SECTION
 				================================================== cooked-food.png-->
             <section>
-                <div class="container">
+                <div class="container hide-m">
                     <div class="row">
                         <div class="col-sm-12 pt-30 pb-30 pl-0 text-theme-1" style="font-size:15px; font-weight: 500;">
                             Home/<a href=""><u>About Us</u> </a>
@@ -89,33 +89,44 @@
                     </div>
                 </div>
             </section>
-
             <section id="homepage" class="home page-section parallax-2 overlay-light-alpha-10">
                 <div class="table-content">
                     <div class="table-center-text">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <?php foreach ($slider->result() as $key => $item): ?>
+                                <?php if ($key == 0): ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$key?>" class="active">
+                                </li>
+                                <?php else: ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$key?>">
+                                </li>
+                                <?php endif;?>
+                                <?php endforeach;?>
                             </ol>
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
+                                <?php foreach ($slider->result() as $key => $item): ?>
+                                <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
                                     <img class="d-block w-100 img-c"
-                                        src="<?php echo base_url() . 'assets/images/cooked-food.png'; ?>"
+                                        src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>"
                                         alt="First slide">
                                     <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
-                                        style="height:100%">
+                                        style="height:100%;width:auto;">
                                         <div class="row">
-                                            <div class="col-sm-8 title-c">Jakartas 6 Best Spots for Casual Dining</div>
+                                            <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
+                                                <?=$item->slider_title?></div>
                                             <div class="col-sm-4"></div>
-                                            <div class="col-sm-8 dec-c">Donec dapibus mauris id odio ornare tempus duis
-                                                sit.</div>
-                                            <div class="col-sm-4 "></div>
+                                            <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
+                                                <?=$item->slider_desc?></div>
+                                            <div class=" col-sm-4 "></div>
                                         </div>
-                                        <div class="row">
-
+                                        <div class=" row">
                                         </div>
                                     </div>
                                 </div>
+                                <?php endforeach;?>
+
+
                             </div>
                             <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button"
                                 data-slide="prev">
@@ -131,7 +142,6 @@
                     </div>
                 </div>
             </section>
-
             <section>
                 <div class="container pt-30">
                     <div class="row pb-30 ">

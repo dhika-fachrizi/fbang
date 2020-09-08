@@ -21,6 +21,80 @@
             padding: 0;
         }
 
+        .col,
+        .col-1,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-auto,
+        .col-lg,
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-auto,
+        .col-md,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-auto,
+        .col-sm,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-sm-auto,
+        .col-xl,
+        .col-xl-1,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-auto {
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+
         table,
         td,
         tr {
@@ -38,7 +112,7 @@
         }
 
         .header {
-            width: 640px;
+            width: 615px;
             height: 50px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             opacity: 1;
@@ -48,7 +122,7 @@
         }
 
         .content {
-            width: 550px;
+            width: 520px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             box-shadow: 0px 0px 10px #00000019;
             opacity: 1;
@@ -57,13 +131,21 @@
             margin-top: 150px;
             margin-left: 30px;
         }
+
         .content p {
-            margin-top:30px;
+            margin-top: 40px;
         }
     </style>
     <style id="media-query" type="text/css">
         @media (max-width: 660px) {
-
+            .header {
+            width: 600px;
+            height: 50px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            opacity: 1;
+            border-bottom: 0px solid #ccc;
+            padding: 10px
+        }
             .block-grid,
             .col {
                 min-width: 320px !important;
@@ -138,24 +220,24 @@
                 display: block !important;
                 max-height: none !important;
             }
-            .content {
-            /* margin-top: 10px; */
-            width: 450px;
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            box-shadow: 0px 0px 10px #00000019;
-            opacity: 1;
-            position: absolute;
-            padding: 30px;
-            margin-top: 150px;
-            margin-left: 30px;
-        }
-        }
 
+            .content {
+                /* margin-top: 10px; */
+                width: 450px;
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                box-shadow: 0px 0px 10px #00000019;
+                opacity: 1;
+                position: absolute;
+                padding: 30px;
+                margin-top: 150px;
+                margin-left: 30px;
+            }
+        }
     </style>
 </head>
 
 <body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #ffffff;">
-    <table bgcolor="#f8f8f9" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; width: 100%;" valign="top" width="100%">
+    <table bgcolor="#f8f8f9" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; width: 100%;margin-top: 20px;" valign="top" width="100%">
         <tbody>
             <tr style="vertical-align: top;" valign="top">
                 <td style="word-break: break-word; vertical-align: top;" valign="top" align="center">
@@ -169,7 +251,7 @@
 
                     <div style="background-color:transparent;">
                         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #fff;">
-                        <div style="border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+                            <div style="border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 
                                 <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
                                     <div style="width:100% !important;">
@@ -187,7 +269,7 @@
                                                 </p>
                                                 <p> Fusce fermentum ante ac metus
                                                     interdum elementum. Nam arcu lectus, lacinia non augue a, mollis bibendum augue.</p>
-                                                <a href="<?php echo base_url() ?>" class="btn btn-warning">GO TO FOODBANG</a>
+                                                <button style="background-color: #ffa41b;border-radius: 5px;width:150px;height:40px;color:#ffffff;border:none"><a href="<?php echo base_url() ?>" style="color:#ffffff;">GO TO FOODBANG</a></button>
                                                 <p></p>
                                                 <p></p>
                                                 <p>Thank you,</p>
@@ -208,7 +290,7 @@
 
                     <div style="background-color:transparent;">
                         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #fff;">
-                        <div style="border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+                            <div style="border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 
                                 <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
                                     <div style="width:100% !important;">
@@ -221,7 +303,7 @@
 
                                                         <table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 0px solid #BBBBBB; width: 100%;" valign="top" width="100%">
                                                             <tbody>
-                                                                <tr style="vertical-align: top;" valign="top" >
+                                                                <tr style="vertical-align: top;" valign="top">
 
                                                                     <td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" height="450px">
 
@@ -244,8 +326,8 @@
 
                     <div style="background-color:transparent;">
                         <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #2b303a;">
-                            
-                            <div style="background-color:#F7F7F7;border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
+
+                            <div style="background-color:#F7F7F7;border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:1px solid #ccc; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
                                 <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
                                     <div style="width:100% !important;">
 
@@ -257,7 +339,7 @@
                                                         <td style="word-break: break-word; vertical-align: top; padding-top: 28px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" valign="top">
                                                             <table align="center" cellpadding="0" cellspacing="0" class="social_table" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-tspace: 0; mso-table-rspace: 0; mso-table-bspace: 0; mso-table-lspace: 0;" valign="top">
                                                                 <tbody>
-                                                                    <tr align="center" style="vertical-align: top; display: inline-block; text-align: center;margin-top: 40px;" valign="top" >
+                                                                    <tr align="center" style="vertical-align: top; display: inline-block; text-align: center;margin-top: 40px;" valign="top">
                                                                         <td style="word-break: break-word; vertical-align: top; padding-bottom: 0; padding-right: 10px; padding-left: 10px;" valign="top">
                                                                             <a href="#" style="color: #000000;margin:5px"><i class="fab fa-instagram"></i></a>
                                                                         </td>

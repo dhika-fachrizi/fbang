@@ -27,27 +27,15 @@ class Subscribe extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-info">Anda telah berlangganan.</div>');
 				redirect($url);
 			} else {
-				$message = $this->load->view('email/newsupdate','', true);
-				// $config['mailtype'] = 'html';
-				// $config['protocol'] = 'smtp';
-				// $config['smtp_host'] = 'smtp.mailtrap.io';
-				// $config['smtp_user'] = '3b599c5fbb1bb2';
-				// $config['smtp_pass'] = 'f0cdd5ebfefb36';
-				// $config['smtp_port'] = 2525;
-				// $config['newline'] = "\r\n";
+				$message = $this->load->view('email/welcome','', true);
 				$config['mailtype'] = 'html';
 				$config['protocol'] = 'smtp';
-				$config['smtp_host'] = 'smtp.yandex.com';
-				$config['smtp_user'] = 'limin.mus@yandex.com';
-				$config['smtp_pass'] = 'Superm@n123';
-				$config['smtp_port'] = 465;
-				$config['charset'] = "utf-8";
-				$config['SMTPSecure '] = "ssl";
-				$config['SMTPAuth'] = true;
-				
-
+				$config['smtp_host'] = 'smtp.mailtrap.io';
+				$config['smtp_user'] = '3b599c5fbb1bb2';
+				$config['smtp_pass'] = 'f0cdd5ebfefb36';
+				$config['smtp_port'] = 2525;
+				$config['newline'] = "\r\n";
 				$this->load->library('email', $config);
-
 				$this->email->from('no-reply@foodbang.com');
 				$this->email->to($email);
 				$this->email->subject('Welcome to Foodbang');
