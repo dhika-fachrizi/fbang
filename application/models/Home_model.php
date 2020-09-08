@@ -66,7 +66,15 @@ class Home_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-//.....................
+    //.....................
+    public function get_Type_category()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_type');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+    //.....................
     public function get_popular()
     {
         $this->db->select('*');
@@ -118,7 +126,7 @@ class Home_model extends CI_Model
         $result = $this->db->query("SELECT * FROM tbl_post JOIN tbl_future_article ON tbl_post.post_id = tbl_future_article.post_id where tbl_future_article.id = 1");
         return $result->row_array();
     }
-//.......................
+    //.......................
     public function checking_email($email)
     {
         $query = $this->db->query("SELECT * FROM tbl_subscribe WHERE subscribe_email='$email'");
@@ -131,12 +139,20 @@ class Home_model extends CI_Model
         return $query;
     }
 
-    public function search_blog($query)
+    public function search_blog($query, $category)
     {
-        $result = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
+        if ($category) {
+            $c = join("','",$category);
+            $result = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
 			LEFT JOIN tbl_user ON post_user_id=user_id
 			LEFT JOIN tbl_category ON post_category_id=category_id
-			WHERE post_title LIKE '%$query%' OR category_name LIKE '%$query%' OR post_tags LIKE '%$query%' LIMIT 12");
+            WHERE post_title LIKE '%$query%' OR category_name LIKE '%$query%' OR post_tags LIKE '%$query%' AND post_type_id in ('$c') LIMIT 12");
+        } else {
+            $result = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
+			LEFT JOIN tbl_user ON post_user_id=user_id
+			LEFT JOIN tbl_category ON post_category_id=category_id
+            WHERE post_title LIKE '%$query%' OR category_name LIKE '%$query%' OR post_tags LIKE '%$query%' LIMIT 12");
+        }
         return $result->result_array();
     }
 
@@ -166,5 +182,4 @@ class Home_model extends CI_Model
 			WHERE post_slug='$slug' GROUP BY post_id LIMIT 1");
         return $query->row_array();
     }
-
 }

@@ -54,7 +54,7 @@
 			    </div>
 			</nav>
 
-
+			<div class="hide-m">
 			<section class="menu-container pt-20">
 			    <div class="container">
 			        <div class="row menu-category font-header-m">
@@ -211,6 +211,7 @@
 
 
 			</section>
+			</div>
 			<section class="menu-container">
 
 			</section>
