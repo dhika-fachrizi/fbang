@@ -42,9 +42,23 @@
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
+    <style>
+    @media only screen and (max-width: 768px) {
+        /* .title-c {
+            width: 60%
+        }
+
+        .dec-c {
+            width: 60%
+        } */
+
+
+
+    }
+    </style>
 </head>
 
-<body class="content-animate"  style="letter-spacing: 0px;word-spacing: -1px;">
+<body class="content-animate">
 
     <!-- PRELOADER
 		==================================================-->
@@ -73,40 +87,47 @@
                     <div class="table-center-text">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <?php foreach ($slider->result() as $key => $item) : ?>
-                                    <?php if ($key == 0) : ?>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>" class="active">
-                                        </li>
-                                    <?php else : ?>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>">
-                                        </li>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
+                                <?php foreach ($slider->result() as $key => $item): ?>
+                                <?php if ($key == 0): ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$key?>" class="active">
+                                </li>
+                                <?php else: ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$key?>">
+                                </li>
+                                <?php endif;?>
+                                <?php endforeach;?>
                             </ol>
                             <div class="carousel-inner">
-                                <?php foreach ($slider->result() as $key => $item) : ?>
-                                    <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
-                                        <img class="d-block w-100 img-c" src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>" alt="First slide">
-                                        <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container" style="height:100%">
-                                            <div class="row">
-                                                <div class="col-sm-8 title-c"><?= $item->slider_title ?></div>
-                                                <div class="col-sm-4"></div>
-                                                <div class="col-sm-8 dec-c"><?= $item->slider_desc ?></div>
-                                                <div class="col-sm-4 "></div>
-                                            </div>
-                                            <div class="row">
-                                            </div>
+                                <?php foreach ($slider->result() as $key => $item): ?>
+                                <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
+                                    <img class="d-block w-100 img-c"
+                                        src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>"
+                                        alt="First slide">
+                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
+                                        style="height:100%;width:auto;">
+                                        <div class="row">
+                                            <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
+                                                <?=$item->slider_title?></div>
+                                            <div class="col-sm-4"></div>
+                                            <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
+                                                <?=$item->slider_desc?></div>
+                                            <div class=" col-sm-4 "></div>
+                                        </div>
+                                        <div class=" row">
                                         </div>
                                     </div>
-                                <?php endforeach; ?>
+                                </div>
+                                <?php endforeach;?>
 
 
                             </div>
-                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -117,141 +138,193 @@
 
             <section>
                 <div class="container">
-                    <div class="row text-theme-2 pb-30 pt-30 cpl-0">
+                    <div class="row text-theme-2 pb-10 pt-20 cpl-0">
                         <i><b>Feature Article</b></i>
                         <div class="col pt-1">
                             <hr class="hr-theme">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6 feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $slot1['post_image']; ?>')">
+                    <div class="row pm-16">
+                        <div class="col-md-6 feature-b-image img-c-p mf-h"
+                            style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $slot1['post_image']; ?>')">
                             <div class="row d-flex align-items-end img-nc img-c-content" style="height:100%">
                                 <div class="col-12 mb-30">
                                     <div class="col-12 feature-date">
                                         <?php $date = date_create($slot1['post_date']);
-                                        echo date_format($date, "d M Y"); ?>
+echo date_format($date, "d M Y");?>
                                     </div>
                                     <div class="col-12 feature-title">
-                                        <?= $slot1['post_title'] ?>
+                                        <?=$slot1['post_title']?>
                                     </div>
                                     <div class="col-12 ">
                                         <a class="a-link-c" href="<?php
-                                                                    if ($slot1['post_type_id'] == 1) {
-                                                                        echo base_url() . 'news/detail/' . $slot1['post_slug'];
-                                                                    } else if ($slot1['post_type_id'] == 2) {
-                                                                        echo base_url() . 'catlist/detail/' . $slot1['post_slug'];
-                                                                    }
-                                                                    ?>">Read
+if ($slot1['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $slot1['post_slug'];
+} else if ($slot1['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $slot1['post_slug'];
+}
+?>">Read
                                             Now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <div class="row">
-                                <?php foreach ($feature_article as $item) : ?>
-                                    <div class="col-6 feature-right-box feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>')">
-                                        <div class="row d-flex align-items-end" style="height:100%">
-                                            <div class="col-12 mb-10">
-                                                <div class="col-12 feature-date">
-                                                    <?php $date = date_create($item['post_date']);
-                                                    echo date_format($date, "d M Y"); ?>
-                                                </div>
-                                                <div class="col-12 feature-title">
-                                                    <?= $item['post_title'] ?>
-                                                </div>
-                                                <div class="col-12 ">
-                                                    <a class="a-link-c" href="<?php
-                                                                                if ($item['post_type_id'] == 1) {
-                                                                                    echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                                } else if ($item['post_type_id'] == 2) {
-                                                                                    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                                }
-                                                                                ?>">Read
-                                                        Now</a>
-                                                </div>
+                                <?php foreach ($feature_article as $item): ?>
+                                <div class="col-md-6 feature-right-box feature-b-image img-c-p"
+                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>')">
+                                    <div class="row d-flex align-items-end" style="height:100%">
+                                        <div class="col-12 mb-10">
+                                            <div class="col-12 feature-date">
+                                                <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
                                             </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row pb-30">
-                        <div class="col-lg-8 cpl-0">
-                            <div class="container">
-                                <div class="row text-theme-2 pt-30 pb-30 pr-30 cpl-0">
-                                    <i><b>News Article</b></i>
-                                    <div class="col pt-1">
-                                        <hr class="hr-theme">
-                                    </div>
-                                </div>
-                                <?php foreach ($news_update as $item) : ?>
-                                    <div class="row pb-20 ">
-                                        <div class="col-5 news-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>">
-
-                                        </div>
-                                        <div class="col-7">
-                                            <div class="col-12 colot-theme-1 pb-10" style="font-size:12px"><span><?php $date = date_create($item['post_date']);
-                                                                                                                                    echo date_format($date, "d M Y"); ?> | <?= min_of_read($item['post_title'], $item['post_contents']) ?>
-                                                    Min Read</span></div>
-                                            <div class="col-12  text-thema-split-2" style="height:86px;">
-                                                <div class="text-theme-1" style="margin-top: 0px;font-size:24px;font-weight:bold;">
-                                                    <a href="<?php
-                                                                if ($item['post_type_id'] == 1) {
-                                                                    echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                } else if ($item['post_type_id'] == 2) {
-                                                                    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                }
-                                                                ?>"><?= $item['post_title'] ?></a>
-                                                </div>
+                                            <div class="col-12 feature-title text-thema-split-2">
+                                                <?=$item['post_title']?>
                                             </div>
-                                            <div class="col-12  text-thema-split-4" text-theme-1>
-                                                <div class="colot-theme-1" style="font-size:15px;">
-                                                    <?php echo strip_tags($item['post_contents']) ?>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-12 mt-10" style="font-size:15px;">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/' . $item['post_slug']; ?>">Read
+                                            <div class="col-12 ">
+                                                <a class="a-link-c" href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>">Read
                                                     Now</a>
                                             </div>
                                         </div>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                                <?php endforeach;?>
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                    </div>
+                    <div class="row unhide-m">
+                        <div class="col-lg-12 pl-0 pr-0">
                             <div class="stc-menu">
-                                <div class="row text-theme-2 pt-30 pb-30 cpl-0">
+                                <div class="row text-theme-2 pt-0 pb-10 cpl-0">
                                     <i><b>Popular in Foodbang</b></i>
                                     <div class="col pt-1">
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
-                                <?php foreach ($popular as $item) : ?>
-                                    <div class="row pb-20 cpl-0">
-                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
-                                        </div>
-                                        <div class="col-8 pl-0 pr-0">
-                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
-                                                    <?php $date = date_create($item['post_date']);
-                                                    echo date_format($date, "d M Y"); ?>
-                                                </span></div>
-                                            <div class="col-12  text-thema-split-2" style="height:45px;">
-                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;">
-                                                    <a href="<?php
-                                                                if ($item['post_type_id'] == 1) {
-                                                                    echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                } else if ($item['post_type_id'] == 2) {
-                                                                    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                }
-                                                                ?>"><?= $item['post_title'] ?></a>
-                                                </div>
+                                <?php foreach ($popular as $key => $item): ?>
+
+                                <?php if ($key == 2) {
+    break;
+}?>
+                                <div class="row pb-10 cpl-0">
+                                    <div class=" popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;width:85px;">
+                                    </div>
+                                    <div class=" pl-0 pr-0">
+                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
+                                                <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
+                                            </span></div>
+                                        <div class="col-12  text-thema-split-2" style="height:45px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>
-                                <?php endforeach ?>
+                                </div>
+                                <?php endforeach?>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row pb-30">
+                        <div class="col-lg-8 pm-16">
+                            <div class="container">
+                                <div class="row text-theme-2 pt-20 pb-10 pr-10 cpl-0 mpt-0">
+                                    <i><b>News Article</b></i>
+                                    <div class="col pt-1">
+                                        <hr class="hr-theme">
+                                    </div>
+                                </div>
+                                <?php foreach ($news_update as $item): ?>
+                                <div class="row pb-20">
+                                    <div class="col-md-5 news-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>">
+
+                                    </div>
+                                    <div class="col-md-7 rpm-rl">
+                                        <div class="col-12 colot-theme-1 pb-10 rpm-rl mp-date" style="font-size:12px;">
+                                            <span><?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?> | <?=min_of_read($item['post_title'], $item['post_contents'])?>
+                                                Min Read</span>
+                                        </div>
+                                        <div class="col-12  mb-10 text-thema-split-2 rpm-rl " style="max-height:65px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top: 0px;font-size:24px;font-weight:bold;">
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-12  text-thema-split-4 rpm-rl" text-theme-1>
+                                            <div class="colot-theme-1" style="font-size:15px;">
+                                                <?php echo strip_tags($item['post_contents']) ?>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-12 mt-10 rpm-rl rm-mt" style="font-size:15px;">
+                                            <a class="a-link-c "
+                                                href="<?php echo base_url() . 'news/detail/' . $item['post_slug']; ?>">Read
+                                                Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach?>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 hide-m">
+                            <div class="stc-menu">
+                                <div class="row text-theme-2 pt-20 pb-10 cpl-0">
+                                    <i><b>Popular in Foodbang</b></i>
+                                    <div class="col pt-1">
+                                        <hr class="hr-theme">
+                                    </div>
+                                </div>
+                                <?php foreach ($popular as $item): ?>
+                                <div class="row pb-20 cpl-0">
+                                    <div class="col-4 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                    </div>
+                                    <div class="col-8 pl-0 pr-0">
+                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
+                                                <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
+                                            </span></div>
+                                        <div class="col-12  text-thema-split-2" style="height:45px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach?>
                             </div>
 
 
@@ -263,7 +336,7 @@
 
             <section style="background-color:#FFF9EA;">
                 <div class="container">
-                    <div class="row text-theme-2 pt-30 pb-30 cpl-0">
+                    <div class="row text-theme-2 pt-20 pb-10 cpl-0">
                         <i><b>Promo</b></i>
                         <div class="col pt-1">
                             <hr class="hr-theme">
@@ -272,71 +345,123 @@
                     <div class="row cpl-0">
                         <div class="col-sm-12 p-0 ">
                             <div class="slider demo">
-                                <?php foreach ($promo_post as $item) : ?>
-                                    <div class="pr-10">
-                                        <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                            <div class="popular-b-image promo-barner" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+                                <?php foreach ($promo_post as $item): ?>
+                                <div class="pr-10">
+                                    <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                        <div class=" promo-barner"
+                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
 								    </div>
                                     </a>
                                 </div>
-                                <?php endforeach; ?>
-                                <?php foreach ($promo_post as $item) : ?>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
                                 <div class=" pr-10">
-                                                <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                    <div class="popular-b-image promo-barner" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+                                            <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                <div class=" promo-barner"
+                                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
 								    </div>
                                     </a>
                                 </div>
-                                <?php endforeach; ?>
-                                <?php foreach ($promo_post as $item) : ?>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
                                 <div class=" pr-10">
-                                                        <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                            <div class="popular-b-image promo-barner" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+                                                    <a
+                                                        href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                        <div class=" promo-barner"
+                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
 								    </div>
                                     </a>
                                 </div>
-                                <?php endforeach; ?>
-                                <?php foreach ($promo_post as $item) : ?>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
                                 <div class=" pr-10">
-                                                                <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                                    <div class="popular-b-image promo-barner" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+                                                            <a
+                                                                href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                                <div class=" promo-barner"
+                                                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
 								    </div>
                                     </a>
                                 </div>
-                                <?php endforeach; ?>
-                                <?php foreach ($promo_post as $item) : ?>
+                                <?php endforeach;?>
+                                <?php foreach ($promo_post as $item): ?>
                                 <div class=" pr-10">
-                                                                        <a href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
-                                                                            <div class="popular-b-image promo-barner" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
+                                                                    <a
+                                                                        href="<?php echo base_url() . 'promo?id_promo=' . $item['post_id']; ?>">
+                                                                        <div class=" promo-barner"
+                                                                            style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;"">
 								    </div>
                                     </a>
                                 </div>
-                                <?php endforeach; ?>
+                                <?php endforeach;?>
                             </div>
                         </div>
                     </div>
                 </div>
 			</section>
 
-			<section class=" pb-30 pt-30">
-                                                                                <div class=" container">
-                                                                                    <div class="d-flex justify-content-center">
-                                                                                        <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
-                                                                                            <div class="pr-10 text-theme-2 subcribe-text">
-                                                                                                <i><b>Subscribe
-                                                                                                        for
-                                                                                                        more updates!
-                                                                                                    </b></i>
-                                                                                            </div>
-                                                                                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email" placeholder="send your email" required></div>
-                                                                                            <div class="pr-10"><button type="submit" class="btn btn-primary mb-2" style="color: black;background-color: #F79D46;border-color: #F79D46;">Subscribe</button>
-                                                                                            </div>
-                                                                                        </form>
+			<section class=" pb-30 pt-30 hide-m">
+                                                                            <div
+                                                                                class=" container d-flex justify-content-center">
+                                                                                <form class="form-inline"
+                                                                                    action="<?php echo site_url('subscribe'); ?>"
+                                                                                    method="post">
+                                                                                    <div
+                                                                                        class="row d-flex justify-content-center">
+
+                                                                                        <div
+                                                                                            class="pr-10 text-theme-2 subcribe-text">
+                                                                                            <i><b>Subscribe
+                                                                                                    for
+                                                                                                    more updates!
+                                                                                                </b></i>
+                                                                                        </div>
+                                                                                        <div class="pr-10"><input
+                                                                                                class="form-control"
+                                                                                                style="width:30vw;"
+                                                                                                type="email"
+                                                                                                name="email"
+                                                                                                placeholder="send your email"
+                                                                                                required></div>
+                                                                                        <div class="pr-10 d-flex align-items-end"
+                                                                                            style="margin:0px;padding:0px;">
+                                                                                            <button type="submit"
+                                                                                                class="btn btn-primary"
+                                                                                                style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                                                                                        </div>
+
                                                                                     </div>
                                                                                     <div>
                                                                                         <?php echo $this->session->flashdata('message'); ?>
                                                                                     </div>
-                                                                                </div>
+                                                                                </form>
+                                                                            </div>
+            </section>
+
+            <section class=" pb-30 pt-30 unhide-m">
+                <div class=" container d-flex justify-content-center mb-30 mt-30">
+                    <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
+                        <div class="row d-flex justify-content-center">
+
+                            <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center"
+                                style="font-size:30px;">
+                                <i><b>Subscribe
+                                        for
+                                        more updates!
+                                    </b></i>
+                            </div>
+                            <div class="col-8 pr-10"><input class="form-control" type="email" name="email"
+                                    placeholder="send your email" required></div>
+                            <div class="col-4 pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
+                                <button type="submit" class="btn btn-primary"
+                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                            </div>
+
+                        </div>
+                        <div>
+                            <?php echo $this->session->flashdata('message'); ?>
+                        </div>
+                    </form>
+                </div>
             </section>
 
 
@@ -376,46 +501,45 @@
 
 
     <script>
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-            $('.demo').slick({
-                dots: true,
-                arrows: false,
+        $('.demo').slick({
+            dots: true,
+            arrows: false,
 
-                speed: 300,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
                     }
-                ]
-            });
-
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
         });
-    </script>
 
+    });
+    </script>
 
 
 </body>

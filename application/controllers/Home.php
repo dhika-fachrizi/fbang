@@ -65,6 +65,7 @@ class Home extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['slider'] = $this->slider_model->get_all_post();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;
