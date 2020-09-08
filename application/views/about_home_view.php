@@ -42,6 +42,18 @@
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
+    <style>
+    .mpt-20 {
+        padding-top: 20px;
+    }
+
+    @media only screen and (max-width: 768px) {
+
+        .mpt-20 {
+            padding-top: 0px;
+        }
+    }
+    </style>
 </head>
 
 <body class="content-animate">
@@ -122,11 +134,11 @@
 
             <section>
                 <div class="container pt-30">
-                    <div class="row pb-30">
-                        <div class="col-md-3 pl-0 text-theme-2" style="font-size:55px;">
+                    <div class="row pb-30 ">
+                        <div class="col-md-3 pm-16 text-theme-2 " style="font-size:55px;">
                             <b>About Us</b>
                         </div>
-                        <div class="col-md-9 pt-20">
+                        <div class="col-md-9 mpt-20">
                             <div class="row">
                                 <div class="col-sm-12" style="font-size:15px;"> Lorem ipsum dolor sit amet, consectetur
                                     adipiscing elit. Morbi
@@ -165,10 +177,10 @@
                         </div>
                     </div>
                     <div class="row pb-30">
-                        <div class="col-md-3 pl-0 text-theme-2" style="font-size:55px;">
+                        <div class="col-md-3 pm-16 text-theme-2 pb-0" style="font-size:55px;">
                             <b>The Team</b>
                         </div>
-                        <div class="col-md-9 pt-20">
+                        <div class="col-md-9 mpt-20">
 
                             <div class="row">
                                 <div class="col-sm-12">
@@ -263,10 +275,10 @@
             <section style="background-color:#FFF9EA;">
                 <div class="container pt-30 pb-30">
                     <div class="row">
-                        <div class="col-md-3 pl-0 text-theme-2" style="font-size:55px;">
+                        <div class="col-md-3 pm-16 text-theme-2" style="font-size:55px;">
                             <b>Contact Us</b>
                         </div>
-                        <div class="col-md-9 pt-20">
+                        <div class="col-md-9 mpt-20">
                             <div class="row">
                                 <div class="col-sm-12 text-theme-2 pb-20" style="font-size:25px;">
                                     <b>Foodbang HQ</b>
@@ -295,21 +307,56 @@
 
 
 
-            <section class=" pb-30 pt-30">
-                <div class=" container">
+            <section class=" pb-30 pt-30 hide-m">
+                <div class=" container d-flex justify-content-center">
+                    <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
+                        <div class="row d-flex justify-content-center">
 
-                    <div class="d-flex justify-content-center">
-                        <div class="pr-10 text-theme-2"><i><b>Subscribe for more
-                                    updates!</b> </i> </div>
-                        <div class="pr-10"><input class="form-control" type="text" placeholder="send your email"></div>
-                        <div class="pr-10"><button type="submit" class="btn btn-primary mb-2" style="
-												color: black;
-												background-color: #F79D46;
-												border-color: #F79D46;
-											">Subscribe
-                            </button></div>
+                            <div class="pr-10 text-theme-2 subcribe-text">
+                                <i><b>Subscribe
+                                        for
+                                        more updates!
+                                    </b></i>
+                            </div>
+                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email"
+                                    placeholder="send your email" required></div>
+                            <div class="pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
+                                <button type="submit" class="btn btn-primary"
+                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                            </div>
 
-                    </div>
+                        </div>
+                        <div>
+                            <?php echo $this->session->flashdata('message'); ?>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class=" pb-30 pt-30 unhide-m">
+                <div class=" container d-flex justify-content-center mb-30 mt-30">
+                    <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
+                        <div class="row d-flex justify-content-center">
+
+                            <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center"
+                                style="font-size:30px;">
+                                <i><b>Subscribe
+                                        for
+                                        more updates!
+                                    </b></i>
+                            </div>
+                            <div class="col-8 pr-10"><input class="form-control" type="email" name="email"
+                                    placeholder="send your email" required></div>
+                            <div class="col-4 pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
+                                <button type="submit" class="btn btn-primary"
+                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                            </div>
+
+                        </div>
+                        <div>
+                            <?php echo $this->session->flashdata('message'); ?>
+                        </div>
+                    </form>
                 </div>
             </section>
 

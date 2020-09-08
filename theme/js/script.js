@@ -1087,3 +1087,17 @@ function w_search_resize() {
 
 
 }
+
+function sidebarHeader(show) {
+	if (show == 'off') {
+		$('.box-side-menu').css('width', '0');
+		$('#box-side-menu').css('display', 'none');
+		$('#on-menu').css('display', 'unset');
+		$('#off-menu').css('display', 'none');
+	} else if (show == 'on') {
+		$('.box-side-menu').css('width', '100vw');
+		$('#box-side-menu').css('display', 'unset');
+		$('#on-menu').css('display', 'none');
+		$('#off-menu').css('display', 'unset');
+	}
+}
