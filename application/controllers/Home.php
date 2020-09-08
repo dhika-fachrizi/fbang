@@ -65,6 +65,7 @@ class Home extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['slider'] = $this->slider_model->get_all_post();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;
         $data['caption_2'] = $home->home_caption_2;
@@ -110,8 +111,9 @@ class Home extends CI_Controller
     public function search()
     {
         //$this->output->enable_profiler(TRUE);
+        $data['get_category'] = $this->input->get('category', true);
         $query = strip_tags(htmlspecialchars($this->input->get('search_query', true), ENT_QUOTES));
-        $result = $this->home_model->search_blog($query);
+        $result = $this->home_model->search_blog($query,$data['get_category']);
         $search_result = count($result);
         if ($search_result > 0) {
             $data['data'] = $result;
@@ -135,6 +137,7 @@ class Home extends CI_Controller
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
+        $data['type_category'] = $this->home_model->get_type_category();
         $data['category'] = $this->home_model->get_category();
         $home = $this->db->get('tbl_home', 1)->row();
         $data['caption_1'] = $home->home_caption_1;

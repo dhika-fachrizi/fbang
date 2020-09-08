@@ -59,7 +59,14 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
     <meta name="twitter:title" content="<?php echo $site_title; ?>" />
     <meta name="twitter:site" content="<?php echo $site_twitter; ?>" />
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
+    <style>
+    @media only screen and (max-width: 768px) {
 
+        .dn-img-exploler {
+            height: 300px;
+        }
+    }
+    </style>
     <!-- End SEO Tag. -->
 </head>
 
@@ -88,7 +95,7 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
             <!-- NEWS SECTION
 				================================================== -->
             <section>
-                <div class="container">
+                <div class="container hide-m">
                     <div class="row  cpl-0">
                         <div class="col-sm-12 pt-30 pb-30 pl-0 " style="font-size:12px;">
                             Home/<?=$detail['category_name']?>/<a href=""><u><?=$detail['post_title']?></u> </a>
@@ -109,7 +116,7 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
 echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                             <?=min_of_read($detail['post_title'], $detail['post_contents'])?> Mins read
                                         </div>
-                                        <div class="col-sm-5 d-flex justify-content-end pr-30">
+                                        <div class="col-sm-5 d-flex justify-content-md-end pr-30">
                                             <div class="SocialShareArticle" style="color: #fff;font-size: 10px;"></div>
                                         </div>
                                     </div>
@@ -120,7 +127,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                     <?=$detail['post_title']?>
                                 </div>
                             </div>
-                            <div class="row lbpr-30 ">
+                            <div class="row lbpr-30 pm-16">
 
                                 <div class="col-sm-12 pl-0 news-b-image m-0"
                                     style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%"
@@ -128,7 +135,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                 </div>
 
                                 <div class="col-sm-12 pl-0 pr-0 pt-30">
-                                    <img src="<?php echo base_url() . 'assets/images/' . $detail['post_image']; ?>."
+                                    <img src="<?php echo base_url() . 'assets/images/' . $detail['post_image']; ?>"
                                         class="img-fluid" alt="Responsive image" width="100%">
                                 </div>
 
@@ -138,13 +145,13 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                 </div>
                             </div>
 
-                            <div class="row lbpr-30 pt-20">
+                            <div class="row lbpr-30 pt-20 pm-16">
                                 <div class="col-sm-12 pl-0 text-thema-1" style="font-size:15px">
                                     <?=$detail['post_contents']?>
                                 </div>
                             </div>
 
-                            <div class="mt-30 lbpr-30 mb-30">
+                            <div class="mt-30 lbpr-30 mb-30 pm-16">
                                 <div class="row" style=" background-color:#FFF9EA;">
                                     <div class="col-3 pl-0 pr-0">
                                         <div class="col-12 pl-0 news-b-image m-0 "
@@ -200,7 +207,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                 </div>
                             </div>
 
-                            <div class="row mb-30">
+                            <div class="row mb-30 pm-16">
                                 <div class="col-12 pl-0">
                                     <?php $split_tag = explode(",", $detail['post_tags']);foreach ($split_tag as $tag): ?>
                                     <div class="float-left mr-10"
@@ -272,19 +279,19 @@ if ($item['post_type_id'] == 1) {
                     </div>
                     <div class="row cpl-0">
                         <?php foreach ($more_to_exploler as $item): ?>
-                        <div class="col-3 ">
+                        <div class="col-md-3">
                             <div class="row pr-10">
-                                <div class="col-12 image-exploler m-0"
+                                <div class="col-12 image-exploler m-0 dn-img-exploler"
                                     style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>');">
                                 </div>
-                                <div class="col-12 pl-0 text-theme-1 " style="font-size:15px;"><span><?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?>
-                                    </span>
+                                <div class="col-12 pl-0   colot-theme-1 pb-10 pt-10" style="font-size:12px;"><span><?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?> | <?=min_of_read($item['post_title'], $item['post_contents'])?>
+                                        Min Read</span>
                                 </div>
                                 <div class="col-12 pl-0 text-thema-split-2" style="height:50px;">
-                                    <div class="text-theme-1" style="margin-top:0px;font-size:15px;font-weight:bold;">
+                                    <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold;">
                                         <a
-                                            href="<?php echo base_url() . 'catlist/detail/' . $item['post_slug']; ?>"><?=$item['post_title']?></a>
+                                            href="<?php echo base_url() . 'news/detail/' . $item['post_slug']; ?>"><?=$item['post_title']?></a>
                                     </div>
                                 </div>
                             </div>

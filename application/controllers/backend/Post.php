@@ -323,6 +323,7 @@ class Post extends CI_Controller
                 $location = $this->input->post('location', true);
                 $halal = $this->input->post('halal', true);
                 $additional = $this->input->post('additional', true);
+                $sentemail = $this->input->post('sentemail');
 
                 //detail
                 $detail_id = uniqid('id');
@@ -358,7 +359,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social,$sentemail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -490,7 +491,7 @@ class Post extends CI_Controller
                 $location = $this->input->post('location', true);
                 $halal = $this->input->post('halal', true);
                 $additional = $this->input->post('additional', true);
-
+                $sentemail = $this->input->post('sentemail');
                 //detail
                 $detail_id = uniqid('id');
                 $umkm_name = $this->input->post('umkm_name', true);
@@ -525,7 +526,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_umkm_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social);
+                $this->post_model->save_umkm_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social, $sentemail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -575,7 +576,7 @@ class Post extends CI_Controller
                 $location = $this->input->post('location', true);
                 $halal = $this->input->post('halal', true);
                 $additional = $this->input->post('additional', true);
-
+                $sentemail = $this->input->post('sentemail');
                 //detail
                 $detail_id = uniqid('id');
                 $stfood_name = $this->input->post('stfood_name', true);
@@ -610,7 +611,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social);
+                $this->post_model->save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social,$sentemail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -660,7 +661,7 @@ class Post extends CI_Controller
                 $location = $this->input->post('location', true);
                 $halal = $this->input->post('halal', true);
                 $additional = $this->input->post('additional', true);
-
+                $sentemail = $this->input->post('sentemail');
                 //detail
                 $detail_id = uniqid('id');
                 $hltfood_name = $this->input->post('hltfood_name', true);
@@ -695,7 +696,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_hltfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social);
+                $this->post_model->save_hltfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social, $sentemail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {

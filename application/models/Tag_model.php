@@ -8,19 +8,16 @@ class Tag_model extends CI_Model
 		if ($category) {
 		$this->db->select('*');
         $this->db->from('tbl_post');
-		$this->db->from('tbl_post');
-		$this->db->like('post_tags', '%$tag%');
-        $this->db->where('post_category_id', $category);
-        
+		$this->db->like('post_tags', $tag);
         if (is_array($category)) {
-			$this->db->where_in('post_category_id', $category);
+			$this->db->where_in('post_type_id', $category);
 		}
+		$query = $this->db->get();
 		} else {
 			$query = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
 			LEFT JOIN tbl_user ON post_user_id=user_id
 			WHERE post_tags LIKE '%$tag%'");
 		}
-		
 		return $query;
 	}
 

@@ -86,7 +86,7 @@ class Post_model extends CI_Model
 
     }
 
-    public function save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social)
+    public function save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social, $sentemail)
     {
         $data = array(
             'post_title' => $title,
@@ -107,6 +107,7 @@ class Post_model extends CI_Model
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
             'post_detail_id ' => $detail_id,
+            'email_news_update' => $sentemail,
         );
 
         $detail = array(
@@ -123,7 +124,7 @@ class Post_model extends CI_Model
 
     }
 
-    public function save_umkm_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social)
+    public function save_umkm_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social, $sentemail)
     {
         $data = array(
             'post_title' => $title,
@@ -144,6 +145,7 @@ class Post_model extends CI_Model
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
             'post_detail_id ' => $detail_id,
+            'email_news_update' => $sentemail,
         );
 
         $detail = array(
@@ -160,7 +162,7 @@ class Post_model extends CI_Model
 
     }
 
-    public function save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social)
+    public function save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social, $sentemail)
     {
         $data = array(
             'post_title' => $title,
@@ -181,6 +183,7 @@ class Post_model extends CI_Model
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
             'post_detail_id ' => $detail_id,
+            'email_news_update' => $sentemail,
         );
 
         $detail = array(
@@ -197,7 +200,7 @@ class Post_model extends CI_Model
 
     }
 
-    public function save_hltfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social)
+    public function save_hltfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social, $sentemail)
     {
         $data = array(
             'post_title' => $title,
@@ -218,6 +221,7 @@ class Post_model extends CI_Model
             'post_status' => 1,
             'post_user_id' => $this->session->userdata('id'),
             'post_detail_id ' => $detail_id,
+            'email_news_update' => $sentemail,
         );
 
         $detail = array(

@@ -1,33 +1,23 @@
 			<nav class="main-nav position-sticky">
 			    <div class="container">
-			        <section class="pt-20">
-			            <div class="row rtt ">
-			                <div class="col-8">
-			                    <div class="row">
-			                        <div class="pl-10 pr-10 d-flex align-items-center">
-			                            <div class="unhide-m" style="width:25px;">
-			                                <i class="fas fa-bars on-menu" id="on-menu" style="font-size:20px;color:#bababa;"
-			                                    onclick="sidebarHeader('on')"></i>
-			                                <i class="fas fa-times off-menu" id="off-menu" style="font-size:20px;color:#bababa;"
-			                                    onclick="sidebarHeader('off')"></i>
-			                            </div>
-			                        </div>
-			                        <div class="header-logo-wrap">
-			                            <a href="<?php echo site_url(); ?>">
-			                                <img src="<?php echo base_url() . 'theme/images/' . $logo; ?>" width="145"
-			                                    height="40" alt="" />
-			                            </a>
-			                        </div>
+			        <section class="">
+			            <div class="row rtt">
+			                <div class="col-md-4 md-right-to-ceter d-flex c-justify-content-start">
+			                    <div class="header-logo-wrap">
+			                        <a href="<?php echo site_url(); ?>" class="logo">
+			                            <img src="<?php echo base_url() . 'theme/images/' . $logo; ?>" width="145" height="40"
+			                                alt="" />
+			                        </a>
 			                    </div>
-
 			                </div>
-			                <div class="col-4 d-flex justify-content-end">
+			                <div class="col-md-8 d-flex c-justify-content-end align-self-end md-left-to-ceter">
 
 			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
+
 			                        <li class="pl-0">
 			                            <form action="<?php echo base_url() . 'home/search'; ?>" method="get" id="form-search">
-			                                <div class="c-i-s m-max-width-100"> <input type="text" name="search_query"
+			                                <div class="c-i-s"> <input type="text" name="search_query"
 			                                        class="form-control form-control-sm h-search c-i-h" id="search_query"
 			                                        style="border-radius:20px;">
 			                                </div>
@@ -38,7 +28,7 @@
 			                        <li><a class="btn-search"><span><img
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>
-			                        <li class="hide-m">
+			                        <li>
 			                            <a class="rtt fz-15" href="<?php echo base_url() . 'home/about'; ?>">About Us</a>
 			                        </li>
 
@@ -54,7 +44,7 @@
 			    </div>
 			</nav>
 
-			<div class="hide-m">
+
 			<section class="menu-container pt-20">
 			    <div class="container">
 			        <div class="row menu-category font-header-m">
@@ -211,7 +201,6 @@
 
 
 			</section>
-			</div>
 			<section class="menu-container">
 
 			</section>

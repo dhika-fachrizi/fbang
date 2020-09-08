@@ -1,5 +1,5 @@
-<?php $dt_news = $news->result_array(); ?>
-<?php $dt_lasted_news = $lasted_news->result_array(); ?>
+<?php $dt_news = $news->result_array();?>
+<?php $dt_lasted_news = $lasted_news->result_array();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +42,18 @@
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
+    <style>
+    @media only screen and (max-width: 768px) {
+
+        .m-news-frist {
+            height: 300px
+        }
+
+    }
+    </style>
 </head>
 
-<body class="content-animate"  style="letter-spacing: 0px;word-spacing: -1px;">
+<body class="content-animate">
 
     <!-- PRELOADER
 		==================================================-->
@@ -69,7 +78,7 @@
             <!-- NEWS SECTION
 				================================================== -->
             <section>
-                <div class="container">
+                <div class="container hide-m">
                     <div class="row cpl-0">
                         <div class="col-sm-12 pt-30 pb-30 pl-0" style="font-size:12px;">
                             Home/News/ <a href=""><u>Daily News</u> </a>
@@ -83,37 +92,42 @@
                         <div class="col-lg-8">
                             <div class="row lbpr-30" hidden>
 
-                                <div class="col-sm-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
+                                <div class="col-sm-12 pl-0 news-b-image m-0 "
+                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
                                 </div>
                             </div>
-                            <div class="row text-theme-2 pt-30 pb-30 lbpr-30 cpl-0">
+                            <div class="row text-theme-2  pb-30 lbpr-30 cpl-0">
                                 <i><b>News Article</b></i>
                                 <div class="col pt-1">
                                     <hr class="hr-theme">
                                 </div>
                             </div>
 
-                            <div class="row pb-20 lbpr-30">
-                                <div class="col-sm-12 feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $dt_lasted_news[0]['post_image']; ?>') ;">
-                                    <div class="row d-flex align-items-end img-nc img-c-content" style="height:500px;width:100%">
+                            <div class="row pb-20 lbpr-30 pm-16">
+                                <div class="col-sm-12 feature-b-image img-c-p"
+                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $dt_lasted_news[0]['post_image']; ?>') ;">
+                                    <div class="row d-flex align-items-end img-nc img-c-content m-news-frist"
+                                        style="width:100%">
                                         <div class="col-sm-12 mb-30">
                                             <div class=" col-sm-12 feature-date pb-10 ">
                                                 <div style="font-size:12px;color:white; font-weight:100">
                                                     <?php $date = date_create($dt_lasted_news[0]['post_date']);
-                                                    echo date_format($date, "d M Y"); ?>
+echo date_format($date, "d M Y");?>
                                                 </div>
 
                                             </div>
                                             <div class="col-sm-12 feature-title pb-0">
-                                                <?= $dt_lasted_news[0]['post_title'] ?>
+                                                <?=$dt_lasted_news[0]['post_title']?>
                                             </div>
                                             <div class="col-sm-12  text-thema-split-3 pt-10" style="height:80px;">
-                                                <div class="" style="margin-top: 0px;font-size:15px;color:white; font-weight:100">
+                                                <div class=""
+                                                    style="margin-top: 0px;font-size:15px;color:white; font-weight:100">
                                                     <?php echo strip_tags($dt_lasted_news[0]['post_contents']) ?>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12 pt-20">
-                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/' . $dt_lasted_news[0]['post_slug']; ?>">Read
+                                                <a class="a-link-c"
+                                                    href="<?php echo base_url() . 'news/detail/' . $dt_lasted_news[0]['post_slug']; ?>">Read
                                                     Now</a>
 
                                             </div>
@@ -122,80 +136,74 @@
                                 </div>
                             </div>
 
-                            <?php for ($i = 0; $i < count($dt_news); $i++) : ?>
-                                <div class="row pb-20 cpl-0">
+                            <?php for ($i = 0; $i < count($dt_news); $i++): ?>
+                            <div class="row pb-20 pm-16">
 
-                                    <div class="col-5 news-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $dt_news[$i]['post_image']; ?>') ;">
-
-                                    </div>
-
-                                    <div class="col-7">
-                                        <div class="col-12 colot-theme-1 pb-10" style="font-size:12px;"><span><?php $date = date_create($dt_news[$i]['post_date']);
-                                                                                                                echo date_format($date, "d M Y"); ?> | <?= min_of_read($dt_news[$i]['post_title'], $dt_news[$i]['post_contents']) ?>
-                                                Min Read</span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:86px;">
-                                            <div class="text-theme-1" style="margin-top: 0px;font-size:24px;font-weight:bold;word-spacing: -3px;">
-                                                <?= $dt_news[$i]['post_title'] ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-12  text-thema-split-4 " text-theme-1>
-                                            <div class="colot-theme-1" style="font-size:15px;">
-                                                <?php echo strip_tags($dt_news[$i]['post_contents']) ?>
-                                            </div>
-
-                                        </div>
-                                        <div class="col-12 mt-10" style="font-size:15px;">
-                                            <a class="a-link-c" href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>">Read
-                                                Now</a>
-                                        </div>
-                                    </div>
+                                <div class="col-md-5 news-b-image m-0"
+                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $dt_news[$i]['post_image']; ?>') ;">
 
                                 </div>
-                            <?php endfor; ?>
-                            <div class="row pt-60 pb-20 cpl-0 d-flex justify-content-center">
-                                <!-- <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-center">
-                                        <li class="page-item pr-10">
-                                            <a class="page-link" href="#" tabindex="-1">&lt;</a>
-                                        </li>
-                                        <li class="page-item pr-10"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item pr-10"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item pr-10"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item pr-10">
-                                            <a class="page-link" href="#">&gt;</a>
-                                        </li>
-                                    </ul>
-                                </nav> -->
 
-
-
-                                <?= $this->pagination->create_links(); ?>
-                                <div class="row pl-80 d-flex align-items-end pb-20">
-                                    <div class="colot-theme-1" style="font-size:12px;">Show</div>
-                                    <div class="pl-10">
-                                        <form method="post">
-                                            <select name="limit" id="" onchange="submit()" style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
-                                                <?php foreach ([4, 5, 6, 7, 8, 9, 10] as $item) : ?>
-                                                    <?php if ($item == $limit) : ?>
-                                                        <option value="<?php echo $item ?>" selected><?php echo $item ?>
-                                                        </option>
-                                                    <?php else : ?>
-                                                        <option value="<?php echo $item ?>"><?php echo $item ?></option>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </form>
+                                <div class="col-md-7 rpm-rl">
+                                    <div class="col-12 colot-theme-1 mb-10 rpm-rl mp-date" style="font-size:12px;">
+                                        <span><?php $date = date_create($dt_news[$i]['post_date']);
+echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'], $dt_news[$i]['post_contents'])?>
+                                            Min Read</span>
                                     </div>
-                                    <div class=" colot-theme-1 pl-10" style="font-size:12px;"> items per page</div>
+                                    <div class="col-12  text-thema-split-2 pb-10 rpm-rl" style="max-height:96px;">
+                                        <div class="text-theme-1"
+                                            style="margin-top: 0px;font-size:24px;font-weight:bold;word-spacing: -3px;">
+                                            <?=$dt_news[$i]['post_title']?>
+                                        </div>
+                                    </div>
+                                    <div class="col-12  text-thema-split-4 rpm-rl" text-theme-1>
+                                        <div class="colot-theme-1" style="font-size:15px;">
+                                            <?php echo strip_tags($dt_news[$i]['post_contents']) ?>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-12 mt-10 rpm-rl" style="font-size:15px;">
+                                        <a class="a-link-c"
+                                            href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>">Read
+                                            Now</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <?php endfor;?>
+                            <div class="row pt-60 pb-20 cpl-0 d-flex justify-content-center">
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <?=$this->pagination->create_links();?>
+                                </div>
+                                <div class="col-md-6 d-flex justify-content-center">
+                                    <div class="row d-flex align-items-end pb-20">
+                                        <div class="colot-theme-1" style="font-size:12px;">Show</div>
+                                        <div class="pl-10">
+                                            <form method="post">
+                                                <select name="limit" id="" onchange="submit()"
+                                                    style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
+                                                    <?php foreach ([4, 5, 6, 7, 8, 9, 10] as $item): ?>
+                                                    <?php if ($item == $limit): ?>
+                                                    <option value="<?php echo $item ?>" selected><?php echo $item ?>
+                                                    </option>
+                                                    <?php else: ?>
+                                                    <option value="<?php echo $item ?>"><?php echo $item ?></option>
+                                                    <?php endif;?>
+                                                    <?php endforeach;?>
+                                                </select>
+                                            </form>
+                                        </div>
+                                        <div class=" colot-theme-1 pl-10" style="font-size:12px;"> items per page</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 pb-140">
-
+                        <div class="col-lg-4 pb-140 hide-m">
                             <div class="stc-menu">
                                 <div class="row">
 
-                                    <div class="col-sm-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
+                                    <div class="col-sm-12 pl-0 news-b-image m-0 "
+                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
                                     </div>
 
                                 </div>
@@ -205,32 +213,79 @@
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
-                                <?php foreach ($popular as $item) : ?>
-                                    <div class="row pb-20 cpl-0">
-                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                <?php foreach ($popular as $item): ?>
+                                <div class="row pb-20 cpl-0">
+                                    <div class="col-4 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                    </div>
+                                    <div class="col-8 pl-0 pr-0">
+                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;">
+                                            <span><?php $date = date_create($item['post_date']);?>
+                                            </span>
                                         </div>
-                                        <div class="col-8 pl-0 pr-0">
-                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;">
-                                                <span><?php $date = date_create($item['post_date']); ?>
-                                                </span>
-                                            </div>
-                                            <div class="col-12  text-thema-split-2" style="height:43px;">
-                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
-                                                    <a href="<?php
-                                                                if ($item['post_type_id'] == 1) {
-                                                                    echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                } else if ($item['post_type_id'] == 2) {
-                                                                    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                }
-                                                                ?>"><?= $item['post_title'] ?></a>
-                                                </div>
+                                        <div class="col-12  text-thema-split-2" style="height:43px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>
-                                <?php endforeach; ?>
+                                </div>
+                                <?php endforeach;?>
                             </div>
+                        </div>
 
+                        <div class="col-lg-4 pb-30 unhide-m">
+                            <div class="row">
 
+                                <div class="col-sm-12 pl-0 news-b-image m-0 "
+                                    style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
+                                </div>
+
+                            </div>
+                            <div class="stc-menu">
+                                <div class="row text-theme-2 pt-30 pb-30 cpl-0">
+                                    <i><b>Popular in Foodbang</b></i>
+                                    <div class="col pt-1">
+                                        <hr class="hr-theme">
+                                    </div>
+                                </div>
+                                <?php foreach ($popular as $key => $item): ?>
+
+                                <?php if ($key == 2) {
+    break;
+}?>
+                                <div class="row pb-10 cpl-0">
+                                    <div class=" popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;width:85px;">
+                                    </div>
+                                    <div class=" pl-0 pr-0">
+                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
+                                                <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
+                                            </span></div>
+                                        <div class="col-12  text-thema-split-2" style="height:45px;">
+                                            <div class="text-theme-1"
+                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
+                                                <a href="<?php
+if ($item['post_type_id'] == 1) {
+    echo base_url() . 'news/detail/' . $item['post_slug'];
+} else if ($item['post_type_id'] == 2) {
+    echo base_url() . 'catlist/detail/' . $item['post_slug'];
+}
+?>"><?=$item['post_title']?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach?>
+                            </div>
                         </div>
                     </div>
 

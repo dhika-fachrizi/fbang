@@ -474,6 +474,12 @@ if ($query->num_rows() > 0):
                                         <label>Phone</label>
                                         <input type="Phone" name="hltfood_phone" class="form-control" placeholder="" value="02113456789" required>
                                     </div>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" name="sentemail" value="1">
+                                        <label class="form-check-label" for="exampleCheck1">Sent Email</label>
+                                    </div>
+                                    <p></p>
                                     <div class="btn-group btn-group-justified" role="group">
                                         <button type="submit" class="btn btn-primary btn-lg" style="width:100%"><span class="icon-cursor"></span> PUBLISH</button>
                                     </div>

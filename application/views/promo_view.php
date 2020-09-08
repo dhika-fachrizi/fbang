@@ -39,6 +39,65 @@
     <meta name="twitter:site" content="<?php echo $site_twitter; ?>" />
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
+    <style>
+    .city-input-promo {
+        width: 167px;
+        padding-right: 10px;
+    }
+
+    .h-img-promo-modal {
+        height: 368px;
+    }
+
+
+    .padding-promo-modal-info {
+
+        padding-left: 0px;
+    }
+
+
+    @media only screen and (max-width: 768px) {
+        .city-input-promo {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 25px;
+            padding-top: 25px;
+            padding-bottom: 15px;
+
+        }
+
+        .short-input-promo {
+            padding-right: 15px;
+            padding-left: 25px;
+
+            padding-bottom: 15px;
+            width: 100%;
+        }
+
+        .padding-promo {
+            padding-right: 15px;
+            padding-left: 25px;
+        }
+
+        .promo-modal {
+            padding-right: 0px !important;
+        }
+
+        .promo-submit {
+            padding-top: 15px;
+        }
+
+        .h-img-promo-modal {
+            height: 231px;
+        }
+
+        .padding-promo-modal-info {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+    }
+    </style>
     <!-- End SEO Tag. -->
 </head>
 
@@ -67,7 +126,7 @@
             <!-- RESTAURANT AND CAFE SECTION
 				================================================== -->
             <section>
-                <div class="container">
+                <div class="container hide-m">
                     <div class="row">
                         <div class="col-sm-12 pt-30 pb-30 pl-0 top-nav-menu">
                             Home/<a href=""><u>Promo</u> </a>
@@ -86,12 +145,14 @@
                                 <div class="row">
                                     <div class="col-sm-12 pl-0">
                                         <div class="row">
-                                            <div class="col-4 t-5-b text-theme-2 fz-25"><i>Diskon Yang Bakal Loe Suka
+                                            <div class="col-md-4 t-5-b text-theme-2 fz-25 padding-promo"><i>Diskon Yang
+                                                    Bakal Loe
+                                                    Suka
                                                     !</i>
                                             </div>
-                                            <div class="col-8">
+                                            <div class="col-md-8">
                                                 <div class="row d-flex justify-content-end">
-                                                    <div class="pr-10 pt-0">
+                                                    <div class="pr-10 pt-0 hide-m">
                                                         <div class="" style="width:0px;" id="c-search"> <input
                                                                 type="text" value="<?php echo $get_search ?>"
                                                                 id="c-search-input" name="search"
@@ -99,10 +160,11 @@
                                                                 style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px ;padding:0px;">
                                                         </div>
                                                     </div>
-                                                    <div class="pr-20 pt-10" onclick="submitme()" id="i-search" pop="0">
+                                                    <div class="pr-20 pt-10 hide-m" onclick="submitme()" id="i-search"
+                                                        pop="0">
                                                         <i class="fas fa-search"></i>
                                                     </div>
-                                                    <div class="pr-10" style="width:167px">
+                                                    <div class="city-input-promo">
                                                         <select class="form-control form-control-sm" onchange="submit()"
                                                             name="city"
                                                             style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px;text-transform: capitalize;">
@@ -114,8 +176,8 @@
                                                             <?php endforeach;?>
                                                         </select>
                                                     </div>
-                                                    <div>
-                                                        <select class="form-control form-control-sm" name="short"
+                                                    <div class="short-input-promo">
+                                                        <select class="form-control form-control-sm " name="short"
                                                             style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px"
                                                             onchange="submit()">
                                                             <option value="" disable>Urutkan Berdasarkan</option>
@@ -136,7 +198,7 @@
                                         <div class="row mt-10">
                                             <?php if (count($promo) > 0): ?>
                                             <?php foreach ($promo as $item): ?>
-                                            <div class="col-md-4 pb-20">
+                                            <div class="col-md-4 pb-20 hide-m">
                                                 <div class="row pl-10">
                                                     <div class="col-sm-12">
                                                         <div class="row"
@@ -218,6 +280,83 @@
 
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12 unhide-m pb-10 ">
+                                                <div class="row pb-20 pm-16 pb-0 padding-promo">
+                                                    <div class="col-4 news-b-image m-0"
+                                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>');height:150px;">
+                                                    </div>
+                                                    <div class="col-8 pl-0">
+                                                        <div class="col-12 pl-10 text-thema-split-2 "
+                                                            style="height:33px;">
+                                                            <div class="text-theme-1"
+                                                                style="margin-top: 0px;font-size:15px;font-weight:bold;">
+                                                                <a href=""><?=$item->post_title?></a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 mtc-5 ">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="row  pl-10">
+                                                                        <div class="pr-10 ">
+                                                                            <i class="fas fa-home c-t-1"
+                                                                                style="font-size:12px;width:10px">
+                                                                            </i>
+                                                                        </div>
+                                                                        <div class="color-theme-1 f-t-12">
+                                                                            <?=$item->detail_promo_name;?>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row  pl-10">
+                                                                        <div class="pr-10 ">
+                                                                            <i class="fas fas fa-map-marker c-t-1"
+                                                                                style="font-size:12px;width:10px">
+                                                                            </i>
+                                                                        </div>
+                                                                        <div class="color-theme-1 f-t-12"
+                                                                            style="text-transform: capitalize;">
+                                                                            <?=strtolower($item->city_name)?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="row  pl-10">
+                                                                        <div class="pr-10 ">
+                                                                            <i class="fas fa-clock c-t-1"
+                                                                                style="font-size:12px;width:10px">
+                                                                            </i>
+                                                                        </div>
+                                                                        <div class="color-theme-1 f-t-12">
+                                                                            <?=$item->detail_promo_time;?>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pl-10  promo-submit">
+                                                            <div class="col-sm-12 d-flex align-items-center d-flex justify-content-center btn"
+                                                                id="post-<?=$item->post_id;?>" data-toggle="modal"
+                                                                onclick="goModal(this)"
+                                                                data-title="<?=$item->post_title;?>"
+                                                                data-time="<?=$item->detail_promo_time;?>"
+                                                                data-short-desc="<?=$item->detail_promo_short_desc;?>"
+                                                                data-address="<?=$item->detail_promo_address;?>"
+                                                                data-name="<?=$item->detail_promo_name;?>"
+                                                                data-content='<?=$item->post_contents;?>'
+                                                                data-city='<?=strtolower($item->city_name);?>'
+                                                                data-img="<?php echo base_url() . 'assets/images/' . $item->post_image; ?>"
+                                                                style=" background-color:
+                                                            #F79D46;height:30px;border-radius:0px;">
+
+                                                                <div class="">
+                                                                    CHECK PROMO
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <?php endforeach;?>
                                             <?php else: ?>
                                             <div class="col-md-12">
@@ -274,13 +413,13 @@
 
                 <div class="modal-body" style="padding:30px;">
                     <div class="row">
-                        <div class="col-7">
-                            <div class="col-12 news-b-image m-0 img-promo-modal data-img"
-                                style="height:368px; width:100%;">
+                        <div class="col-md-7">
+                            <div class="col-12 news-b-image m-0 img-promo-modal data-img h-img-promo-modal"
+                                style=" width:100%;">
 
                             </div>
                         </div>
-                        <div class="col-5 pl-0">
+                        <div class="col-md-5  padding-promo-modal-info">
                             <div class="container" style="border:1px #DDDDDD solid;border-radius:1px;height:100%">
                                 <div class="row">
                                     <div class="col-12 text-theme-2 f-promo-title">
