@@ -153,7 +153,7 @@
                                         <?php $date = date_create($slot1['post_date']);
 echo date_format($date, "d M Y");?>
                                     </div>
-                                    <div class="col-12 feature-title">
+                                    <div class="col-12 feature-title text-thema-split-2">
                                         <?=$slot1['post_title']?>
                                     </div>
                                     <div class="col-12 ">

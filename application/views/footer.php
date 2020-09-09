@@ -64,7 +64,7 @@
 				                            aria-expanded="true" aria-controls="collapseOne">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
-				                                    <div class="col-6">
+				                                    <div class="col-8">
 				                                        <div class="row">
 				                                            <div class="w-30">
 				                                                <img src="<?php echo base_url() . 'assets/images/header/Group 13.svg'; ?>"
@@ -75,7 +75,7 @@
 				                                            </div>
 				                                        </div>
 				                                    </div>
-				                                    <div class="col-6 d-flex justify-content-end">
+				                                    <div class="col-4 d-flex justify-content-end">
 				                                        <i class="fas fa-angle-down" style="font-size:23px;"></i>
 				                                    </div>
 				                                </div>
@@ -85,7 +85,7 @@
 				                        </div>
 				                    </div>
 				                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'news'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Daily News</center>
 				                            </div>
@@ -104,7 +104,7 @@
 				                            aria-expanded="true" aria-controls="collapseTwo">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
-				                                    <div class="col-6">
+				                                    <div class="col-8">
 				                                        <div class="row">
 				                                            <div class="w-30">
 				                                                <img src="<?php echo base_url() . 'assets/images/header/Group 8.svg'; ?>"
@@ -115,7 +115,7 @@
 				                                            </div>
 				                                        </div>
 				                                    </div>
-				                                    <div class="col-6 d-flex justify-content-end">
+				                                    <div class="col-4 d-flex justify-content-end">
 				                                        <i class="fas fa-angle-down" style="font-size:23px;"></i>
 				                                    </div>
 				                                </div>
@@ -125,22 +125,22 @@
 				                        </div>
 				                    </div>
 				                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'catlist/home/restaurant'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Restaurant</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'catlist/home/cafe'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Cafe</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'catlist/home/coffe-shop'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Coffe Shop</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'catlist/home/nightlife'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Nightlife</center>
 				                            </div>
@@ -153,7 +153,7 @@
 				                            aria-expanded="true" aria-controls="collapseThree">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
-				                                    <div class="col-6">
+				                                    <div class="col-8">
 				                                        <div class="row">
 				                                            <div class="w-30">
 				                                                <img src="<?php echo base_url() . 'assets/images/header/Group 15.svg'; ?>"
@@ -164,7 +164,7 @@
 				                                            </div>
 				                                        </div>
 				                                    </div>
-				                                    <div class="col-6 d-flex justify-content-end">
+				                                    <div class="col-4 d-flex justify-content-end">
 				                                        <i class="fas fa-angle-down" style="font-size:23px;"></i>
 				                                    </div>
 				                                </div>
@@ -172,17 +172,17 @@
 				                        </div>
 				                    </div>
 				                    <div id="collapseThree" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'umkm/home/homefood'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Homefood</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'umkm/home/frozen-food'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Frozen Food</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'umkm/home/snack-oleh-oleh'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Snack / Oleh-oleh</center>
 				                            </div>
@@ -196,7 +196,7 @@
 				                            aria-expanded="true" aria-controls="collapseFour">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
-				                                    <div class="col-6">
+				                                    <div class="col-8">
 				                                        <div class="row">
 				                                            <div class="w-30">
 				                                                <img src="<?php echo base_url() . 'assets/images/header/Group 16.svg'; ?>"
@@ -207,7 +207,7 @@
 				                                            </div>
 				                                        </div>
 				                                    </div>
-				                                    <div class="col-6 d-flex justify-content-end">
+				                                    <div class="col-4 d-flex justify-content-end">
 				                                        <i class="fas fa-angle-down" style="font-size:23px;"></i>
 				                                    </div>
 				                                </div>
@@ -215,17 +215,17 @@
 				                        </div>
 				                    </div>
 				                    <div id="collapseFour" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'stfood/home/makan-kenyang'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Makanan Kenyang</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'stfood/home/makan-ringan'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Makanan Ringan</center>
 				                            </div>
 				                        </a>
-				                        <a href="">
+				                        <a href="<?php echo base_url() . 'stfood/home/snacks-drinks'; ?>">
 				                            <div class="box-side-submenu">
 				                                <center>Sweet & Drink</center>
 				                            </div>
@@ -235,11 +235,12 @@
 				                </div>
 				                <div class="card">
 				                    <div class="" id="headingFive">
-				                        <a class="mb-0 mt-0 c-p" data-toggle="collapse" data-target="#collapseFive"
-				                            aria-expanded="true" aria-controls="collapseFive">
+				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'hltfood/home/healthy-food'; ?>"
+				                            data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
+				                            aria-controls="collapseFive">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
-				                                    <div class="col-6">
+				                                    <div class="col-8">
 				                                        <div class="row">
 				                                            <div class="w-30">
 				                                                <img src="<?php echo base_url() . 'assets/images/header/Group 18.svg'; ?>"
@@ -260,11 +261,11 @@
 				                </div>
 				                <div class="card">
 				                    <div class="" id="headingSix">
-				                        <a class="mb-0 mt-0 c-p" data-toggle="collapse" data-target="#collapseSix"
-				                            aria-expanded="true" aria-controls="collapseSix">
+				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'promo'; ?>" data-toggle="collapse"
+				                            data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
-				                                    <div class="col-6">
+				                                    <div class="col-8">
 				                                        <div class="row">
 				                                            <div class="w-30">
 				                                                <img src="<?php echo base_url() . 'assets/images/header/Group 21.svg'; ?>"
@@ -272,6 +273,28 @@
 				                                            </div>
 				                                            <div class="title-m-sidebar pl-20">
 				                                                Promo
+				                                            </div>
+				                                        </div>
+				                                    </div>
+				                                    <!-- <div class="col-6 d-flex justify-content-end">
+                                                <i class="fas fa-angle-down" style="font-size:23px;"></i>
+                                            </div> -->
+				                                </div>
+				                            </div>
+				                        </a>
+				                    </div>
+				                </div>
+				                <div class="">
+				                    <div class="" id="headingSeven">
+				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'home/about'; ?>"
+				                            data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true"
+				                            aria-controls="collapseSeven">
+				                            <div class="container">
+				                                <div class="row pb-10 pt-10 pl-20 pr-20">
+				                                    <div class="col-8">
+				                                        <div class="row">
+				                                            <div class="title-m-sidebar pl-0">
+				                                                About Us
 				                                            </div>
 				                                        </div>
 				                                    </div>

@@ -1088,6 +1088,29 @@ function w_search_resize() {
 
 }
 
+function w_search_resize_m() {
+	var search_input = $("#search_query_m").val();
+	if ($('#img-s-h-m').attr("pop") == 1) {
+
+		if (search_input != "" && search_input != undefined) {
+			$("#form-search-m").submit();
+		} else {
+			$('.container-shearch-m').css({
+				"display": "none"
+			});
+			$('#img-s-h-m').attr("pop", 0)
+		}
+
+	} else {
+		$('.container-shearch-m').css({
+			"display": "unset"
+		});
+		$('#img-s-h-m').attr("pop", 1)
+	}
+
+
+}
+
 function sidebarHeader(show) {
 	if (show == 'off') {
 		$('.box-side-menu').css('width', '0');

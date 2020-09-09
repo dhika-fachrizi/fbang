@@ -2,7 +2,7 @@
 			    <div class="container">
 			        <section class="pt-20">
 			            <div class="row rtt ">
-			                <div class="col-8">
+			                <div class="col-6">
 			                    <div class="row">
 			                        <div class="pl-10 pr-10 d-flex align-items-center">
 			                            <div class="unhide-m" style="width:25px;">
@@ -21,7 +21,7 @@
 			                    </div>
 
 			                </div>
-			                <div class="col-4 d-flex justify-content-end">
+			                <div class="col-6 d-flex justify-content-end">
 
 			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
@@ -33,8 +33,12 @@
 			                                </div>
 			                            </form>
 			                        </li>
-			                        <li><img src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
+			                        <li class="hide-m"><img
+			                                src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
 			                                height="15" onclick="w_search_resize()" id="img-s-h" pop="0" /></li>
+			                        <li class="unhide-m"><img
+			                                src="<?php echo base_url() . 'assets/images/header/Icon ioniciossearch.svg'; ?>"
+			                                height="15" onclick="w_search_resize_m()" id="img-s-h-m" pop="0" /></li>
 			                        <li><a class="btn-search"><span><img
 			                                        src="<?php echo base_url() . 'assets/images/header/Icon feather-phone-call.svg'; ?>"
 			                                        height="15" /></span></a></li>
@@ -46,6 +50,14 @@
 
 			                    <!-- End Main Menu -->
 			                </div>
+			                <div class="col-12 pb-10 container-shearch-m">
+			                    <form action="<?php echo base_url() . 'home/search'; ?>" method="get" id="form-search-m">
+			                        <div class=""> <input type="text" name="search_query_m" class="form-control form-control-sm "
+			                                placeholder="Search" id="search_query_m"
+			                                style="border:0px; outline:0px; border-bottom:1px #ccc solid; border-radius:0px">
+			                        </div>
+			                    </form>
+			                </div>
 			            </div>
 			        </section>
 
@@ -55,7 +67,7 @@
 			</nav>
 
 
-			<section class="menu-container pt-20">
+			<section class="menu-container pt-20 hide-m">
 			    <div class="container">
 			        <div class="row menu-category font-header-m">
 			            <div class="col-2 first c-p unpedding-m">
