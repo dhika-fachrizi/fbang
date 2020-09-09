@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Subscribe extends CI_Controller
 {
 	function __construct()
@@ -10,6 +13,9 @@ class Subscribe extends CI_Controller
 		$this->load->model('Subscribe_model', 'subscribe_model');
 		$this->visitor_model->count_visitor();
 		$this->load->helper('text');
+		require APPPATH . 'libraries/phpmailer/src/Exception.php';
+		require APPPATH . 'libraries/phpmailer/src/PHPMailer.php';
+		require APPPATH . 'libraries/phpmailer/src/SMTP.php';
 	}
 
 	function index()
@@ -21,31 +27,47 @@ class Subscribe extends CI_Controller
 			$this->session->set_flashdata('message', '<div class="alert alert-danger">Mohon masukkan input yang Valid!</div>');
 			redirect($url);
 		} else {
-			$email = $this->input->post('email', TRUE);
-			$checking_email = $this->subscribe_model->checking_email($email);
+			$emailto = $this->input->post('email', TRUE);
+			$checking_email = $this->subscribe_model->checking_email($emailto);
 			if ($checking_email->num_rows() > 0) {
 				$this->session->set_flashdata('message', '<div class="alert alert-info">Anda telah berlangganan.</div>');
 				redirect($url);
 			} else {
-				$message = $this->load->view('email/welcome','', true);
-				$config['mailtype'] = 'html';
-				$config['protocol'] = 'smtp';
-				$config['smtp_host'] = 'mail.foodbang.co.id';
-				$config['smtp_user'] = 'muslimin@foodbang.co.id';
-				$config['smtp_pass'] = 'Superm@n123';
-				$config['smtp_port'] = 587;
-				$config['newline'] = "\r\n";
-				$this->load->library('email', $config);
-				$this->email->from('muslimin@foodbang.co.id');
-				$this->email->to($email);
-				$this->email->subject('Welcome to Foodbang');
-				$this->email->message($message);
-				if ($this->email->send()) {
-					$this->subscribe_model->save_subcribe($email);
+				$message = $this->load->view('email/welcome', '', true);
+				$mail = new PHPMailer();
+
+
+				// SMTP configuration
+				$mail->isSMTP();
+				$mail->Host     = 'mail.foodbang.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
+				$mail->SMTPAuth = true;
+				$mail->Username = 'muslimin@foodbang.co.id'; // user email
+				$mail->Password = 'Superm@n123'; // password email
+				$mail->SMTPSecure = 'ssl';
+				$mail->Port     = 465;
+
+				$mail->setFrom('muslimin@foodbang.co.id', ''); // user email
+				// $mail->addReplyTo('xxx@hostdomain.com', ''); //user email
+
+				// Add a recipient
+				$mail->addAddress($emailto); //email tujuan pengiriman email
+
+				// Email subject
+				$mail->Subject = 'SMTP Codeigniter'; //subject email
+
+				// Set email format to HTML
+				$mail->isHTML(true);
+
+				// Email body content
+				$mailContent = $message; // isi email
+				$mail->Body = $mailContent;
+				if(!$mail->send()){
+					echo 'Message could not be sent.';
+					echo 'Mailer Error: ' . $mail->ErrorInfo;
+				}else {
+					$this->subscribe_model->save_subcribe($emailto);
 					$this->session->set_flashdata('message', '<div class="alert alert-info">Terima kasih telah berlangganan.</div>');
 					redirect($url);
-				} else {
-					var_dump($this->email->print_debugger());
 				}
 			}
 		}
