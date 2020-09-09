@@ -52,6 +52,9 @@
             width: 60%
         } */
 
+        .prm-30 {
+            padding-right: 30px;
+        }
 
 
     }
@@ -214,11 +217,11 @@ if ($item['post_type_id'] == 1) {
                                 <?php if ($key == 2) {
     break;
 }?>
-                                <div class="row pb-10 cpl-0">
-                                    <div class=" popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;width:85px;">
+                                <div class="row pb-20 cpl-0">
+                                    <div class="col-3 popular-b-image m-0"
+                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
                                     </div>
-                                    <div class=" pl-0 pr-0">
+                                    <div class="col-9 pl-0 pr-0">
                                         <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
                                                 <?php $date = date_create($item['post_date']);
 echo date_format($date, "d M Y");?>
@@ -334,7 +337,7 @@ if ($item['post_type_id'] == 1) {
                 </div>
             </section>
 
-            <section style="background-color:#FFF9EA;">
+            <section style="background-color:#FFF9EA;overflow:hidden;">
                 <div class="container">
                     <div class="row text-theme-2 pt-20 pb-10 cpl-0">
                         <i><b>Promo</b></i>
@@ -409,7 +412,7 @@ if ($item['post_type_id'] == 1) {
                         <div class="row d-flex justify-content-center">
 
                             <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center"
-                                style="font-size:30px;">
+                                style="font-size:7vw;">
                                 <i><b>Subscribe
                                         for
                                         more updates!
@@ -417,7 +420,7 @@ if ($item['post_type_id'] == 1) {
                             </div>
                             <div class="col-7 pr-10"><input class="form-control" type="email" name="email"
                                     placeholder="send your email" required></div>
-                            <div class="col-5 pr-10 d-flex justify-content-center">
+                            <div class="col-5 prm-30 d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary"
                                     style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
                             </div>

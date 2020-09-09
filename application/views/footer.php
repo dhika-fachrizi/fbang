@@ -261,8 +261,7 @@
 				                </div>
 				                <div class="card">
 				                    <div class="" id="headingSix">
-				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'promo'; ?>" data-toggle="collapse"
-				                            data-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'promo'; ?>">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
 				                                    <div class="col-8">
@@ -286,9 +285,7 @@
 				                </div>
 				                <div class="">
 				                    <div class="" id="headingSeven">
-				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'home/about'; ?>"
-				                            data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true"
-				                            aria-controls="collapseSeven">
+				                        <a class="mb-0 mt-0 c-p" href="<?php echo base_url() . 'home/about'; ?>">
 				                            <div class="container">
 				                                <div class="row pb-10 pt-10 pl-20 pr-20">
 				                                    <div class="col-8">

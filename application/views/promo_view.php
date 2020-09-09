@@ -282,10 +282,10 @@
                                             </div>
                                             <div class="col-lg-12 unhide-m pb-10 ">
                                                 <div class="row pb-20 pm-16 pb-0 padding-promo">
-                                                    <div class="col-4 news-b-image m-0"
+                                                    <div class="col-5 news-b-image m-0"
                                                         style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>');height:150px;">
                                                     </div>
-                                                    <div class="col-8 pl-0">
+                                                    <div class="col-7 pl-0">
                                                         <div class="col-12 pl-10 text-thema-split-2 "
                                                             style="height:33px;">
                                                             <div class="text-theme-1"
@@ -410,8 +410,7 @@
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
             <div class="modal-content">
-
-                <div class="modal-body" style="padding:30px;">
+                <div class="modal-body" style="padding:30px;" data-dismiss="modal">
                     <div class="row">
                         <div class="col-md-7">
                             <div class="col-12 news-b-image m-0 img-promo-modal data-img h-img-promo-modal"

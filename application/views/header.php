@@ -2,7 +2,7 @@
 			    <div class="container">
 			        <section class="pt-20">
 			            <div class="row rtt ">
-			                <div class="col-6">
+			                <div class="col-8">
 			                    <div class="row">
 			                        <div class="pl-10 pr-10 d-flex align-items-center">
 			                            <div class="unhide-m" style="width:25px;">
@@ -21,7 +21,7 @@
 			                    </div>
 
 			                </div>
-			                <div class="col-6 d-flex justify-content-end">
+			                <div class="col-4 d-flex justify-content-end">
 
 			                    <ul class="clearlist local-scroll header-m pl-0">
 			                        <!-- End Multiple column menu example -->
@@ -67,7 +67,7 @@
 			</nav>
 
 
-			<section class="menu-container pt-20 hide-m">
+			<section class="menu-container pt-20">
 			    <div class="container">
 			        <div class="row menu-category font-header-m">
 			            <div class="col-2 first c-p unpedding-m">

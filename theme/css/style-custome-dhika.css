@@ -341,6 +341,16 @@ a:hover {
   border: 0px solid #ced4da;
 }
 
+.text-thema-split-1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+  line-height: normal;
+}
+
 .text-thema-split-2 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -478,6 +488,11 @@ a:hover {
 }
 
 @media only screen and (max-width: 500px) {
+
+  .promo-barner {
+    height: 300px;
+  }
+
   .unhide-m {
     display: unset;
   }
@@ -554,6 +569,9 @@ a:hover {
 }
 
 @media only screen and (max-width: 768px) {
+  .promo-barner {
+    height: 200px;
+  }
 
   /* header */
   .box-side-menu {
@@ -585,7 +603,7 @@ a:hover {
   }
 
   .carousel-item {
-    height: 300px;
+    height: 100%;
   }
 
   /* home */
@@ -625,9 +643,6 @@ a:hover {
 
   /* home 700 */
 
-  .promo-barner {
-    height: 300px;
-  }
 
   .news-b-image {
     width: 100%;
@@ -690,6 +705,7 @@ a:hover {
 }
 
 @media only screen and (max-width: 576px) {
+
   .bpr-30 {
     padding-right: 0px;
   }

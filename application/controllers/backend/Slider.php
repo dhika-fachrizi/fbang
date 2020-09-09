@@ -46,15 +46,19 @@ class Slider extends CI_Controller
 
     public function publish()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
 
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
+
                 //Compress Image
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './assets/images/' . $img['file_name'];
@@ -89,15 +93,20 @@ class Slider extends CI_Controller
 
     public function edit()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
 
         if (!empty($_FILES['filefoto']['name'])) {
+
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['file_name'] = $imgTitle;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
+
                 //Compress Image
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './assets/images/' . $img['file_name'];
