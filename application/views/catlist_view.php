@@ -547,10 +547,18 @@
 
                                             <div class="col-lg-12 unhide-m pb-10">
                                                 <div class="row pb-20 pm-16 pb-0">
-                                                    <div class="col-4 news-b-image m-0"
-                                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>');height:124px;">
+                                                    <div class="col-5 pl-0 pr-0">
+                                                        <a
+                                                            href="<?php echo base_url() . $dynamic_detail_link . $item->post_slug; ?>">
+                                                            <div class="news-b-image m-0"
+                                                                style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>');height:124px;">
+
+                                                            </div>
+                                                        </a>
+
                                                     </div>
-                                                    <div class="col-8 pl-0">
+
+                                                    <div class="col-7 pl-0">
                                                         <div class="col-12 pl-10 text-thema-split-2 "
                                                             style="max-height:65px;">
                                                             <div class="text-theme-1"
@@ -568,8 +576,8 @@
 
                                                                 </div>
 
-                                                                <div class="col-11 colot-theme-1 pl-0"
-                                                                    style="font-size:12px;">
+                                                                <div class="col-11 colot-theme-1 pl-0 text-thema-split-1"
+                                                                    style="font-size:12px; height:20px;">
                                                                     <?php if ($item->post_type_id == 2) {
     echo $item->detail_catlist_name;
 } else if ($item->post_type_id == 3) {
@@ -610,7 +618,7 @@
                                                                         <?php $count .= $tag;?>
                                                                     </div>
                                                                 </div>
-                                                                <?php if (strlen($count) >= 40): ?>
+                                                                <?php if (strlen($count) >= 20): ?>
                                                                 <div class="float-left" style="padding:0px 5px 5px 0px">
                                                                     <div class=" "
                                                                         style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">

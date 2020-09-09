@@ -5,7 +5,10 @@ class Post_model extends CI_Model
     //BACKEND
     public function get_all_post()
     {
-        $result = $this->db->query("SELECT post_id,post_type_id,post_title,post_image,DATE_FORMAT(post_date,'%d %M %Y') AS post_date,category_name,post_tags,post_status,post_views FROM tbl_post LEFT JOIN tbl_category ON post_category_id=category_id");
+        $result = $this->db->query("SELECT  post_id,post_type_id,post_title,post_image,tbl_type.*,DATE_FORMAT(post_date,'%d %M %Y') AS post_date,category_name,post_tags,post_status,post_views FROM tbl_post
+        LEFT JOIN tbl_category ON post_category_id=category_id
+        LEFT JOIN tbl_type ON post_type_id = type_id
+        ");
         // print_r($result->result());
         // die();
         return $result;
@@ -237,7 +240,6 @@ class Post_model extends CI_Model
         $this->db->insert('tbl_detail_hltfood', $detail);
 
     }
-
 
     public function save_promo_post($title, $contents, $type, $category, $slug, $city, $image, $image_desc, $tags, $description, $description_title, $detail_id, $promo_name, $short_desc, $address, $time, $start, $end)
     {

@@ -8,7 +8,7 @@ $b_availability = json_decode($detail['detail_news_availability']);
 <head>
 
     <!-- Page Title -->
-    <title><?php echo $site_title; ?></title>
+    <title><?=$detail['post_title']?> |<?php echo $site_title; ?></title>
 
     <!-- Page header -->
     <meta charset="utf-8" />
@@ -112,8 +112,8 @@ echo date_format($date, "d M Y");?>, by <?=$detail['user_name']?> |
 
 
                                 </div>
-                                <div class="col-sm-12 pl-0 text-theme-2"
-                                    style="font-size:40px;font-weight: bold;word-spacing:-1px;">
+                                <div class="col-sm-12 pl-0 text-theme-2 text-thema-split-2"
+                                    style="font-size:40px;font-weight: bold;word-spacing:-1px; line-height: normal;">
                                     <?=$detail['post_title']?>
                                 </div>
                             </div>

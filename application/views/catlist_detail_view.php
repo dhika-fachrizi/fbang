@@ -20,13 +20,13 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
 <head>
 
     <!-- Page Title -->
-    <title><?php echo $site_title; ?></title>
+    <title><?=$detail['post_title']?> | <?php echo $site_title; ?></title>
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="<?=$detail['post_description']?>" />
+    <meta name="keywords" content="<?=$detail['post_description_title']?>" />
+    <meta name="keywords" content="<?=$detail['post_title']?>" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
     <!-- CSS -->
@@ -123,7 +123,8 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
 
 
                                 </div>
-                                <div class="col-sm-12 pl-0 text-theme-2" style="font-size:40px">
+                                <div class="col-sm-12 pl-0 text-theme-2 text-thema-split-2"
+                                    style="font-size:40px;font-weight: bold;word-spacing:-1px; line-height: normal;">
                                     <?=$detail['post_title']?>
                                 </div>
                             </div>

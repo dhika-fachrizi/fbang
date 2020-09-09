@@ -1,4 +1,9 @@
 <?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 class Cron extends CI_Controller
 {
 
@@ -6,37 +11,61 @@ class Cron extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Visitor_model', 'visitor_model');
+        $this->load->model('Email_model', 'email_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
         error_reporting(0);
+        require APPPATH . 'libraries/phpmailer/src/Exception.php';
+        require APPPATH . 'libraries/phpmailer/src/PHPMailer.php';
+        require APPPATH . 'libraries/phpmailer/src/SMTP.php';
     }
 
     function index()
     {
-        $data = $this->db->get_where('tbl_post', ['email_news_update' => 1])->result();
+        $data = $this->email_model->get_status_email();
         $total_sent = count($data);
-        var_dump($total_sent);
         if ($total_sent > 0) {
-            $email = $this->db->get('tbl_subscribe')->result_array();
-            foreach ($email as $mail) {
-                $message = $this->load->view('email/newsupdate', '', true);
-                $config['mailtype'] = 'html';
-                $config['protocol'] = 'smtp';
-                $config['smtp_host'] = 'smtp.mailtrap.io';
-                $config['smtp_user'] = '3b599c5fbb1bb2';
-                $config['smtp_pass'] = 'f0cdd5ebfefb36';
-                $config['smtp_port'] = 2525;
-                $config['newline'] = "\r\n";
-                $this->load->library('email', $config);
-                $this->email->from('no-reply@foodbang.com');
-                $this->email->to($mail['subscribe_email']);
-                $this->email->subject('News Update');
-                $this->email->message($message);
-                if ($this->email->send()) {
-                    var_dump("success");
-                } else {
-                    var_dump($this->email->print_debugger());
-                }
+            $emailto = $this->db->get('tbl_subscribe')->result_array();
+            $temp_email = [];
+            foreach ($emailto as $item) {
+                array_push($temp_email, $item['subscribe_email']);
+            }
+
+            $message = $this->load->view('email/newsupdate', '', true);
+            $mail = new PHPMailer();
+
+
+            // SMTP configuration
+            $mail->isSMTP();
+            $mail->Host     = 'mail.foodbang.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
+            $mail->SMTPAuth = true;
+            $mail->Username = 'muslimin@foodbang.co.id'; // user email
+            $mail->Password = 'Superm@n123'; // password email
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port     = 465;
+
+            $mail->setFrom('muslimin@foodbang.co.id', ''); // user email
+            // $mail->addReplyTo('xxx@hostdomain.com', ''); //user email
+
+            // Add a recipient
+            foreach ($temp_email as $item) {
+                $mail->addAddress($item); //email tujuan pengiriman email
+            }
+            // Email subject
+            $mail->Subject = 'SMTP Codeigniter'; //subject email
+
+            // Set email format to HTML
+            $mail->isHTML(true);
+
+            // Email body content
+            $mailContent = $message; // isi email
+            $mail->Body = $mailContent;
+            if (!$mail->send()) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } else {
+                echo 'Message has been sent';
+                $data = $this->email_model->update_status_email();
             }
         } else {
             echo "no data to sent";

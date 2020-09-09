@@ -375,6 +375,23 @@
                                                             <?php echo $item['type_name']; ?>
                                                         </label>
                                                     </div>
+                                                    <input type="hidden" name="search_query" value="<?= $keyword ?>" />
+                                                    <?php foreach ($type_category as $item) : ?>
+                                                        <div class="col-sm-12 pt-10">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" name="category[]" type="checkbox" <?php if (is_array($get_category)) {
+                                                                                                                                        for ($i = 0; $i < count($get_category); $i++) {
+                                                                                                                                            if ($get_category[$i] == $item['type_id']) {
+                                                                                                                                                echo "checked";
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    } ?> value=" <?php echo $item['type_id']; ?>">
+                                                                <label class="form-check-label colot-theme-1" for="defaultCheck1">
+                                                                    <?php echo $item['type_name']; ?>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
