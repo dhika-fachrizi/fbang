@@ -139,10 +139,10 @@ class Home_model extends CI_Model
         return $query;
     }
 
-    public function search_blog($query, $category)
+    public function search_blog($query, $post_type_id)
     {
-        if ($category) {
-            $c = join("','",$category);
+        if ($post_type_id) {
+            $c = join("','",$post_type_id);
             $result = $this->db->query("SELECT tbl_post.*,user_name,user_photo FROM tbl_post
 			LEFT JOIN tbl_user ON post_user_id=user_id
 			LEFT JOIN tbl_category ON post_category_id=category_id
