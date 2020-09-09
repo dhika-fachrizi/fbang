@@ -211,13 +211,15 @@ class Post extends CI_Controller
 
     public function publish()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -290,13 +292,15 @@ class Post extends CI_Controller
 
     public function publish_catlist()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -359,7 +363,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social,$sentemail);
+                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social, $sentemail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -376,13 +380,15 @@ class Post extends CI_Controller
 
     public function publish_promo()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -458,13 +464,15 @@ class Post extends CI_Controller
     }
     public function publish_umkm()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -543,13 +551,15 @@ class Post extends CI_Controller
 
     public function publish_stfood()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -611,7 +621,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social,$sentemail);
+                $this->post_model->save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social, $sentemail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -628,13 +638,15 @@ class Post extends CI_Controller
 
     public function publish_hltfood()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -713,13 +725,16 @@ class Post extends CI_Controller
 
     public function edit()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
 
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -846,13 +861,15 @@ class Post extends CI_Controller
 
     public function edit_catlist()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -980,13 +997,15 @@ class Post extends CI_Controller
 
     public function edit_promo()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -1112,13 +1131,15 @@ class Post extends CI_Controller
 
     public function edit_umkm()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -1248,13 +1269,15 @@ class Post extends CI_Controller
 
     public function edit_stfood()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
@@ -1384,13 +1407,15 @@ class Post extends CI_Controller
 
     public function edit_hltfood()
     {
-        $config['upload_path'] = './assets/images/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
-        $config['encrypt_name'] = true;
-
-        $this->upload->initialize($config);
-
         if (!empty($_FILES['filefoto']['name'])) {
+            $extension = pathinfo($_FILES['filefoto']['name'], PATHINFO_EXTENSION);
+            $pretitle = strip_tags(htmlspecialchars($this->input->post('title', true), ENT_QUOTES));
+            $ptitle = preg_replace('/[^\p{L}\p{N}\s]/u', '', $pretitle);
+            $imgTitle = $ptitle . '-' . time() . '-Foodbang.' . $extension;
+            $config['upload_path'] = './assets/images/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+            $config['file_name'] = $imgTitle;
+            $this->upload->initialize($config);
             if ($this->upload->do_upload('filefoto')) {
                 $img = $this->upload->data();
                 //Compress Image
