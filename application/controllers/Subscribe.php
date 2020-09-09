@@ -30,13 +30,13 @@ class Subscribe extends CI_Controller
 				$message = $this->load->view('email/welcome','', true);
 				$config['mailtype'] = 'html';
 				$config['protocol'] = 'smtp';
-				$config['smtp_host'] = 'smtp.mailtrap.io';
-				$config['smtp_user'] = '3b599c5fbb1bb2';
-				$config['smtp_pass'] = 'f0cdd5ebfefb36';
-				$config['smtp_port'] = 2525;
+				$config['smtp_host'] = 'mail.foodbang.co.id';
+				$config['smtp_user'] = 'muslimin@foodbang.co.id';
+				$config['smtp_pass'] = 'Superm@n123';
+				$config['smtp_port'] = 587;
 				$config['newline'] = "\r\n";
 				$this->load->library('email', $config);
-				$this->email->from('no-reply@foodbang.com');
+				$this->email->from('muslimin@foodbang.co.id');
 				$this->email->to($email);
 				$this->email->subject('Welcome to Foodbang');
 				$this->email->message($message);

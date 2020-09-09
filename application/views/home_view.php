@@ -206,7 +206,7 @@ if ($item['post_type_id'] == 1) {
                     <div class="row unhide-m">
                         <div class="col-lg-12 pl-0 pr-0">
                             <div class="stc-menu">
-                                <div class="row text-theme-2 pt-0 pb-10 cpl-0">
+                                <div class="row text-theme-2 pt-0 cpl-0">
                                     <i><b>Popular in Foodbang</b></i>
                                     <div class="col pt-1">
                                         <hr class="hr-theme">
@@ -217,7 +217,7 @@ if ($item['post_type_id'] == 1) {
                                 <?php if ($key == 2) {
     break;
 }?>
-                                <div class="row pb-20 cpl-0">
+                                <div class="row pt-10 cpl-0">
                                     <div class="col-3 popular-b-image m-0"
                                         style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
                                     </div>

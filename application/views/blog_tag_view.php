@@ -376,7 +376,7 @@
 																																		echo "checked";
 																																	}
 																																}
-																															} ?> value=" <?php echo $item['type_id']; ?>" onchange="submit()">
+																															} ?> value=" <?php echo $item['type_id']; ?>">
 														<label class="form-check-label colot-theme-1" for="defaultCheck1">
 															<?php echo $item['type_name']; ?>
 														</label>
