@@ -8,11 +8,12 @@ $nama_database = "blog_db";
 
 $db = mysqli_connect($server, $user, $password, $nama_database);
 
-if( !$db ){
+if (!$db) {
     die("Gagal terhubung dengan database: " . mysqli_connect_error());
 }
 
 ?>
+
 <head>
     <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -148,13 +149,14 @@ if( !$db ){
     <style id="media-query" type="text/css">
         @media (max-width: 660px) {
             .header {
-            width: 600px;
-            height: 50px;
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            opacity: 1;
-            border-bottom: 0px solid #ccc;
-            padding: 10px
-        }
+                width: 600px;
+                height: 50px;
+                background: #FFFFFF 0% 0% no-repeat padding-box;
+                opacity: 1;
+                border-bottom: 0px solid #ccc;
+                padding: 10px
+            }
+
             .block-grid,
             .col {
                 min-width: 320px !important;
@@ -268,48 +270,56 @@ if( !$db ){
                                         <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
 
                                             <div class="content">
-                                                <h1>Hi Calvin,</h1>
-                                                <p>Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet est. Sed ut euismod quam.
-                                                    Suspendisse potenti.</p>
-                                                <p> Aliquam fringilla orci tincidunt, ullamcorper erat in, malesuada metus. Vivamus
-                                                    luctus maximus vestibulum. Donec et enim vitae tellus auctor ornare.</p>
-                                                    <?php
-                                                    $sql = "SELECT * FROM tbl_post WHERE email_news_update = 1";
-                                                    $query = mysqli_query($db, $sql);
-
-                                                    while($item = mysqli_fetch_array($query)){?>
-                                                    <div class="row" style="margin-bottom:20px">
-                                                        <div class="col-md-3">
-                                                            <img src="<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>" alt="" width="100px" height="110px">
+                                                <div class="row" style="padding:50px">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <h1>Hi Calvin,</h1>
+                                                            <p>Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet est. Sed ut euismod quam.
+                                                                Suspendisse potenti.</p>
+                                                            <p> Aliquam fringilla orci tincidunt, ullamcorper erat in, malesuada metus. Vivamus
+                                                                luctus maximus vestibulum. Donec et enim vitae tellus auctor ornare.</p>
                                                         </div>
-                                                        <div class="col-md-9">
-                                                            <p><?php $date = date_create($item['post_date']);
-                                                                echo date_format($date, "d M Y"); ?></p>
-                                                            <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
-                                                                <a href="<?php if ($item['post_type_id'] == 1) {
-                                                                                echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                            } else if ($item['post_type_id'] == 2) {
-                                                                                echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                            } else if ($item['post_type_id'] == 3) {
-                                                                                echo base_url() . 'umkm/detail/' . $item['post_slug'];
-                                                                            } else if ($item['post_type_id'] == 4) {
-                                                                                echo base_url() . 'stfood/detail/' . $item['post_slug'];
-                                                                            } else if ($item['post_type_id'] == 5) {
-                                                                                echo base_url() . 'hltfood/detail/' . $item['post_slug'];
-                                                                            } ?>"><?= $item['post_title'] ?></a>
+                                                        <?php
+                                                        $sql = "SELECT * FROM tbl_post WHERE email_news_update = 1 and post_date >= '2020-09-03 00:00:00'  ORDER BY post_id LIMIT 5";
+                                                        $query = mysqli_query($db, $sql);
+
+                                                        while ($item = mysqli_fetch_array($query)) { ?>
+                                                            <div class="row" style="margin-bottom:20px;">
+                                                                <div class="col-md-4">
+                                                                    <img src="<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>" alt="" width="100px" height="110px">
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <p><?php $date = date_create($item['post_date']);
+                                                                        echo date_format($date, "d M Y"); ?></p>
+                                                                    <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
+                                                                        <a href="<?php if ($item['post_type_id'] == 1) {
+                                                                                        echo base_url() . 'news/detail/' . $item['post_slug'];
+                                                                                    } else if ($item['post_type_id'] == 2) {
+                                                                                        echo base_url() . 'catlist/detail/' . $item['post_slug'];
+                                                                                    } else if ($item['post_type_id'] == 3) {
+                                                                                        echo base_url() . 'umkm/detail/' . $item['post_slug'];
+                                                                                    } else if ($item['post_type_id'] == 4) {
+                                                                                        echo base_url() . 'stfood/detail/' . $item['post_slug'];
+                                                                                    } else if ($item['post_type_id'] == 5) {
+                                                                                        echo base_url() . 'hltfood/detail/' . $item['post_slug'];
+                                                                                    } ?>" style="color: #000000"><?= $item['post_title'] ?></a>
+                                                                    </div>
+                                                                </div>
                                                             </div>
+                                                        <?php } ?>
+                                                        <div class="row">
+                                                            <p></p>
+                                                            <p>Vestibulum blandit viverra convallis. Pellentesque ligula urna, fermentum ut semper in, tincidunt nec
+                                                                dui. Morbi mauris lacus, consequat eget justo in, semper gravida enim. Donec ultrices varius ligula. Ut
+                                                                non pretium augue. Etiam non rutrum metus. In varius sit amet lorem tempus sagittis. Cras sed maximus
+                                                                enim, vel ultricies tortor. </p>
+                                                            <p></p>
+                                                            <p></p>
+                                                            <p>Thank you,</p>
+                                                            <h5>The Foodbang crew</h5>
                                                         </div>
                                                     </div>
-                                                <?php } ?>
-                                                <p></p>
-                                                <p>Vestibulum blandit viverra convallis. Pellentesque ligula urna, fermentum ut semper in, tincidunt nec
-                                                    dui. Morbi mauris lacus, consequat eget justo in, semper gravida enim. Donec ultrices varius ligula. Ut
-                                                    non pretium augue. Etiam non rutrum metus. In varius sit amet lorem tempus sagittis. Cras sed maximus
-                                                    enim, vel ultricies tortor. </p>
-                                                <p></p>
-                                                <p></p>
-                                                <p>Thank you,</p>
-                                                <h5>The Foodbang crew</h5>
+                                                </div>
                                             </div>
                                             <div align="center" class="img-container center fixedwidth">
                                                 <img align="center" alt="I'm an image" border="0" class="center fixedwidth" src="<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: 200px; border: 0; width: 100%; display: block;background: var(--unnamed-color-000000) 0% 0% no-repeat padding-box;" />

@@ -276,7 +276,7 @@
 										</div>
 										<div class="showTag">
 											<?php foreach ($data->result() as $item) : ?>
-												<div class="row pb-20 cpl-0">
+												<div class="row pb-20 cpl-0 pr-10">
 													<div class="col-12 news-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item->post_image; ?>') ;">
 													</div>
 													<div class="col-md-12" style="padding-right: 0px;padding-left: 0px;">
