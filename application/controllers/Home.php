@@ -112,8 +112,8 @@ class Home extends CI_Controller
     {
         //$this->output->enable_profiler(TRUE);
         $data['get_category'] = $this->input->get('category', true);
-        $query = strip_tags(htmlspecialchars($this->input->get('search_query', true), ENT_QUOTES));
-        $result = $this->home_model->search_blog($query,$data['get_category']);
+        $query = $this->input->get('search_query', true);
+        $result = $this->home_model->search_blog($query, $data['get_category']);
         $search_result = count($result);
         if ($search_result > 0) {
             $data['data'] = $result;

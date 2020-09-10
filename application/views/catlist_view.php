@@ -523,8 +523,8 @@
                                                                         style="padding:0px 5px 5px 0px">
                                                                         <div class=" "
                                                                             style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
-                                                                            <?php echo $tag; ?>
-
+                                                                            <a
+                                                                                href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
                                                                             <?php $count .= $tag;?>
                                                                         </div>
                                                                     </div>
@@ -613,7 +613,8 @@
                                                                 <div class="float-left" style="padding:0px 5px 5px 0px">
                                                                     <div class=" "
                                                                         style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
-                                                                        <?php echo $tag; ?>
+                                                                        <a
+                                                                            href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
 
                                                                         <?php $count .= $tag;?>
                                                                     </div>

@@ -153,7 +153,9 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'],
                                     <div class="col-12  text-thema-split-2 pb-10 rpm-rl" style="max-height:96px;">
                                         <div class="text-theme-1"
                                             style="margin-top: 0px;font-size:24px;font-weight:bold;word-spacing: -3px;">
-                                            <?=$dt_news[$i]['post_title']?>
+                                            <a
+                                                href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>"><?=$dt_news[$i]['post_title']?></a>
+
                                         </div>
                                     </div>
                                     <div class="col-12  text-thema-split-4 rpm-rl" text-theme-1>
@@ -226,13 +228,8 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'],
                                         <div class="col-12  text-thema-split-2" style="height:43px;">
                                             <div class="text-theme-1"
                                                 style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
-                                                <a href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>"><?=$item['post_title']?></a>
+                                                <a
+                                                    href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -242,50 +239,43 @@ if ($item['post_type_id'] == 1) {
                         </div>
 
                         <div class="col-lg-4 pb-30 unhide-m">
-                            <div class="row">
-
-                                <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
-                                </div>
-
-                            </div>
-                            <div class="stc-menu">
-                                <div class="row text-theme-2 pt-30 pb-30 cpl-0">
-                                    <i><b>Popular in Foodbang</b></i>
-                                    <div class="col pt-1">
-                                        <hr class="hr-theme">
-                                    </div>
-                                </div>
-                                <?php foreach ($popular as $key => $item): ?>
-
-                                <?php if ($key == 2) {
-    break;
-}?>
-                                <div class="row pb-10 cpl-0">
-                                    <div class=" popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;width:85px;">
-                                    </div>
-                                    <div class=" pl-0 pr-0">
-                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
-                                                <?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?>
-                                            </span></div>
-                                        <div class="col-12  text-thema-split-2" style="height:45px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
-                                                <a href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>"><?=$item['post_title']?></a>
+                            <div class="row unhide-m">
+                                <div class="col-lg-12 pl-0 pr-0">
+                                    <div class="stc-menu">
+                                        <div class="row text-theme-2 pt-0 cpl-0">
+                                            <i><b>Popular in Foodbang</b></i>
+                                            <div class="col pt-1">
+                                                <hr class="hr-theme">
                                             </div>
                                         </div>
+                                        <?php foreach ($popular as $key => $item): ?>
+
+                                        <?php if ($key == 2) {
+    break;
+}?>
+                                        <div class="row pt-10 cpl-0">
+                                            <div class="col-3 popular-b-image m-0"
+                                                style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                            </div>
+                                            <div class="col-9 pl-0 pr-0">
+                                                <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
+                                                        <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
+                                                    </span></div>
+                                                <div class="col-12  text-thema-split-2" style="height:45px;">
+                                                    <div class="text-theme-1"
+                                                        style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
+                                                        <a
+                                                            href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php endforeach?>
                                     </div>
                                 </div>
-                                <?php endforeach?>
                             </div>
+
                         </div>
                     </div>
 

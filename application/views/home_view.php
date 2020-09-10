@@ -110,7 +110,9 @@
                                         style="height:100%;width:auto;">
                                         <div class="row">
                                             <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
-                                                <?=$item->slider_title?></div>
+                                                <a href=" <?=$item->slider_link?>" style="color:white;">
+                                                    <?=$item->slider_title?>
+                                            </div></a>
                                             <div class="col-sm-4"></div>
                                             <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
                                                 <?=$item->slider_desc?></div>
@@ -142,7 +144,7 @@
             <section>
                 <div class="container">
                     <div class="row text-theme-2 pb-10 pt-20 cpl-0">
-                        <i><b>Feature Article</b></i>
+                        <i><b>Featured Article</b></i>
                         <div class="col pt-1">
                             <hr class="hr-theme">
                         </div>
@@ -160,13 +162,8 @@ echo date_format($date, "d M Y");?>
                                         <?=$slot1['post_title']?>
                                     </div>
                                     <div class="col-12 ">
-                                        <a class="a-link-c" href="<?php
-if ($slot1['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $slot1['post_slug'];
-} else if ($slot1['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $slot1['post_slug'];
-}
-?>">Read
+                                        <a class="a-link-c"
+                                            href="<?php echo base_url() . dy_link($slot1['post_slug'], $slot1['post_type_id']); ?>">Read
                                             Now</a>
                                     </div>
                                 </div>
@@ -187,13 +184,8 @@ echo date_format($date, "d M Y");?>
                                                 <?=$item['post_title']?>
                                             </div>
                                             <div class="col-12 ">
-                                                <a class="a-link-c" href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>">Read
+                                                <a class="a-link-c"
+                                                    href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>">Read
                                                     Now</a>
                                             </div>
                                         </div>
@@ -229,21 +221,14 @@ echo date_format($date, "d M Y");?>
                                         <div class="col-12  text-thema-split-2" style="height:45px;">
                                             <div class="text-theme-1"
                                                 style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
-                                                <a href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>"><?=$item['post_title']?></a>
+                                                <a
+                                                    href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <?php endforeach?>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="row pb-30">
@@ -270,13 +255,8 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($item['post_title'], $item[
                                         <div class="col-12  mb-10 text-thema-split-2 rpm-rl " style="max-height:65px;">
                                             <div class="text-theme-1"
                                                 style="margin-top: 0px;font-size:24px;font-weight:bold;">
-                                                <a href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>"><?=$item['post_title']?></a>
+                                                <a
+                                                    href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                         <div class="col-12  text-thema-split-4 rpm-rl" text-theme-1>
@@ -316,13 +296,8 @@ echo date_format($date, "d M Y");?>
                                         <div class="col-12  text-thema-split-2" style="height:45px;">
                                             <div class="text-theme-1"
                                                 style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
-                                                <a href="<?php
-if ($item['post_type_id'] == 1) {
-    echo base_url() . 'news/detail/' . $item['post_slug'];
-} else if ($item['post_type_id'] == 2) {
-    echo base_url() . 'catlist/detail/' . $item['post_slug'];
-}
-?>"><?=$item['post_title']?></a>
+                                                <a
+                                                    href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
                                             </div>
                                         </div>
                                     </div>

@@ -2,16 +2,17 @@
 class Cron extends CI_Controller
 {
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('Visitor_model', 'visitor_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
         error_reporting(0);
+        $this->load->library('email');
     }
 
-    function index()
+    public function index()
     {
         $data = $this->db->get_where('tbl_post', ['email_news_update' => 1])->result();
         $total_sent = count($data);
@@ -42,4 +43,32 @@ class Cron extends CI_Controller
             echo "no data to sent";
         }
     }
+
+    public function test()
+    {
+
+        $config = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://mail.foodbang.co.id',
+            'smtp_port' => '587',
+            'smtp_user' => 'muslimin@foodbang.co.id',
+            'smtp_pass' => 'Superm@n123',
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1',
+        );
+        $this->email->initialize($config);
+
+        $this->email->from('muslimin@foodbang.co.id', 'Dhika');
+        $this->email->to('dhikadeputra1@gmail.com');
+        $this->email->subject('Email Test');
+        $this->email->message('Testing the email class.');
+
+        if (!$this->email->send()) {
+            echo "<pre>" . $this->email->print_debugger() . "</pre>";
+        } else {
+            return true;
+        }
+
+    }
+
 }

@@ -52,7 +52,7 @@
 			                </div>
 			                <div class="col-12 pb-10 container-shearch-m">
 			                    <form action="<?php echo base_url() . 'home/search'; ?>" method="get" id="form-search-m">
-			                        <div class=""> <input type="text" name="search_query_m" class="form-control form-control-sm "
+			                        <div class=""> <input type="text" name="search_query" class="form-control form-control-sm "
 			                                placeholder="Search" id="search_query_m"
 			                                style="border:0px; outline:0px; border-bottom:1px #ccc solid; border-radius:0px">
 			                        </div>
@@ -67,7 +67,7 @@
 			</nav>
 
 
-			<section class="menu-container pt-20">
+			<section class="menu-container pt-20 hide-m">
 			    <div class="container">
 			        <div class="row menu-category font-header-m">
 			            <div class="col-2 first c-p unpedding-m">
