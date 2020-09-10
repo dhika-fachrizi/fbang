@@ -14,3 +14,35 @@ if (!function_exists('min_of_read')) {
         return Ceil($result);
     }
 }
+
+if (!function_exists('dy_link')) {
+
+    function dy_link($slug, $type)
+    {
+
+        switch ($type) {
+            case 1:
+                $link = 'news/detail/' . $slug;
+                break;
+            case 2:
+                $link = 'catlist/detail/' . $slug;
+                break;
+            case 3:
+                $link = 'umkm/detail/' . $slug;
+                break;
+            case 4:
+                $link = 'stfood/detail/' . $slug;
+                break;
+            case 5:
+                $link = 'hltfood/detail/' . $slug;
+                break;
+            case 6:
+                $link = 'promo?id_promo=' . $slug;
+                break;
+            default:
+                $link = '';
+                break;
+        }
+        return $link;
+    }
+}

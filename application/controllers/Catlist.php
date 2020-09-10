@@ -96,7 +96,7 @@ class Catlist extends CI_Controller
         $data['get_short'] = $this->input->get('short', true);
         $data['get_search'] = $this->input->get('search', true);
         $data['get_perpage'] = $this->input->get('perpage', true);
-        $data['perpage'] = 3;
+        $data['perpage'] = 9;
         if ($data['get_perpage'] == "") {
             $data['get_perpage'] = $data['perpage'];
         }

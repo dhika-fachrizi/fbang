@@ -2,12 +2,11 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 class Cron extends CI_Controller
 {
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('Visitor_model', 'visitor_model');
@@ -20,7 +19,7 @@ class Cron extends CI_Controller
         require APPPATH . 'libraries/phpmailer/src/SMTP.php';
     }
 
-    function index()
+    public function index()
     {
         $data = $this->email_model->get_status_email();
         $total_sent = count($data);
@@ -34,15 +33,14 @@ class Cron extends CI_Controller
             $message = $this->load->view('email/newsupdate', '', true);
             $mail = new PHPMailer();
 
-
             // SMTP configuration
             $mail->isSMTP();
-            $mail->Host     = 'mail.foodbang.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
+            $mail->Host = 'mail.foodbang.co.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
             $mail->SMTPAuth = true;
             $mail->Username = 'muslimin@foodbang.co.id'; // user email
             $mail->Password = 'Superm@n123'; // password email
             $mail->SMTPSecure = 'ssl';
-            $mail->Port     = 465;
+            $mail->Port = 465;
 
             $mail->setFrom('muslimin@foodbang.co.id', ''); // user email
             // $mail->addReplyTo('xxx@hostdomain.com', ''); //user email
@@ -71,4 +69,32 @@ class Cron extends CI_Controller
             echo "no data to sent";
         }
     }
+
+    public function test()
+    {
+
+        $config = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://mail.foodbang.co.id',
+            'smtp_port' => '587',
+            'smtp_user' => 'muslimin@foodbang.co.id',
+            'smtp_pass' => 'Superm@n123',
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1',
+        );
+        $this->email->initialize($config);
+
+        $this->email->from('muslimin@foodbang.co.id', 'Dhika');
+        $this->email->to('dhikadeputra1@gmail.com');
+        $this->email->subject('Email Test');
+        $this->email->message('Testing the email class.');
+
+        if (!$this->email->send()) {
+            echo "<pre>" . $this->email->print_debugger() . "</pre>";
+        } else {
+            return true;
+        }
+
+    }
+
 }
