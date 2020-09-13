@@ -186,4 +186,33 @@ class Catlist_model extends CI_Model
         return $query;
     }
 
+    public function get_other_name_type($type)
+    {
+        switch ($type) {
+            case 1:
+                $result = 'news';
+                break;
+            case 2:
+                $result = 'catlist';
+                break;
+            case 3:
+                $result = 'umkm';
+                break;
+            case 4:
+                $result = 'hltfood';
+                break;
+            case 5:
+                $result = 'stfood';
+                break;
+            case 6:
+                $result = 'promo';
+                break;
+
+            default:
+                $result = 'home';
+                break;
+        }
+        return $result;
+    }
+
 }

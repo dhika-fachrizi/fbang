@@ -73,8 +73,10 @@ class Detail_category extends CI_Controller
                 $image = $img['file_name'];
                 $title = $this->input->post('title', true);
                 $description = $this->input->post('description', true);
+                $meta_title = $this->input->post('meta_title', true);
+                $meta_desc = $this->input->post('meta_desc', true);
                 $category = $this->input->post('category', true);
-                $this->detail_category_model->save_post($title, $description, $image, $category);
+                $this->detail_category_model->save_post($title, $description, $image, $category, $meta_title, $meta_desc);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/detail_category');
             } else {
@@ -116,8 +118,10 @@ class Detail_category extends CI_Controller
                 $id = $this->input->post('post_id', true);
                 $title = $this->input->post('title', true);
                 $description = $this->input->post('description', true);
+                $meta_title = $this->input->post('meta_title', true);
+                $meta_desc = $this->input->post('meta_desc', true);
                 $category = $this->input->post('category', true);
-                $this->detail_category_model->edit_post_with_img($id, $title, $description, $image);
+                $this->detail_category_model->edit_post_with_img($id, $title, $description, $image, $meta_title, $meta_desc);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/detail_category');
             } else {
@@ -129,8 +133,10 @@ class Detail_category extends CI_Controller
             $id = $this->input->post('post_id', true);
             $title = $this->input->post('title', true);
             $description = $this->input->post('description', true);
+            $meta_title = $this->input->post('meta_title', true);
+            $meta_desc = $this->input->post('meta_desc', true);
             $category = $this->input->post('category', true);
-            $this->detail_category_model->edit_post_no_img($id, $title, $description);
+            $this->detail_category_model->edit_post_no_img($id, $title, $description, $meta_title, $meta_desc);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/detail_category');
         }

@@ -43,7 +43,8 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -60,8 +61,11 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
     <meta name="twitter:site" content="<?php echo $site_twitter; ?>" />
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <style>
-    @media only screen and (max-width: 768px) {
 
+   
+
+    @media only screen and (max-width: 768px) {
+        
         .dn-img-exploler {
             height: 300px;
         }
@@ -177,15 +181,16 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                                 <div class="row" style="min-height:100%;">
                                                     <div class="pt-10 col-12 d-flex justify-content-end"
                                                         style="font-size:10px;">avalibel at</div>
-                                                    <div class="pt-10 col-12  d-flex flex-row-reverse">
-                                                        <div class="row ">
+                                                    <div class="pt-10 col-12">
+                                                        <div >
                                                             <?php foreach ($b_availability as $a): ?>
-                                                            <div><a href="<?php echo $a->availability_value; ?>"><img
+                                                            <div style="float:right"><a href="<?php echo $a->availability_value; ?>"><img
                                                                         src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
-                                                                        class="img-fluid pr-10 pb-10"
+                                                                        class="img-fluid pl-10 pb-10 detail-img-av"
                                                                         alt="Responsive image" style="height:25px;">
                                                                 </a>
                                                             </div>
+
                                                             <?php endforeach;?>
                                                         </div>
                                                     </div>

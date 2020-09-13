@@ -255,6 +255,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('news_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -277,7 +278,7 @@ class Post extends CI_Controller
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social, $sentemail);
+                $this->post_model->save_post($title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social, $sentemail, $maps);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -328,6 +329,7 @@ class Post extends CI_Controller
                 $halal = $this->input->post('halal', true);
                 $additional = $this->input->post('additional', true);
                 $sentemail = $this->input->post('sentemail');
+                $maps = $this->input->post('maps', true);
 
                 //detail
                 $detail_id = uniqid('id');
@@ -363,7 +365,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social, $sentemail);
+                $this->post_model->save_catlist_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social, $sentemail, $maps);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -462,6 +464,7 @@ class Post extends CI_Controller
             redirect('backend/post');
         }
     }
+
     public function publish_umkm()
     {
         if (!empty($_FILES['filefoto']['name'])) {
@@ -507,6 +510,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('umkm_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -534,7 +538,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_umkm_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social, $sentemail);
+                $this->post_model->save_umkm_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social, $sentemail, $mail);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -594,6 +598,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('stfood_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -621,7 +626,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social, $sentemail);
+                $this->post_model->save_stfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social, $sentemail, $maps);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -681,6 +686,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('hltfood_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -708,7 +714,7 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->save_hltfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social, $sentemail);
+                $this->post_model->save_hltfood_post($title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfood_name, $phone, $address, $availability, $social, $sentemail, $maps);
                 echo $this->session->set_flashdata('msg', 'success');
                 redirect('backend/post');
             } else {
@@ -771,6 +777,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('news_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -798,7 +805,7 @@ class Post extends CI_Controller
                 $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_with_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social, $maps);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -825,6 +832,7 @@ class Post extends CI_Controller
             $address = $this->input->post('news_address', true);
             $availability = $this->input->post('availability', true);
             $social = $this->input->post('social', true);
+            $maps = $this->input->post('maps', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -852,7 +860,7 @@ class Post extends CI_Controller
             $description = htmlspecialchars($this->input->post('description', true), ENT_QUOTES);
             $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_no_img($id, $title, $contents, $type, $category, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $news_name, $phone, $address, $availability, $social, $maps);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -905,6 +913,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('catlist_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -933,7 +942,8 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_catlist_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social,
+                $maps);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -960,6 +970,7 @@ class Post extends CI_Controller
             $address = $this->input->post('catlist_address', true);
             $availability = $this->input->post('availability', true);
             $social = $this->input->post('social', true);
+            $maps = $this->input->post('maps', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -988,7 +999,8 @@ class Post extends CI_Controller
             $image_desc = $this->input->post('image_desc', true);
             $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_catlist_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $catlist_name, $phone, $address, $availability, $social,
+            $maps);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -1175,6 +1187,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('umkm_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -1203,7 +1216,8 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_umkm_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_umkm_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social,
+                $maps);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -1230,6 +1244,7 @@ class Post extends CI_Controller
             $address = $this->input->post('umkm_address', true);
             $availability = $this->input->post('availability', true);
             $social = $this->input->post('social', true);
+            $maps = $this->input->post('maps', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -1258,7 +1273,8 @@ class Post extends CI_Controller
             $image_desc = $this->input->post('image_desc', true);
             $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_umkm_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_umkm_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $umkm_name, $phone, $address, $availability, $social,
+            $maps);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -1313,6 +1329,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('stfood_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -1341,7 +1358,8 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_stfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_stfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social,
+                $maps);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -1368,6 +1386,7 @@ class Post extends CI_Controller
             $address = $this->input->post('stfood_address', true);
             $availability = $this->input->post('availability', true);
             $social = $this->input->post('social', true);
+            $maps = $this->input->post('maps', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -1396,7 +1415,8 @@ class Post extends CI_Controller
             $image_desc = $this->input->post('image_desc', true);
             $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_stfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_stfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $stfood_name, $phone, $address, $availability, $social,
+            $maps);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }
@@ -1451,6 +1471,7 @@ class Post extends CI_Controller
                 $address = $this->input->post('hltfoodt_address', true);
                 $availability = $this->input->post('availability', true);
                 $social = $this->input->post('social', true);
+                $maps = $this->input->post('maps', true);
 
                 $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
                 $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -1479,7 +1500,8 @@ class Post extends CI_Controller
                 $image_desc = $this->input->post('image_desc', true);
                 $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-                $this->post_model->edit_post_hltfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social);
+                $this->post_model->edit_post_hltfood_with_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social,
+                $maps);
                 echo $this->session->set_flashdata('msg', 'info');
                 redirect('backend/post');
             } else {
@@ -1506,6 +1528,7 @@ class Post extends CI_Controller
             $address = $this->input->post('hltfoodt_address', true);
             $availability = $this->input->post('availability', true);
             $social = $this->input->post('social', true);
+            $maps = $this->input->post('maps', true);
 
             $preslug = strip_tags(htmlspecialchars($this->input->post('slug', true), ENT_QUOTES));
             $string = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $preslug);
@@ -1534,7 +1557,8 @@ class Post extends CI_Controller
             $image_desc = $this->input->post('image_desc', true);
             $description_title = htmlspecialchars($this->input->post('description_title', true), ENT_QUOTES);
 
-            $this->post_model->edit_post_hltfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social);
+            $this->post_model->edit_post_hltfood_no_img($id, $title, $contents, $type, $category, $subcategory, $slug, $city, $location, $halal, $additional, $image_desc, $tags, $description, $description_title, $detail_id, $hltfoodt_name, $phone, $address, $availability, $social,
+            $maps);
             echo $this->session->set_flashdata('msg', 'info');
             redirect('backend/post');
         }

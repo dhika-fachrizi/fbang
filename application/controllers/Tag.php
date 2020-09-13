@@ -11,6 +11,7 @@ class Tag extends CI_Controller
         $this->load->model('Site_model', 'site_model');
         $this->load->model('Home_model', 'home_model');
         $this->load->model('Category_model', 'category_model');
+        $this->load->model('backend/Meta_model', 'meta_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
         error_reporting(0);
@@ -35,11 +36,16 @@ class Tag extends CI_Controller
         $v['logo'] = $site_info->site_logo_header;
         $x['icon'] = $site_info->site_favicon;
         $x['site_image'] = $site_info->site_logo_big;
+        $x['site_title'] = $site_info->site_title;
+        $x['meta'] = $this->meta_model->get_meta_by_id(4);
         $x['header'] = $this->load->view('header', $v, true);
-        $x['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $x['footer'] = $this->load->view('footer', $f, true);
         $site = $this->site_model->get_site_data()->row_array();
         $x['site_name'] = $site['site_name'];
         $x['site_twitter'] = $site['site_twitter'];
+        $x['site_org'] = $this->site_model->get_org($site);
+        $x['site_canonical'] = base_url('home/tag');
         $x['type_category'] = $this->home_model->get_type_category();
         $x['tag'] = $tag;
         $this->load->view('blog_tag_view', $x);

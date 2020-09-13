@@ -28,19 +28,19 @@
 				                        <div class="col-sm-12  d-flex c-justify-content-end md-left-to-ceter pl-0">
 				                            <ul class="menu-footer font-footer-m pl-0"
 				                                style="font-family: 'Noto Sans JP', sans-serif;">
-				                                <li class="pl-0"><a href="#home">Home</a></li>
-				                                <li><a href="#news">News</a></li>
-				                                <li><a href="#contact">Contact</a></li>
-				                                <li><a href="#about">About</a></li>
+				                                <li class="pl-0"><a href="<?=base_url()?>">Home</a></li>
+				                                <li><a href="<?=base_url('news')?>">News</a></li>
+				                                <li><a href="<?=base_url('home/about')?>">Contact</a></li>
+				                                <li><a href="<?=base_url('home/about')?>">About</a></li>
 				                            </ul>
 				                        </div>
 				                        <div
 				                            class="col-sm-12 d-flex c-justify-content-end align-self-end font-footer-m md-left-to-ceter">
 				                            <div class="row ">
 
-				                                <a href="#"><i class="fab fa-instagram pr-30"></i></a>
-				                                <a href="#"><i class="fab fa-facebook-f pr-30"></i></a>
-				                                <a href="#"><i class="fab fa-twitter pr-30"></i></a>
+				                                <a href="<?= $site['site_instagram']?>"><i class="fab fa-instagram pr-30"></i></a>
+				                                <a href="<?= $site['site_facebook']?>"><i class="fab fa-facebook-f pr-30"></i></a>
+				                                <a href="<?= $site['site_twitter']?>"><i class="fab fa-twitter pr-30"></i></a>
 				                            </div>
 				                        </div>
 

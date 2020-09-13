@@ -17,11 +17,13 @@ class Detail_category_model extends CI_Model
         return $result;
     }
 
-    public function save_post($title, $description, $image, $category)
+    public function save_post($title, $description, $image, $category, $meta_title, $meta_desc)
     {
         $data = array(
             'detail_category_title' => $title,
             'detail_category_desc' => $description,
+            'detail_category_meta_title' => $meta_title,
+            'detail_category_meta_desc' => $meta_desc,
             'detail_category_image' => $image,
             'detail_category_category_id' => $category,
         );
@@ -30,11 +32,13 @@ class Detail_category_model extends CI_Model
 
     }
 
-    public function edit_post_with_img($id, $title, $description, $image)
+    public function edit_post_with_img($id, $title, $description, $image, $meta_title, $meta_desc)
     {
         $detail = array(
             'detail_category_title' => $title,
             'detail_category_desc' => $description,
+            'detail_category_meta_title' => $meta_title,
+            'detail_category_meta_desc' => $meta_desc,
             'detail_category_image' => $image,
 
         );
@@ -45,12 +49,13 @@ class Detail_category_model extends CI_Model
 
     }
 
-    public function edit_post_no_img($id, $title, $description)
+    public function edit_post_no_img($id, $title, $description, $meta_title, $meta_desc)
     {
         $data = array(
             'detail_category_title' => $title,
             'detail_category_desc' => $description,
-
+            'detail_category_meta_title' => $meta_title,
+            'detail_category_meta_desc' => $meta_desc,
         );
         $this->db->where('detail_category_category_id', $id);
         $result = $this->db->update('tbl_detail_category', $data);

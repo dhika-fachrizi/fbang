@@ -8,8 +8,8 @@
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="<?php echo $meta->meta_desc; ?>" />
+    <meta name="keywords" content="<?php echo $meta->meta_title; ?>" />
     <meta name="author" content="" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
@@ -22,7 +22,8 @@
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo  $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo  $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -256,17 +257,7 @@
 
                                                         </div>
                                                         <div class="col-12 mt-10" style="font-size:15px;">
-                                                            <a class="a-link-c" href="<?php if ($item['post_type_id'] == 1) {
-                                                                                            echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                                        } else if ($item['post_type_id'] == 2) {
-                                                                                            echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                                        } else if ($item['post_type_id'] == 3) {
-                                                                                            echo base_url() . 'umkm/detail/' . $item['post_slug'];
-                                                                                        } else if ($item['post_type_id'] == 4) {
-                                                                                            echo base_url() . 'stfood/detail/' . $item['post_slug'];
-                                                                                        } else if ($item['post_type_id'] == 5) {
-                                                                                            echo base_url() . 'hltfood/detail/' . $item['post_slug'];
-                                                                                        } ?>">Read
+                                                            <a class="a-link-c" href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>">Read
                                                                 Now</a>
                                                         </div>
                                                     </div>
