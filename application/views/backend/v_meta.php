@@ -3,7 +3,7 @@
 
 <head>
     <!-- Title -->
-    <title>Category</title>
+    <title>Meta</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="UTF-8">
@@ -262,14 +262,13 @@ if ($query->num_rows() > 0):
                             <li><a href="<?php echo site_url('backend/post'); ?>">Post List</a></li>
                         </ul>
                     </li>
-                    <li class="droplink active open"><a href="#" class="waves-effect waves-button"><span
+                    <li class="droplink"><a href="#" class="waves-effect waves-button"><span
                                 class="menu-icon icon-pin"></span>
                             <p>Attribute</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
-                            <li class="active"><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a>
-                            </li>
+                            <li class=""><a href="<?php echo site_url('backend/category'); ?>">Category</a></li>
+                            <li><a href="<?php echo site_url('backend/subcategory'); ?>">Subcategory</a></li>
                             <li><a href="<?php echo site_url('backend/detail_category'); ?>">Category Detail</a></li>
                             <li><a href="<?php echo site_url('backend/future_article'); ?>">Feature Article</a></li>
                             <li><a href="<?php echo site_url('backend/city'); ?>">City</a></li>
@@ -296,14 +295,15 @@ if ($query->num_rows() > 0):
                                 class="menu-icon icon-user"></span>
                             <p>Users</p>
                         </a></li>
-                    <li class="droplink"><a href="<?php echo site_url('backend/settings'); ?>"
+                    <li class="droplink active open"><a href="<?php echo site_url('backend/settings'); ?>"
                             class="waves-effect waves-button"><span class="menu-icon icon-settings"></span>
                             <p>Settings</p><span class="arrow-del"></span>
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
-<li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
-                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
+                            <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                         
+                            <li class="active"><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                             <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
@@ -320,12 +320,12 @@ if ($query->num_rows() > 0):
         </div><!-- Page Sidebar -->
         <div class="page-inner">
             <div class="page-title">
-                <h3>Subcategory</h3>
+                <h3>Page Meta</h3>
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li><a href="<?php echo site_url('backend/dashboard'); ?>">Dashboard</a></li>
-                        <li><a href="#">Attribute</a></li>
-                        <li class="active">Subcategory</li>
+                        <li><a href="#">Setting</a></li>
+                        <li class="active">Page Meta</li>
                     </ol>
                 </div>
             </div>
@@ -335,16 +335,16 @@ if ($query->num_rows() > 0):
 
                         <div class="panel panel-white">
                             <div class="panel-body">
-                                <button type="button" class="btn btn-success m-b-sm" data-toggle="modal"
-                                    data-target="#myModal">Add New Row</button>
+                                <a href="<?php echo site_url('backend/detail_category'); ?>" class="btn btn-success m-b-sm" >Edit Meta By Category</a>
 
                                 <div class="table-responsive">
                                     <table id="data-table" class="display table" style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Category</th>
-                                                <th>Subcategory</th>
+                                                <th>Page Name</th>
+                                                <th>Meta Title</th>
+                                                <th>Meta Description</th>
                                                 <th style="text-align: center;">Action</th>
                                             </tr>
                                         </thead>
@@ -356,20 +356,19 @@ foreach ($data->result() as $row):
     ?>
 	                                            <tr>
 	                                                <td><?php echo $no; ?></td>
-	                                                <td><?php echo $row->category_name; ?></td>
-	                                                <td><?php echo $row->subcategory_name; ?></td>
+	                                                <td><?php echo $row->meta_name; ?></td>
+	                                                <td><?php echo $row->meta_title; ?></td>
+                                                    <td><?php echo $row->meta_desc; ?></td>
 	                                                <td style="text-align: center;">
 	                                                    <a href="javascript:void(0);" class="btn btn-xs btn-edit"
-	                                                        onclick="edt(<?php echo $row->subcategory_id; ?>,'<?php echo $row->subcategory_name; ?>',<?php echo $row->category_id; ?>)"
-	                                                        data-id="<?php echo $row->subcategory_id; ?>"
-	                                                        data-subcategory="<?php echo $row->subcategory_name; ?>"
-	                                                        data-categoryid="<?php echo $row->category_id; ?>"
-	                                                        data-categoryname="<?php echo $row->category_name; ?>"><span
+	                                                        onclick="edt(this)"
+	                                                        data-id="<?php echo $row->meta_id; ?>"
+	                                                        data-name="<?php echo $row->meta_name; ?>"
+                                                            data-title="<?php echo $row->meta_title; ?>"
+                                                            data-desc="<?php echo $row->meta_desc; ?>"
+	                                                        ><span
 	                                                            class="fas fa-edit"></span></a>
-	                                                    <a href="javascript:void(0);" class="btn btn-xs btn-delete"
-	                                                        onclick="del(<?php echo $row->subcategory_id; ?>)"
-	                                                        data-id="<?php echo $row->subcategory_id; ?>"><span
-	                                                            class="fa fa-trash"></span></a>
+	                                                   
 	                                                </td>
 	                                            </tr>
 	                                            <?php endforeach;?>
@@ -388,43 +387,9 @@ foreach ($data->result() as $row):
         </div><!-- Page Inner -->
     </main><!-- Page Content -->
 
-    <!--ADD RECORD MODAL-->
-    <form action="<?php echo site_url('backend/subcategory/save'); ?>" method="post">
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">New Subcategory</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <select class="form-control" name="category" required>
-                                <option value="">-Select Category-</option>
-                                <?php foreach ($category->result() as $row): ?>
-                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->category_name; ?>
-                                </option>
-                                <?php endforeach;?>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="subcategory" class="form-control" placeholder="Subcategory Name"
-                                required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
 
     <!--EDIT RECORD MODAL-->
-    <form action="<?php echo site_url('backend/subcategory/edit'); ?>" method="post">
+    <form action="<?php echo site_url('backend/meta/edit'); ?>" method="post">
         <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -432,21 +397,19 @@ foreach ($data->result() as $row):
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Edit Subcategory</h4>
+                        <h4 class="modal-title" id="myModalLabel">Edit Meta</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <select class="form-control" name="category2" required>
-                                <option value="">-Select Category-</option>
-                                <?php foreach ($category->result() as $row): ?>
-                                <option value="<?php echo $row->category_id; ?>"><?php echo $row->category_name; ?>
-                                </option>
-                                <?php endforeach;?>
-                            </select>
+                            <input type="text" name="meta-name2" class="form-control" placeholder="Page Name"
+                                disabled>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subcategory2" class="form-control" placeholder="Subcategory Name"
+                            <input type="text" name="meta-title2" class="form-control" placeholder="Meta Titile"
                                 required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control"  name="meta-desc2" id="exampleFormControlTextarea1" rows="3"  placeholder="Meta Desc"></textarea>
                         </div>
 
                     </div>
@@ -460,31 +423,6 @@ foreach ($data->result() as $row):
         </div>
     </form>
 
-    <!--DELETE RECORD MODAL-->
-    <form action="<?php echo site_url('backend/subcategory/delete'); ?>" method="post">
-        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Delete Subcategory</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="alert alert-info">
-                            Anda yakin mau menghapus data ini?
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="id" required>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
 
     <!-- Javascripts -->
     <script src="<?php echo base_url() . 'assets/plugins/jquery/jquery-2.1.4.min.js' ?>"></script>
@@ -511,11 +449,12 @@ foreach ($data->result() as $row):
         $('#DeleteModal').modal('show');
     }
 
-    function edt(id, name, category_id) {
-
-        $('[name="kode"]').val(id);
-        $('[name="subcategory2"]').val(name);
-        $('[name="category2"]').val(category_id);
+    function edt(e) {
+        console.log(e);
+        $('[name="kode"]').val($(e).data('id'));
+        $('[name="meta-name2"]').val($(e).data('name'));
+        $('[name="meta-title2"]').val($(e).data('title'));
+        $('[name="meta-desc2"]').val($(e).data('desc'));
         $('#EditModal').modal('show');
     }
 
@@ -551,7 +490,7 @@ foreach ($data->result() as $row):
     <script type="text/javascript">
     $.toast({
         heading: 'Success',
-        text: "Subcategory Saved!",
+        text: "Meta Saved!",
         showHideTransition: 'slide',
         icon: 'success',
         hideAfter: false,
@@ -563,7 +502,7 @@ foreach ($data->result() as $row):
     <script type="text/javascript">
     $.toast({
         heading: 'Info',
-        text: "Subcategory Updated!",
+        text: "Meta Updated!",
         showHideTransition: 'slide',
         icon: 'info',
         hideAfter: false,
@@ -575,7 +514,7 @@ foreach ($data->result() as $row):
     <script type="text/javascript">
     $.toast({
         heading: 'Success',
-        text: "Subcategory Deleted!.",
+        text: "Meta Deleted!.",
         showHideTransition: 'slide',
         icon: 'success',
         hideAfter: false,

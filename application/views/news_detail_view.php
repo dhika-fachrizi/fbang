@@ -1,6 +1,8 @@
 <?php
 $b_social = json_decode($detail['detail_news_social']);
 $b_availability = json_decode($detail['detail_news_availability']);
+$b_gmaps = json_decode($detail['detail_news_gmaps']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +34,8 @@ $b_availability = json_decode($detail['detail_news_availability']);
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -144,9 +147,18 @@ echo date_format($date, "d M Y");?>, by <?=$detail['user_name']?> |
                             <div class="mt-30 lbpr-30 mb-30 pm-16">
                                 <div class="row" style=" background-color:#FFF9EA;">
                                     <div class="col-3 pl-0 pr-0">
+                                        <?php if (!empty($b_gmaps)): ?>
+                                        <a
+                                            href="https://www.google.com/maps/search/?api=1&query=<?=$b_gmaps->lat . ',' . $b_gmaps->lng?>">
+                                            <div class="col-12 pl-0 news-b-image m-0 "
+                                                style="background-image: url('<?php echo base_url() . 'assets/images/map.png' ?>') ; background-color:#F4F4F4; min-height: 140px;height:100%">
+                                            </div>
+                                        </a>
+                                        <?php else: ?>
                                         <div class="col-12 pl-0 news-b-image m-0 "
                                             style="background-image: url('<?php echo base_url() . 'assets/images/map.png' ?>') ; background-color:#F4F4F4; min-height: 140px;height:100%">
                                         </div>
+                                        <?php endif;?>
                                     </div>
                                     <div class="col-9 pb-10">
                                         <div class="row" style="min-height:100%;">
@@ -167,15 +179,14 @@ echo date_format($date, "d M Y");?>, by <?=$detail['user_name']?> |
                                                     <div class="pt-10 col-12 d-flex justify-content-end"
                                                         style="font-size:10px;">avalibel at</div>
                                                     <div class="pt-10 col-12  d-flex flex-row-reverse">
-                                                        <div class="row ">
+                                                        <div>
                                                             <?php foreach ($b_availability as $a): ?>
-                                                            <div><a href="<?php echo $a->availability_value; ?>"><img
+                                                            <div style="float:right"><a href="<?php echo $a->availability_value; ?>"><img
                                                                         src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
-                                                                        class="img-fluid pr-10 pb-10"
+                                                                        class="img-fluid pl-10 pb-10 detail-img-av"
                                                                         alt="Responsive image" style="height:25px;">
                                                                 </a>
                                                             </div>
-
                                                             <?php endforeach;?>
                                                         </div>
                                                     </div>

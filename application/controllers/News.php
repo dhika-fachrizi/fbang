@@ -10,7 +10,10 @@ class News extends CI_Controller
         $this->load->model('Home_model', 'home_model');
         $this->load->model('Site_model', 'site_model');
         $this->load->model('Detail_model', 'detail_model');
+        $this->load->model('Category_model', 'category_model');
         $this->load->model('News_model', 'news_model');
+        $this->load->model('backend/Meta_model', 'meta_model');
+        $this->load->model('backend/Detail_category_model', 'detail_category_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
         $this->load->library('pagination');
@@ -22,17 +25,22 @@ class News extends CI_Controller
             $this->session->set_userdata('limit', $l);
         }
         //$this->output->enable_profiler(TRUE);
+        $category = $this->category_model->get_category_by_slug('daily-news');
         $site = $this->site_model->get_site_data()->row_array();
         $data['site_name'] = $site['site_name'];
         $data['site_title'] = $site['site_title'];
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['site_org'] = $this->site_model->get_org($site);
+        $data['site_canonical'] = base_url('news');
+        $data['thumbnail'] = $this->detail_category_model->get_post_by_id($category['category_id'])->row();
         $site_info = $this->db->get('tbl_site', 1)->row();
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $data['popular'] = $this->detail_model->get_popular();
         $start = $this->input->get('per_page', true);
         if ($start == "") {
@@ -45,7 +53,6 @@ class News extends CI_Controller
             $config['per_page'] = 6;
         }
         $config['page_query_string'] = true;
-
         //
         $config['first_link'] = 'First';
         $config['last_link'] = 'Last';
@@ -95,6 +102,8 @@ class News extends CI_Controller
             $data['site_desc'] = $site['site_description'];
             $data['site_twitter'] = $site['site_twitter'];
             $data['site_image'] = $site['site_logo_big'];
+            $data['site_org'] = $this->site_model->get_org($site);
+            $data['site_canonical'] = base_url('news/detail/' . $slug);
             $data['post_header'] = $this->home_model->get_post_header();
             $data['post_header_2'] = $this->home_model->get_post_header_2();
             $data['post_header_3'] = $this->home_model->get_post_header_3();
@@ -115,7 +124,8 @@ class News extends CI_Controller
             $v['logo'] = $site_info->site_logo_header;
             $data['icon'] = $site_info->site_favicon;
             $data['header'] = $this->load->view('header', $v, true);
-            $data['footer'] = $this->load->view('footer', '', true);
+            $f['site'] = $site;
+            $data['footer'] = $this->load->view('footer', $f, true);
             $this->load->view('news_detail_view', $data);
         } else {
             redirect('home');

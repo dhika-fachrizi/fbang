@@ -302,6 +302,7 @@ if ($query->num_rows() > 0):
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
 <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                             <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
@@ -340,10 +341,11 @@ if ($query->num_rows() > 0):
                                         <thead>
                                             <tr>
                                                 <th style="width: 100px;">No</th>
+                                                <th>Subcategory</th>
                                                 <th>Title</th>
                                                 <th>Description</th>
-                                                <th>Subcategory</th>
-
+                                                <th>Meta Title</th>
+                                                <th>Meta Description</th>                                                
                                                 <th style="text-align: center;width: 120px;">Action</th>
                                             </tr>
                                         </thead>
@@ -355,10 +357,11 @@ foreach ($data->result() as $row):
     ?>
 	                                            <tr>
 	                                                <td><?php echo $no; ?></td>
+                                                    <td><?php echo $row->category_name; ?></td>
 	                                                <td><?php echo $row->detail_category_title; ?></td>
 	                                                <td><?php echo $row->detail_category_desc; ?></td>
-	                                                <td><?php echo $row->category_name; ?></td>
-
+                                                    <td><?php echo $row->detail_category_meta_title; ?></td>
+	                                                <td><?php echo $row->detail_category_meta_desc; ?></td>
 	                                                <td style="text-align: center;">
 	                                                    <?php if (!isset($row->detail_category_id)): ?>
 	                                                    <a

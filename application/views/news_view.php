@@ -6,12 +6,14 @@
 <head>
 
     <!-- Page Title -->
-    <title><?php echo $site_title; ?></title>
+    <title>Daily News | <?php echo $site_title; ?></title>
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <?php if (!empty($thumbnail)): ?>
+    <meta name="description" content="<?php echo $thumbnail->detail_category_meta_desc; ?>" />
+    <meta name="keywords" content="<?php echo $thumbnail->detail_category_meta_title; ?>" />
+    <?php endif; ?>
     <meta name="author" content="" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
@@ -24,7 +26,8 @@
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo  $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo  $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />

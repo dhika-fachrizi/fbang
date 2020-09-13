@@ -307,6 +307,7 @@ if ($query->num_rows() > 0):
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
                             <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                             <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
@@ -494,7 +495,8 @@ if ($query->num_rows() > 0):
                                     <div class="form-group">
                                         <label>Gmaps</label>
                                         <input type="maps" name="news_maps" class="form-control" id="autocomplete"
-                                            placeholder="">
+                                            placeholder="" required>
+                                        <input type="hidden" name="maps" value='' id="gmaps">
                                     </div>
                                     <div class="form-group">
                                         <div style="height:300px;width:100%" id="map"></div>
@@ -589,6 +591,10 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCryI148h0hmC9D0r7wlGNh_twFFAfyBno&callback=initMap&libraries=places">
+    </script>
+    <script src="<?php echo base_url() . 'assets/js/gmaps-edit.js' ?>"></script>
     <script>
     function dynamicAttribute(e) {
         category_id = $(e).val();

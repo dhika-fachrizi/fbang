@@ -273,6 +273,7 @@ if ($query->num_rows() > 0):
                             <ul class="sub-menu">
                                 <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
 <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                                 <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->

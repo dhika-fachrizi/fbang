@@ -1,4 +1,19 @@
+/* catlist */
+
+.detail-img-av{
+  width:60px;
+}
+
 /* theme */
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.googleapis.com/css?family=DM+Serif+Display) format('woff2');
+  font-display: swap;
+}
+
 .pm-16 {
   padding-right: 0px;
   padding-left: 0px;
@@ -702,6 +717,11 @@ a:hover {
     padding-right: 10px;
     padding-left: 10px;
   }
+
+  /* catlist */
+  .detail-img-av{
+    width:30px;
+}
 }
 
 @media only screen and (max-width: 576px) {
