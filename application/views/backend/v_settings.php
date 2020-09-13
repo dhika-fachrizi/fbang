@@ -447,6 +447,37 @@ if ($query->num_rows() > 0):
 
 
                     </form>
+
+                    <form class="form-horizontal" action="<?php echo base_url() . 'backend/settings/robot' ?>"
+                        method="post" enctype="multipart/form-data">
+                        <div class="col-md-12">
+                            <div class="panel panel-white">
+
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        <label for="input1" class="col-sm-2 control-label">Robot</label>
+                                        <div class="col-sm-10">
+                                            <div class="form-group">
+                                                
+                                                <textarea class="form-control" name="robot" id="exampleFormControlTextarea1"
+                                                    rows="6"><?= $robot ?></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   
+
+                                    <div class="form-group pl-0">
+                                       
+                                        <div class="  pl-0 col-lg-offset-2 col-sm-10" style="padding-left:0px;">
+                                            <button type="submit" class="btn btn-success">UPDATE</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div><!-- Row -->
             </div><!-- Main Wrapper -->
             <div class="page-footer">
