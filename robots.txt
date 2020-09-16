@@ -1,2 +1,9 @@
 User-aget:*
-Disallow: /
+disallow: /system/ 
+disallow: /application/confiq/ 
+disallow: /application/controllers/ 
+disallow: /application/helpers/ 
+disallow: /application/hooks/ 
+disallow: /application/models/ 
+disallow: /application/libraries/ 
+disallow: /application/language/ 
