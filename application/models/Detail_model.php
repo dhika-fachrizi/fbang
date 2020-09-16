@@ -143,8 +143,14 @@ class Detail_model extends CI_Model
         // die();
 
         $res = [];
-        for ($i = 0; $i < 4; $i++) {
-            array_push($res, $query[$i]);
+        if (count($query) < 5) {
+            for ($i = 0; $i < 4; $i++) {
+                array_push($res, $query[$i]);
+            }
+        } else if(!empty($query)){
+            for ($i = 0; $i < count($query); $i++) {
+                array_push($res, $query[$i]);
+            }
         }
 
         return $res;

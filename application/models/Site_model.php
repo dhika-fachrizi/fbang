@@ -138,7 +138,7 @@ class Site_model extends CI_Model
         $return = '{
 			"@context" : "http://schema.org",
 			"@type" : "Organization",
-			"name" : "Your Organization Name",
+			"name" : "Foodbang",
 			"url" : "' . $data['site_name'] . '",
 			"sameAs" : [
 			  "' . $data['site_facebook'] . '",
