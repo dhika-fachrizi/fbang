@@ -143,6 +143,7 @@
 
             <section>
                 <div class="container">
+                    <?php if(!empty($slot1)&& !empty($feature_article)): ?>
                     <div class="row text-theme-2 pb-10 pt-20 cpl-0">
                         <i><b>Featured Article</b></i>
                         <div class="col pt-1">
@@ -195,6 +196,7 @@ echo date_format($date, "d M Y");?>
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                     <div class="row unhide-m">
                         <div class="col-lg-12 pl-0 pr-0">
                             <div class="stc-menu">
