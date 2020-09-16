@@ -105,7 +105,7 @@
                                     <hr class="hr-theme">
                                 </div>
                             </div>
-
+                            <?php if(!empty($dt_lasted_news)): ?>
                             <div class="row pb-20 lbpr-30 pm-16">
                                 <div class="col-sm-12 feature-b-image img-c-p"
                                     style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $dt_lasted_news[0]['post_image']; ?>') ;">
@@ -138,7 +138,8 @@ echo date_format($date, "d M Y");?>
                                     </div>
                                 </div>
                             </div>
-
+                            <?php endif; ?>
+                            <?php if(!empty($dt_news)): ?>
                             <?php for ($i = 0; $i < count($dt_news); $i++): ?>
                             <div class="row pb-20 pm-16">
 
@@ -176,6 +177,7 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'],
 
                             </div>
                             <?php endfor;?>
+                            <?php endif; ?>
                             <div class="row pt-60 pb-20 cpl-0 d-flex justify-content-center">
                                 <div class="col-md-6 d-flex justify-content-center">
                                     <?=$this->pagination->create_links();?>
