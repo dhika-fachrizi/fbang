@@ -47,6 +47,8 @@ $b_gmaps = json_decode($b['detail_hltfood_gmaps']);
         type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.css">
     <link href="<?php echo base_url() . 'assets/css/dropify.min.css' ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url() . 'assets/plugins/select2/css/select2.min.css' ?>" rel="stylesheet"
+        type="text/css">
 
     <!-- Theme Styles -->
     <link href="<?php echo base_url() . 'assets/css/modern.min.css' ?>" rel="stylesheet" type="text/css" />
@@ -167,10 +169,10 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                                    <img class="img-circle avatar"
-	                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                        width="40" height="40" alt="">
-	                                    <?php else: ?>
+                                    <img class="img-circle avatar"
+                                        src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                        width="40" height="40" alt="">
+                                    <?php else: ?>
                                     <img class="img-circle avatar"
                                         src="<?php echo base_url() . 'assets/images/user_blank.png'; ?>" width="40"
                                         height="40" alt="">
@@ -207,16 +209,16 @@ $query = $this->db->get_where('tbl_user', array('user_id' => $user_id));
 if ($query->num_rows() > 0):
     $row = $query->row_array();
     ?>
-	                        <a href="javascript:void(0);">
-	                            <div class="sidebar-profile-image">
-	                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
-	                                    class="img-circle img-responsive" alt="">
-	                            </div>
-	                            <div class="sidebar-profile-details">
-	                                <span><?php echo $this->session->userdata('name'); ?><br>
-	                                    <?php if ($row['user_level'] == '1'): ?>
-	                                    <small>Administrator</small>
-	                                    <?php else: ?>
+                        <a href="javascript:void(0);">
+                            <div class="sidebar-profile-image">
+                                <img src="<?php echo base_url() . 'assets/images/' . $row['user_photo']; ?>"
+                                    class="img-circle img-responsive" alt="">
+                            </div>
+                            <div class="sidebar-profile-details">
+                                <span><?php echo $this->session->userdata('name'); ?><br>
+                                    <?php if ($row['user_level'] == '1'): ?>
+                                    <small>Administrator</small>
+                                    <?php else: ?>
                                     <small>Author</small>
                                     <?php endif;?>
                                 </span>
@@ -310,7 +312,8 @@ if ($query->num_rows() > 0):
                         </a>
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
-<li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                             <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
@@ -500,8 +503,8 @@ if ($query->num_rows() > 0):
 
                                     <div class="form-group">
                                         <label>City</label>
-                                        <select class="form-control" name="city" style="text-transform: capitalize;"
-                                            required>
+                                        <select class="form-control select2" name="city"
+                                            style="text-transform: capitalize;" required>
                                             <option value="">-Select Option-</option>
                                             <?php foreach ($city->result() as $row): ?>
                                             <?php if ($b['post_city_id'] == $row->city_id): ?>
@@ -558,8 +561,10 @@ if ($query->num_rows() > 0):
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>Gmaps</label>
-                                        <input type="maps" name="news_maps" class="form-control" id="autocomplete"
+                                        <input type="maps" name="hltfood_maps" class="form-control" id="autocomplete"
                                             placeholder="">
+                                        <input type="hidden" name="maps" value='<?=$b['detail_hltfood_gmaps']?>'
+                                            id="gmaps">
                                     </div>
                                     <div class="form-group">
                                         <div style="height:300px;width:100%" id="map"></div>
@@ -601,6 +606,8 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/plugins/pace-master/pace.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/jquery-blockui/jquery.blockui.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/bootstrap/js/bootstrap.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/select2/js/select2.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'theme/js/custom.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/switchery/switchery.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/uniform/jquery.uniform.min.js' ?>"></script>
@@ -616,6 +623,10 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/plugins/summernote-master/summernote.min.js' ?>"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCryI148h0hmC9D0r7wlGNh_twFFAfyBno&callback=initMap&libraries=places">
+    </script>
+    <script src="<?php echo base_url() . 'assets/js/gmaps-edit.js' ?>"></script>
     <script>
     function dynamicAttribute() {
 

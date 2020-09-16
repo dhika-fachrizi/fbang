@@ -53,7 +53,8 @@ class Promo_model extends CI_Model
         $this->db->from('tbl_post');
         $this->db->where('post_type_id', 6);
         $this->db->order_by('post_date', 'DESC');
-        $this->db->limit(12);
+        $this->db->join('tbl_detail_promo', 'post_detail_id=detail_promo_id');
+        $this->db->where("DATE_FORMAT(FROM_UNIXTIME(`detail_promo_end`), '%Y-%m-%d %H:%i:%s') > CURDATE()");
         $query = $this->db->get()->result_array();
         return $query;
     }

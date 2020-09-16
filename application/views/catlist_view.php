@@ -13,13 +13,14 @@
 <head>
 
     <!-- Page Title -->
-    <title><?php echo $site_title; ?></title>
+    <title><?php echo $site_header_title; ?> | <?php echo $site_title; ?></title>
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
+    <?php if (!empty($thumbnail)): ?>
+    <meta name="description" content="<?php echo $thumbnail->detail_category_meta_desc; ?>" />
+    <meta name="keywords" content="<?php echo $thumbnail->detail_category_meta_title; ?>" />
+    <?php endif; ?>
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
     <!-- CSS -->
@@ -31,7 +32,8 @@
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo  $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo  $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -523,8 +525,8 @@
                                                                         style="padding:0px 5px 5px 0px">
                                                                         <div class=" "
                                                                             style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
-                                                                            <?php echo $tag; ?>
-
+                                                                            <a
+                                                                                href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
                                                                             <?php $count .= $tag;?>
                                                                         </div>
                                                                     </div>
@@ -613,7 +615,8 @@
                                                                 <div class="float-left" style="padding:0px 5px 5px 0px">
                                                                     <div class=" "
                                                                         style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
-                                                                        <?php echo $tag; ?>
+                                                                        <a
+                                                                            href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
 
                                                                         <?php $count .= $tag;?>
                                                                     </div>

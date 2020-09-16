@@ -11,6 +11,7 @@ class Home extends CI_Controller
         $this->load->model('Promo_model', 'promo_model');
         $this->load->model('Site_model', 'site_model');
         $this->load->model('backend/Slider_model', 'slider_model');
+        $this->load->model('backend/Meta_model', 'meta_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
     }
@@ -23,14 +24,16 @@ class Home extends CI_Controller
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['site_org'] = $this->site_model->get_org($site);
+        $data['site_canonical'] = base_url();
+        $data['meta'] = $this->meta_model->get_meta_by_id(1);
         $data['post_header'] = $this->home_model->get_post_header();
         $data['post_header_2'] = $this->home_model->get_post_header_2();
         $data['post_header_3'] = $this->home_model->get_post_header_3();
         $data['latest_post'] = $this->home_model->get_latest_post();
         $data['popular_post'] = $this->home_model->get_popular_post();
         $data['promo_post'] = $this->promo_model->get_promo_post();
-        // print_r($data['promo_post']);
-        // die();
+
         $data['feature_article'] = $this->home_model->get_4_future_article();
         $data['slot1'] = $this->home_model->slot1();
         $home = $this->db->get('tbl_home', 1)->row();
@@ -43,7 +46,8 @@ class Home extends CI_Controller
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $data['slider'] = $this->slider_model->get_all_post();
         $data['news_update'] = $this->home_model->get_news_update();
         $data['popular'] = $this->home_model->get_popular();
@@ -60,6 +64,7 @@ class Home extends CI_Controller
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['meta'] = $this->meta_model->get_meta_by_id(2);
         $data['post_header'] = $this->home_model->get_post_header();
         $data['post_header_2'] = $this->home_model->get_post_header_2();
         $data['post_header_3'] = $this->home_model->get_post_header_3();
@@ -76,7 +81,8 @@ class Home extends CI_Controller
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $this->load->view('about_home_view', $data);
     }
 
@@ -89,6 +95,7 @@ class Home extends CI_Controller
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['meta'] = $this->meta_model->get_meta_by_id(2);
         $data['post_header'] = $this->home_model->get_post_header();
         $data['post_header_2'] = $this->home_model->get_post_header_2();
         $data['post_header_3'] = $this->home_model->get_post_header_3();
@@ -104,7 +111,8 @@ class Home extends CI_Controller
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $this->load->view('promo_view', $data);
     }
 
@@ -112,8 +120,8 @@ class Home extends CI_Controller
     {
         //$this->output->enable_profiler(TRUE);
         $data['get_category'] = $this->input->get('category', true);
-        $query = strip_tags(htmlspecialchars($this->input->get('search_query', true), ENT_QUOTES));
-        $result = $this->home_model->search_blog($query,$data['get_category']);
+        $query = $this->input->get('search_query', true);
+        $result = $this->home_model->search_blog($query, $data['get_category']);
         $search_result = count($result);
         if ($search_result > 0) {
             $data['data'] = $result;
@@ -132,6 +140,9 @@ class Home extends CI_Controller
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['meta'] = $this->meta_model->get_meta_by_id(4);
+        $data['site_org'] = $this->site_model->get_org($site);
+        $data['site_canonical'] = base_url('home/serach');
         $data['post_header'] = $this->home_model->get_post_header();
         $data['post_header_2'] = $this->home_model->get_post_header_2();
         $data['post_header_3'] = $this->home_model->get_post_header_3();
@@ -149,7 +160,8 @@ class Home extends CI_Controller
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $this->load->view('search_home_view', $data);
     }
 

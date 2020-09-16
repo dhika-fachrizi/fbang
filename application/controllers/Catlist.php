@@ -31,8 +31,8 @@ class Catlist extends CI_Controller
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
-
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $data['thumbnail'] = $this->detail_category_model->get_post_by_id($category['category_id'])->row();
         $data['filter_city'] = $this->catlist_model->get_filter_city($category['category_id']);
         $data['filter_category'] = $this->catlist_model->get_filter_category($category['category_id']);
@@ -68,16 +68,21 @@ class Catlist extends CI_Controller
     {
         $category = $this->category_model->get_category_by_slug($this->uri->segment(3));
         $site = $this->site_model->get_site_data()->row_array();
+        $other_name =  $this->catlist_model->get_other_name_type($category['type_id']);
+        $data['site_header_title'] =  $category['category_name'];
         $data['site_name'] = $site['site_name'];
         $data['site_title'] = $site['site_title'];
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['site_org'] = $this->site_model->get_org($site);
+        $data['site_canonical'] = base_url($other_name.'/'.'home/'. $category['category_name']);
         $site_info = $this->db->get('tbl_site', 1)->row();
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $data['category'] = $category;
         $data['thumbnail'] = $this->detail_category_model->get_post_by_id($category['category_id'])->row();
         $data['filter_city'] = $this->catlist_model->get_filter_city($category['category_id']);
@@ -96,7 +101,7 @@ class Catlist extends CI_Controller
         $data['get_short'] = $this->input->get('short', true);
         $data['get_search'] = $this->input->get('search', true);
         $data['get_perpage'] = $this->input->get('perpage', true);
-        $data['perpage'] = 3;
+        $data['perpage'] = 9;
         if ($data['get_perpage'] == "") {
             $data['get_perpage'] = $data['perpage'];
         }
@@ -124,20 +129,23 @@ class Catlist extends CI_Controller
                 $data['description'] = $q['post_description'];
             }
             //$this->output->enable_profiler(TRUE);
+            $other_name =  $this->catlist_model->get_other_name_type($data['post_type_id']);
             $site = $this->site_model->get_site_data()->row_array();
             $data['site_name'] = $site['site_name'];
             $data['site_title'] = $site['site_title'];
             $data['site_desc'] = $site['site_description'];
             $data['site_twitter'] = $site['site_twitter'];
             $data['site_image'] = $site['site_logo_big'];
-
+            $data['site_org'] = $this->site_model->get_org($site);
+            $data['site_canonical'] = base_url($other_name.'/'.'detail/'.$slug );
             $data['more_to_exploler'] = $this->detail_model->get_more_exploler($q['post_id'], $q['post_type_id'], $q['post_tags']);
 
             $site_info = $this->db->get('tbl_site', 1)->row();
             $v['logo'] = $site_info->site_logo_header;
             $data['icon'] = $site_info->site_favicon;
             $data['header'] = $this->load->view('header', $v, true);
-            $data['footer'] = $this->load->view('footer', '', true);
+            $f['site'] = $site;
+            $data['footer'] = $this->load->view('footer', $f, true);
             $data['detail'] = $this->catlist_model->get_post_dynamic($data['post_id'], $data['post_type_id'], $data['post_category_id']);
             $data['user'] = $this->detail_model->get_user();
             $data['popular'] = $this->detail_model->get_popular();

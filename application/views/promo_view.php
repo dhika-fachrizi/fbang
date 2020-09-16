@@ -4,12 +4,12 @@
 <head>
 
     <!-- Page Title -->
-    <title><?php echo $site_title; ?></title>
+    <title>Promo | <?php echo $site_title; ?></title>
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="<?php echo $meta->meta_desc; ?>" />
+    <meta name="keywords" content="<?php echo $meta->meta_title; ?>" />
     <meta name="author" content="" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
@@ -18,11 +18,14 @@
     <link rel="stylesheet" href="<?php echo base_url('theme/css/style.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url('theme/css/style-custome-dhika.css') ?>" />
     <link rel="stylesheet" href="<?php echo base_url('theme/css/padding-margin.css') ?>" />
+    <link href="<?php echo base_url() . 'assets/plugins/select2/css/select2.min.css' ?>" rel="stylesheet"
+        type="text/css">
     <!-- Favicons -->
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo  $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo  $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -53,6 +56,14 @@
     .padding-promo-modal-info {
 
         padding-left: 0px;
+    }
+
+    .select2-container--default .select2-selection--single {
+        border: 0px;
+        outline: 0px;
+        border-bottom: 1px black solid;
+        border-radius: 0px;
+        text-transform: capitalize;
     }
 
 
@@ -164,9 +175,9 @@
                                                         pop="0">
                                                         <i class="fas fa-search"></i>
                                                     </div>
-                                                    <div class="city-input-promo">
-                                                        <select class="form-control form-control-sm" onchange="submit()"
-                                                            name="city"
+                                                    <div class="city-input-promo" style="padding-top:3px;">
+                                                        <select class="form-control select2 form-control-sm"
+                                                            onchange="submit()" name="city"
                                                             style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px;text-transform: capitalize;">
                                                             <option value="" disable>Pilih Kota</option>
                                                             <?php foreach ($filter_city as $item): ?>
@@ -510,6 +521,8 @@
     <script src="<?php echo base_url('theme/js/jquery.easing.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/bootstrap.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/waypoints.min.js') ?>"></script>
+    <script src="<?php echo base_url() . 'assets/plugins/select2/js/select2.min.js' ?>"></script>
+    <script src="<?php echo base_url() . 'theme/js/custom.js' ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.scrollTo.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.localScroll.min.js') ?>"></script>
     <script src="<?php echo base_url('theme/js/jquery.viewport.mini.js') ?>"></script>

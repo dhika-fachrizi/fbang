@@ -64,7 +64,7 @@ class Slider extends CI_Controller
                 $config['source_image'] = './assets/images/' . $img['file_name'];
                 $config['create_thumb'] = false;
                 $config['maintain_ratio'] = false;
-                $config['quality'] = '100%';
+                $config['quality'] = '60%';
                 $config['width'] = 1200;
                 $config['height'] = 800;
                 $config['new_image'] = './assets/images/' . $img['file_name'];
@@ -112,7 +112,7 @@ class Slider extends CI_Controller
                 $config['source_image'] = './assets/images/' . $img['file_name'];
                 $config['create_thumb'] = false;
                 $config['maintain_ratio'] = false;
-                $config['quality'] = '100%';
+                $config['quality'] = '60%';
                 $config['width'] = 1200;
                 $config['height'] = 800;
                 $config['new_image'] = './assets/images/' . $img['file_name'];

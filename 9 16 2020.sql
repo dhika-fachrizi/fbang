@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2020 at 10:43 AM
+-- Generation Time: Sep 16, 2020 at 04:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.28
 
@@ -596,7 +596,7 @@ CREATE TABLE `tbl_availability` (
   `availability_id` int(11) NOT NULL,
   `availability_name` varchar(20) NOT NULL,
   `availability_img` varchar(200) NOT NULL,
-  `availability_created_at` int(11) NOT NULL DEFAULT current_timestamp()
+  `availability_created_at` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -606,7 +606,9 @@ CREATE TABLE `tbl_availability` (
 INSERT INTO `tbl_availability` (`availability_id`, `availability_name`, `availability_img`, `availability_created_at`) VALUES
 (1, 'gofood', 'gofood.png', 2147483647),
 (2, 'grabfood', 'grabfood.png', 2147483647),
-(5, 'shopee', 'shopee.png', 2147483647);
+(5, 'shopee', 'shopee.png', 2147483647),
+(6, 'bukalapak', 'bukalapak.svg', 2147483647),
+(7, 'tokopedia', 'tokopedia.png', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -638,7 +640,7 @@ INSERT INTO `tbl_category` (`category_id`, `category_type_id`, `category_name`, 
 (17, 3, 'Snack / Oleh-Oleh', 'snack-oleh-oleh'),
 (18, 4, 'Makan Kenyang', 'makan-kenyang'),
 (19, 4, 'Makan Ringan', 'makan-ringan'),
-(20, 4, 'Snacks/Drinks', 'snacks/drinks'),
+(20, 4, 'Snacks/Drinks', 'snacks-drinks'),
 (24, 5, 'Healthy Food', 'healthy-food');
 
 -- --------------------------------------------------------
@@ -1172,7 +1174,9 @@ CREATE TABLE `tbl_detail_category` (
   `detail_category_id` int(11) NOT NULL,
   `detail_category_title` varchar(255) DEFAULT NULL,
   `detail_category_desc` varchar(200) DEFAULT NULL,
+  `detail_category_meta_title` varchar(255) NOT NULL,
   `detail_category_image` varchar(255) DEFAULT NULL,
+  `detail_category_meta_desc` varchar(255) NOT NULL,
   `detail_category_category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1180,9 +1184,11 @@ CREATE TABLE `tbl_detail_category` (
 -- Dumping data for table `tbl_detail_category`
 --
 
-INSERT INTO `tbl_detail_category` (`detail_category_id`, `detail_category_title`, `detail_category_desc`, `detail_category_image`, `detail_category_category_id`) VALUES
-(1, 'Titile For The RestaurantLorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quasi repudiandae error in unde delectus corporis atque nisi voluptates ', 'Jakarta raya indonesia', '69d3dfdef77187d0e3ca851b60af7152.jpg', 11),
-(2, 'The Cafe Titile', 'The Cafe Description', '3a5f627ee7109f0e94d102dceafdf244.jpg', 12);
+INSERT INTO `tbl_detail_category` (`detail_category_id`, `detail_category_title`, `detail_category_desc`, `detail_category_meta_title`, `detail_category_image`, `detail_category_meta_desc`, `detail_category_category_id`) VALUES
+(1, 'Titile For The RestaurantLorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quasi repudiandae error in unde delectus corporis atque nisi voluptates ', 'Jakarta raya indonesia', 'Jakarta raya indonesia', '69d3dfdef77187d0e3ca851b60af7152.jpg', 'Jakarta raya indonesia', 11),
+(2, 'The Cafe Titile', 'The Cafe Description', '', '3a5f627ee7109f0e94d102dceafdf244.jpg', '', 12),
+(5, 'Coffee shop dengan kopi-kopi pilihan terbaik! Mulai dari kopi susu sampai ke metode-metode yang mungkin blm pernah lo denger sebelumnya.', 'Coffee shop ', 'Coffee shop', '9ab69460a79b73fcbaf9de3c84af2c7c.jpg', 'Coffee shop dengan kopi-kopi pilihan terbaik! Mulai dari kopi susu sampai ke metode-metode yang mungkin blm pernah lo denger sebelumnya.', 13),
+(6, 'snack drink', 'snack drink', 'snack drink', 'f52e7559ae92c52ca570d057e2f8e572.jpg', 'snack drink', 20);
 
 -- --------------------------------------------------------
 
@@ -1198,8 +1204,8 @@ CREATE TABLE `tbl_detail_catlist` (
   `detail_catlist_address` varchar(100) NOT NULL,
   `detail_catlist_phone` varchar(15) NOT NULL,
   `detail_catlist_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_catlist_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_catlist_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_catlist_created_at` int(50) DEFAULT NULL,
+  `detail_catlist_update_at` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1208,7 +1214,7 @@ CREATE TABLE `tbl_detail_catlist` (
 
 INSERT INTO `tbl_detail_catlist` (`detail_catlist_id`, `detail_catlist_name`, `detail_catlist_availability`, `detail_catlist_social`, `detail_catlist_address`, `detail_catlist_phone`, `detail_catlist_gmaps`, `detail_catlist_created_at`, `detail_catlist_update_at`) VALUES
 ('id5f3c8d76ba080', 'Bebek Ginyo', '[]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '', 2147483647, 2147483647),
-('id5f3caa0906f7a', 'Seafod Santa 68', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood/santa\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood/santa\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '', 2147483647, 2147483647),
+('id5f3caa0906f7a', 'Seafod Santa 68', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood/santa\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood/santa\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '{\"lat\":-6.239296700000001,\"lng\":106.7367328,\"name\":\"Cipadu, Larangan, Tangerang City, Banten, Indonesia\"}', 2147483647, 2147483647),
 ('id5f40b122eb898', 'Akira Back', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'MD Place Mezzanine Level, Setiabudi', '021123456789', '', 2147483647, 2147483647),
 ('id5f40b210b2ba5', 'Namaaz Dining', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'jakarta selatan', '021123456789', '[]', 2147483647, 2147483647),
 ('id5f40b2c3dd925', 'Le Quartier', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'Senopati, Kebayoran Baru', '02113456789', '', 2147483647, 2147483647),
@@ -1231,8 +1237,8 @@ CREATE TABLE `tbl_detail_hltfood` (
   `detail_hltfood_address` varchar(100) NOT NULL,
   `detail_hltfood_phone` varchar(15) NOT NULL,
   `detail_hltfood_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_hltfood_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_hltfood_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_hltfood_created_at` int(50) DEFAULT NULL,
+  `detail_hltfood_update_at` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1240,7 +1246,8 @@ CREATE TABLE `tbl_detail_hltfood` (
 --
 
 INSERT INTO `tbl_detail_hltfood` (`detail_hltfood_id`, `detail_hltfood_name`, `detail_hltfood_availability`, `detail_hltfood_social`, `detail_hltfood_address`, `detail_hltfood_phone`, `detail_hltfood_gmaps`, `detail_hltfood_created_at`, `detail_hltfood_update_at`) VALUES
-('id5f4e5d6867d8f', 'dwwqd', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'wdqwdqwdq', '02113456789', '[]', 2147483647, 2147483647);
+('id5f4e5d6867d8f', 'dwwqd', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'wdqwdqwdq', '02113456789', '[]', 2147483647, 2147483647),
+('id5f59c9106ade5', 'OOatmeal', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood.com/\"},{\"availability_id\":\"2\",\"availability_name\":\"grabfood\",\"availability_img\":\"grabfood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"grabfood.com/\"},{\"availability_id\":\"5\",\"availability_name\":\"shopee\",\"availability_img\":\"shopee.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"shopee.com/\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com/\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com/\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com/\"}]', 'Jl. OOatmeal', '02113456789', '[]', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1256,8 +1263,8 @@ CREATE TABLE `tbl_detail_news` (
   `detail_news_address` varchar(100) NOT NULL,
   `detail_news_phone` varchar(15) NOT NULL,
   `detail_news_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_news_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_news_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_news_created_at` int(50) DEFAULT NULL,
+  `detail_news_update_at` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1266,13 +1273,14 @@ CREATE TABLE `tbl_detail_news` (
 
 INSERT INTO `tbl_detail_news` (`detail_news_id`, `detail_news_name`, `detail_news_availability`, `detail_news_social`, `detail_news_address`, `detail_news_phone`, `detail_news_gmaps`, `detail_news_created_at`, `detail_news_update_at`) VALUES
 ('id5f3f7044af2f3', 'News Restoo', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '', 2147483647, 2147483647),
-('id5f3f9bf4548d1', 'Warung Nagih Jakarta', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '[]', 2147483647, 2147483647),
+('id5f3f9bf4548d1', 'Warung Nagih Jakarta', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[\"{\\\"social_id\\\":\\\"1\\\",\\\"social_name\\\":\\\"facebook\\\",\\\"social_icon\\\":\\\"fab fa-facebook-f\\\",\\\"created_at\\\":\\\"1597723692\\\"}\",\"{\\\"social_id\\\":\\\"2\\\",\\\"social_name\\\":\\\"instagram\\\",\\\"social_icon\\\":\\\"fab fa-instagram\\\",\\\"created_at\\\":\\\"1597723692\\\"}\",\"{\\\"social_id\\\":\\\"5\\\",\\\"social_name\\\":\\\"twitter\\\",\\\"social_icon\\\":\\\"fab fa-twitter\\\",\\\"created_at\\\":\\\"1597723692\\\"}\"]', 'gg nila cipadu', '088104047258', '', 2147483647, 2147483647),
 ('id5f3f9c8b5f534', 'Joni Steak', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '[]', 2147483647, 2147483647),
 ('id5f3f9d3528f63', 'Bubur Ayam Barito', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '[]', 2147483647, 2147483647),
 ('id5f3f9e01ebae4', 'Pecenongan', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '[]', 2147483647, 2147483647),
 ('id5f3f9e5d111aa', 'Cafe Siang Malam ˝ 18 ˝ Palmerah', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '', 2147483647, 2147483647),
 ('id5f3f9ef40251b', 'OTW Food Street', '[{\"availability_id\":\"1\",\"availability_name\":\"gofood\",\"availability_img\":\"gofood.png\",\"availability_created_at\":\"2147483647\",\"availability_value\":\"gofood\"}]', '[{\"social_id\":\"1\",\"social_name\":\"facebook\",\"social_icon\":\"fab fa-facebook-f\",\"created_at\":\"1597723692\",\"social_value\":\"facebook.com\"},{\"social_id\":\"2\",\"social_name\":\"instagram\",\"social_icon\":\"fab fa-instagram\",\"created_at\":\"1597723692\",\"social_value\":\"instagram.com\"},{\"social_id\":\"5\",\"social_name\":\"twitter\",\"social_icon\":\"fab fa-twitter\",\"created_at\":\"1597723692\",\"social_value\":\"twitter.com\"}]', 'gg nila cipadu', '088104047258', '[]', 2147483647, 2147483647),
-('id5f47a5417d489', 'indomi', '[]', '[]', 'indomi jakarta raya', '0887521545', '', 2147483647, 2147483647);
+('id5f47a5417d489', 'indomi', '[]', '[]', 'indomi jakarta raya', '0887521545', '', 2147483647, 2147483647),
+('id5f5aebb160143', 'asi pecel khas pedagang kaki lima, yang rasanya cocok di lidah mahasiswa', '[]', '[]', 'gg nila cipadu', '088104047258', '{\"lat\":-6.3082841,\"lng\":107.1751834,\"name\":\"Blok B2, Jl. Taman Tropika No.37, RT.38/RW.11, Sertajaya, Kec. Cikarang Tim., Bekasi, Jawa Barat 17530, Indonesia\"}', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1288,8 +1296,8 @@ CREATE TABLE `tbl_detail_promo` (
   `detail_promo_time` varchar(100) NOT NULL,
   `detail_promo_start` int(50) NOT NULL,
   `detail_promo_end` int(50) NOT NULL,
-  `detail_promo_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_promo_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_promo_created_at` int(50) DEFAULT NULL,
+  `detail_promo_update_at` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1298,9 +1306,10 @@ CREATE TABLE `tbl_detail_promo` (
 
 INSERT INTO `tbl_detail_promo` (`detail_promo_id`, `detail_promo_name`, `detail_promo_address`, `detail_promo_short_desc`, `detail_promo_time`, `detail_promo_start`, `detail_promo_end`, `detail_promo_created_at`, `detail_promo_update_at`) VALUES
 ('id5f3cf5c7e250c', 'Grab', 'Address', 'GrabFood Promo', 'sdsddd', 1597788000, 1671404400, 1597830599, 1598784407),
-('id5f410e7d1466f', 'Grab', 'Jl.Ruko Selatan', 'Berlaku Hanya Bylan A', '00:00 - 12:00', 1598047200, 1672268400, 1598099069, 1598784480),
+('id5f410e7d1466f', 'Grab', 'Jl.Ruko Selatan', 'Berlaku Hanya Bylan A', '00:00 - 12:00', 1598047200, 1672268400, 1598099069, 1599647675),
 ('id5f4113d9ae69f', 'asd', 'asd', 'asdsa', 'asd', 1598047200, 1598652000, 1598100441, 1598101244),
-('id5f4a36ef3ce58', 'grabfoodsdsd', 'cipadusd', 'sd', '00:00 - 12:00', 1598652000, 1598824800, 1598699247, 1598699554);
+('id5f4a36ef3ce58', 'grabfoodsdsd', 'cipadusd', 'sd', '00:00 - 12:00', 1598652000, 1598824800, 1598699247, 1598699554),
+('id5f59befa47450', 'Kode Grab', 'Jl.Ruko Selatan', 'Kode Promo Grab ', 'jan 10 - des  12', 1599688800, 1601416800, 1599717114, 1599717114);
 
 -- --------------------------------------------------------
 
@@ -1316,8 +1325,8 @@ CREATE TABLE `tbl_detail_stfood` (
   `detail_stfood_address` varchar(100) NOT NULL,
   `detail_stfood_phone` varchar(15) NOT NULL,
   `detail_stfood_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_stfood_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_stfood_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_stfood_created_at` int(50) DEFAULT NULL,
+  `detail_stfood_update_at` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1342,8 +1351,8 @@ CREATE TABLE `tbl_detail_umkm` (
   `detail_umkm_address` varchar(100) NOT NULL,
   `detail_umkm_phone` varchar(15) NOT NULL,
   `detail_umkm_gmaps` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
-  `detail_umkm_created_at` int(50) NOT NULL DEFAULT current_timestamp(),
-  `detail_umkm_update_at` int(50) NOT NULL DEFAULT current_timestamp()
+  `detail_umkm_created_at` int(50) DEFAULT NULL,
+  `detail_umkm_update_at` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1479,6 +1488,30 @@ INSERT INTO `tbl_location` (`location_id`, `location_name`, `location_category_i
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_meta`
+--
+
+CREATE TABLE `tbl_meta` (
+  `meta_id` int(11) NOT NULL,
+  `meta_name` varchar(255) NOT NULL,
+  `meta_title` varchar(255) NOT NULL,
+  `meta_desc` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_meta`
+--
+
+INSERT INTO `tbl_meta` (`meta_id`, `meta_name`, `meta_title`, `meta_desc`) VALUES
+(1, 'home', 'home meta title', 'home meta descs'),
+(2, 'about us', '', ''),
+(3, 'promo', '', ''),
+(4, 'search', '', ''),
+(5, 'tags', '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_navbar`
 --
 
@@ -1513,7 +1546,7 @@ CREATE TABLE `tbl_post` (
   `post_description` text DEFAULT NULL,
   `post_description_title` varchar(255) NOT NULL,
   `post_contents` longtext DEFAULT NULL,
-  `post_image` varchar(40) DEFAULT NULL,
+  `post_image` varchar(255) DEFAULT NULL,
   `post_image_desc` varchar(255) NOT NULL,
   `post_date` timestamp NULL DEFAULT current_timestamp(),
   `post_last_update` datetime DEFAULT NULL,
@@ -1531,7 +1564,7 @@ CREATE TABLE `tbl_post` (
   `post_views` int(11) DEFAULT 0,
   `post_user_id` int(11) DEFAULT NULL,
   `post_detail_id` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `email_news_update` int(11) NOT NULL DEFAULT 0
+  `email_news_update` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1548,24 +1581,24 @@ INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_descr
 (12, 'Baso Aci ', '', '', '<hr><p>Makanan yang sedang viral di kalangan anak milenial ini sekarang menjadi&nbsp;</p><p>salah satu makanan yang sangat di gemari dengan berbagai varian baru yang ada</p><p>menambah minat dari para penkmatnya.</p><p><br></p><img src=\"http://localhost/fbang/assets/images/seafod-santa-681.jpg\" style=\"width: 800px;\"><p><br></p>', '289098b431f76d402c8827c59f9ab907.jpg', '', '2020-08-11 00:53:22', '2020-08-20 08:14:12', 1, 1, 0, '', 'baso-aci-', 0, 1, 1, 1, 1, 1, 0, 1, '', 0),
 (13, 'Gudeg jogoja', '', '', '<p></p><p>makan khas jogja</p><p><br></p><br><p></p><img src=\"http://localhost/fbang/assets/images/seafod-santa-68.jpg\" style=\"width: 800px;\">', 'aa1818548127b313bea0f480d9b991db.jpg', '', '2020-08-12 13:13:48', '2020-08-20 08:17:43', 1, 1, 0, 'gudeg', 'gudeg-jogoja', 0, 1, 1, 1, 1, 1, 0, 1, '', 0),
 (19, 'Bebek Ginyo', '', '', '<span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\">Masakah dengan bahan daging bebek memiliki keunikan cita rasa sehingga memiliki penggemar tersendiri. Bebek Ginyo merupakan salah satu tempat makan di daerah Jakarta Selatan yang menyajikan berbagai jenis menu masakan bebek. Berbagai masakan dengan bahan utama daging bebek seperti bebek bakar dan bebek kremes. Penggemar masakan pedas juga dapat mencoba menu unik berupa bebek balado dan bebek cabe hijau. Sedangkan mereka yang kurang suka masakan bebek bakar juga dapat mencoba memesan pepes bebek di warung ini. Warung masakan bebek Ginyo yang berdiri sejak tahun 2007 ini dapat dikunjungi di Jalan Tebet Dalam nomor 12, Tebet, Jakarta Selatan.</span>', 'dcaccfae248b23ca53fcc956749709a7.jpg', '', '2020-08-19 02:24:54', NULL, 2, 2, 0, 'bbq', 'facebook', 0, 1, 1, 1, 1, 1, 1, 1, 'id5f3c8d76ba080', 0),
-(20, 'Seafod Santa 68ga', '', '', '<p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><span style=\"font-weight: bold;\">Masakan laut atau sea food menjadi jenis makanan lain yang memiliki banyak penggemar. Salah satu tempat terbaik untuk menikmati masakan laut dengan rasa lezat dan harga terjangkau adalah Seafood Santa 68</span>. Bahan – bahan segar dan cara mengolah dengan bumbu lezat menjadi salah satu alasan mengapa Seafood Santa 68 memiliki sangat banyak pelanggan. Berbagai menu masakan laut dengan bahan ikan, udang, cumi hingga kepiting dan kerang dapat dinikmati di warung makan yang sering disesaki pelanggan ini. Warung makan Seafood Santa 68 dapat dikunjungi di Jalan Wolter Monginsidi nomor 58 Senopati, Jakarta Selatan.</span></p><p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><br></span></p>', '987c2b7911590afad585a6e4a2ea5f17.jpg', '', '2020-08-19 04:26:49', NULL, 2, 11, 1, 'seafood,baso', 'seafod-santa-68ga', 0, 2, 2, 2, 1, 1, 2, 1, 'id5f3caa0906f7a', 1),
+(20, 'Seafod Santa 68ga', '', '', '<p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><span style=\"font-weight: bold;\">Masakan laut atau sea food menjadi jenis makanan lain yang memiliki banyak penggemar. Salah satu tempat terbaik untuk menikmati masakan laut dengan rasa lezat dan harga terjangkau adalah Seafood Santa 68</span>. Bahan – bahan segar dan cara mengolah dengan bumbu lezat menjadi salah satu alasan mengapa Seafood Santa 68 memiliki sangat banyak pelanggan. Berbagai menu masakan laut dengan bahan ikan, udang, cumi hingga kepiting dan kerang dapat dinikmati di warung makan yang sering disesaki pelanggan ini. Warung makan Seafood Santa 68 dapat dikunjungi di Jalan Wolter Monginsidi nomor 58 Senopati, Jakarta Selatan.</span></p><p><span style=\"color: rgb(82, 82, 82); font-family: Lato, sans-serif; font-size: 16px; text-align: justify;\"><br></span></p>', 'Seafod_Santa_68ga-1599646628.jpg', 'MLD Sport', '2020-08-19 04:26:49', NULL, 2, 11, 1, 'seafood,baso', 'seafod-santa-68ga', 0, 2, 2, 2, 1, 1, 2, 1, 'id5f3caa0906f7a', 1),
 (29, 'GrabFood Promo TERBARU!', '', '', 'GrabFood Promo', '576b5f14d1c3c427ee8a64d0161214c3.png', '', '2020-08-19 09:49:59', NULL, 6, 0, 0, 'grab,grabfood', 'grabfood-promo', 0, 1, 0, 0, 0, 1, 1, 1, 'id5f3cf5c7e250c', 1),
 (30, 'Foodbang in web', '', '', 'Foodbang in web', '082c6fcf205ff1a0ce4770716a871039.png', '', '2020-08-20 03:42:02', '2020-08-20 10:43:11', 1, 1, 0, 'foodbang', 'foodbang-in-web', 0, 0, 0, 0, 0, 1, 1, 1, '', 1),
 (31, 'test news', '', '', 'test news', '7296ddd40a9c351e4b33a27e97917d83.jpg', '', '2020-08-21 06:57:08', NULL, 1, 5, 0, 'makanan murah', 'gofood', 0, 152, 1, 1, 2, 1, 0, 1, 'id5f3f7044af2f3', 0),
-(32, 'Warung Nagih Jakarta', 'ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.</span>', '06cb9e6d8b2391edd15d08e7391dca85.jpg', '', '2020-08-21 10:03:32', NULL, 1, 5, 0, 'warung', 'grabfood-co-id-', 0, 152, 2, 1, 2, 1, 2, 1, 'id5f3f9bf4548d1', 0),
-(33, 'Bubur Kwang Tung', 'Makan steak malam-malam, kenapa tidak ! Adalah Joni Steak yang berlokasi beberapa tempat di Jakarta, seperti di Jl. Kalimalang Raya No. 28 Blok A2/3C Pondok Kelapa / Lampiri, Jl. Samanhudi No. 65, Pasar Baru Jakarta Pusat, atau di Jl. Gajah Mada No. 91 / dekat dengan Bakmi Gajah Mada.  Buka mulai pukul 6 sore hingga jam 1 dini hari, tentunya pas untuk Anda dan teman yang sedang lapar di malam hari. Harga yang ditawarkan untuk 1 porsi tidak terlalu mahal, hanya sekitar Rp 20.000 atau hingga Rp 30.000. Adapun menu andalan di tempat ini adalah salmon steak,  tenderloin atau sirloin steak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Ingin mencari bubur hangat di malam hari, kunjungi saja bubur Kwang Tung yang ada di Jl, Pecenongan, No 671, Jakarta Pusat. Menu utama di tempat ini tentu saja bubur, yang bernama bubur Kwang Tung. Ini adalah menu bubur seafood Hongkong, sekaligus menu utama yang harus Anda coba. &nbsp;&nbsp;Rumah makan yang buka selama 24 jam ini menyajikan beberapa menu bubur seafood, seperti kepiting, ayam, udang, ikan, sapi, dll. Selain menu bubur, menu lainnya yang juga ada di rumah makan tersebut adalah chinese food, dll.</span>', '30f65fc5b8d1bb0d50432b774deb2ae1.jpg', '', '2020-08-21 10:06:03', NULL, 1, 5, 0, 'steak', 'gofood-com', 0, 152, 1, 1, 1, 1, 1, 1, 'id5f3f9c8b5f534', 0),
+(32, 'Warung Nagih Jakarta', 'ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">ni adalah salah satu tempat makan yang diburu oleh para mahasiswa, pelajar dan juga para pegawai kantor. Bagaimana tidak rumah makan yang berada di Jl. Kapten Tendean, Kav 41, mampang, Jakarta Selatan ini, memang memberikan aneka sajikan kuliner dengan harga yang cukup murah. Adapun aneka sajian yang disugunkan antara lain roti bakar, aneka olahan mie rebus, aneka minuman hangat atau dingin, dll. Buka dari jam 4.30 sore hingga jam 1 dini hari, tentunya pas untuk Anda yang mbaru pulang kerja dan merasa lapar.</span>', 'Warung_Nagih_Jakarta-1599646388.jpg', 'MLD Sport', '2020-08-21 10:03:32', NULL, 1, 5, 0, 'warung', 'warung-nagih-jakarta', 0, 152, 0, 0, 0, 1, 2, 1, 'id5f3f9bf4548d1', 0),
+(33, 'Bubur Kwang Tung', 'Makan steak malam-malam, kenapa tidak ! Adalah Joni Steak yang berlokasi beberapa tempat di Jakarta, seperti di Jl. Kalimalang Raya No. 28 Blok A2/3C Pondok Kelapa / Lampiri, Jl. Samanhudi No. 65, Pasar Baru Jakarta Pusat, atau di Jl. Gajah Mada No. 91 / dekat dengan Bakmi Gajah Mada.  Buka mulai pukul 6 sore hingga jam 1 dini hari, tentunya pas untuk Anda dan teman yang sedang lapar di malam hari. Harga yang ditawarkan untuk 1 porsi tidak terlalu mahal, hanya sekitar Rp 20.000 atau hingga Rp 30.000. Adapun menu andalan di tempat ini adalah salmon steak,  tenderloin atau sirloin steak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Ingin mencari bubur hangat di malam hari, kunjungi saja bubur Kwang Tung yang ada di Jl, Pecenongan, No 671, Jakarta Pusat. Menu utama di tempat ini tentu saja bubur, yang bernama bubur Kwang Tung. Ini adalah menu bubur seafood Hongkong, sekaligus menu utama yang harus Anda coba. &nbsp;&nbsp;Rumah makan yang buka selama 24 jam ini menyajikan beberapa menu bubur seafood, seperti kepiting, ayam, udang, ikan, sapi, dll. Selain menu bubur, menu lainnya yang juga ada di rumah makan tersebut adalah chinese food, dll.</span>', '30f65fc5b8d1bb0d50432b774deb2ae1.jpg', '', '2020-08-21 10:06:03', NULL, 1, 5, 0, 'steak', 'gofood-com', 0, 152, 1, 1, 1, 1, 2, 1, 'id5f3f9c8b5f534', 0),
 (34, 'Bubur Ayam Barito', 'Bubur Ayam barito yang terletak di Jl. Gandaria Tengah 3, Jakarta ini dapat Anda jadikan tempat makan malam berikutnya. Seperti nama restoran tersebut, menu utama dari rumah makan tersebut adalah bubur ayam. Namun yang membedakan bubur ayam di tempat ini dan tempat lainnya adalah teksturnya yang lembut, dengan tambahan toping yang cukup banyak, membuat 1 porsi bubur, cukup untuk mengisi perut Anda. Harga untuk 1 porsi sendiri juga tidak terlalu mahal, hanya sekitar Rp 3.000 hingga Rp 13.000. Rumah makan yang satu ini buka mulai jam 7 pagi hingga tengah malam.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Bubur Ayam barito yang terletak di Jl. Gandaria Tengah 3, Jakarta ini dapat Anda jadikan tempat makan malam berikutnya. Seperti nama restoran tersebut, menu utama dari rumah makan tersebut adalah bubur ayam. Namun yang membedakan bubur ayam di tempat ini dan tempat lainnya adalah teksturnya yang lembut, dengan tambahan toping yang cukup banyak, membuat 1 porsi bubur, cukup untuk mengisi perut Anda. Harga untuk 1 porsi sendiri juga tidak terlalu mahal, hanya sekitar Rp 3.000 hingga Rp 13.000. Rumah makan yang satu ini buka mulai jam 7 pagi hingga tengah malam.</span>', 'cdfee9843405b646748639d40dc262c3.jpg', '', '2020-08-21 10:08:53', NULL, 1, 5, 0, 'bubur ayam', 'grab-co-id', 0, 153, 1, 1, 1, 1, 2, 1, 'id5f3f9d3528f63', 0),
-(35, 'Jl. Pecenongan', 'Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.</span>', '1e44084611ea7e0e2014982dba25aa68.jpg', '', '2020-08-21 10:12:17', NULL, 1, 5, 0, 'cafe', 'jl--pecenongan', 0, 153, 2, 1, 2, 1, 3, 1, 'id5f3f9e01ebae4', 0),
-(36, 'Cafe Siang Malam ? 18 ? Palmerah', 'Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.</span>', '0d49618fa6dc203f8fdeaf054ab14cc5.jpg', '', '2020-08-21 10:13:49', NULL, 1, 5, 0, 'cafe', 'cafe-siang-malam--18--palmerah', 0, 156, 2, 1, 2, 1, 4, 1, 'id5f3f9e5d111aa', 0),
-(37, 'Kemang Food Festifal', 'OTW Food Street', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">kuliner malam Jakarta berikutnya adalah Kemang Food Festifal. Seperti namanya, kuliner yang satu ini berlokasi di kawasan Kemang, Tepatnya di Jl. Kemang Raya no 19, Mampang Prapatan, Jakarta Selatan. Di lokasi yang satu ini, Anda akan menemukan berbagai macam menu makanan dengan konsep food courd. Menu makanan yang ditawarkan, mulai dari aneka menu tradisional, hingga aneka makanan Eropa. Untuk masalah harga, tidak pelru khawatir, aneka kuliner yang ada di tempat ini memiliki harga yang sangat terjangkau untuk kalangan mahasiswa dan pelajar. Lokasi tempat makan tentunya sangat nyaman, selain itu, tempat makan yang satu ini, buka mulai jam 5 sore hingga tengah malam.</span>', '8ed7a6f2a53370bb61e3c9b6a85b2f38.jpg', '', '2020-08-21 10:16:20', NULL, 1, 5, 0, 'steak,cafe', 'gofood-com-1933888409', 0, 16, 2, 1, 2, 1, 5, 1, 'id5f3f9ef40251b', 0),
+(35, 'Jl. Pecenongan', 'Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Selain bubur Kwang Tung, daerah Pecenongan juga memiliki aneka kuliner menarik lainnya. Kawsan yang satu ini menjadi surga kuliner malam di daerah Jakarta. Bagi Anda yang merasa lapar di malam hari, tidak ada salahnya mengunjungi kawasan yang satu ini. Aneka kuliner yang dijajakan di tempat ini mulai ramai sejak jam 5 hingga dini hari. Ada banyak sekali makanan yang disajikan di tempat ini, mulai dari aneka seafood, chinese foof, dan aneka kuliner lainnya. Untuk masalah harga tidak perlu khawatir, sebabnya kuliner yang ada di tempat ini dibandrol dengan harga yang murah meriah, namun pastinya tetap enak.</span>', '1e44084611ea7e0e2014982dba25aa68.jpg', '', '2020-08-21 10:12:17', NULL, 1, 5, 0, 'cafe', 'jl--pecenongan', 0, 153, 2, 1, 2, 1, 4, 1, 'id5f3f9e01ebae4', 0),
+(36, 'Cafe Siang Malam ? 18 ? Palmerah', 'Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">Seperti namanya, tempat makan yang satu ini, buka dari siang hari hingga malam hari, tepatnya hingga pukul 2 atau 3 dini hari. Menu makanan yang disajikan di tempat ini adalah menu makanan simpel dan biasa dikonsusmi oleh anak muda, seperti roti bakar, ayam penyet, nasi sarden, dll. Ini akan menjadi tempat nongkrong berikutnya yang pas untuk Anda dan rekan lainnya sepulang kerja.</span>', '0d49618fa6dc203f8fdeaf054ab14cc5.jpg', '', '2020-08-21 10:13:49', NULL, 1, 5, 0, 'cafe', 'cafe-siang-malam--18--palmerah', 0, 156, 2, 1, 2, 1, 6, 1, 'id5f3f9e5d111aa', 0),
+(37, 'Kemang Food Festifal', 'OTW Food Street', '', '<span style=\"color: rgb(82, 82, 82); font-family: lato, sans-serif; font-size: 16px; text-align: justify;\">kuliner malam Jakarta berikutnya adalah Kemang Food Festifal. Seperti namanya, kuliner yang satu ini berlokasi di kawasan Kemang, Tepatnya di Jl. Kemang Raya no 19, Mampang Prapatan, Jakarta Selatan. Di lokasi yang satu ini, Anda akan menemukan berbagai macam menu makanan dengan konsep food courd. Menu makanan yang ditawarkan, mulai dari aneka menu tradisional, hingga aneka makanan Eropa. Untuk masalah harga, tidak pelru khawatir, aneka kuliner yang ada di tempat ini memiliki harga yang sangat terjangkau untuk kalangan mahasiswa dan pelajar. Lokasi tempat makan tentunya sangat nyaman, selain itu, tempat makan yang satu ini, buka mulai jam 5 sore hingga tengah malam.</span>', '8ed7a6f2a53370bb61e3c9b6a85b2f38.jpg', '', '2020-08-21 10:16:20', NULL, 1, 5, 0, 'steak,cafe', 'gofood-com-1933888409', 0, 16, 2, 1, 2, 1, 8, 1, 'id5f3f9ef40251b', 0),
 (38, 'Akira Back', 'Akira Back', '', '<p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Akira Back adalah salah satu restaurant bintang 5 yang terletak di Setiabudi, Jakarta Selatan. Akira menghadirkan makanan khas Jepang yang difusion dengan makanan Korea. Kretivitas dari Chef Akira sendiri lah dalam mengolah setiap menu di restauran ini membuat Akira Back Restaurant memiliki banyak penggemar walaupun memiliki harga yang mahal.</p><p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Setiap review tentang restauran ini selalu menceritakan jika ingin sekali-kali mencicipi hidangan di restauran ini, setidaknya Anda harus membawa uang sekitar diatas Rp900 ribu rupiah untuk 2 orang. Tapi kebanyakan orang berujung setidaknya harus mengeluarkan Rp1,3 juta sebagai standar budget minimal untuk menikmati hidangan di restauran ini secara&nbsp;<em style=\"border: 0px; margin: 0px; padding: 0px;\">proper</em>&nbsp;mulai dari appetizer, main course, dessert hingga pajak dan biaya servicenya.</p><p style=\"margin-top: 5px; margin-bottom: 15px; border: 0px; padding: 0px; line-height: 1.6; color: rgb(102, 102, 102); font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 16px;\">Menu yang paling direkomendasikan dari restauran ini adalah Pizza Tuna, Seared Halibut, Spring Chicken &amp; Foie Roulade, Wagyu Cheek dan Black Forest.</p>', '7ca533b41dbb1db811060a92e2c64d34.jpg', '', '2020-08-22 05:46:10', NULL, 2, 11, 2, 'restaurant terbaik', 'akira-back', 0, 155, 1, 1, 1, 1, 1, 1, 'id5f40b122eb898', 0),
 (39, 'Namaaz Dining', 'Namaaz Dining', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Restoran yang terletak di Kebayoran Baru, Jakarta Selatan ini memiliki set menu seharga Rp 1,25 juta untuk sekali&nbsp;<em>dining in</em>. Set menu mahal ini dianggap wajar saja karena set makanan yang akan ditawarkan ke kamu akan membuat kamu bingung dan terheran-heran.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Berawal dari Youtuber populer Raditya Dika yang mereview berbagai hidangan unik yang ditawarkan oleh restoran ini. Namaaz Dining pun berhasil viral dan menjadi incaran banyak para food hunter berikutnya.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Teknik Gastronomi Molekuler yang diciptakan dalam penyajian setiap hidangan di restoran ini menjadi kan Namaaz Dining menjadi satu-satunya<a href=\"https://republika.co.id/tag/restoran-di-jakarta\" style=\"text-decoration-line: underline; color: rgb(0, 0, 0); font-weight: 600; line-height: 1.35em;\">&nbsp;restoran di Jakarta&nbsp;</a>bahka mungkin di Indonesia yang mengusung konsep tersebut.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Menu-menu di restoran ini ada yang bisa meledak sendiri, berbentuk abstrak hingga super aneh. Di mana bentuk/visual dari menu tersebut bisa menipu kamu sedemikian rupa sehingga ketika kamu mencobanya kamu akan sangat terkejut. Pokoknya mind blowing banget deh.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Yang unik lagi dari restoran ini adalah, durasi makannya dan sistem bookingnya. Setiap pengunjung yang ingin makan di restoran ini wajib melakukan booking terlebih dahulu, tidak boleh terlambat dan harus memberikan informasi yang detail tentang alergi makanan yang dimiliki.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Untuk durasi makannya, karena penyajian makananannya yg unik waktu yang dibutuhkan untuk mengeluarkan setiap menu pun memakan banyak waktu juga, jadi setiap pengunjung setidaknya harus menghabiskan 2-3 jam setiap kunjungan untuk setiap pemilihan paket set menu Rp 1,25 juta tersebut.</p>', 'dfe57ccd077e2b227a34ac61fb6dd322.jpg', '', '2020-08-22 05:50:08', NULL, 2, 11, 2, 'restaurant terbaik', 'namaaz-dining', 0, 155, 1, 1, 1, 1, 0, 1, 'id5f40b210b2ba5', 0),
 (40, 'Le Quartier', 'Le Quartier', '', '<p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">enopati, Kebayoran Baru memang gudangnya tempat makanan mewah, selain Namaaz Dining. Le Quartier juga merupakan salah satu restoran mewah populer yang ada di kawasan elite tersebut. Le Quartier adalah restoran ala eropa yang menyajikan makanan khas perancis.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Interior dari restoran ini sendiri pun kental dengan suasana Eropanya, dengan&nbsp;<em>furniture</em>&nbsp;kayu yang disusun secara cantik, lampu gantung&nbsp;<em>chandilier</em>&nbsp;mini yang bergantu di setiap meja. Hingga suasananya yang sedikit temaram membuat makan malam di restoran ini seperti layaknya makan malam di Prancis.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Walaupun elite, Le Quartier adalah golongan restoran elite yang masih memiliki menu makanan yang ramah untuk kantong. Kamu masih bisa makan secara pas dan kenyang dengan biaya Rp 500-Rp 600 ribu untuk 2 orang di restoran ini untuk set menu mulai dari appetizer,&nbsp;<em>main course</em>&nbsp;hingga&nbsp;<em>dessert.</em></p>', '0e1c8001370d505dd3f90858faa0ff99.jpg', '', '2020-08-22 05:53:07', NULL, 2, 11, 2, 'restaurant terbaik', 'le-quartier', 0, 155, 1, 1, 1, 1, 1, 1, 'id5f40b2c3dd925', 0),
 (41, 'Pasola – The Ritz Carlton Pacific Place', 'Pasola', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Dari namanya saja kamu pasti tau kalau restoran ini pasti restoran berkelas bintang 5 dengan interior restoran yang super mewah dan elegan. Terletak di lantai 6 di salah satu hotel mewah di Jakarta Ritz Carlton, Pasola sudah sering masuk<a href=\"https://republika.co.id/tag/daftar-restoran\" style=\"text-decoration-line: underline; color: rgb(0, 0, 0); font-weight: 600; line-height: 1.35em;\">&nbsp;daftar restoran&nbsp;</a>mewah yang paling direkomendasikan di Jakarta.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Pasola menyajikan menu&nbsp;<em>fusion</em>&nbsp;layakanya restoran mewah pada umumnya, yaitu gabungan kreasi makanan barat dengan hidangan tradisional Indonesia. Interior mewah dan disajikan pemandangan indah Ibu Kota membuat siapa saja tentu akan merasa nyaman untuk menghabiskan waktu makan dengan keluarga.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Untuk bisa menikmati hidangan di Pasola secara pas dan kenyang rata-rata para pengunjung setidaknya harus mengeluarkan Rp 700 ribu untuk 2 orang. Tapi untuk kamu yang mau menikmati hidangan di restoran ini dengan harga yang lebih murah lagi. Bisa mencoba hidangan buffet nya mulai dari Rp 298 ribu di&nbsp;<em>weekdays</em>&nbsp;dan Rp 398 ribu di&nbsp;<em>weekend.</em>&nbsp;Di Buffet Pasola ini kamu bisa memakan semua hidangan&nbsp;<em>buffet</em>&nbsp;sebanyak apa pun atau&nbsp;<em>all you can eat</em>.</p>', 'ac7d4117bcbb13387749d153966d635c.jpg', '', '2020-08-22 05:54:37', NULL, 2, 11, 0, 'restaurant terbaik', 'pasola--the-ritz-carlton-pacific-place', 0, 156, 1, 2, 1, 1, 2, 1, 'id5f40b31dd0b69', 0),
 (42, 'Vong Kitchen', 'Vong Kitchen', '', '<p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">vong Kitchen menjadi favorit pecinta kuliner, terutama kuliner Eropa karena restoran ini adalah satu-satunya di Jakarta yang pengolahan makanannya dilakukan oleh Chef dengan gelar Michelin. Bagi yang sedikit bingung, Michelin adalah gelar profesional tertinggi di dalam industri kuliner. Gelar ini sangatlah ekslusif dan prestigius, itu mengapa masih sangat sedikit restoran-restoran yang menyandang gelar ini dan kebanyakan di antaranya berada di luar negeri.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Tapi sekarang kamu tidak perlu khawatir, sekarang restoran dengan level yang sama telah hadir, Vong Kitchen yang berlokasi di SCBD, Jakarta Selatan adalah restoran yang menyajikan hidangan khas Prancis dan Inggris sebagai konsep menu utama mereka.</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Semua menunya sendiri diciptakan langsung oleh chef Michelin bintang 3 asal Prancis, Jean-Georges Vongerichten, bersama putranya Cédric Vongerichten yang mengikuti jejak sang ayah sebagai seorang chef profesional. Dengan semua fakta di atas, tidak heran&nbsp;<em>dong</em>&nbsp;jika harganya juga bisa menggoyang dompet kamu?</p><p style=\"font-family: &quot;Open Sans&quot;, Arial, Helvetica, sans-serif; font-size: 18px; line-height: 1.65em; color: rgb(25, 25, 25);\">Biaya yang setidaknya harus kamu keluarkan untuk menikmati hidangan di restoran ini secara pas dan kenyang adalah Rp 800 ribu untuk 2 orang. Dengan kualitas rasa dan penyajiannya tentu saja harga tersebut dikatakan cukup pantas, terutama untuk para pecinta kuliner Eropa.</p>', '8033d3d99827cd4a7c23995060a3c1d7.jpg', '', '2020-08-22 05:57:09', NULL, 2, 11, 0, 'restaurant terbaik', 'vong-kitchen', 0, 153, 1, 1, 1, 1, 1, 1, 'id5f40b3b5ba114', 0),
 (43, 'House of Yuen - Fairmont', 'House of Yuen - Fairmont', '', '<p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Untuk kamu pecinta kuliner Cina, pasti tertarik&nbsp;<em>dong</em>&nbsp;sekali-sekali mencoba hidangan khas negara pohon bambu ini tapi versi mewah?</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Berlokasi di daerah Senayan, Jakarta Selatan, House of Yuen – Fairmont adalah restoran hidangan kuliner khas Cina yang wajib kamu kunjungi walaupun hanya sekali dalam seumur hidup!. Berada di lt.3 di salah satu hotel bintang 5 di Jakarta, Fairmont Hotel tentu saja kata mewah dan VIP adalah deskripsi yang tepat untuk menggambarkan restoran autentik Cina tersebut.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Pernah baca artikel yang mengatakan, bahwa makan di restoran ini bisa rogoh kocek sampai Rp 100 juta? Yep House of Yuen adalah restoran tersebut.</p><p style=\"font-family: \" open=\"\" sans\",=\"\" arial,=\"\" helvetica,=\"\" sans-serif;=\"\" font-size:=\"\" 18px;=\"\" line-height:=\"\" 1.65em;=\"\" color:=\"\" rgb(25,=\"\" 25,=\"\" 25);\"=\"\">Menyediakan hidangan Cina kelas satu tentu saja biaya untuk makan di restoran tersebut tidak bisa dianggap murah. Kalau kamu penasaran banget dan nekat, jangan lupa yang siapkan budget sekitar Rp 700 ribu untuk sekali makan yang berlaku untuk 1 orang saja jika kamu mau makan dengan porsi pas dan kenyang di restoran ini.</p>', '7d101d7ddf3fa96c7ff41f73ed8d0398.jpg', '', '2020-08-22 05:58:21', NULL, 2, 11, 2, 'restaurant terbaik,privateroom,whiteglass,promo, tomato marmalade, salsa verde, ciabatta 10', 'house-of-yuen---fairmont', 0, 155, 1, 1, 1, 1, 0, 1, 'id5f40b3fd81015', 0),
-(44, 'Promo GrabFood Agustus 2020', 'Promo GrabFood Agustus 2020', '', '<ol><li style=\"text-size-adjust: 100%; margin-top: 0px;\">Pesan aneka makanan dan minuman pilihan Anda dengan kode promo GrabFood ini untuk diskon Rp 20.000 off. Promo ini berlaku dengan metode pembayaran menggunakan OVO.</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Penawaran Diskon:</b>&nbsp;50% off Max Rp 20.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Minimum Belanja:</b>&nbsp;Rp 40.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Pembatasan Pengguna:</b>&nbsp;Pengguna baru</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Keterbatasan Brand:</b>&nbsp;Untuk semua outlet</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Ketentuan Berlaku:</b>&nbsp;3x pemakaian</li></ol>', '5019d790f2a17c797fccb75ce97b480f.jpg', '', '2020-08-22 12:24:29', NULL, 6, 0, 0, 'grab', 'berlaku-hanya-bylan-a', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f410e7d1466f', 0),
-(46, 'Donat Indomie', 'Indomie Meta Description', 'Indomie Meta Titlesd', '<p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\">Merupakan salah satu kreasi Indomie yang unik, donat Indomie mampu mencuri hati setiap orang. Bagaimana tidak? Hanya dalam sekali gigitan, kalian akan mendapatkan rasa khas Indomie yang dipadu dengan potongan daging serta lelehan keju mozarella.</p><p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\"><em>Hmm, so yummy!</em></p>', 'b00f91287a1e32d1cb2885a15b3de34d.jpg', 'MLD Sporsd', '2020-08-27 12:21:21', NULL, 1, 5, 0, 'indomie', 'donat-indomie', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f47a5417d489', 0),
+(44, 'Promo GrabFood GrabFood GrabFoodGrabFoodGrabFoodGrabFood', 'Promo GrabFood Agustus 2020', '', '<ol><li style=\"text-size-adjust: 100%; margin-top: 0px;\">Pesan aneka makanan dan minuman pilihan Anda dengan kode promo GrabFood ini untuk diskon Rp 20.000 off. Promo ini berlaku dengan metode pembayaran menggunakan OVO.</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Penawaran Diskon:</b>&nbsp;50% off Max Rp 20.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Minimum Belanja:</b>&nbsp;Rp 40.000</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Pembatasan Pengguna:</b>&nbsp;Pengguna baru</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Keterbatasan Brand:</b>&nbsp;Untuk semua outlet</li><li class=\"tb tc td\" style=\"text-size-adjust: 100%; margin-top: 4px;\"><b>Ketentuan Berlaku:</b>&nbsp;3x pemakaian</li></ol>', 'Promo_GrabFood_GrabFood_GrabFoodGrabFoodGrabFoodGrabFood-1599647675-Foodbang.jpg', 'Grab ', '2020-08-22 12:24:29', NULL, 6, 0, 0, 'grab', 'promo-grabfood-grabfood-grabfoodgrabfoodgrabfoodgrabfood', 0, 153, 0, 0, 0, 1, 1, 1, 'id5f410e7d1466f', 0),
+(46, 'Donat Indomie', 'Indomie Meta Description', 'Indomie Meta Titlesd', '<p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\">Merupakan salah satu kreasi Indomie yang unik, donat Indomie mampu mencuri hati setiap orang. Bagaimana tidak? Hanya dalam sekali gigitan, kalian akan mendapatkan rasa khas Indomie yang dipadu dengan potongan daging serta lelehan keju mozarella.</p><p style=\"margin-bottom: 26px; overflow-wrap: break-word; color: rgb(34, 34, 34); font-family: Verdana, Geneva, sans-serif; font-size: 15px;\"><em>Hmm, so yummy!</em></p>', 'b00f91287a1e32d1cb2885a15b3de34d.jpg', 'MLD Sporsd', '2020-08-27 12:21:21', NULL, 1, 5, 0, 'indomie', 'donat-indomie', 0, 153, 0, 0, 0, 1, 6, 1, 'id5f47a5417d489', 0),
 (48, 'Jimbaran Lounge', 'Di tengah hutan beton Sudirman kamu bisa juga lho merasakan suasana yang menyejukkan ala Bali. Dimana lagi kalau bukan di Jimbaran Lounge, Ayana Midplaza. Dengan konsep tempat makan terapung di atas kolam, Jimbaran Lounge bisa jadi alternatif nongkrong yang menyegarkan pikiran.', 'Di tengah hutan beton ', '<span style=\"color: rgb(82, 82, 82); font-family: Poppins; font-size: 16px;\">Di tengah hutan beton Sudirman kamu bisa juga lho merasakan suasana yang menyejukkan ala Bali. Dimana lagi kalau bukan di Jimbaran Lounge, Ayana Midplaza. Dengan konsep tempat makan terapung di atas kolam, Jimbaran Lounge bisa jadi alternatif nongkrong yang menyegarkan pikiran.</span>', '7386c1365583e84f9028ea05fabc6e70.jpeg', '@ayanajakarta', '2020-08-28 11:52:02', NULL, 2, 11, 1, 'outdoor', 'jimbaran-lounge', 0, 156, 1, 1, 1, 1, 0, 1, 'id5f48efe2aff62', 0),
 (49, 'Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!s', 'grabpromosd', 'grabpromosdsd', '<ol><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!</li><li>Promo GoFood Juli 2020: PSBB, Promonya Serius Banyak Banget!<br></li></ol>', '40d94caa276ae78d6e39b786b4c4b7a6.jpg', 'grabfoodd', '2020-08-29 11:07:27', NULL, 6, 0, 0, 'grabfood', 'promo-gofood-juli-2020--psbb--promonya-serius-banyak-banget!s', 0, 153, 0, 0, 0, 1, 0, 1, 'id5f4a36ef3ce58', 0),
 (50, 'Kerupuk Seblak', 'Jika biasanya seblak terbuat dari kerupuk yang sudah direndam air kemudian diberi bumbu pedas. Lain halnya dengan kerupuk seblak ini. ', 'Kerupuk Seblak', '<p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">Jika biasanya seblak terbuat dari kerupuk yang sudah direndam air kemudian diberi bumbu pedas. Lain halnya dengan kerupuk seblak ini. Rasanya tetap sama dengan pedas level tinggi hanya saja ini tidak direndam air melainkan langsung digoreng bersama dengan bumbu halus hingga mereka tercampur dan menghasilkan rasa pedas dan gurih.</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">Peluang bisnis cemilan kerupuk seblak ini sama bagusnya dengan seblak pada umumnya</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">karena orang Indonesia memang pencinta pedas. Jadi tak ada salahnya jika Anda membuka</p><p dir=\"ltr\" style=\"margin-bottom: 1rem; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;; font-size: 16px; color: rgb(0, 0, 0) !important;\">bisnis kerupuk seblak ini. Camilan pedas ini pun bisa Anda jual dengan harga Rp 2000</p>', 'ce3258d4605591d66968d10a98893925.jpg', 'Kerupuk Seblak', '2020-09-01 14:01:56', NULL, 2, 15, 20, 'kerupuk', 'kerupuk-seblak', 0, 250, 21, 1, 19, 1, 0, 1, 'id5f4e5454b23a9', 0),
@@ -1573,9 +1606,12 @@ INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_descr
 (53, 'asdqw', 'wdwqddqw', 'wqddwq', 'wqdqwwqdqwd', 'eaec9f2e2d2cb706b78b0a9ded080e9b.jpg', 'dwqwqddwq', '2020-09-01 14:25:55', NULL, 2, 24, 48, 'dqwdqw', 'asdqw', 0, 322, 34, 1, 35, 1, 0, 1, 'id5f4e59f35b321', 0),
 (54, 'aaaaa', 'wqdwqdwdq', 'wdwdq', 'wdqqwdwqd', '99ddf2a0cd428f09e3fe6b1edc7e2a90.png', 'wqdwqd', '2020-09-01 14:40:40', NULL, 2, 11, 1, 'wqdwq', 'aaaaa', 0, 322, 1, 1, 1, 1, 0, 1, 'id5f4e5d6867d8f', 0),
 (55, 'wefewfefw', 'fewfew', 's', 'fewfewewf', '48b99d071e7a1e24b5ed9fb75be80281.jpg', 'fewfewfew', '2020-09-02 08:55:46', NULL, 2, 16, 25, 'ewffew', 'wefewfefw', 0, 33, 22, 1, 21, 1, 0, 1, 'id5f4f5e1277196', 0),
-(56, ' Ayam geprek', 'Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari', ' Ayam geprek', '<span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari. Beberapa fried chicken lokal pun menjamur di berbagai tempat. Banyak juga yang menawarkan paket kemitraan atau franchise untuk siapa saja yang ingin membuka usaha.</span><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sebut saja Ranisa Fried Chicken, Sabana, Orchi Chicken hingga Cheese Chicken yang menjajakan ayamnya dengan harga dibawah Rp 15 ribuan. Paket yang dijual juga sangat beragam, mulai dari gerobak sampai outlet.</span>', 'b884630bc917c1da2a1236b2e9dac5b3.jpg', ' Ayam geprek', '2020-09-02 14:11:45', NULL, 3, 15, 20, 'ayam', '-ayam-geprek', 0, 322, 21, 1, 19, 1, 0, 1, 'id5f4fa82189ef0', 0);
+(56, ' Ayam geprek', 'Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari', ' Ayam geprek', '<span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sedang digandrungi ayam berbalut tepung yang renyah. Fried chicken dengan bentuk outlet gerobak kini makin digemari. Beberapa fried chicken lokal pun menjamur di berbagai tempat. Banyak juga yang menawarkan paket kemitraan atau franchise untuk siapa saja yang ingin membuka usaha.</span><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><br style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\"><span style=\"color: rgb(51, 51, 51); font-family: helvetica, arial, sans-serif; font-size: 16px;\">Sebut saja Ranisa Fried Chicken, Sabana, Orchi Chicken hingga Cheese Chicken yang menjajakan ayamnya dengan harga dibawah Rp 15 ribuan. Paket yang dijual juga sangat beragam, mulai dari gerobak sampai outlet.</span>', '_Ayam_geprek-1599646901.jpg', ' Ayam geprek', '2020-09-02 14:11:45', NULL, 3, 15, 20, 'ayam', '-ayam-geprek', 0, 322, 21, 1, 19, 1, 0, 1, 'id5f4fa82189ef0', 0);
 INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_description`, `post_description_title`, `post_contents`, `post_image`, `post_image_desc`, `post_date`, `post_last_update`, `post_type_id`, `post_category_id`, `post_subcategory_id`, `post_tags`, `post_slug`, `post_feature_article`, `post_city_id`, `post_location_id`, `post_halal_id`, `post_additional_id`, `post_status`, `post_views`, `post_user_id`, `post_detail_id`, `email_news_update`) VALUES
-(57, 'Nasi Tutug Oncom', 'Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.', 'Nasi Tutug Oncom', '<span style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\">Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.</span><br style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\"><br style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\"><span style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\">Anda bisa mampir ke Nasi Tutug Oncom Pamulang di jalan Pamulang Permai I No 21 Tangerang. Ada paket nasi timbel hingga nasi tutug oncom. Anda bisa habiskan sekitar Rp 50.000 untuk dua orang di tempat makan ini.</span>', '377ef5ce4357f42d15e14eb6692bb2d8.jpg', 'Nasi Tutug Oncom', '2020-09-03 01:36:01', NULL, 4, 18, 33, 'nasi', 'nasi-tutug-oncom', 0, 246, 26, 2, 27, 1, 0, 1, 'id5f5048812c3b6', 0);
+(57, 'Nasi Tutug Oncom', 'Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.', 'Nasi Tutug Oncom', '<span style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\">Nasi tutug oncom merupakan kuliner khas dari Sunda. Ini merupakan nasi yang diaduk dengan oncom goreng maupun oncom bakar. Biasanya disajikan dalam keadaan hangat dan dicampur dengan bumbu seperti cabai,bawang putih, kencur, dan oncom hitam. Nasi ini juga biasa disajikan dengan lauk gurih seperti gurami goreng dan ayam goreng.</span><br style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\"><br style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\"><span style=\"color: rgb(0, 0, 0); font-family: \" ??????=\"\" pro=\"\" w3\",=\"\" \"hiragino=\"\" kaku=\"\" gothic=\"\" pro\",=\"\" ????,=\"\" meiryo,=\"\" osaka,=\"\" sans-serif;=\"\" font-size:=\"\" 16px;\"=\"\">Anda bisa mampir ke Nasi Tutug Oncom Pamulang di jalan Pamulang Permai I No 21 Tangerang. Ada paket nasi timbel hingga nasi tutug oncom. Anda bisa habiskan sekitar Rp 50.000 untuk dua orang di tempat makan ini.</span>', 'Nasi_Tutug_Oncom-1599646985.jpg', 'Nasi Tutug Oncom', '2020-09-03 01:36:01', NULL, 4, 18, 33, 'nasi', 'nasi-tutug-oncom', 0, 246, 26, 2, 27, 1, 0, 1, 'id5f5048812c3b6', 0),
+(58, 'Kode Promo Grab Potongan 20K', '', '', '<span style=\"color: rgb(86, 90, 92); font-family: &quot;Noto Sans&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; font-size: 14px; letter-spacing: -0.35px;\">Gunakan metode pembayaran GrabPay, debit atau kartu kredit dan gunakan kode promo dapatkan kesempatan mendapatkan potongan 20K untuk 5 kali perjalanan. Segera download aplikasi Grab sekarang juga di App Store. beragam info tentang promo grabfood , kode voucher grab dan kode grab pilihan.</span>', 'Kode_Promo_Grab_Potongan_20K-1599717114-Foodbang.png', 'Kode Grab', '2020-09-10 05:51:54', NULL, 6, 0, 0, 'grab', 'kode-promo-grab-potongan-20k', 0, 153, 0, 0, 0, 1, 0, 1, 'id5f59befa47450', 0),
+(59, 'Oatmeal', 'The key to a healthy diet is to eat the right amount of calories for how active you are so you balance the energy you consume with the energy you use.\r\n\r\nIf you eat or drink more than your body needs, you&#039;ll put on weight because the energy you do not use is stored as fat. If you eat and drink too little, you&#039;ll lose weight.\r\n\r\nYou should also eat a wide range of foods to make sure you&#039;re getting a balanced diet and your body is receiving all the nutrients it needs.\r\n\r\nIt&#039;s recommended that men have around 2,500 calories a day (10,500 kilojoules). Women should have around 2,000 calories a day (8,400 kilojoules).', 'Oatmeal', '<div>The key to a healthy diet is to eat the right amount of calories for how active you are so you balance the energy you consume with the energy you use.</div><div><br></div><div>If you eat or drink more than your body needs, you\'ll put on weight because the energy you do not use is stored as fat. If you eat and drink too little, you\'ll lose weight.</div><div><br></div><div>You should also eat a wide range of foods to make sure you\'re getting a balanced diet and your body is receiving all the nutrients it needs.</div><div><br></div><div>It\'s recommended that men have around 2,500 calories a day (10,500 kilojoules). Women should have around 2,000 calories a day (8,400 kilojoules).</div>', 'Oatmeal-1599719696-Foodbang.jpg', 'These 8 practical tips cover the basics of healthy eating and can help you make healthier choices.', '2020-09-10 06:34:56', NULL, 5, 24, 48, 'Oatmeal', 'oatmeal', 0, 11, 34, 1, 35, 1, 0, 1, 'id5f59c9106ade5', 1),
+(60, 'asi pecel khas pedagang kaki lima, yang rasanya cocok di lidah mahasiswas', 'Untuk menu makanan pedagang kaki lima, siapa sih yang bisa menolak enaknya pecel? Apalagi pecel khas madiun yang antara pedas, manis dan gurihnya pas itu. Wiiih… Murahnya juga ngak ketulungan. Mahasiswa mah jelas suka!\r\n\r\n', 'asi pecel khas pedagang kaki lima, yang rasanya cocok di lidah mahasiswa', 'dddsd', 'asi_pecel_khas_pedagang_kaki_lima_yang_rasanya_cocok_di_lidah_mahasiswas-1599794097-Foodbang.jpg', 'MLD Sport', '2020-09-11 03:14:57', NULL, 1, 5, 0, 'pecel', 'asi-pecel-khas-pedagang-kaki-lima--yang-rasanya-cocok-di-lidah-mahasiswas', 0, 246, 0, 0, 0, 1, 1, 1, 'id5f5aebb160143', NULL);
 
 -- --------------------------------------------------------
 
@@ -1678,7 +1714,20 @@ INSERT INTO `tbl_post_views` (`view_id`, `view_date`, `view_ip`, `view_post_id`)
 (81, '2020-08-27 12:39:45', '::1', 46),
 (82, '2020-08-28 12:06:38', '::1', 37),
 (83, '2020-09-02 12:58:06', '::1', 2),
-(84, '2020-09-02 14:19:33', '::1', 37);
+(84, '2020-09-02 14:19:33', '::1', 37),
+(85, '2020-09-03 08:45:17', '::1', 46),
+(86, '2020-09-03 08:55:20', '::1', 37),
+(87, '2020-09-06 04:49:14', '::1', 35),
+(88, '2020-09-06 05:22:49', '::1', 36),
+(89, '2020-09-08 12:30:53', '::1', 37),
+(90, '2020-09-09 05:37:03', '::1', 46),
+(91, '2020-09-09 06:54:08', '::1', 36),
+(92, '2020-09-10 10:02:53', '::1', 37),
+(93, '2020-09-10 10:22:21', '::1', 33),
+(94, '2020-09-12 02:11:58', '::1', 60),
+(95, '2020-09-12 03:37:00', '::1', 46),
+(96, '2020-09-13 06:10:54', '::1', 46),
+(97, '2020-09-16 01:44:45', '::1', 46);
 
 -- --------------------------------------------------------
 
@@ -1731,7 +1780,7 @@ CREATE TABLE `tbl_slider` (
 
 INSERT INTO `tbl_slider` (`slider_id`, `slider_title`, `slider_desc`, `slider_image`, `slider_link`, `slider_order`, `slider_created_at`) VALUES
 (1, 'Jakartas 6 Best Spots for Casual Dining', 'Donec dapibus mauris id odio ornare tempus duis sit.', '2294601da149c17cba080a510699af7f.jpg', 'facebook.com', 1, '2020-09-03 05:32:31'),
-(2, 'Jakartas 6 Best Spots for Casual Dining', 'Donec dapibus mauris id odio ornare tempus duis sit.', 'f5233c5272c776e35d7f2adf36eb6b93.jpg', 'facebook.com', 2, '2020-09-02 22:32:31');
+(2, 'Melon Termahal', 'Donec dapibus mauris id odio ornare tempus duis sit.', 'Melon_Termahal-1599633725.jpg', 'facebook.com', 2, '2020-09-02 22:32:31');
 
 -- --------------------------------------------------------
 
@@ -1891,7 +1940,10 @@ INSERT INTO `tbl_tags` (`tag_id`, `tag_name`) VALUES
 (33, 'wqdwq'),
 (34, 'ewffew'),
 (35, 'ayam'),
-(36, 'nasi');
+(36, 'nasi'),
+(37, 'warung'),
+(38, 'oatmeal'),
+(39, 'pecel');
 
 -- --------------------------------------------------------
 
@@ -2038,7 +2090,18 @@ INSERT INTO `tbl_visitors` (`visit_id`, `visit_date`, `visit_ip`, `visit_platfor
 (541383, '2020-08-31 01:57:05', '::1', 'Chrome'),
 (541384, '2020-09-01 02:47:01', '::1', 'Chrome'),
 (541385, '2020-09-02 01:59:39', '::1', 'Chrome'),
-(541386, '2020-09-03 01:06:54', '::1', 'Chrome');
+(541386, '2020-09-03 01:06:54', '::1', 'Chrome'),
+(541387, '2020-09-04 09:13:10', '::1', 'Chrome'),
+(541388, '2020-09-05 02:27:43', '::1', 'Chrome'),
+(541389, '2020-09-06 04:25:32', '::1', 'Chrome'),
+(541390, '2020-09-07 02:12:20', '::1', 'Chrome'),
+(541391, '2020-09-08 07:55:41', '::1', 'Chrome'),
+(541392, '2020-09-09 02:02:37', '::1', 'Chrome'),
+(541393, '2020-09-10 05:52:46', '::1', 'Chrome'),
+(541394, '2020-09-12 02:09:22', '::1', 'Chrome'),
+(541395, '2020-09-13 04:59:19', '::1', 'Chrome'),
+(541396, '2020-09-14 14:11:39', '::1', 'Chrome'),
+(541397, '2020-09-16 01:44:38', '::1', 'Chrome');
 
 --
 -- Indexes for dumped tables
@@ -2128,6 +2191,12 @@ ALTER TABLE `tbl_inbox`
 --
 ALTER TABLE `tbl_location`
   ADD PRIMARY KEY (`location_id`);
+
+--
+-- Indexes for table `tbl_meta`
+--
+ALTER TABLE `tbl_meta`
+  ADD PRIMARY KEY (`meta_id`);
 
 --
 -- Indexes for table `tbl_navbar`
@@ -2234,7 +2303,7 @@ ALTER TABLE `tbl_additional`
 -- AUTO_INCREMENT for table `tbl_availability`
 --
 ALTER TABLE `tbl_availability`
-  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `availability_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_category`
@@ -2258,7 +2327,7 @@ ALTER TABLE `tbl_comment`
 -- AUTO_INCREMENT for table `tbl_detail_category`
 --
 ALTER TABLE `tbl_detail_category`
-  MODIFY `detail_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `detail_category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_home`
@@ -2279,6 +2348,12 @@ ALTER TABLE `tbl_location`
   MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
+-- AUTO_INCREMENT for table `tbl_meta`
+--
+ALTER TABLE `tbl_meta`
+  MODIFY `meta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `tbl_navbar`
 --
 ALTER TABLE `tbl_navbar`
@@ -2288,13 +2363,13 @@ ALTER TABLE `tbl_navbar`
 -- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `tbl_post_views`
 --
 ALTER TABLE `tbl_post_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `tbl_site`
@@ -2330,7 +2405,7 @@ ALTER TABLE `tbl_subscribe`
 -- AUTO_INCREMENT for table `tbl_tags`
 --
 ALTER TABLE `tbl_tags`
-  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `tbl_testimonial`
@@ -2354,7 +2429,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_visitors`
 --
 ALTER TABLE `tbl_visitors`
-  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541387;
+  MODIFY `visit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=541398;
 
 --
 -- Constraints for dumped tables

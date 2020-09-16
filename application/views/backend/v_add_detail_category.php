@@ -305,6 +305,7 @@ if ($query->num_rows() > 0):
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
 <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                             <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
@@ -358,16 +359,32 @@ if ($query->num_rows() > 0):
 
                                             </div>
                                             <div class="form-group">
-                                                <label>Description</label>
+                                                <label>Description Image</label>
 
                                                 <input type="text" name="description" class="form-control title"
-                                                    placeholder="Description" required>
+                                                    placeholder="Description Image" required>
                                             </div>
                                             <div class="btn-group btn-group-justified" role="group">
                                                 <button type="submit" class="btn btn-primary btn-lg"
                                                     style="width:100%"><span class="icon-cursor"></span>
                                                     PUBLISH</button>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-white">
+                                        <div class="panel-body">
+                                            <div class="form-group">
+                                                <label>Meta Title</label>
+                                                <input name="meta_title" type="text" placeholder="Meta Title"
+                                                    class="form-control" value="" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Meta Description</label>
+                                                <textarea name="meta_desc" cols="6" rows="6" class="form-control"
+                                                    placeholder="Meta Description"></textarea>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>

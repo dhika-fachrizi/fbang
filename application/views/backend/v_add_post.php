@@ -305,6 +305,7 @@ if ($query->num_rows() > 0):
                         <ul class="sub-menu">
                             <li><a href="<?php echo site_url('backend/settings'); ?>">Basic</a></li>
                             <li><a href="<?php echo site_url('backend/slider'); ?>">Slider</a></li>
+                            <li><a href="<?php echo site_url('backend/meta'); ?>">Page Meta</a></li>
                             <!-- <li><a href="<?php echo site_url('backend/home_setting'); ?>">Home</a></li>
                                 <li><a href="<?php echo site_url('backend/about_setting'); ?>">About</a></li>
                                 <li><a href="<?php echo site_url('backend/navbar'); ?>">Navbar</a></li> -->
@@ -485,9 +486,10 @@ if ($query->num_rows() > 0):
                             <div class="panel panel-white">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label>gmaps</label>
+                                        <label>Gmaps</label>
                                         <input type="maps" name="news_maps" class="form-control" id="autocomplete"
                                             placeholder="" required>
+                                        <input type="hidden" name="maps" value='' id="gmaps">
                                     </div>
                                     <div class="form-group">
                                         <div style="height:300px;width:100%" id="map"></div>
@@ -580,8 +582,9 @@ if ($query->num_rows() > 0):
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput.js"></script>
     <script src="<?php echo base_url() . 'assets/plugins/tag-input/' ?>bootstrap-tagsinput-angular.js"></script>
     <script defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwsDRKLuGZzzZ00npxAIgaEFiAjK9mJVo&callback=initMap&libraries=places">
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCryI148h0hmC9D0r7wlGNh_twFFAfyBno&callback=initMap&libraries=places">
     </script>
+    <script src="<?php echo base_url() . 'assets/js/gmaps-edit.js' ?>"></script>
     <script>
     function c(dt) {
         console.log(dt);
@@ -688,84 +691,7 @@ if ($query->num_rows() > 0):
 
     });
     </script>
-    <script>
-    var gmaps = {
-        lat: 0,
-        lng: 0,
-        name: "",
-    }
-
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            mapTypeControl: false,
-            panControl: false,
-            zoomControl: false,
-            streetViewControl: false
-        });
-        var input = document.getElementById('autocomplete');
-        var options = {
-
-            componentRestrictions: {
-                country: 'ID'
-            }
-        };
-        autocomplete = new google.maps.places.Autocomplete(input, options);
-        autocomplete.addListener("place_changed", onPlaceChanged);
-
-
-    }
-
-    function handleEvent(event) {
-        //document.getElementById('lat').val
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode({
-            latLng: event.latLng
-        }, function(responses) {
-            if (responses && responses.length > 0) {
-                console.log(responses[0]);
-                gmaps.lat = responses[0].geometry.location.lat();
-                gmaps.lng = responses[0].geometry.location.lng();
-                gmaps.name = responses[0].formatted_address;
-                document.getElementById('autocomplete').value = responses[0].formatted_address;
-                console.log(gmaps);
-            } else {
-                console.log('Cannot determine address at this location.');
-            }
-        });
-
-
-        // /ue = event.latLng.lat();
-        //.getElementById('lng').value = event.latLng.lng();
-        //console.log(map.getPlace());
-    }
-
-    function onPlaceChanged() {
-        const place = autocomplete.getPlace();
-        const marker = new google.maps.Marker({
-            position: place.geometry.location,
-            draggable: true,
-            animation: google.maps.Animation.DROP,
-            map: map
-        });
-
-        gmaps.lat = place.geometry.location.lat();
-        gmaps.lng = place.geometry.location.lng();
-        gmaps.name = place.formatted_address;
-
-        console.log(gmaps);
-
-        marker.addListener('dragend', handleEvent);
-        // console.log(google.maps.places);
-        google.maps.event.addListener(marker);
-        if (place.geometry) {
-            map.panTo(place.geometry.location);
-            map.setZoom(15);
-
-        } else {
-            document.getElementById("autocomplete").placeholder = "Enter a city";
-        }
-    }
-    </script>
+   
 </body>
 
 </html>

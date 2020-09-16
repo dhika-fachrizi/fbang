@@ -43,7 +43,8 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
     <link rel="shortcut icon" href="<?php echo base_url('theme/images/' . $icon); ?>">
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
-    <link rel="canonical" href="<?php echo site_url(); ?>" />
+    <link rel="canonical" href="<?php echo $site_canonical; ?>" />
+    <script type="application/ld+json"><?php echo $site_org; ?> </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -60,8 +61,11 @@ $b_availability = json_decode($detail[$dymc . 'availability']);
     <meta name="twitter:site" content="<?php echo $site_twitter; ?>" />
     <meta name="twitter:image" content="<?php echo base_url() . 'theme/images/' . $site_image ?>" />
     <style>
-    @media only screen and (max-width: 768px) {
 
+   
+
+    @media only screen and (max-width: 768px) {
+        
         .dn-img-exploler {
             height: 300px;
         }
@@ -177,15 +181,16 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                                 <div class="row" style="min-height:100%;">
                                                     <div class="pt-10 col-12 d-flex justify-content-end"
                                                         style="font-size:10px;">avalibel at</div>
-                                                    <div class="pt-10 col-12  d-flex flex-row-reverse">
-                                                        <div class="row ">
+                                                    <div class="pt-10 col-12">
+                                                        <div >
                                                             <?php foreach ($b_availability as $a): ?>
-                                                            <div><a href="http://<?php echo $a->availability_value; ?>"><img
+                                                            <div style="float:right"><a href="<?php echo $a->availability_value; ?>"><img
                                                                         src="<?php echo base_url() . 'assets/images/' . $a->availability_img; ?>"
-                                                                        class="img-fluid pr-10 pb-10"
+                                                                        class="img-fluid pl-10 pb-10 detail-img-av"
                                                                         alt="Responsive image" style="height:25px;">
                                                                 </a>
                                                             </div>
+
                                                             <?php endforeach;?>
                                                         </div>
                                                     </div>
@@ -193,7 +198,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                                                     <div
                                                         class="pt-10 pr-0 col-12 row d-flex flex-row-reverse d-flex align-items-end">
                                                         <?php foreach ($b_social as $s): ?>
-                                                        <a href="http://<?php echo $s->social_value; ?>"><i
+                                                        <a href="<?php echo $s->social_value; ?>"><i
                                                                 class="<?php echo $s->social_icon; ?> pl-10"></i></a>
 
                                                         <?php endforeach;?>
@@ -211,7 +216,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                             <div class="row mb-30 pm-16">
                                 <div class="col-12 pl-0">
                                     <?php $split_tag = explode(",", $detail['post_tags']);foreach ($split_tag as $tag): ?>
-                                    <div class="float-left mr-10"
+                                    <div class="float-left mr-10 mb-10"
                                         style="background-color:#F0F0F0; color:#919191; padding:2px 5px; border-radius:5px; font-size:10px;">
                                         <a href="<?php echo site_url('tag/' . $tag); ?>"><?php echo $tag; ?></a>
                                     </div>
@@ -222,7 +227,7 @@ echo date_format($date, "d M Y");?>, by <?=$user['user_name']?> |
                         </div>
                         <div class="col-lg-4">
 
-                            <div>
+                            <div class="hide-m">
                                 <div class="row">
                                     <div class="col-sm-12 pl-0 news-b-image m-0"
                                         style="background-image: url('') ; background-color:#F4F4F4; height: 325px;width:100%"
@@ -262,6 +267,44 @@ if ($item['post_type_id'] == 1) {
                                 </div>
                                 <?php endforeach?>
                             </div>
+
+                            <div class="row unhide-m">
+                                <div class="col-lg-12 pl-0 pr-0">
+                                    <div class="stc-menu">
+                                        <div class="row text-theme-2 pt-0 cpl-0">
+                                            <i><b>Popular in Foodbang</b></i>
+                                            <div class="col pt-1">
+                                                <hr class="hr-theme">
+                                            </div>
+                                        </div>
+                                        <?php foreach ($popular as $key => $item): ?>
+
+                                        <?php if ($key == 2) {
+    break;
+}?>
+                                        <div class="row pt-10 cpl-0">
+                                            <div class="col-3 popular-b-image m-0"
+                                                style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                            </div>
+                                            <div class="col-9 pl-0 pr-0">
+                                                <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
+                                                        <?php $date = date_create($item['post_date']);
+echo date_format($date, "d M Y");?>
+                                                    </span></div>
+                                                <div class="col-12  text-thema-split-2" style="height:45px;">
+                                                    <div class="text-theme-1"
+                                                        style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
+                                                        <a
+                                                            href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php endforeach?>
+                                    </div>
+                                </div>
+                            </div>
+
 
 
                         </div>

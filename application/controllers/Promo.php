@@ -11,6 +11,7 @@ class Promo extends CI_Controller
         $this->load->model('Site_model', 'site_model');
         $this->load->model('Catlist_model', 'catlist_model');
         $this->load->model('Promo_model', 'promo_model');
+        $this->load->model('backend/Meta_model', 'meta_model');
         $this->load->model('Detail_model', 'detail_model');
         $this->visitor_model->count_visitor();
         $this->load->helper('text');
@@ -25,17 +26,21 @@ class Promo extends CI_Controller
         $data['site_desc'] = $site['site_description'];
         $data['site_twitter'] = $site['site_twitter'];
         $data['site_image'] = $site['site_logo_big'];
+        $data['site_org'] = $this->site_model->get_org($site);
+        $data['site_canonical'] = base_url('promo');
+        $data['meta'] = $this->meta_model->get_meta_by_id(3);
         $site_info = $this->db->get('tbl_site', 1)->row();
         $v['logo'] = $site_info->site_logo_header;
         $data['icon'] = $site_info->site_favicon;
         $data['header'] = $this->load->view('header', $v, true);
-        $data['footer'] = $this->load->view('footer', '', true);
+        $f['site'] = $site;
+        $data['footer'] = $this->load->view('footer', $f, true);
         $data['filter_city'] = $this->promo_model->get_filter_city();
         $data['get_city'] = $this->input->get('city', true);
         $data['get_short'] = $this->input->get('short', true);
         $data['get_search'] = $this->input->get('search', true);
         $data['get_perpage'] = $this->input->get('perpage', true);
-        $data['perpage'] = 2;
+        $data['perpage'] = 9;
         if ($data['get_perpage'] == "") {
             $data['get_perpage'] = $data['perpage'];
         }

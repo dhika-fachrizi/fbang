@@ -8,9 +8,8 @@
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content="<?php echo $meta->meta_desc; ?>" />
+    <meta name="keywords" content="<?php echo $meta->meta_title; ?>" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <meta name="viewport" content="width=device-width" />
     <!-- CSS -->
