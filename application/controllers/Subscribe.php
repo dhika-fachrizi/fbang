@@ -45,7 +45,7 @@ class Subscribe extends CI_Controller
 				$mail->Password = 'Superm@n123'; // password email
 				$mail->SMTPSecure = 'ssl';
 				$mail->Port     = 465;
-
+				$mail->CONTENT_TYPE_TEXT_HTML = 'text/html';
 				$mail->setFrom('muslimin@foodbang.co.id', ''); // user email
 				// $mail->addReplyTo('xxx@hostdomain.com', ''); //user email
 
@@ -53,7 +53,7 @@ class Subscribe extends CI_Controller
 				$mail->addAddress($emailto); //email tujuan pengiriman email
 
 				// Email subject
-				$mail->Subject = 'SMTP Codeigniter'; //subject email
+				$mail->Subject = 'Welcome to Foodbang'; //subject email
 
 				// Set email format to HTML
 				$mail->isHTML(true);
