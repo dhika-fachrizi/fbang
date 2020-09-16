@@ -297,8 +297,6 @@ echo date_format($date, "d M Y");?>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 

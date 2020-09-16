@@ -24,7 +24,7 @@ class News extends CI_Controller
             $l = $this->input->post('limit', true);
             $this->session->set_userdata('limit', $l);
         }
-        //$this->output->enable_profiler(TRUE);
+        
         $category = $this->category_model->get_category_by_slug('daily-news');
         $site = $this->site_model->get_site_data()->row_array();
         $data['site_name'] = $site['site_name'];
