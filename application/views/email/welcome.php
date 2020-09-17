@@ -1,382 +1,221 @@
 <!DOCTYPE html>
+<html>
 
 <head>
-    <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta content="width=device-width" name="viewport" />
-    <!--[if !mso]><!-->
-    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/3ac84ec18d.js" crossorigin="anonymous"></script>
-    <!--<![endif]-->
     <title></title>
-    <!--[if !mso]><!-->
-    <!--<![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
+        @media screen {
+            @font-face {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 400;
+                src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 400;
+                src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff) format('woff');
+            }
+
+            @font-face {
+                font-family: 'Lato';
+                font-style: italic;
+                font-weight: 700;
+                src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+            }
         }
 
-        .col,
-        .col-1,
-        .col-10,
-        .col-11,
-        .col-12,
-        .col-2,
-        .col-3,
-        .col-4,
-        .col-5,
-        .col-6,
-        .col-7,
-        .col-8,
-        .col-9,
-        .col-auto,
-        .col-lg,
-        .col-lg-1,
-        .col-lg-10,
-        .col-lg-11,
-        .col-lg-12,
-        .col-lg-2,
-        .col-lg-3,
-        .col-lg-4,
-        .col-lg-5,
-        .col-lg-6,
-        .col-lg-7,
-        .col-lg-8,
-        .col-lg-9,
-        .col-lg-auto,
-        .col-md,
-        .col-md-1,
-        .col-md-10,
-        .col-md-11,
-        .col-md-12,
-        .col-md-2,
-        .col-md-3,
-        .col-md-4,
-        .col-md-5,
-        .col-md-6,
-        .col-md-7,
-        .col-md-8,
-        .col-md-9,
-        .col-md-auto,
-        .col-sm,
-        .col-sm-1,
-        .col-sm-10,
-        .col-sm-11,
-        .col-sm-12,
-        .col-sm-2,
-        .col-sm-3,
-        .col-sm-4,
-        .col-sm-5,
-        .col-sm-6,
-        .col-sm-7,
-        .col-sm-8,
-        .col-sm-9,
-        .col-sm-auto,
-        .col-xl,
-        .col-xl-1,
-        .col-xl-10,
-        .col-xl-11,
-        .col-xl-12,
-        .col-xl-2,
-        .col-xl-3,
-        .col-xl-4,
-        .col-xl-5,
-        .col-xl-6,
-        .col-xl-7,
-        .col-xl-8,
-        .col-xl-9,
-        .col-xl-auto {
-            padding-right: 0px;
-            padding-left: 0px;
+        /* CLIENT-SPECIFIC STYLES */
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
         }
 
         table,
-        td,
-        tr {
-            vertical-align: top;
-            border-collapse: collapse;
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
         }
 
-        * {
-            line-height: inherit;
+        img {
+            -ms-interpolation-mode: bicubic;
         }
 
-        a[x-apple-data-detectors=true] {
+        /* RESET STYLES */
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+        }
+
+        .button {
+            background-color: #F79D46;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
             color: inherit !important;
             text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
         }
 
-        .header {
-            width: 615px;
-            height: 50px;
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            opacity: 1;
-            border: 1px solid #ccc;
-            border-bottom: 0px solid #ccc;
-            padding: 10px
+        /* MOBILE STYLES */
+        @media screen and (max-width:600px) {
+            h1 {
+                font-size: 32px !important;
+                line-height: 32px !important;
+            }
+
+            .t-mobile-1 {
+                min-width: 100%;
+            }
+
+            .t-mobile-2 {
+                min-width: 90%;
+            }
         }
 
-        .content {
-            width: 520px;
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            box-shadow: 0px 0px 10px #00000019;
-            opacity: 1;
-            position: absolute;
-            padding: 30px;
-            margin-top: 150px;
-            margin-left: 30px;
-        }
-
-        .content p {
-            margin-top: 40px;
-        }
-    </style>
-    <style id="media-query" type="text/css">
-        @media (max-width: 660px) {
-            .header {
-            width: 600px;
-            height: 50px;
-            background: #FFFFFF 0% 0% no-repeat padding-box;
-            opacity: 1;
-            border-bottom: 0px solid #ccc;
-            padding: 10px
-        }
-            .block-grid,
-            .col {
-                min-width: 320px !important;
-                max-width: 100% !important;
-                display: block !important;
-            }
-
-            .block-grid {
-                width: 100% !important;
-            }
-
-            .col {
-                width: 100% !important;
-            }
-
-            .col>div {
-                margin: 0 auto;
-            }
-
-            img.fullwidth,
-            img.fullwidthOnMobile {
-                max-width: 100% !important;
-            }
-
-            .no-stack .col {
-                min-width: 0 !important;
-                display: table-cell !important;
-            }
-
-            .no-stack.two-up .col {
-                width: 50% !important;
-            }
-
-            .no-stack .col.num4 {
-                width: 33% !important;
-            }
-
-            .no-stack .col.num8 {
-                width: 66% !important;
-            }
-
-            .no-stack .col.num4 {
-                width: 33% !important;
-            }
-
-            .no-stack .col.num3 {
-                width: 25% !important;
-            }
-
-            .no-stack .col.num6 {
-                width: 50% !important;
-            }
-
-            .no-stack .col.num9 {
-                width: 75% !important;
-            }
-
-            .video-block {
-                max-width: none !important;
-            }
-
-            .mobile_hide {
-                min-height: 0px;
-                max-height: 0px;
-                max-width: 0px;
-                display: none;
-                overflow: hidden;
-                font-size: 0px;
-            }
-
-            .desktop_hide {
-                display: block !important;
-                max-height: none !important;
-            }
-
-            .content {
-                /* margin-top: 10px; */
-                width: 450px;
-                background: #FFFFFF 0% 0% no-repeat padding-box;
-                box-shadow: 0px 0px 10px #00000019;
-                opacity: 1;
-                position: absolute;
-                padding: 30px;
-                margin-top: 150px;
-                margin-left: 30px;
-            }
+        /* ANDROID CENTER FIX */
+        div[style*="margin: 16px 0;"] {
+            margin: 0 !important;
         }
     </style>
 </head>
 
-<body class="clean-body" style="margin: 0; padding: 0; -webkit-text-size-adjust: 100%; background-color: #ffffff;">
-    <table bgcolor="#f8f8f9" cellpadding="0" cellspacing="0" class="nl-container" role="presentation" style="table-layout: fixed; vertical-align: top; min-width: 320px; Margin: 0 auto; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; width: 100%;margin-top: 20px;" valign="top" width="100%">
-        <tbody>
-            <tr style="vertical-align: top;" valign="top">
-                <td style="word-break: break-word; vertical-align: top;" valign="top" align="center">
-                    <div class="header">
-                        <img src="<?php echo base_url() . 'assets/images/logo.png'; ?>" alt="" style="top: 10px;left: 48px;width: 139px;height: 30px;" align="left">
-                    </div>
-                </td>
-            </tr>
-            <tr style="vertical-align: top;" valign="top">
-                <td style="word-break: break-word; vertical-align: top;" valign="top">
+<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;width:100%" align="center">
+    <!-- HIDDEN PREHEADER TEXT -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-left:0;margin-right:0">
+        <!-- LOGO -->
+        <tr>
+            <td bgcolor="#ffffff" align="center">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%;" class="t-mobile-1">
+                    <tr>
+                        <td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
+                            <img src="<?php echo base_url() . 'assets/images/logo.png'; ?>" alt="" style="top: 10px;left: 48px;width: 139px;height: 30px;" align="left">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%;" class="t-mobile-1">
+                    <tr>
+                        <td align="center" valign="top" style="padding: 40px 10px 40px 10px;height:150px;background:url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') no-repeat;background-size: cover;">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 0px 10px 0px 10px">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 40%" class="t-mobile-2">
+                    <tr>
+                        <td bgcolor="#ffffff" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font: normal normal normal 15px/22px Noto Sans JP;">
+                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Welcome!</h1>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 0px 10px 0px 10px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 40%" class="t-mobile-2">
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;">Hi Guys! Terima kasih Sudah mendukung dan memilih Foodbang sebagai partner kalian dalam pencarian informasi kuliner.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;">Dengan subscribe website kita, kita bakalan kirimin kalian informasi-informasi baru seputar kuliner Indonesia dari Sabang sampai Merauke (YES! Kita ga cuma di Jakarta lagi sekarang) dan ofcourse promo-promo menarik yang bakalan bikin kalian #makanterusantibokek.</p>
+                        </td>
+                    </tr> <!-- COPY -->
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 20px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;">Apabila ada masukan, pertanyaan, rekomendasi tempat dan makanan, atau mau di-review sama kita, feel free to email us at hello@foodbang.co.id</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 20px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;">If you have any questions, just reply to this email—we're always happy to help out.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;"><button class="button"><a href="https://foodbang.co.id" style="color: #000000;font: normal normal normal 15px/22px Noto Sans JP;">GO TO FOODBANG</a></button></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;" style="background-color:#F79D46">Thank You,<br>The Foodbang Crew</p>
+                        </td>
+                    </tr>
 
-                    <div style="background-color:transparent;">
-                        <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #fff;">
-                            <div style="border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-
-                                <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
-                                    <div style="width:100% !important;">
-
-                                        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-
-                                            <div class="content">
-                                                <h1>Welcome!</h1>
-                                                <p>Aenean non accumsan ante. Duis et risus accumsan sem tempus porta nec sit amet est. Sed ut euismod quam.
-                                                    Suspendisse potenti. Aliquam fringilla orci tincidunt, ullamcorper erat in, malesuada metus.
-                                                </p>
-                                                <p> Vivamus
-                                                    luctus maximus vestibulum. Donec et enim vitae tellus auctor ornare. Aenean leo diam, feugiat sed nulla
-                                                    sed, consequat venenatis est. Praesent commodo consequat pharetra.
-                                                </p>
-                                                <p> Fusce fermentum ante ac metus
-                                                    interdum elementum. Nam arcu lectus, lacinia non augue a, mollis bibendum augue.</p>
-                                                <button style="background-color: #ffa41b;border-radius: 5px;width:150px;height:40px;color:#ffffff;border:none"><a href="<?php echo base_url() ?>" style="color:#ffffff;">GO TO FOODBANG</a></button>
-                                                <p></p>
-                                                <p></p>
-                                                <p>Thank you,</p>
-                                                <h5>The Foodbang crew</h5>
-                                            </div>
-                                            <div align="center" class="img-container center fixedwidth">
-                                                <img align="center" alt="I'm an image" border="0" class="center fixedwidth" src="<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>" style="text-decoration: none; -ms-interpolation-mode: bicubic; height: 200px; border: 0; width: 100%; display: block;background: var(--unnamed-color-000000) 0% 0% no-repeat padding-box;" />
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background-color:transparent;">
-                        <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #fff;">
-                            <div style="border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:0px solid transparent; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-
-                                <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
-                                    <div style="width:100% !important;">
-
-                                        <div style="border-top:1px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-
-                                            <table border="0" cellpadding="0" cellspacing="0" class="divider" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" width="100%">
-                                                <tbody>
-                                                    <tr style="vertical-align: top;" valign="top">
-
-                                                        <table align="center" border="0" cellpadding="0" cellspacing="0" class="divider_content" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 0px solid #BBBBBB; width: 100%;" valign="top" width="100%">
-                                                            <tbody>
-                                                                <tr style="vertical-align: top;" valign="top">
-
-                                                                    <td style="word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;" valign="top" height="450px">
-
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="background-color:transparent;">
-                        <div class="block-grid" style="Margin: 0 auto; min-width: 320px; max-width: 640px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #2b303a;">
-
-                            <div style="background-color:#F7F7F7;border-top:1px solid transparent; border-left:1px solid #ccc; border-bottom:1px solid #ccc; border-right:1px solid #ccc; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-                                <div class="col num12" style="min-width: 320px; max-width: 640px; display: table-cell; vertical-align: top; width: 640px;">
-                                    <div style="width:100% !important;">
-
-                                        <div style="border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;">
-
-                                            <table cellpadding="0" cellspacing="0" class="social_icons" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;" valign="top" width="100%">
-                                                <tbody>
-                                                    <tr style="vertical-align: top;" valign="top">
-                                                        <td style="word-break: break-word; vertical-align: top; padding-top: 28px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;" valign="top">
-                                                            <table align="center" cellpadding="0" cellspacing="0" class="social_table" role="presentation" style="table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-tspace: 0; mso-table-rspace: 0; mso-table-bspace: 0; mso-table-lspace: 0;" valign="top">
-                                                                <tbody>
-                                                                    <tr align="center" style="vertical-align: top; display: inline-block; text-align: center;margin-top: 40px;" valign="top">
-                                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 0; padding-right: 10px; padding-left: 10px;" valign="top">
-                                                                            <a href="#" style="color: #000000;margin:5px"><i class="fab fa-instagram"></i></a>
-                                                                        </td>
-                                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 0; padding-right: 10px; padding-left: 10px;" valign="top">
-                                                                            <a href="#" style="color: #000000;margin:5px"><i class="fab fa-facebook-f"></i></a>
-                                                                        </td>
-                                                                        <td style="word-break: break-word; vertical-align: top; padding-bottom: 0; padding-right: 10px; padding-left: 10px;" valign="top">
-                                                                            <a href="#" style="color: #000000;margin:5px"><i class="fab fa-twitter"></i></a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;line-height:1.2;padding-top:20px;padding-right:40px;padding-bottom:30px;padding-left:40px;">
-                                                <div style="line-height: 1.2; font-size: 12px; font-family: Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif; color: #555555; mso-line-height-alt: 14px;" align="center">
-                                                    <p style="color: #CCCCCC;">2020&copy; Powered by Foodbang.</p>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </td>
-            </tr>
-        </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 30px 10px 0px 10px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%;" class="t-mobile-1">
+                    <tr>
+                        <td bgcolor="#F7F7F7" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <a href="#" style="color: #000000;margin:5px">About Us</a>
+                            <a href="#" style="color: #000000;margin:5px">FAQ</a>
+                            <a href="#" style="color: #000000;margin:5px">Contact Us</a>
+                            <p></p>
+                            <a href="https://www.instagram.com/foodbangmedia/" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/instagram.png'; ?>" alt=""></i></a>
+                            <a href="https://twitter.com/foodbangmedia" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/tweeter.png'; ?>" alt=""></i></a>
+                            <a href="https://www.facebook.com/Foodbang-Media-101988704994996" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/facebook.png'; ?>" alt=""></i></a>
+                            <h2 style="font: normal normal normal 12px/18px Noto Sans JP; color: #CCCCCC; margin-top: 10px;">2020&copy; Powered by Foodbang.</h2>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
-
 </body>
 
 </html>

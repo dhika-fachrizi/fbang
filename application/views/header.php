@@ -159,7 +159,7 @@
 			                                    <div class="dropdown-divider"></div>
 			                                    <a class="dropdown-item"
 			                                        href="<?php echo base_url() . 'catlist/home/nightlife'; ?>">Nightlife</a>
-			                                    <div class="dropdown-divider"></div>
+			                                    
 			                                </div>
 			                            </li>
 			                            <li class="sub col-2 dropdown unpedding-m">
@@ -176,7 +176,7 @@
 			                                    <div class="dropdown-divider"></div>
 			                                    <a class="dropdown-item"
 			                                        href="<?php echo base_url() . 'umkm/home/snack-oleh-oleh'; ?>">Snack/Oleh-oleh</a>
-			                                    <div class="dropdown-divider"></div>
+			                                    
 			                                </div>
 			                            </li>
 			                            <li class="sub col-2 dropdown unpedding-m">
@@ -196,7 +196,7 @@
 			                                    <a class="dropdown-item"
 			                                        href="<?php echo base_url() . 'stfood/home/snacks-drinks'; ?>">Sweets &
 			                                        Drink</a>
-			                                    <div class="dropdown-divider"></div>
+			                                    
 			                                </div>
 			                            </li>
 			                            <li class="sub col-2 unpedding-m">

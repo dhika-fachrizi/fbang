@@ -2,7 +2,24 @@
 <html lang="en">
 
 <head>
-
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M6T53D9');
+    </script>
+    <!-- End Google Tag Manager -->
     <!-- Page Title -->
     <title><?php echo $site_title; ?></title>
 
@@ -42,16 +59,16 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
     <style>
-    .mpt-20 {
-        padding-top: 20px;
-    }
-
-    @media only screen and (max-width: 768px) {
-
         .mpt-20 {
-            padding-top: 0px;
+            padding-top: 20px;
         }
-    }
+
+        @media only screen and (max-width: 768px) {
+
+            .mpt-20 {
+                padding-top: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -93,47 +110,42 @@
                     <div class="table-center-text">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
-                                <?php foreach ($slider->result() as $key => $item): ?>
-                                <?php if ($key == 0): ?>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$key?>" class="active">
-                                </li>
-                                <?php else: ?>
-                                <li data-target="#carouselExampleIndicators" data-slide-to="<?=$key?>">
-                                </li>
-                                <?php endif;?>
-                                <?php endforeach;?>
+                                <?php foreach ($slider->result() as $key => $item) : ?>
+                                    <?php if ($key == 0) : ?>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>" class="active">
+                                        </li>
+                                    <?php else : ?>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>">
+                                        </li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             </ol>
                             <div class="carousel-inner">
-                                <?php foreach ($slider->result() as $key => $item): ?>
-                                <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
-                                    <img class="d-block w-100 img-c"
-                                        src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>"
-                                        alt="First slide">
-                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
-                                        style="height:100%;width:auto;">
-                                        <div class="row">
-                                            <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
-                                                <?=$item->slider_title?></div>
-                                            <div class="col-sm-4"></div>
-                                            <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
-                                                <?=$item->slider_desc?></div>
-                                            <div class=" col-sm-4 "></div>
-                                        </div>
-                                        <div class=" row">
+                                <?php foreach ($slider->result() as $key => $item) : ?>
+                                    <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
+                                        <img class="d-block w-100 img-c" src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>" alt="First slide">
+                                        <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container" style="height:100%;width:auto;">
+                                            <div class="row">
+                                                <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
+                                                    <?= $item->slider_title ?></div>
+                                                <div class="col-sm-4"></div>
+                                                <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
+                                                    <?= $item->slider_desc ?></div>
+                                                <div class=" col-sm-4 "></div>
+                                            </div>
+                                            <div class=" row">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php endforeach;?>
+                                <?php endforeach; ?>
 
 
                             </div>
-                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                                data-slide="prev">
+                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                                data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -149,128 +161,18 @@
                         </div>
                         <div class="col-md-9 mpt-20">
                             <div class="row">
-                                <div class="col-sm-12" style="font-size:15px;"> Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Morbi
-                                    vitae dapibus lacus, ac
-                                    laoreet est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                                    posuere
-                                    cubilia curae; Donec finibus facilisis nibh nec pretium. Vestibulum interdum
-                                    faucibus
-                                    semper. Aliquam tempor velit non imperdiet sagittis. Integer vestibulum elit vel
-                                    tellus
-                                    pulvinar, non mollis tellus eleifend. Sed eget lacus at ex aliquet ultricies. Nunc
-                                    varius
-                                    pulvinar quam non molestie. Praesent efficitur nec turpis vel scelerisque. Cras
-                                    lacinia
-                                    mauris faucibus nunc consectetur aliquam. Class aptent taciti sociosqu ad litora
-                                    torquent
-                                    per conubia nostra, per inceptos himenaeos. Sed ultrices, augue eu vehicula
-                                    facilisis, dui
-                                    purus feugiat tellus, a pulvinar leo urna sed enim. Pellentesque eu pellentesque
-                                    urna, non
-                                    gravida justo. Vestibulum nec sapien in tellus egestas sagittis. Nullam imperdiet
-                                    orci sit
-                                    amet pharetra dignissim. Integer cursus elit sagittis, sagittis dui id, venenatis
-                                    nibh.
-                                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc eget libero
-                                    libero. In ut
-                                    malesuada erat. Proin finibus libero quis blandit faucibus. Mauris auctor ex nec
-                                    nisl
-                                    dignissim, in congue felis rhoncus. Curabitur sed magna non turpis tristique
-                                    suscipit non
-                                    vel leo.
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row pb-30">
-                        <div class="col-md-3 pm-16 text-theme-2 pb-0" style="font-size:55px;">
-                            <b>The Team</b>
-                        </div>
-                        <div class="col-md-9 mpt-20">
-
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-12 pb-20">
-                                            <div class="row pl-10">
-                                                <div class="col-sm-6 pr-100">
-                                                    <div class="row">
-                                                        <div class="col-sm-12 popular-b-image m-0 pl-10"
-                                                            style="background-image: url('<?php echo base_url() . 'assets/images/9055948b94acfb2c86f7c41d98107813.png'; ?>') ; height:261px;">
-                                                        </div>
-                                                        <div class="col-sm-12 mt-10 pl-0">
-                                                            <div class="text-theme-2"
-                                                                style="margin-top:0px;font-size:25px;font-weight:bold;">
-                                                                Calvin Sidharta
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-12 pl-0" style="height:50px;">
-                                                            <div class="" style="margin-top:0px;font-size:14px;">
-                                                                Co-Founder
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-6 pr-100">
-                                                    <div class="row">
-                                                        <div class="col-sm-12 popular-b-image m-0 pl-10"
-                                                            style="background-image: url('<?php echo base_url() . 'assets/images/9055948b94acfb2c86f7c41d98107813.png'; ?>') ; height:261px;">
-                                                        </div>
-                                                        <div class="col-sm-12 mt-10 pl-0">
-                                                            <div class="text-theme-2"
-                                                                style="margin-top:0px;font-size:25px;font-weight:bold;">
-                                                                Calvin Sidharta
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-sm-12 pl-0" style="height:50px;">
-                                                            <div class="" style="margin-top:0px;font-size:14px;">
-                                                                Co-Founder
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12" style="font-size:15px;"> Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Morbi
-                                    vitae dapibus lacus, ac
-                                    laoreet est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-                                    posuere
-                                    cubilia curae; Donec finibus facilisis nibh nec pretium. Vestibulum interdum
-                                    faucibus
-                                    semper. Aliquam tempor velit non imperdiet sagittis. Integer vestibulum elit vel
-                                    tellus
-                                    pulvinar, non mollis tellus eleifend. Sed eget lacus at ex aliquet ultricies. Nunc
-                                    varius
-                                    pulvinar quam non molestie. Praesent efficitur nec turpis vel scelerisque. Cras
-                                    lacinia
-                                    mauris faucibus nunc consectetur aliquam. Class aptent taciti sociosqu ad litora
-                                    torquent
-                                    per conubia nostra, per inceptos himenaeos. Sed ultrices, augue eu vehicula
-                                    facilisis, dui
-                                    purus feugiat tellus, a pulvinar leo urna sed enim. Pellentesque eu pellentesque
-                                    urna, non
-                                    gravida justo. Vestibulum nec sapien in tellus egestas sagittis. Nullam imperdiet
-                                    orci sit
-                                    amet pharetra dignissim. Integer cursus elit sagittis, sagittis dui id, venenatis
-                                    nibh.
-                                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc eget libero
-                                    libero. In ut
-                                    malesuada erat. Proin finibus libero quis blandit faucibus. Mauris auctor ex nec
-                                    nisl
-                                    dignissim, in congue felis rhoncus. Curabitur sed magna non turpis tristique
-                                    suscipit non
-                                    vel leo.
+                                <div class="col-sm-12" style="font-size:15px;">
+                                    <p>Foodbang.co.id merupakan chapter kelanjutan dari @JKTFOODBANG di Instagram, dimana kami ingin mencoba melebarkan sayap ke seluruh Indonesia.</p>
+                                    <p>JKTFOODBANG sendiri ditemukan tahun 2014 di Jakarta, dan sampai sekarang tetap manjadi salah satu food blogger (bukan youtubers yah! :p) dengan followers terbanyak dan cakupan terluas, mulai dari restoran mewah sampai ke street food dan UMKM.</p>
+                                    <p>Misi </p>
+                                    <ul style="list-style-type:disc">
+                                        <li>Memberikan teman-teman informasi yang kredibel tentang kuliner di seluruh Indonesia.</li>
+                                        <li>Membantu UMKM F&B dalam menciptakan brand-awareness yang lebih baik lagi di era digitalisasi ini sehigga dapat bersaing dengan sehat.</li>
+                                    </ul>
+                                    <p>VISI </p>
+                                    <ul style="list-style-type:disc">
+                                        <li>Menjadi One Stop Shop Ekosistem yang dapat menyediakan semua kebutuhan F&B dari hulu sampai ke hilir.</li>
+                                    </ul>
                                 </div>
 
                             </div>
@@ -290,20 +192,22 @@
                         <div class="col-md-9 mpt-20">
                             <div class="row">
                                 <div class="col-sm-12 text-theme-2 pb-20" style="font-size:25px;">
-                                    <b>Foodbang HQ</b>
+                                    <b>PT. Karya Kuliner Bangsa</b>
                                 </div>
                                 <div class="col-sm-12 pb-20" style="max-width: 350px;font-size:15px;font-weight: 500;">
-                                    <div> Wisma Prima - 4th Floor, Jl. Kapten Tendean No. 34 Daerah Khusus Ibukota
-                                        Jakarta
-                                        12720 Indonesia
+                                    <div> Office 8 Tower; Level 18-A
+                                        Jl. Jend Sudirman Kav. 52-53
+                                        SCBD
+                                        Jakarta Selatan
+
                                     </div>
 
                                 </div>
                                 <div class="col-sm-12" style="font-size:15px; font-weight: 500;">
-                                    <i class="fas fa-phone pr-10"></i>021 - 1234 5678
+                                    <i class="fas fa-phone pr-10"></i>+6281317755099
                                 </div>
                                 <div class="col-sm-12" style="font-size:15px; font-weight: 500;">
-                                    <i class="fas fa-envelope pr-10"></i>admin@foodbang.com
+                                    <i class="fas fa-envelope pr-10"></i>hello@foodbang.co.id
                                 </div>
 
                             </div>
@@ -327,11 +231,9 @@
                                         more updates!
                                     </b></i>
                             </div>
-                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email"
-                                    placeholder="send your email" required></div>
+                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email" placeholder="send your email" required></div>
                             <div class="pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
-                                <button type="submit" class="btn btn-primary"
-                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                                <button type="submit" class="btn btn-primary" style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
                             </div>
 
                         </div>
@@ -347,18 +249,15 @@
                     <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
                         <div class="row d-flex justify-content-center">
 
-                            <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center"
-                                style="font-size:30px;">
+                            <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center" style="font-size:30px;">
                                 <i><b>Subscribe
                                         for
                                         more updates!
                                     </b></i>
                             </div>
-                            <div class="col-8 pr-10"><input class="form-control" type="email" name="email"
-                                    placeholder="send your email" required></div>
+                            <div class="col-8 pr-10"><input class="form-control" type="email" name="email" placeholder="send your email" required></div>
                             <div class="col-4 pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
-                                <button type="submit" class="btn btn-primary"
-                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                                <button type="submit" class="btn btn-primary" style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
                             </div>
 
                         </div>
@@ -404,44 +303,44 @@
     <script src="<?php echo base_url('assets/plugins/slick/slick.js') ?>"></script>
 
     <script>
-    $(document).ready(function() {
+        $(document).ready(function() {
 
-        $('.demo').slick({
-            dots: true,
-            arrows: false,
+            $('.demo').slick({
+                dots: true,
+                arrows: false,
 
-            speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 4,
-            autoplay: true,
-            autoplaySpeed: 2000,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3,
-                        infinite: true,
-                        dots: true
+                speed: 300,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
+                ]
+            });
+
         });
-
-    });
     </script>
 
 </body>

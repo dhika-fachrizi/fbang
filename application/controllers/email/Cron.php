@@ -50,7 +50,7 @@ class Cron extends CI_Controller
                 $mail->addAddress($item); //email tujuan pengiriman email
             }
             // Email subject
-            $mail->Subject = 'SMTP Codeigniter'; //subject email
+            $mail->Subject = 'Newsletter Email'; //subject email
 
             // Set email format to HTML
             $mail->isHTML(true);
