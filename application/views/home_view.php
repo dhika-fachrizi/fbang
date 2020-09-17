@@ -486,7 +486,7 @@ echo date_format($date, "d M Y");?>
 
     });
     </script>
-
+    
 
 </body>
 

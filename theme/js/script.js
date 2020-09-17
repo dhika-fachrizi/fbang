@@ -1124,3 +1124,4 @@ function sidebarHeader(show) {
 		$('#off-menu').css('display', 'unset');
 	}
 }
+
