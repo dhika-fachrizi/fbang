@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <?php
 
 $server = "localhost";
@@ -13,7 +14,6 @@ if (!$db) {
 }
 
 ?>
-<html>
 
 <head>
     <title></title>
@@ -21,7 +21,6 @@ if (!$db) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
-    <link rel="stylesheet" href="<?php echo base_url() . 'theme/css/bootstrap.min.css' ?>" />
     <style type="text/css">
         @media screen {
             @font-face {
@@ -139,14 +138,13 @@ if (!$db) {
     </style>
 </head>
 
-<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;width:60%" align="center">
+<body style="background-color: #f4f4f4; margin: 0 !important; padding: 0 !important;width:100%" align="center">
     <!-- HIDDEN PREHEADER TEXT -->
-    <div style="display: none; font-size: 1px; color: #fefefe; line-height: 1px; font-family: 'Lato', Helvetica, Arial, sans-serif; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;"> </div>
     <table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-left:0;margin-right:0">
         <!-- LOGO -->
         <tr>
             <td bgcolor="#ffffff" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%" class="t-mobile-1">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%;" class="t-mobile-1">
                     <tr>
                         <td align="center" valign="top" style="padding: 40px 10px 40px 10px;">
                             <img src="<?php echo base_url() . 'assets/images/logo.png'; ?>" alt="" style="top: 10px;left: 48px;width: 139px;height: 30px;" align="left">
@@ -157,7 +155,7 @@ if (!$db) {
         </tr>
         <tr>
             <td bgcolor="#ffffff" align="center">
-                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%" class="t-mobile-1">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%;" class="t-mobile-1">
                     <tr>
                         <td align="center" valign="top" style="padding: 40px 10px 40px 10px;height:150px;background:url('<?php echo base_url() . 'assets/images/sushi-on-brown-wooden-board-2098085.png'; ?>') no-repeat;background-size: cover;">
                         </td>
@@ -170,7 +168,7 @@ if (!$db) {
                 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 40%" class="t-mobile-2">
                     <tr>
                         <td bgcolor="#ffffff" valign="top" style="padding: 40px 20px 20px 20px; border-radius: 4px 4px 0px 0px; color: #111111; font: normal normal normal 15px/22px Noto Sans JP;">
-                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Hy muslimin</h1>
+                            <h1 style="font-size: 48px; font-weight: 400; margin: 2;">Hi Subcriber</h1>
                         </td>
                     </tr>
                 </table>
@@ -182,74 +180,72 @@ if (!$db) {
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 20px 30px 40px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
                             <p style="margin: 0;">Ada yang baru nih di Foodbang! Hope it can enrich your foodies reference and make your day yah!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
                             <p style="margin: 0;">Masukan, pertanyaan, rekomendasi tempat dan makanan, atau mau di-review sama kita, feel free to email us at hello@foodbang.co.id</p>
                         </td>
                     </tr>
-                    <?php
-                    $date =  date('Y-m-d 00:00:00');
-                    $sql = "SELECT * FROM tbl_post WHERE email_news_update = 1 and post_date >= '$date'  ORDER BY post_id LIMIT 5";
-                    $query = mysqli_query($db, $sql);
-                    while ($item = mysqli_fetch_array($query)) { ?>
-                        <tr>
-                            <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
-                        <tr>
-                            <td>
-                                <div class="row" style="margin-bottom: 2%;">
-                                    <div class="col-md-3" style="margin-left:5%">
-                                        <img src="<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>" alt="" style="width: 98px;height: 117px;margin-left:10%">
-                                    </div>
-                                    <div class="col-md-7" style="margin-left:5%;padding:2%">
-                                        <p><?php $date = date_create($item['post_date']);
-                                            echo date_format($date, "d M Y"); ?></p>
-                                        <a style="font: normal normal normal 20px/26px DM Serif Display;letter-spacing: 0px;color: #000000;" href="<?php if ($item['post_type_id'] == 1) {
-                                                                                                                                                        echo base_url() . 'news/detail/' . $item['post_slug'];
-                                                                                                                                                    } else if ($item['post_type_id'] == 2) {
-                                                                                                                                                        echo base_url() . 'catlist/detail/' . $item['post_slug'];
-                                                                                                                                                    } else if ($item['post_type_id'] == 3) {
-                                                                                                                                                        echo base_url() . 'umkm/detail/' . $item['post_slug'];
-                                                                                                                                                    } else if ($item['post_type_id'] == 4) {
-                                                                                                                                                        echo base_url() . 'stfood/detail/' . $item['post_slug'];
-                                                                                                                                                    } else if ($item['post_type_id'] == 5) {
-                                                                                                                                                        echo base_url() . 'hltfood/detail/' . $item['post_slug'];
-                                                                                                                                                    } ?>" style="color: #000000"><?= $item['post_title'] ?></a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 0px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 90%;" class="t-mobile-1">
+                                <?php
+                                $date =  date('Y-m-d 00:00:00');
+                                $sql = "SELECT * FROM tbl_post WHERE email_news_update = 1 and post_date >= '$date'  ORDER BY post_id LIMIT 5";
+                                $query = mysqli_query($db, $sql);
+                                while ($item = mysqli_fetch_array($query)) { ?>
+                                    <tr>
+                                        <td bgcolor="#ffffff" align="left" style="padding: 30px 10px 10px 0px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                                            <img src="<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>" alt="" style="width: 98px;height: 117px;margin-left:10%">
+                                        </td>
+                                        <td bgcolor="#ffffff" align="left" style="padding: 30px 10px 10px 30px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191;">
+                                            <p><?php $date = date_create($item['post_date']);
+                                                echo date_format($date, "d M Y"); ?></p>
+                                            <a style="font: normal normal normal 20px/26px DM Serif Display;letter-spacing: 0px;color: #000000;" href="<?php if ($item['post_type_id'] == 1) {
+                                                                                                                                                            echo base_url() . 'news/detail/' . $item['post_slug'];
+                                                                                                                                                        } else if ($item['post_type_id'] == 2) {
+                                                                                                                                                            echo base_url() . 'catlist/detail/' . $item['post_slug'];
+                                                                                                                                                        } else if ($item['post_type_id'] == 3) {
+                                                                                                                                                            echo base_url() . 'umkm/detail/' . $item['post_slug'];
+                                                                                                                                                        } else if ($item['post_type_id'] == 4) {
+                                                                                                                                                            echo base_url() . 'stfood/detail/' . $item['post_slug'];
+                                                                                                                                                        } else if ($item['post_type_id'] == 5) {
+                                                                                                                                                            echo base_url() . 'hltfood/detail/' . $item['post_slug'];
+                                                                                                                                                        } ?>" style="color: #000000"><?= $item['post_title'] ?></a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <p style="margin: 0;" style="background-color:#F79D46">Thank You,<br>The Foodbang Crew</p>
+                        </td>
+                    </tr>
+
+                </table>
             </td>
         </tr>
-    <?php } ?>
-    <tr>
-        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
-        </td>
-    </tr>
-    <tr>
-        <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
-            <p style="margin: 0;" style="background-color:#F79D46">Thanks You,<br>The Foodbang Crew</p>
-        </td>
-    </tr>
-
-    </table>
-    </td>
-    </tr>
-    <tr>
-        <td bgcolor="#ffffff" align="center" style="padding: 30px 10px 0px 10px;">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%" class="t-mobile-1">
-                <tr>
-                    <td bgcolor="#F7F7F7" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
-                        <a href="#" style="color: #000000;margin:5px">About Us</a>
-                        <a href="#" style="color: #000000;margin:5px">FAQ</a>
-                        <a href="#" style="color: #000000;margin:5px">Contact Us</a>
-                        <p></p>
-                        <a href="#" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/instagram.png'; ?>" alt=""></i></a>
-                        <a href="#" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/tweeter.png'; ?>" alt=""></i></a>
-                        <a href="#" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/facebook.png'; ?>" alt=""></i></a>
-                        <h2 style="font: normal normal normal 12px/18px Noto Sans JP; color: #CCCCCC; margin-top: 10px;">2020&copy; Powered by Foodbang.</h2>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
+        <tr>
+            <td bgcolor="#ffffff" align="center" style="padding: 30px 10px 0px 10px;">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 50%;" class="t-mobile-1">
+                    <tr>
+                        <td bgcolor="#F7F7F7" align="center" style="padding: 30px 30px 30px 30px; border-radius: 4px 4px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
+                            <a href="#" style="color: #000000;margin:5px">About Us</a>
+                            <a href="#" style="color: #000000;margin:5px">FAQ</a>
+                            <a href="#" style="color: #000000;margin:5px">Contact Us</a>
+                            <p></p>
+                            <a href="https://www.instagram.com/foodbangmedia/" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/instagram.png'; ?>" alt=""></i></a>
+                            <a href="https://twitter.com/foodbangmedia" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/tweeter.png'; ?>" alt=""></i></a>
+                            <a href="https://www.facebook.com/Foodbang-Media-101988704994996" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/facebook.png'; ?>" alt=""></i></a>
+                            <h2 style="font: normal normal normal 12px/18px Noto Sans JP; color: #CCCCCC; margin-top: 10px;">2020&copy; Powered by Foodbang.</h2>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
 </body>
 

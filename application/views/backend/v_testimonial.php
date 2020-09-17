@@ -222,7 +222,7 @@ if ($query->num_rows() > 0):
                             <li><a href="<?php echo site_url('backend/post/add_new'); ?>">Add New News</a>
                             </li>
                             <li><a href="<?php echo site_url('backend/post/add_catlist_new'); ?>">Add New
-                                    Catlist</a>
+                            Restaurant & Cofe</a>
                             </li>
                             <li><a href="<?php echo site_url('backend/post/add_umkm_new'); ?>">Add New
                                     Umkm</a>
