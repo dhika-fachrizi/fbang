@@ -185,12 +185,12 @@
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
-                            <p style="margin: 0;"><button class="button"><a href="https://foodbang.co.id" style="color: #000000">GO TO FOODBANG</a></button></p>
+                            <p style="margin: 0;"><button class="button"><a href="https://foodbang.co.id" style="color: #000000;font: normal normal normal 15px/22px Noto Sans JP;">GO TO FOODBANG</a></button></p>
                         </td>
                     </tr>
                     <tr>
                         <td bgcolor="#ffffff" align="left" style="padding: 0px 30px 40px 30px; border-radius: 0px 0px 4px 4px; color: #666666; font: normal normal normal 15px/22px Noto Sans JP;color:#919191">
-                            <p style="margin: 0;" style="background-color:#F79D46">Thanks You,<br>The Foodbang Crew</p>
+                            <p style="margin: 0;" style="background-color:#F79D46">Thank You,<br>The Foodbang Crew</p>
                         </td>
                     </tr>
 
@@ -206,9 +206,9 @@
                             <a href="#" style="color: #000000;margin:5px">FAQ</a>
                             <a href="#" style="color: #000000;margin:5px">Contact Us</a>
                             <p></p>
-                            <a href="#" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/instagram.png'; ?>" alt=""></i></a>
-                            <a href="#" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/tweeter.png'; ?>" alt=""></i></a>
-                            <a href="#" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/facebook.png'; ?>" alt=""></i></a>
+                            <a href="https://www.instagram.com/foodbangmedia/" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/instagram.png'; ?>" alt=""></i></a>
+                            <a href="https://twitter.com/foodbangmedia" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/tweeter.png'; ?>" alt=""></i></a>
+                            <a href="https://www.facebook.com/Foodbang-Media-101988704994996" style="color: #000000;margin:5px"><img src="<?php echo base_url() . 'assets/images/facebook.png'; ?>" alt=""></i></a>
                             <h2 style="font: normal normal normal 12px/18px Noto Sans JP; color: #CCCCCC; margin-top: 10px;">2020&copy; Powered by Foodbang.</h2>
                         </td>
                     </tr>

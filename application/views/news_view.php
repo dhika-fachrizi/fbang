@@ -1,18 +1,35 @@
-<?php $dt_news = $news->result_array();?>
-<?php $dt_lasted_news = $lasted_news->result_array();?>
+<?php $dt_news = $news->result_array(); ?>
+<?php $dt_lasted_news = $lasted_news->result_array(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M6T53D9');
+    </script>
+    <!-- End Google Tag Manager -->
     <!-- Page Title -->
     <title>Daily News | <?php echo $site_title; ?></title>
 
     <!-- Page header -->
     <meta charset="utf-8" />
-    <?php if (!empty($thumbnail)): ?>
-    <meta name="description" content="<?php echo $thumbnail->detail_category_meta_desc; ?>" />
-    <meta name="keywords" content="<?php echo $thumbnail->detail_category_meta_title; ?>" />
+    <?php if (!empty($thumbnail)) : ?>
+        <meta name="description" content="<?php echo $thumbnail->detail_category_meta_desc; ?>" />
+        <meta name="keywords" content="<?php echo $thumbnail->detail_category_meta_title; ?>" />
     <?php endif; ?>
     <meta name="author" content="" />
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -27,7 +44,9 @@
     <!-- SEO Tag -->
     <meta name="description" content="<?php echo $site_desc; ?>" />
     <link rel="canonical" href="<?php echo  $site_canonical; ?>" />
-    <script type="application/ld+json"><?php echo  $site_org; ?> </script>
+    <script type="application/ld+json">
+        <?php echo  $site_org; ?>
+    </script>
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $site_title; ?>" />
@@ -46,18 +65,20 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
     <style>
-    @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
 
-        .m-news-frist {
-            height: 300px
+            .m-news-frist {
+                height: 300px
+            }
+
         }
-
-    }
     </style>
 </head>
 
 <body class="content-animate">
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6T53D9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- PRELOADER
 		==================================================-->
     <div class="page-loader">
@@ -95,8 +116,7 @@
                         <div class="col-lg-8">
                             <div class="row lbpr-30" hidden>
 
-                                <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                    style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
+                                <div class="col-sm-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 98px; width:100%">
                                 </div>
                             </div>
                             <div class="row text-theme-2  pb-30 lbpr-30 cpl-0">
@@ -105,98 +125,89 @@
                                     <hr class="hr-theme">
                                 </div>
                             </div>
-                            <?php if(!empty($dt_lasted_news)): ?>
-                            <div class="row pb-20 lbpr-30 pm-16">
-                                <div class="col-sm-12 feature-b-image img-c-p"
-                                    style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $dt_lasted_news[0]['post_image']; ?>') ;">
-                                    <div class="row d-flex align-items-end img-nc img-c-content m-news-frist"
-                                        style="width:100%">
-                                        <div class="col-sm-12 mb-30">
-                                            <div class=" col-sm-12 feature-date pb-10 ">
-                                                <div style="font-size:12px;color:white; font-weight:100">
-                                                    <?php $date = date_create($dt_lasted_news[0]['post_date']);
-echo date_format($date, "d M Y");?>
-                                                </div>
+                            <?php if (!empty($dt_lasted_news)) : ?>
+                                <div class="row pb-20 lbpr-30 pm-16">
+                                    <div class="col-sm-12 feature-b-image img-c-p" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url('<?php echo base_url() . 'assets/images/' . $dt_lasted_news[0]['post_image']; ?>') ;">
+                                        <div class="row d-flex align-items-end img-nc img-c-content m-news-frist" style="width:100%">
+                                            <div class="col-sm-12 mb-30">
+                                                <div class=" col-sm-12 feature-date pb-10 ">
+                                                    <div style="font-size:12px;color:white; font-weight:100">
+                                                        <?php $date = date_create($dt_lasted_news[0]['post_date']);
+                                                        echo date_format($date, "d M Y"); ?>
+                                                    </div>
 
-                                            </div>
-                                            <div class="col-sm-12 feature-title pb-0">
-                                                <?=$dt_lasted_news[0]['post_title']?>
-                                            </div>
-                                            <div class="col-sm-12  text-thema-split-3 pt-10" style="height:80px;">
-                                                <div class=""
-                                                    style="margin-top: 0px;font-size:15px;color:white; font-weight:100">
-                                                    <?php echo strip_tags($dt_lasted_news[0]['post_contents']) ?>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-12 pt-20">
-                                                <a class="a-link-c"
-                                                    href="<?php echo base_url() . 'news/detail/' . $dt_lasted_news[0]['post_slug']; ?>">Read
-                                                    Now</a>
+                                                <div class="col-sm-12 feature-title pb-0">
+                                                    <?= $dt_lasted_news[0]['post_title'] ?>
+                                                </div>
+                                                <div class="col-sm-12  text-thema-split-3 pt-10" style="height:80px;">
+                                                    <div class="" style="margin-top: 0px;font-size:15px;color:white; font-weight:100">
+                                                        <?php echo strip_tags($dt_lasted_news[0]['post_contents']) ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 pt-20">
+                                                    <a class="a-link-c" href="<?php echo base_url() . 'news/detail/' . $dt_lasted_news[0]['post_slug']; ?>">Read
+                                                        Now</a>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             <?php endif; ?>
-                            <?php if(!empty($dt_news)): ?>
-                            <?php for ($i = 0; $i < count($dt_news); $i++): ?>
-                            <div class="row pb-20 pm-16">
+                            <?php if (!empty($dt_news)) : ?>
+                                <?php for ($i = 0; $i < count($dt_news); $i++) : ?>
+                                    <div class="row pb-20 pm-16">
 
-                                <div class="col-md-5 news-b-image m-0"
-                                    style="background-image: url('<?php echo base_url() . 'assets/images/' . $dt_news[$i]['post_image']; ?>') ;">
-
-                                </div>
-
-                                <div class="col-md-7 rpm-rl">
-                                    <div class="col-12 colot-theme-1 mb-10 rpm-rl mp-date" style="font-size:12px;">
-                                        <span><?php $date = date_create($dt_news[$i]['post_date']);
-echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'], $dt_news[$i]['post_contents'])?>
-                                            Min Read</span>
-                                    </div>
-                                    <div class="col-12  text-thema-split-2 pb-10 rpm-rl" style="max-height:96px;">
-                                        <div class="text-theme-1"
-                                            style="margin-top: 0px;font-size:24px;font-weight:bold;word-spacing: -3px;">
-                                            <a
-                                                href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>"><?=$dt_news[$i]['post_title']?></a>
+                                        <div class="col-md-5 news-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $dt_news[$i]['post_image']; ?>') ;">
 
                                         </div>
-                                    </div>
-                                    <div class="col-12  text-thema-split-4 rpm-rl" text-theme-1>
-                                        <div class="colot-theme-1" style="font-size:15px;">
-                                            <?php echo strip_tags($dt_news[$i]['post_contents']) ?>
+
+                                        <div class="col-md-7 rpm-rl">
+                                            <div class="col-12 colot-theme-1 mb-10 rpm-rl mp-date" style="font-size:12px;">
+                                                <span><?php $date = date_create($dt_news[$i]['post_date']);
+                                                        echo date_format($date, "d M Y"); ?> | <?= min_of_read($dt_news[$i]['post_title'], $dt_news[$i]['post_contents']) ?>
+                                                    Min Read</span>
+                                            </div>
+                                            <div class="col-12  text-thema-split-2 pb-10 rpm-rl" style="max-height:96px;">
+                                                <div class="text-theme-1" style="margin-top: 0px;font-size:24px;font-weight:bold;word-spacing: -3px;">
+                                                    <a href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>"><?= $dt_news[$i]['post_title'] ?></a>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-12  text-thema-split-4 rpm-rl" text-theme-1>
+                                                <div class="colot-theme-1" style="font-size:15px;">
+                                                    <?php echo strip_tags($dt_news[$i]['post_contents']) ?>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-12 mt-10 rpm-rl" style="font-size:15px;">
+                                                <a class="a-link-c" href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>">Read
+                                                    Now</a>
+                                            </div>
                                         </div>
 
                                     </div>
-                                    <div class="col-12 mt-10 rpm-rl" style="font-size:15px;">
-                                        <a class="a-link-c"
-                                            href="<?php echo base_url() . 'news/detail/' . $dt_news[$i]['post_slug']; ?>">Read
-                                            Now</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <?php endfor;?>
+                                <?php endfor; ?>
                             <?php endif; ?>
                             <div class="row pt-60 pb-20 cpl-0 d-flex justify-content-center">
                                 <div class="col-md-6 d-flex justify-content-center">
-                                    <?=$this->pagination->create_links();?>
+                                    <?= $this->pagination->create_links(); ?>
                                 </div>
                                 <div class="col-md-6 d-flex justify-content-center">
                                     <div class="row d-flex align-items-end pb-20">
                                         <div class="colot-theme-1" style="font-size:12px;">Show</div>
                                         <div class="pl-10">
                                             <form method="post">
-                                                <select name="limit" id="" onchange="submit()"
-                                                    style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
-                                                    <?php foreach ([4, 5, 6, 7, 8, 9, 10] as $item): ?>
-                                                    <?php if ($item == $limit): ?>
-                                                    <option value="<?php echo $item ?>" selected><?php echo $item ?>
-                                                    </option>
-                                                    <?php else: ?>
-                                                    <option value="<?php echo $item ?>"><?php echo $item ?></option>
-                                                    <?php endif;?>
-                                                    <?php endforeach;?>
+                                                <select name="limit" id="" onchange="submit()" style="border:0px; outline:0px; border-bottom:1px black solid; border-radius:0px">
+                                                    <?php foreach ([4, 5, 6, 7, 8, 9, 10] as $item) : ?>
+                                                        <?php if ($item == $limit) : ?>
+                                                            <option value="<?php echo $item ?>" selected><?php echo $item ?>
+                                                            </option>
+                                                        <?php else : ?>
+                                                            <option value="<?php echo $item ?>"><?php echo $item ?></option>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
                                                 </select>
                                             </form>
                                         </div>
@@ -209,8 +220,7 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'],
                             <div class="stc-menu">
                                 <div class="row">
 
-                                    <div class="col-sm-12 pl-0 news-b-image m-0 "
-                                        style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
+                                    <div class="col-sm-12 pl-0 news-b-image m-0 " style="background-image: url('') ; background-color:#F4F4F4; height: 325px; width:100%">
                                     </div>
 
                                 </div>
@@ -220,26 +230,23 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'],
                                         <hr class="hr-theme">
                                     </div>
                                 </div>
-                                <?php foreach ($popular as $item): ?>
-                                <div class="row pb-20 cpl-0">
-                                    <div class="col-4 popular-b-image m-0"
-                                        style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
-                                    </div>
-                                    <div class="col-8 pl-0 pr-0">
-                                        <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;">
-                                            <span><?php $date = date_create($item['post_date']);?>
-                                            </span>
+                                <?php foreach ($popular as $item) : ?>
+                                    <div class="row pb-20 cpl-0">
+                                        <div class="col-4 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
                                         </div>
-                                        <div class="col-12  text-thema-split-2" style="height:43px;">
-                                            <div class="text-theme-1"
-                                                style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
-                                                <a
-                                                    href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
+                                        <div class="col-8 pl-0 pr-0">
+                                            <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;">
+                                                <span><?php $date = date_create($item['post_date']); ?>
+                                                </span>
+                                            </div>
+                                            <div class="col-12  text-thema-split-2" style="height:43px;">
+                                                <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing:-3px">
+                                                    <a href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?= $item['post_title'] ?></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php endforeach;?>
+                                <?php endforeach; ?>
                             </div>
                         </div>
 
@@ -253,30 +260,27 @@ echo date_format($date, "d M Y");?> | <?=min_of_read($dt_news[$i]['post_title'],
                                                 <hr class="hr-theme">
                                             </div>
                                         </div>
-                                        <?php foreach ($popular as $key => $item): ?>
+                                        <?php foreach ($popular as $key => $item) : ?>
 
-                                        <?php if ($key == 2) {
-    break;
-}?>
-                                        <div class="row pt-10 cpl-0">
-                                            <div class="col-3 popular-b-image m-0"
-                                                style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
-                                            </div>
-                                            <div class="col-9 pl-0 pr-0">
-                                                <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
-                                                        <?php $date = date_create($item['post_date']);
-echo date_format($date, "d M Y");?>
-                                                    </span></div>
-                                                <div class="col-12  text-thema-split-2" style="height:45px;">
-                                                    <div class="text-theme-1"
-                                                        style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
-                                                        <a
-                                                            href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?=$item['post_title']?></a>
+                                            <?php if ($key == 2) {
+                                                break;
+                                            } ?>
+                                            <div class="row pt-10 cpl-0">
+                                                <div class="col-3 popular-b-image m-0" style="background-image: url('<?php echo base_url() . 'assets/images/' . $item['post_image']; ?>') ;">
+                                                </div>
+                                                <div class="col-9 pl-0 pr-0">
+                                                    <div class="col-12 colot-theme-1  mb-10" style="font-size:12px;"><span>
+                                                            <?php $date = date_create($item['post_date']);
+                                                            echo date_format($date, "d M Y"); ?>
+                                                        </span></div>
+                                                    <div class="col-12  text-thema-split-2" style="height:45px;">
+                                                        <div class="text-theme-1" style="margin-top:0px;font-size:19px;font-weight:bold; line-height: normal;word-spacing: -3px;">
+                                                            <a href="<?php echo base_url() . dy_link($item['post_slug'], $item['post_type_id']); ?>"><?= $item['post_title'] ?></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <?php endforeach?>
+                                        <?php endforeach ?>
                                     </div>
                                 </div>
                             </div>
