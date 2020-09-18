@@ -73,7 +73,9 @@
 </head>
 
 <body class="content-animate" style="letter-spacing: 0px;word-spacing: -1px;">
-
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6T53D9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- PRELOADER
 		==================================================-->
     <div class="page-loader">
