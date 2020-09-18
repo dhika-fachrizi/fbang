@@ -4,20 +4,20 @@
 <head>
     <!-- Google Tag Manager -->
     <script>
-        (function(w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-M6T53D9');
+    (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M6T53D9');
     </script>
     <!-- End Google Tag Manager -->
     <!-- Page Title -->
@@ -59,16 +59,16 @@
     <link rel="stylesheet" href="<?php echo base_url() . 'assets/plugins/fontawesome/css/all.css' ?>" />
     <!-- End SEO Tag. -->
     <style>
+    .mpt-20 {
+        padding-top: 20px;
+    }
+
+    @media only screen and (max-width: 768px) {
+
         .mpt-20 {
-            padding-top: 20px;
+            padding-top: 0px;
         }
-
-        @media only screen and (max-width: 768px) {
-
-            .mpt-20 {
-                padding-top: 0px;
-            }
-        }
+    }
     </style>
 </head>
 
@@ -111,41 +111,46 @@
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
                                 <?php foreach ($slider->result() as $key => $item) : ?>
-                                    <?php if ($key == 0) : ?>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>" class="active">
-                                        </li>
-                                    <?php else : ?>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>">
-                                        </li>
-                                    <?php endif; ?>
+                                <?php if ($key == 0) : ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>" class="active">
+                                </li>
+                                <?php else : ?>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key ?>">
+                                </li>
+                                <?php endif; ?>
                                 <?php endforeach; ?>
                             </ol>
                             <div class="carousel-inner">
                                 <?php foreach ($slider->result() as $key => $item) : ?>
-                                    <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
-                                        <img class="d-block w-100 img-c" src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>" alt="First slide">
-                                        <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container" style="height:100%;width:auto;">
-                                            <div class="row">
-                                                <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
-                                                    <?= $item->slider_title ?></div>
-                                                <div class="col-sm-4"></div>
-                                                <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
-                                                    <?= $item->slider_desc ?></div>
-                                                <div class=" col-sm-4 "></div>
-                                            </div>
-                                            <div class=" row">
-                                            </div>
+                                <div class="carousel-item <?php echo $key == 0 ? 'active' : ''; ?>">
+                                    <img class="d-block w-100 img-c"
+                                        src="<?php echo base_url() . 'assets/images/' . $item->slider_image; ?>"
+                                        alt="First slide">
+                                    <div class="carousel-caption d-flex justify-content-start d-flex align-items-center container"
+                                        style="height:100%;width:auto;">
+                                        <div class="row">
+                                            <div class="col-sm-8 title-c text-thema-split-3" style="max-height:141px;">
+                                                <?= $item->slider_title ?></div>
+                                            <div class="col-sm-4"></div>
+                                            <div class="col-sm-8 dec-c text-thema-split-2" style="max-height:50px;">
+                                                <?= $item->slider_desc ?></div>
+                                            <div class=" col-sm-4 "></div>
+                                        </div>
+                                        <div class=" row">
                                         </div>
                                     </div>
+                                </div>
                                 <?php endforeach; ?>
 
 
                             </div>
-                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <a class=" carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                data-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Previous</span>
                             </a>
-                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                data-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="sr-only">Next</span>
                             </a>
@@ -162,16 +167,23 @@
                         <div class="col-md-9 mpt-20">
                             <div class="row">
                                 <div class="col-sm-12" style="font-size:15px;">
-                                    <p>Foodbang.co.id merupakan chapter kelanjutan dari @JKTFOODBANG di Instagram, dimana kami ingin mencoba melebarkan sayap ke seluruh Indonesia.</p>
-                                    <p>JKTFOODBANG sendiri ditemukan tahun 2014 di Jakarta, dan sampai sekarang tetap manjadi salah satu food blogger (bukan youtubers yah! :p) dengan followers terbanyak dan cakupan terluas, mulai dari restoran mewah sampai ke street food dan UMKM.</p>
+                                    <p>Foodbang.co.id merupakan chapter kelanjutan dari @JKTFOODBANG di Instagram,
+                                        dimana kami ingin mencoba melebarkan sayap ke seluruh Indonesia.</p>
+                                    <p>JKTFOODBANG sendiri ditemukan tahun 2014 di Jakarta, dan sampai sekarang tetap
+                                        manjadi salah satu food blogger (bukan youtubers yah! :p) dengan followers
+                                        terbanyak dan cakupan terluas, mulai dari restoran mewah sampai ke street food
+                                        dan UMKM.</p>
                                     <p>Misi </p>
                                     <ul style="list-style-type:disc">
-                                        <li>Memberikan teman-teman informasi yang kredibel tentang kuliner di seluruh Indonesia.</li>
-                                        <li>Membantu UMKM F&B dalam menciptakan brand-awareness yang lebih baik lagi di era digitalisasi ini sehigga dapat bersaing dengan sehat.</li>
+                                        <li>Memberikan teman-teman informasi yang kredibel tentang kuliner di seluruh
+                                            Indonesia.</li>
+                                        <li>Membantu UMKM F&B dalam menciptakan brand-awareness yang lebih baik lagi di
+                                            era digitalisasi ini sehigga dapat bersaing dengan sehat.</li>
                                     </ul>
                                     <p>VISI </p>
                                     <ul style="list-style-type:disc">
-                                        <li>Menjadi One Stop Shop Ekosistem yang dapat menyediakan semua kebutuhan F&B dari hulu sampai ke hilir.</li>
+                                        <li>Menjadi One Stop Shop Ekosistem yang dapat menyediakan semua kebutuhan F&B
+                                            dari hulu sampai ke hilir.</li>
                                     </ul>
                                 </div>
 
@@ -184,7 +196,7 @@
             </section>
 
             <section style="background-color:#FFF9EA;">
-                <div class="container pt-30 pb-30">
+                <div class="container pt-30 pb-30" style="padding-bottom:30px;">
                     <div class="row">
                         <div class="col-md-3 pm-16 text-theme-2" style="font-size:55px;">
                             <b>Contact Us</b>
@@ -219,7 +231,6 @@
             </section>
 
 
-
             <section class=" pb-30 pt-30 hide-m">
                 <div class=" container d-flex justify-content-center">
                     <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
@@ -231,9 +242,11 @@
                                         more updates!
                                     </b></i>
                             </div>
-                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email" placeholder="send your email" required></div>
+                            <div class="pr-10"><input class="form-control" style="width:30vw;" type="email" name="email"
+                                    placeholder="send your email" required></div>
                             <div class="pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
-                                <button type="submit" class="btn btn-primary" style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                                <button type="submit" class="btn btn-primary"
+                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
                             </div>
 
                         </div>
@@ -249,15 +262,18 @@
                     <form class="form-inline" action="<?php echo site_url('subscribe'); ?>" method="post">
                         <div class="row d-flex justify-content-center">
 
-                            <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center" style="font-size:30px;">
+                            <div class="col-md-12 pr-10 text-theme-2 subcribe-text d-flex justify-content-center"
+                                style="font-size:7vw;">
                                 <i><b>Subscribe
                                         for
                                         more updates!
                                     </b></i>
                             </div>
-                            <div class="col-8 pr-10"><input class="form-control" type="email" name="email" placeholder="send your email" required></div>
-                            <div class="col-4 pr-10 d-flex align-items-end" style="margin:0px;padding:0px;">
-                                <button type="submit" class="btn btn-primary" style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
+                            <div class="col-7 pr-10"><input class="form-control" type="email" name="email"
+                                    placeholder="send your email" required></div>
+                            <div class="col-5 prm-30 d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary"
+                                    style="color: black;background-color: #F79D46;border-color: #F79D46;margin:0px;">Subscribe</button>
                             </div>
 
                         </div>
@@ -303,44 +319,44 @@
     <script src="<?php echo base_url('assets/plugins/slick/slick.js') ?>"></script>
 
     <script>
-        $(document).ready(function() {
+    $(document).ready(function() {
 
-            $('.demo').slick({
-                dots: true,
-                arrows: false,
+        $('.demo').slick({
+            dots: true,
+            arrows: false,
 
-                speed: 300,
-                slidesToShow: 4,
-                slidesToScroll: 4,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
                     }
-                ]
-            });
-
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
         });
+
+    });
     </script>
 
 </body>
